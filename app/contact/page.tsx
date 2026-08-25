@@ -22,7 +22,17 @@ type ContactPageProps = { searchParams: Promise<Record<string, string | string[]
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const query = await searchParams;
-  const context = [query.product && `Product: ${query.product}`, query.software && `Software: ${query.software}`, query.resource && `Requested material: ${query.resource}`, query.products && `Products to compare: ${query.products}`].filter(Boolean).join(' · ');
+  const value = (entry: string | string[] | undefined) => Array.isArray(entry) ? entry.join(', ') : entry;
+  const context = [
+    value(query.product) && `Product: ${value(query.product)}`,
+    value(query.products) && `Products to compare: ${value(query.products)}`,
+    value(query.software) && `Software: ${value(query.software)}`,
+    value(query.hrms) && `HRMS module: ${value(query.hrms)}`,
+    value(query.solution) && `Solution: ${value(query.solution)}`,
+    value(query.industry) && `Industry: ${value(query.industry)}`,
+    value(query.topic) && `Topic: ${value(query.topic)}`,
+    value(query.resource) && `Requested material: ${value(query.resource)}`,
+  ].filter(Boolean).join(' · ');
   const localBusinessSchema = {
     '@context': 'https://schema.org', '@type': 'LocalBusiness', name: 'Indian Infotech',
     url: 'https://indianinfotech.org/contact', telephone: '+91-76000-66770', email: 'sales@indianinfotech.org',

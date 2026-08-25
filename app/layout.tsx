@@ -33,6 +33,25 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: ['/og.png'] },
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Indian Infotech',
+  url: 'https://indianinfotech.org',
+  logo: 'https://indianinfotech.org/indian-infotech-logo.png',
+  foundingDate: '2011',
+  email: 'sales@indianinfotech.org',
+  telephone: '+91-76000-66770',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Thaltej',
+    addressLocality: 'Ahmedabad',
+    addressRegion: 'Gujarat',
+    postalCode: '380054',
+    addressCountry: 'IN',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,6 +61,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <a className="skip-link" href="#main-content">Skip to main content</a>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <div id="main-content">{children}</div>
       </body>
     </html>
