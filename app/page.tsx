@@ -137,7 +137,9 @@ export default function Home() {
           </div>
           <p>
             Build a practical stack around how your facility runs—not around a generic
-            software checklist. Start with one system or scope a broader rollout.
+            software checklist. Indian Infotech provides solutions for attendance recording,
+            access control, visitor monitoring, and visitor management. Start with one
+            system or scope a broader rollout.
           </p>
         </div>
         <div className="pillar-grid">
