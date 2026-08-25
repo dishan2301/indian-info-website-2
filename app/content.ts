@@ -57,76 +57,107 @@ export const platformPillars = [
   },
 ] as const;
 
-type Product = {
+export type Product = {
+  slug: string;
   name: string;
   family: 'Access control' | 'Attendance' | 'Entrance management';
   description: string;
   image?: string;
+  images?: readonly string[];
 };
 
 export const products: readonly Product[] = [
   {
+    slug: 'i-18',
     name: 'I-18',
     family: 'Access control',
     description: 'Fingerprint access control terminal for controlled workplace entry.',
     image: '/products/i-18.jpg',
+    images: ['/products/i-18.jpg'],
   },
   {
+    slug: 'i-202',
     name: 'I-202',
     family: 'Access control',
     description: 'Access control device for workforce and workplace security requirements.',
+    image: '/products/i-202/main.jpg',
+    images: ['/products/i-202/main.jpg'],
   },
   {
+    slug: 'is-500',
     name: 'IS-500',
     family: 'Access control',
     description: 'Access control terminal for busy workplace environments.',
+    image: '/products/is-500/main.png',
+    images: ['/products/is-500/main.png', '/products/is-500/alternate.png'],
   },
   {
+    slug: 'ai-60',
     name: 'AI 60',
     family: 'Attendance',
     description: 'Face-recognition terminal for attendance and access-control applications.',
-    image: '/products/ai-60.png',
+    image: '/products/ai-60/angle.png',
+    images: ['/products/ai-60/angle.png', '/products/ai-60/detail.png', '/products/ai-60/front.png'],
   },
   {
+    slug: 'mini-ai-10',
     name: 'Mini AI-10',
     family: 'Attendance',
     description: 'Compact face-recognition attendance device.',
+    image: '/products/mini-ai-10/front.png',
+    images: ['/products/mini-ai-10/front.png', '/products/mini-ai-10/angle.png'],
   },
   {
+    slug: 'mini-ai-30',
     name: 'Mini AI-30',
     family: 'Attendance',
     description: 'Face-recognition attendance device for modern teams.',
+    image: '/products/mini-ai-30/front.png',
+    images: ['/products/mini-ai-30/front.png', '/products/mini-ai-30/angle.png', '/products/mini-ai-30/detail.png'],
   },
   {
+    slug: 'cmp-200',
     name: 'CMP 200',
     family: 'Entrance management',
     description: 'Automatic boom barrier for managed vehicle entry.',
   },
   {
+    slug: 'fbl-200',
     name: 'FBL 200',
     family: 'Entrance management',
     description: 'Single-lane flap barrier for managed pedestrian entry.',
-    image: '/products/fbl-200.png',
+    image: '/products/fbl-200/main.png',
+    images: ['/products/fbl-200/main.png'],
   },
   {
+    slug: 'fbl-300',
     name: 'FBL 300',
     family: 'Entrance management',
     description: 'Flap barrier for controlled, high-traffic entry points.',
+    image: '/products/fbl-300/main.png',
+    images: ['/products/fbl-300/main.png'],
   },
   {
+    slug: 'fht2300-series',
     name: 'FHT2300 Series',
     family: 'Entrance management',
     description: 'Full-height turnstile series for restricted areas.',
+    image: '/products/fht2300/model-l.png',
+    images: ['/products/fht2300/model-l.png', '/products/fht2300/front.png', '/products/fht2300/detail.png'],
   },
   {
+    slug: 'ts200-series',
     name: 'TS200 Series',
     family: 'Entrance management',
     description: 'Tripod turnstile series for orderly pedestrian access.',
   },
   {
+    slug: 'd4330-metal-detector',
     name: 'D4330 Metal Detector',
     family: 'Entrance management',
     description: 'Walk-through metal detection for security screening points.',
+    image: '/products/d4330/front.png',
+    images: ['/products/d4330/front.png', '/products/d4330/angle.png', '/products/d4330/detail.png', '/products/d4330/application.png'],
   },
 ] as const;
 

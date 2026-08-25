@@ -28,10 +28,12 @@ export default function ProductsPage() {
             <div className="catalog-grid">
               {products.filter((product) => product.family === family).map((product) => (
                 <article className="catalog-card" key={product.name}>
-                  <div className="catalog-visual">
-                    {product.image ? <Image src={product.image} alt={`${product.name} ${product.family} device`} width={420} height={420} /> : <span aria-hidden="true">{product.name.slice(0, 2)}</span>}
-                  </div>
-                  <div><p>{product.family}</p><h3>{product.name}</h3><span>{product.description}</span></div>
+                  <Link href={`/products/${product.slug}`} aria-label={`View ${product.name} product details`}>
+                    <div className="catalog-visual">
+                      {product.image ? <Image src={product.image} alt={`${product.name} ${product.family} device`} width={420} height={420} /> : <span className="media-pending">Approved media pending</span>}
+                    </div>
+                    <div className="catalog-card-copy"><p>{product.family}</p><h3>{product.name}</h3><span>{product.description}</span><b>View product ↗</b></div>
+                  </Link>
                 </article>
               ))}
             </div>

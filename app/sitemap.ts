@@ -1,13 +1,21 @@
 import type { MetadataRoute } from 'next';
+import { products } from './content';
 
 const routes = ['', '/platform', '/products', '/industries/pharma', '/about', '/contact', '/privacy', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://indianinfotech.org';
-  return routes.map((route) => ({
+  const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : route === '/platform' || route === '/products' ? 0.9 : 0.7,
   }));
+  const productRoutes = products.map((product) => ({
+    url: `${baseUrl}/products/${product.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+  return [...staticRoutes, ...productRoutes];
 }
