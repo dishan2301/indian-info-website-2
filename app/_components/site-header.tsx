@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,7 +38,7 @@ const technologyGroups = [
 
 function MegaGroup({ title, groups }: { title: string; groups: readonly { title: string; links: readonly { label: string; href: string }[] }[] }) {
   return (
-    <details className="mega-menu">
+    <details className="mega-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
       <summary>{title}<span aria-hidden="true">⌄</span></summary>
       <div className="mega-panel">
         <div className="mega-panel-top"><span>Indian Infotech systems</span><Link href="/contact">Discuss a requirement ↗</Link></div>
@@ -57,14 +59,14 @@ export function SiteHeader() {
         <MegaGroup title="Products" groups={productGroups} />
         <MegaGroup title="Software" groups={softwareGroups} />
         <MegaGroup title="Solutions" groups={solutionGroups} />
-        <details className="mega-menu">
+        <details className="mega-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
           <summary>Industries<span aria-hidden="true">⌄</span></summary>
           <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
         </details>
         <MegaGroup title="Technologies" groups={technologyGroups} />
         <Link href="/resources">Resources</Link>
         <Link href="/support">Support</Link>
-        <details className="mega-menu company-menu">
+        <details className="mega-menu company-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
           <summary>Company<span aria-hidden="true">⌄</span></summary>
           <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and information</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/contact">Ahmedabad office<span aria-hidden="true">→</span></Link><Link href="/privacy">Privacy policy<span aria-hidden="true">→</span></Link><Link href="/terms">Terms and conditions<span aria-hidden="true">→</span></Link></div></div></div>
         </details>

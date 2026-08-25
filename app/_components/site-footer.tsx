@@ -36,6 +36,10 @@ export function SiteFooter() {
           <Link href="/compare">Compare products</Link>
           <Link href="/resources">Resources</Link>
           <Link href="/support">Support</Link>
+          <Link href="/developers">Developers</Link>
+          <Link href="/trust">Trust center</Link>
+          <Link href="/academy">Academy</Link>
+          <Link href="/status">System status</Link>
           <Link href="/about">Company</Link>
         </div>
         <div>

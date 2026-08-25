@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CustomerCoverflow } from '@/components/ui/3-d-coverflow-carousel';
+import { CompanyShowcase, IndustryShowcase, SoftwareShowcase, SolutionShowcase, TechnologyShowcase } from '@/components/homepage/homepage-showcases';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
-import { companyFacts, customerOrganizations, industries, platformPillars, products, softwarePlatforms } from './content';
+import { companyFacts, customerOrganizations, industries, industryProfiles, platformPillars, products, solutionProfiles, softwarePlatforms } from './content';
 
 export const metadata: Metadata = {
   title: 'Workforce & Workplace Solutions | Indian Infotech',
@@ -126,6 +127,12 @@ export default function Home() {
           <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>
         ))}
       </section>
+
+      <CompanyShowcase />
+      <TechnologyShowcase />
+      <SolutionShowcase solutions={solutionProfiles} />
+      <SoftwareShowcase software={softwarePlatforms} products={products} />
+      <IndustryShowcase industries={industryProfiles} />
 
       <CustomerCoverflow items={customerOrganizations} />
 

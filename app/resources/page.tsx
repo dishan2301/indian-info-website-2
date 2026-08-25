@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ResourceLibrary } from '@/components/resources/resource-library';
+import { RoiCalculator } from '@/components/resources/roi-calculator';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
@@ -21,6 +22,7 @@ export default function ResourcesPage() {
         <div className="section-heading split-heading"><div><p className="section-kicker">Knowledge and downloads</p><h2>Useful material, with its evidence status made clear.</h2></div><p>The library deliberately separates live resources from archived topics and documents still awaiting approval.</p></div>
         <ResourceLibrary />
       </section>
+      <section className="section"><RoiCalculator /></section>
       <section className="resource-request"><div><p className="section-kicker light">Need a document?</p><h2>Ask for the product or software material relevant to your deployment.</h2></div><Link className="button button-primary" href="/contact">Request technical material <span aria-hidden="true">↗</span></Link></section>
       <SiteFooter />
     </main>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { hrmsModules, products, softwarePlatforms } from './content';
 
-const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/industries/pharma', '/technologies', '/engineering', '/integrations', '/resources', '/support', '/case-studies', '/partners', '/search', '/company', '/about', '/contact', '/solution-builder', '/privacy', '/terms'];
+const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/industries/pharma', '/technologies', '/engineering', '/integrations', '/resources', '/support', '/case-studies', '/partners', '/developers', '/academy', '/trust', '/status', '/search', '/company', '/about', '/contact', '/solution-builder', '/privacy', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://indianinfotech.org';
