@@ -1,5 +1,6 @@
 export const companyFacts = [
   { value: '2011', label: 'Founded in Ahmedabad' },
+  { value: '14+', label: 'Years of experience' },
   { value: '2,000+', label: 'Clients served' },
   { value: '7+', label: 'Countries reached' },
   { value: '12+', label: 'Products across the portfolio' },
