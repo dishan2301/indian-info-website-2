@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 const productGroups = [
   { title: 'Biometric & attendance', links: [{ label: 'Face recognition devices', href: '/products#attendance' }, { label: 'Fingerprint devices', href: '/products#access-control' }, { label: 'All attendance devices', href: '/products#attendance' }] },
@@ -30,17 +31,44 @@ const industryLinks = [
   { label: 'Logistics & warehousing', href: '/industries/logistics' },
 ] as const;
 
+function InteractiveMenu({ title, className = '', children }: { title: string; className?: string; children: ReactNode }) {
+  const menu = useRef<HTMLDetailsElement>(null);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const cancelClose = () => window.clearTimeout(closeTimer.current);
+  const openMenu = () => { cancelClose(); if (menu.current) menu.current.open = true; };
+  const closeMenu = (delay = 240) => {
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => { if (menu.current) menu.current.open = false; }, delay);
+  };
+
+  useEffect(() => () => cancelClose(), []);
+
+  return (
+    <details
+      className={`mega-menu ${className}`.trim()}
+      ref={menu}
+      onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(); }}
+      onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }}
+      onFocus={openMenu}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }}
+      onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); menu.current?.querySelector('summary')?.focus(); } }}
+    >
+      <summary>{title}<span aria-hidden="true">⌄</span></summary>
+      {children}
+    </details>
+  );
+}
+
 function MegaGroup({ title, groups }: { title: string; groups: readonly { title: string; links: readonly { label: string; href: string }[] }[] }) {
   return (
-    <details className="mega-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
-      <summary>{title}<span aria-hidden="true">⌄</span></summary>
+    <InteractiveMenu title={title}>
       <div className="mega-panel">
         <div className="mega-panel-top"><span>Indian Infotech systems</span><Link href="/contact">Discuss a requirement ↗</Link></div>
         <div className="mega-columns">
           {groups.map((group) => <div key={group.title}><h2>{group.title}</h2>{group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}
         </div>
       </div>
-    </details>
+    </InteractiveMenu>
   );
 }
 
@@ -53,21 +81,19 @@ export function SiteHeader() {
         <MegaGroup title="Products" groups={productGroups} />
         <MegaGroup title="Software" groups={softwareGroups} />
         <MegaGroup title="Solutions" groups={solutionGroups} />
-        <details className="mega-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
-          <summary>Industries<span aria-hidden="true">⌄</span></summary>
+        <InteractiveMenu title="Industries">
           <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
-        </details>
-        <details className="mega-menu company-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
-          <summary>Company<span aria-hidden="true">⌄</span></summary>
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and support</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/technologies">Technology overview<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
-        </details>
+        </InteractiveMenu>
+        <InteractiveMenu title="Company" className="company-menu">
+          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and updates</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
+        </InteractiveMenu>
       </nav>
 
       <div className="header-actions"><Link className="header-search" href="/search" aria-label="Search Indian Infotech website">Search</Link><Link className="header-compare" href="/compare">Compare</Link><Link className="header-cta" href="/contact">Book a demo</Link></div>
 
       <details className="mobile-menu">
         <summary aria-label="Open navigation">Menu</summary>
-        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/company">Company</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
+        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/company">Company</Link><Link href="/insights">News & insights</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
       </details>
     </header>
   );

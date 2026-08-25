@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { companyFacts, customerOrganizations } from '@/app/content';
 
 const stories = [
+  { type: 'Blog', title: 'Why your company needs EasyTime cloud attendance', href: '/insights/easytime-cloud-attendance-benefits' },
+  { type: 'Blog', title: 'How AI technology is changing production lines', href: '/insights/ai-in-production-lines' },
   { type: 'New product', title: 'AI 60 facial-recognition terminal', href: '/products/ai-60' },
   { type: 'Technology', title: 'Identity and edge-intelligence review', href: '/technologies' },
   { type: 'Solution', title: 'Plan physical access around the site', href: '/solutions/physical-access-control' },
@@ -27,11 +29,11 @@ const mosaic = [
 export function PosterMosaic() { return <section className="poster-mosaic-section" aria-labelledby="mosaic-heading"><div className="poster-section-intro"><p>Connected capabilities</p><h2 id="mosaic-heading">One system starts with a real use case.</h2></div><div className="poster-mosaic">{mosaic.map((item) => <Link className={item.className} href={item.href} key={item.title}><Image src={item.image} alt="" fill sizes="(max-width: 760px) 100vw, 50vw" /><i /><span>{item.eyebrow}</span><h3>{item.title}</h3><b aria-hidden="true">↗</b></Link>)}</div></section>; }
 
 const editorial = [
-  { category: 'Product guidance', title: 'Choose authentication and entrance technology in context.', href: '/products', image: '/campaign/hero/identity-desktop-v2.webp' },
-  { category: 'Solution planning', title: 'Start with people, sites, entry points, and operating ownership.', href: '/solution-builder', image: '/campaign/industries/manufacturing-desktop-v2.webp' },
-  { category: 'Support', title: 'Find the responsible route for products, software, and deployment questions.', href: '/support', image: '/company/support-cta.png' },
+  { category: 'Cloud attendance · Blog', title: 'Why your company needs EasyTime cloud attendance management.', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' },
+  { category: 'Production technology · Blog', title: 'How AI technology is changing production lines.', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' },
+  { category: 'News & insights', title: 'Explore company updates and practical workplace technology guidance.', href: '/insights', image: '/campaign/hero/innovation-desktop-v2.webp' },
 ] as const;
 
-export function EditorialSection() { return <section className="editorial-section" aria-labelledby="editorial-heading"><div className="poster-section-intro"><p>Explore next</p><h2 id="editorial-heading">Product, planning, and support stories.</h2></div><div className="editorial-grid">{editorial.map((story, index) => <Link className={index === 0 ? 'editorial-featured' : ''} href={story.href} key={story.title}><div><Image src={story.image} alt="" fill sizes={index === 0 ? '(max-width: 760px) 100vw, 60vw' : '(max-width: 760px) 100vw, 40vw'} /></div><span>{story.category}</span><h3>{story.title}</h3><b>Read more ↗</b></Link>)}</div></section>; }
+export function EditorialSection() { return <section className="editorial-section" aria-labelledby="editorial-heading"><div className="poster-section-intro"><p>News & insights</p><h2 id="editorial-heading">Ideas for connected workplaces.</h2></div><div className="editorial-grid">{editorial.map((story, index) => <Link className={index === 0 ? 'editorial-featured' : ''} href={story.href} key={story.title}><div><Image src={story.image} alt="" fill sizes={index === 0 ? '(max-width: 760px) 100vw, 60vw' : '(max-width: 760px) 100vw, 40vw'} /></div><span>{story.category}</span><h3>{story.title}</h3><b>Read more ↗</b></Link>)}</div></section>; }
 
 export function FinalPosterCTA() { return <section className="final-poster-cta"><p>Start with the requirement</p><h2>Let’s build a safer, clearer workplace.</h2><span>Bring your sites, people, entry points, and operating needs to a practical solution conversation.</span><Link href="/contact">Talk to our team <b aria-hidden="true">↗</b></Link></section>; }

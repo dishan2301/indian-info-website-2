@@ -27,6 +27,7 @@ export function SiteFooter() {
           <Link href="/hrms-payroll">HRMS & Payroll</Link>
           <Link href="/solutions">Solutions</Link>
           <Link href="/industries">Industries</Link>
+          <Link href="/insights">News &amp; insights</Link>
         </div>
         <div>
           <h3>Technical</h3>

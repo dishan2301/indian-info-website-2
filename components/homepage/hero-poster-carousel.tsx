@@ -104,7 +104,7 @@ export function HeroPosterCarousel() {
 
   useEffect(() => {
     if (paused) return;
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % heroSlides.length), 7200);
+    const timer = window.setInterval(() => setActive((current) => (current + 1) % heroSlides.length), 4200);
     return () => window.clearInterval(timer);
   }, [paused]);
 
@@ -113,8 +113,6 @@ export function HeroPosterCarousel() {
       className="poster-hero"
       aria-roledescription="carousel"
       aria-label="Indian Infotech capabilities"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >

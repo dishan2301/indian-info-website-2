@@ -41,9 +41,9 @@ const technologies: readonly (PosterMedia & { title: string; description: string
 ];
 
 export function AutomaticTechnologyShowcase() {
-  const motion = useAutomaticIndex(technologies.length, 6200);
+  const motion = useAutomaticIndex(technologies.length, 3800);
   const item = technologies[motion.active];
-  return <section className="poster-technology" aria-labelledby="technology-heading" onMouseEnter={motion.pause} onMouseLeave={motion.resume} onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
+  return <section className="poster-technology" aria-labelledby="technology-heading" onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
     <div className="poster-section-intro"><p>Technology</p><h2 id="technology-heading">Built beneath the surface.</h2></div>
     <div className="poster-technology-stage">
       <div className="poster-technology-media" key={item.desktop}>
@@ -66,8 +66,8 @@ const solutions: readonly (PosterMedia & { eyebrow: string; title: string; descr
 ];
 
 export function AutomaticSolutionPosters() {
-  const motion = useAutomaticIndex(solutions.length, 6800);
-  return <section className="solution-posters" aria-labelledby="solutions-heading" onMouseEnter={motion.pause} onMouseLeave={motion.resume} onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
+  const motion = useAutomaticIndex(solutions.length, 4200);
+  return <section className="solution-posters" aria-labelledby="solutions-heading" onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
     <div className="poster-section-intro light"><p>Solutions</p><h2 id="solutions-heading">Designed around the work that needs to happen.</h2></div>
     <div className="solution-poster-stage">
       {solutions.map((slide, index) => <article className={`solution-poster solution-poster-${slide.tone}`} data-active={index === motion.active} aria-hidden={index !== motion.active} key={slide.eyebrow}>
@@ -82,9 +82,9 @@ export function AutomaticSolutionPosters() {
 }
 
 export function AutomaticProductSpotlight({ products }: { products: readonly Product[] }) {
-  const motion = useAutomaticIndex(products.length, 6000);
+  const motion = useAutomaticIndex(products.length, 3800);
   const product = products[motion.active];
-  return <section className="featured-product-poster" aria-labelledby="featured-product-heading" onMouseEnter={motion.pause} onMouseLeave={motion.resume} onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
+  return <section className="featured-product-poster" aria-labelledby="featured-product-heading" onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
     <Image className="art-desktop" src={`/posters/${product.slug}.png`} alt={`Campaign artwork for ${product.name}`} fill sizes="100vw" key={`${product.slug}-desktop`} />
     <Image className="art-mobile" src={`/posters/mobile/${product.slug}-v2.webp`} alt="" fill sizes="100vw" aria-hidden="true" key={`${product.slug}-mobile`} />
     <div className="featured-product-shade" />
