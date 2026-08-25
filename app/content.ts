@@ -79,6 +79,30 @@ export const softwarePlatforms: readonly SoftwarePlatform[] = [
   },
 ] as const;
 
+export type HrmsModule = {
+  slug: string;
+  name: string;
+  summary: string;
+  legacyPath: string;
+};
+
+export const hrmsModules: readonly HrmsModule[] = [
+  { slug: 'core-hr-payroll', name: 'Core HR and Payroll', summary: 'A central employee and payroll workflow that needs clear roles, records, policy inputs, and approval ownership.', legacyPath: '/hrms-payroll/' },
+  { slug: 'claim-reimbursement', name: 'Claim and Reimbursement', summary: 'Structure claim submission, review, and reimbursement records around the organization’s approved process.', legacyPath: '/hrms-payroll/core-hr-and-payroll/claim-and-reambarcement/' },
+  { slug: 'document-management', name: 'Document Management', summary: 'Organize employee documents and lifecycle records with an evidence-led workflow and access ownership.', legacyPath: '/hrms-payroll/core-hr-and-payroll/document-management/' },
+  { slug: 'employee-asset', name: 'Employee Asset', summary: 'Track employee asset responsibilities and records as part of the broader people-operations workflow.', legacyPath: '/hrms-payroll/core-hr-and-payroll/employee-asset/' },
+  { slug: 'hris-payroll', name: 'HRIS Payroll', summary: 'Connect approved employee and attendance inputs to a payroll review process that can be validated with the customer.', legacyPath: '/hrms-payroll/core-hr-and-payroll/hris-payroll/' },
+  { slug: 'leave-management', name: 'Leave Management', summary: 'Make leave requests, policy decisions, approvals, and attendance context visible to the right teams.', legacyPath: '/hrms-payroll/core-hr-and-payroll/leave-management/' },
+  { slug: 'time-attendance', name: 'Time and Attendance', summary: 'Bring attendance events, shifts, exceptions, and review responsibilities into one operating conversation.', legacyPath: '/hrms-payroll/core-hr-and-payroll/time-and-attendance/' },
+  { slug: 'employee-self-service', name: 'Employee Self Service', summary: 'Give employees a clear route to manage approved personal and professional information without constant HR intervention.', legacyPath: '/hrms-payroll/employee-self-services/' },
+  { slug: 'performance-management', name: 'Performance Management System', summary: 'Support performance and appraisal workflows with defined roles, review cycles, and approved records.', legacyPath: '/hrms-payroll/performace-management-system/' },
+  { slug: 'training-induction', name: 'Training and Induction', summary: 'Organize induction and training information as part of the employee lifecycle and workforce workflow.', legacyPath: '/hrms-payroll/training-and-induction/' },
+  { slug: 'fixed-asset', name: 'Fixed Asset', summary: 'Track fixed-asset records and responsibility alongside employee and operational information.', legacyPath: '/hrms-payroll/fixed-asset/' },
+  { slug: 'employee-onboarding', name: 'Employee Onboard', summary: 'Create a more structured onboarding path for documents, employee records, induction, and ownership.', legacyPath: '/hrms-payroll/employee-lifecycle/employee-onboard/' },
+  { slug: 'exit-process', name: 'Exit Process Simplified', summary: 'Bring exit tasks, approvals, documents, and handoffs into a defined employee-lifecycle process.', legacyPath: '/hrms-payroll/employee-lifecycle/exit-process-simplified/' },
+  { slug: 'recruitment', name: 'Recruitment', summary: 'Map vacancy, candidate, interview, selection, and reporting steps around the organization’s hiring workflow.', legacyPath: '/hrms-payroll/recruitment/' },
+] as const;
+
 export const platformPillars = [
   {
     number: '01',

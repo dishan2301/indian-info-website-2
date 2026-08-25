@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { products, softwarePlatforms } from './content';
+import { hrmsModules, products, softwarePlatforms } from './content';
 
 const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/industries/pharma', '/technologies', '/engineering', '/integrations', '/resources', '/support', '/case-studies', '/partners', '/search', '/company', '/about', '/contact', '/solution-builder', '/privacy', '/terms'];
 
@@ -23,5 +23,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  return [...staticRoutes, ...productRoutes, ...softwareRoutes];
+  const hrmsRoutes = hrmsModules.map((module) => ({
+    url: `${baseUrl}/hrms-payroll/${module.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }));
+  return [...staticRoutes, ...productRoutes, ...softwareRoutes, { url: `${baseUrl}/hrms-payroll`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes];
 }
