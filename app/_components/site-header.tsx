@@ -12,7 +12,7 @@ const productGroups = [
 
 const softwareGroups = [
   { title: 'Workforce', links: [{ label: 'Easytime Online', href: '/software/easytime-online' }, { label: 'HRMS & Payroll', href: '/software/hrms-payroll' }] },
-  { title: 'Workplace', links: [{ label: 'Visitor Management', href: '/software/visitor-management' }, { label: 'Canteen Management', href: '/software/canteen-management' }, { label: 'All software', href: '/software' }] },
+  { title: 'Workplace', links: [{ label: 'Visitor Management', href: '/software/visitor-management' }, { label: 'Canteen Management', href: '/software/canteen-management' }, { label: 'Hexin Mediaa Wave', href: '/software/hexin-mediaa-wave' }, { label: 'All software', href: '/software' }] },
   { title: 'HRMS modules', links: [{ label: 'Core HR & payroll', href: '/hrms-payroll' }, { label: 'Time & attendance', href: '/hrms-payroll/time-attendance' }, { label: 'Employee self service', href: '/hrms-payroll/employee-self-service' }, { label: 'Recruitment', href: '/hrms-payroll/recruitment' }] },
 ] as const;
 

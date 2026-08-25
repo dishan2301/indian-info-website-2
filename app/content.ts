@@ -77,6 +77,15 @@ export const softwarePlatforms: readonly SoftwarePlatform[] = [
     workflow: ['Identify employee', 'Validate entitlement', 'Record transaction', 'Reconcile usage'],
     legacyPath: '/softwares/communication-ease/',
   },
+  {
+    slug: 'hexin-mediaa-wave',
+    name: 'Hexin Mediaa Wave',
+    category: 'Workplace',
+    summary: 'Cloud-based media management for centrally uploading, scheduling, approving, and monitoring content across multiple displays and locations.',
+    modules: ['Multi-user display control', 'Content scheduling', 'Images, video, PDF and live data', 'Permission and approval levels', 'Remote monitoring'],
+    workflow: ['Upload approved media', 'Assign displays', 'Schedule content', 'Monitor delivery'],
+    legacyPath: '/softwares/',
+  },
 ] as const;
 
 export type HrmsModule = {

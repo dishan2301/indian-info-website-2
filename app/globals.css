@@ -1584,3 +1584,72 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .insight-article { padding-inline: 1.25rem; }
   .insight-article-image { aspect-ratio: 4 / 3; }
 }
+
+/* Brochure-led homepage: compact type, more decision-useful information. */
+.poster-hero { min-height: clamp(560px, 76svh, 760px); }
+.poster-hero-copy { padding-block: 112px 46px; width: min(760px, 60vw); }
+.poster-hero h1, .poster-hero h2 { font-size: clamp(2.65rem, 4.5vw, 4.75rem); line-height: .96; margin-block: 1rem 1.1rem; max-width: 12ch; }
+.poster-hero-description { font-size: clamp(.92rem, 1.1vw, 1.06rem); line-height: 1.55; }
+.poster-hero-highlights { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 1.15rem 0 0; padding: 0; }
+.poster-hero-highlights li { background: rgba(255,255,255,.78); border: 1px solid rgba(23,32,51,.15); color: #273343; font-size: .68rem; font-weight: 700; padding: .55rem .7rem; }
+.poster-hero-light .poster-hero-highlights li { background: rgba(4,4,4,.45); border-color: rgba(255,255,255,.24); color: white; }
+.poster-link { margin-top: 1.3rem; }
+.story-rail a { min-height: 120px; padding: 1.25rem 1.4rem; }
+
+.core-portfolio { background: #fff; padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 6vw, 6rem); }
+.core-portfolio-intro { align-items: end; display: grid; gap: 2rem; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); margin: 0 auto 2.5rem; max-width: 1320px; }
+.core-portfolio-intro p { color: #087fba; font-family: var(--font-geist-mono), monospace; font-size: .64rem; font-weight: 750; letter-spacing: .11em; margin: 0 0 .8rem; text-transform: uppercase; }
+.core-portfolio-intro h2 { font-size: clamp(2.15rem, 3.5vw, 3.7rem); letter-spacing: -.052em; line-height: 1.02; margin: 0; max-width: 17ch; }
+.core-portfolio-intro > span { color: var(--muted); line-height: 1.7; max-width: 56ch; }
+.core-portfolio-grid { background: var(--line); border: 1px solid var(--line); display: grid; gap: 1px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0 auto; max-width: 1320px; }
+.core-portfolio-grid > a { background: #fff; display: flex; flex-direction: column; min-height: 360px; padding: 1.45rem; transition: background 180ms ease, transform 180ms ease; }
+.core-portfolio-grid > a:nth-child(-n+2) { grid-column: span 2; min-height: 330px; }
+.core-portfolio-grid > a:hover, .core-portfolio-grid > a:focus-visible { background: var(--ice); transform: translateY(-2px); }
+.core-portfolio-meta { align-items: center; display: flex; justify-content: space-between; }
+.core-portfolio-meta span, .core-portfolio-meta b { color: #087fba; font-family: var(--font-geist-mono), monospace; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+.core-portfolio-grid h3 { font-size: clamp(1.45rem, 2vw, 2.15rem); letter-spacing: -.045em; line-height: 1.05; margin: 2.2rem 0 .8rem; }
+.core-portfolio-grid p { color: var(--muted); font-size: .83rem; line-height: 1.65; margin: 0; }
+.core-portfolio-grid ul { border-top: 1px solid var(--line); list-style: none; margin: 1.3rem 0; padding: .8rem 0 0; }
+.core-portfolio-grid li { color: #343a40; font-size: .7rem; line-height: 1.5; padding: .22rem 0 .22rem 1rem; position: relative; }
+.core-portfolio-grid li::before { background: #9ecf09; content: ''; height: 5px; left: 0; position: absolute; top: .7rem; width: 5px; }
+.core-portfolio-grid > a > strong { color: #087fba; font-size: .7rem; margin-top: auto; text-transform: uppercase; }
+.core-portfolio-grid > a > strong i { font-style: normal; margin-left: .35rem; }
+
+.poster-section-intro h2, .industry-story-intro h2, .company-strength h2 { font-size: clamp(2.05rem, 3.4vw, 3.65rem); }
+.section-heading h2 { font-size: clamp(2rem, 3.2vw, 3.35rem); }
+.poster-technology-copy h3 { font-size: clamp(2rem, 3vw, 3.25rem); }
+.solution-poster-stage { height: clamp(570px, 74svh, 760px); }
+.solution-poster-copy h3 { font-size: clamp(2.45rem, 4.1vw, 4.25rem); max-width: 12ch; }
+.company-strength, .poster-technology, .industry-story, .client-logo-section, .poster-mosaic-section, .editorial-section { padding-block: clamp(5rem, 8vw, 8rem); }
+.featured-product-poster, .featured-product-copy { min-height: clamp(590px, 76svh, 780px); }
+.featured-product-copy h2 { font-size: clamp(2.8rem, 5vw, 5.2rem); }
+.industry-story-steps article { min-height: 78svh; }
+.industry-story article h3 { font-size: clamp(2.1rem, 3.35vw, 3.6rem); }
+.final-poster-cta { min-height: 52svh; padding-block: clamp(4.5rem, 7vw, 7rem); }
+.final-poster-cta h2 { font-size: clamp(2.8rem, 5vw, 5.25rem); max-width: 13ch; }
+.page-hero h1 { font-size: clamp(2.45rem, 4.3vw, 4.5rem); max-width: 16ch; }
+
+@media (max-width: 1000px) {
+  .core-portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .core-portfolio-grid > a:nth-child(-n+2) { grid-column: span 1; }
+}
+
+@media (max-width: 760px) {
+  .poster-hero { min-height: 76svh; }
+  .poster-hero-copy { min-height: 76svh; padding: 104px 1.25rem 2rem; }
+  .poster-hero h1, .poster-hero h2 { font-size: clamp(2.35rem, 10vw, 3.25rem); max-width: 13ch; }
+  .poster-hero-highlights { gap: .35rem; }
+  .poster-hero-highlights li { font-size: .62rem; padding: .45rem .55rem; }
+  .core-portfolio { padding: 4.5rem 1.25rem; }
+  .core-portfolio-intro { display: block; }
+  .core-portfolio-intro h2 { font-size: clamp(2rem, 8.5vw, 2.8rem); margin-bottom: 1.2rem; }
+  .core-portfolio-grid { grid-template-columns: 1fr; }
+  .core-portfolio-grid > a { min-height: 0; }
+  .poster-section-intro h2, .industry-story-intro h2, .company-strength h2, .section-heading h2 { font-size: clamp(1.95rem, 8vw, 2.7rem); }
+  .solution-poster-copy h3 { font-size: clamp(2.25rem, 9.5vw, 3.25rem); }
+  .featured-product-copy h2 { font-size: clamp(2.65rem, 12vw, 3.8rem); }
+  .industry-story article h3 { font-size: clamp(2.05rem, 8.8vw, 3rem); }
+  .final-poster-cta { min-height: 0; }
+  .final-poster-cta h2 { font-size: clamp(2.6rem, 11vw, 3.7rem); }
+  .page-hero h1 { font-size: clamp(2.3rem, 9.5vw, 3.25rem); }
+}
