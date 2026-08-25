@@ -23,7 +23,7 @@ export default function ProductsPage() {
 
       <section className="section product-catalog">
         {families.map((family, familyIndex) => (
-          <div className="product-family" key={family}>
+          <div className="product-family" id={family.toLowerCase().replaceAll(' ', '-')} key={family}>
             <div className="family-heading"><span>0{familyIndex + 1}</span><div><p className="section-kicker">Product family</p><h2>{family}</h2></div></div>
             <div className="catalog-grid">
               {products.filter((product) => product.family === family).map((product) => (

@@ -50,11 +50,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     <main>
       <SiteHeader />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-      <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" />
-
-      <nav className="breadcrumbs" aria-label="Breadcrumb">
-        <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/products">Products</Link><span aria-hidden="true">/</span><span aria-current="page">{product.name}</span>
-      </nav>
+      <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} />
 
       <section className="product-detail section">
         <div className="product-gallery" aria-label={`${product.name} product gallery`}>

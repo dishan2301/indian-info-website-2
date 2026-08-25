@@ -32,8 +32,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow={`${software.category} software`} title={software.name} description={software.summary} marker="II / SOFTWARE" />
-      <nav className="breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/software">Software</Link><span aria-hidden="true">/</span><span aria-current="page">{software.name}</span></nav>
+      <PageHero eyebrow={`${software.category} software`} title={software.name} description={software.summary} marker="II / SOFTWARE" breadcrumbs={[{ label: 'Software', href: '/software' }, { label: software.name }]} />
 
       <section className="software-detail section">
         <div className="software-interface-pending">
