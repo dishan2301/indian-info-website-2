@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CustomerCoverflow } from '@/components/ui/3-d-coverflow-carousel';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
-import { companyFacts, customerOrganizations, industries, platformPillars, products } from './content';
+import { companyFacts, customerOrganizations, industries, platformPillars, products, softwarePlatforms } from './content';
 
 export const metadata: Metadata = {
   title: 'Workforce & Workplace Solutions | Indian Infotech',
@@ -155,6 +155,21 @@ export default function Home() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="section homepage-software">
+        <div className="section-heading split-heading">
+          <div><p className="section-kicker">Software platforms</p><h2>Operational records that connect people and places.</h2></div>
+          <div><p>Explore software for attendance, HR and payroll, visitors, and canteen operations.</p><Link className="outline-link" href="/software">View all software</Link></div>
+        </div>
+        <div className="software-card-grid">
+          {softwarePlatforms.map((item) => (
+            <Link className="software-card compact-software-card" href={`/software/${item.slug}`} key={item.slug}>
+              <div className="software-window" aria-hidden="true"><div><i /><i /><i /></div><span>Workflow scope</span><ol>{item.modules.slice(0, 3).map((module, index) => <li key={module}><b>{String(index + 1).padStart(2, '0')}</b>{module}</li>)}</ol></div>
+              <div className="software-card-copy"><span>{item.category}</span><h3>{item.name}</h3><p>{item.summary}</p><b>Explore platform ↗</b></div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="section" id="industries">

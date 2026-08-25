@@ -30,6 +30,55 @@ export const customerOrganizations = [
   { name: 'Haitian International', logo: '/clients/client-logo-21.png' },
 ] as const;
 
+export type SoftwarePlatform = {
+  slug: string;
+  name: string;
+  category: 'Workforce' | 'Workplace';
+  summary: string;
+  modules: readonly string[];
+  workflow: readonly string[];
+  legacyPath: string;
+};
+
+export const softwarePlatforms: readonly SoftwarePlatform[] = [
+  {
+    slug: 'easytime-online',
+    name: 'Easytime Online',
+    category: 'Workforce',
+    summary: 'Centralized attendance operations for organizations managing people, shifts, leave, and reporting requirements.',
+    modules: ['Attendance', 'Shift operations', 'Leave workflows', 'Overtime review', 'Reports'],
+    workflow: ['Capture attendance', 'Review exceptions', 'Apply shift and leave rules', 'Prepare approved records'],
+    legacyPath: '/softwares/cost-effective/',
+  },
+  {
+    slug: 'hrms-payroll',
+    name: 'HRMS & Payroll',
+    category: 'Workforce',
+    summary: 'Employee information and people-operation workflows spanning core HR, payroll, leave, claims, assets, and employee self-service.',
+    modules: ['Core HR', 'Payroll', 'Leave management', 'Claims and reimbursement', 'Employee assets', 'Documents', 'Employee self-service'],
+    workflow: ['Maintain employee records', 'Manage attendance and leave', 'Review payroll inputs', 'Support employee workflows'],
+    legacyPath: '/hrms-payroll/',
+  },
+  {
+    slug: 'visitor-management',
+    name: 'Visitor Management System',
+    category: 'Workplace',
+    summary: 'A structured visitor workflow for registration, host coordination, check-in, movement records, and check-out.',
+    modules: ['Visitor registration', 'Host coordination', 'Check-in records', 'Visit tracking', 'Check-out'],
+    workflow: ['Register visitor', 'Coordinate with host', 'Record entry', 'Track visit status', 'Close the visit'],
+    legacyPath: '/softwares/scalable-resources/',
+  },
+  {
+    slug: 'canteen-management',
+    name: 'Canteen Management System',
+    category: 'Workplace',
+    summary: 'Employee meal and canteen workflows designed to improve transaction records and day-to-day service administration.',
+    modules: ['Employee identification', 'Meal transactions', 'Entitlement rules', 'Usage records', 'Operational reports'],
+    workflow: ['Identify employee', 'Validate entitlement', 'Record transaction', 'Reconcile usage'],
+    legacyPath: '/softwares/communication-ease/',
+  },
+] as const;
+
 export const platformPillars = [
   {
     number: '01',

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { products } from './content';
+import { products, softwarePlatforms } from './content';
 
-const routes = ['', '/platform', '/products', '/industries/pharma', '/about', '/contact', '/privacy', '/terms'];
+const routes = ['', '/platform', '/products', '/software', '/industries/pharma', '/about', '/contact', '/privacy', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://indianinfotech.org';
@@ -17,5 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  return [...staticRoutes, ...productRoutes];
+  const softwareRoutes = softwarePlatforms.map((software) => ({
+    url: `${baseUrl}/software/${software.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+  return [...staticRoutes, ...productRoutes, ...softwareRoutes];
 }
