@@ -1,17 +1,23 @@
 @import 'tailwindcss';
 
 :root {
-  --navy-950: #061a27;
-  --navy-900: #082536;
-  --navy-800: #0c3447;
-  --teal-400: #20d4c2;
-  --teal-300: #73eadc;
-  --brand-green: #8cc913;
-  --ice: #eaf6f5;
-  --mist: #f4f8f7;
-  --ink: #102d3b;
-  --muted: #58717c;
-  --line: #d9e5e4;
+  /* Extracted from the live Indian Infotech logo and production CSS. */
+  --brand-primary: #2b2d42;
+  --brand-primary-dark: #1e1e1e;
+  --brand-primary-light: #39414d;
+  --brand-accent: #13acf4;
+  --brand-accent-secondary: #9ecf09;
+  --navy-950: #2b2d42;
+  --navy-900: #1e1e1e;
+  --navy-800: #39414d;
+  --teal-400: #13acf4;
+  --teal-300: #9ecf09;
+  --brand-green: #9ecf09;
+  --ice: #e8f8ff;
+  --mist: #f7f9fc;
+  --ink: #2b2d42;
+  --muted: #66717d;
+  --line: #d9d9d9;
 }
 
 * { box-sizing: border-box; }
@@ -37,7 +43,7 @@ a { color: inherit; text-decoration: none; }
 
 .site-header {
   align-items: center;
-  background: rgba(6, 26, 39, 0.92);
+  background: rgba(43, 45, 66, 0.94);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
   display: grid;
@@ -62,7 +68,7 @@ nav { display: flex; font-size: 0.82rem; font-weight: 600; gap: 2rem; letter-spa
 nav a, .header-cta { transition: color 180ms ease, border-color 180ms ease, background 180ms ease; }
 nav a:hover, nav a:focus-visible { color: var(--teal-300); }
 .header-cta {
-  border: 1px solid rgba(115, 234, 220, 0.65);
+  border: 1px solid rgba(19, 172, 244, 0.65);
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -77,7 +83,7 @@ nav a:hover, nav a:focus-visible { color: var(--teal-300); }
 
 .hero {
   align-items: center;
-  background: radial-gradient(circle at 74% 45%, rgba(32, 212, 194, 0.13), transparent 24rem), linear-gradient(122deg, var(--navy-950), var(--navy-900) 60%, #0a3040);
+  background: radial-gradient(circle at 74% 45%, rgba(19, 172, 244, 0.13), transparent 24rem), linear-gradient(122deg, var(--navy-950), var(--navy-900) 60%, #30354b);
   color: white;
   display: grid;
   gap: clamp(3rem, 7vw, 7rem);
@@ -144,8 +150,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 }
 
 .hero-system {
-  background: rgba(6, 26, 39, 0.58);
-  border: 1px solid rgba(115, 234, 220, 0.24);
+  background: rgba(43, 45, 66, 0.72);
+  border: 1px solid rgba(19, 172, 244, 0.24);
   box-shadow: 0 34px 90px rgba(0, 0, 0, 0.28);
   min-height: 540px;
   padding: 1.25rem;
@@ -164,13 +170,13 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .live-label { align-items: center; color: var(--teal-300); display: flex; gap: 0.5rem; }
 .live-label i { background: var(--teal-400); border-radius: 50%; box-shadow: 0 0 14px var(--teal-400); height: 6px; width: 6px; }
 .system-orbit { align-items: center; display: flex; height: 370px; justify-content: center; position: relative; }
-.orbit { border: 1px solid rgba(115, 234, 220, 0.18); border-radius: 50%; position: absolute; }
+.orbit { border: 1px solid rgba(19, 172, 244, 0.18); border-radius: 50%; position: absolute; }
 .orbit-one { height: 270px; width: 270px; }
 .orbit-two { border-color: rgba(140, 201, 19, 0.18); height: 350px; width: 350px; }
 .orbit-one::before, .orbit-two::before {
   background: var(--teal-400);
   border-radius: 50%;
-  box-shadow: 0 0 22px rgba(32, 212, 194, 0.7);
+  box-shadow: 0 0 22px rgba(19, 172, 244, 0.7);
   content: '';
   height: 8px;
   left: 11%;
@@ -181,8 +187,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .orbit-two::before { background: var(--brand-green); left: auto; right: 7%; top: 60%; }
 .orbit-core {
   align-items: center;
-  background: linear-gradient(145deg, rgba(32, 212, 194, 0.12), rgba(6, 26, 39, 0.85));
-  border: 1px solid rgba(115, 234, 220, 0.36);
+  background: linear-gradient(145deg, rgba(19, 172, 244, 0.12), rgba(43, 45, 66, 0.9));
+  border: 1px solid rgba(19, 172, 244, 0.36);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -226,7 +232,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .customer-proof-heading .section-kicker { justify-content: flex-start; }
 .customer-proof-heading h2 { font-size: clamp(2.35rem, 4.6vw, 4.7rem); letter-spacing: -0.06em; line-height: 1.02; margin: 1rem 0 0; max-width: 14ch; }
 .customer-proof-heading > p { color: #9cb4bc; line-height: 1.75; margin: 0; max-width: 520px; }
-.coverflow-shell { border: 1px solid rgba(115, 234, 220, 0.2); margin: 0 auto; max-width: 1320px; min-height: 660px; overflow: hidden; padding: 2rem; position: relative; }
+.coverflow-shell { border: 1px solid rgba(19, 172, 244, 0.2); margin: 0 auto; max-width: 1320px; min-height: 660px; overflow: hidden; padding: 2rem; position: relative; }
 .coverflow-shell:focus-visible { outline-offset: 6px; }
 .coverflow-grid { background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 52px 52px; inset: 0; mask-image: radial-gradient(circle at center, black, transparent 78%); pointer-events: none; position: absolute; }
 .coverflow-stage { height: 475px; perspective: 1450px; position: relative; }
@@ -344,7 +350,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   position: relative;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
-.pillar-card:hover, .pillar-card:focus-visible { border-color: var(--teal-400); box-shadow: 0 24px 55px rgba(6, 26, 39, 0.09); transform: translateY(-4px); }
+.pillar-card:hover, .pillar-card:focus-visible { border-color: var(--teal-400); box-shadow: 0 24px 55px rgba(43, 45, 66, 0.09); transform: translateY(-4px); }
 .pillar-card:nth-child(2) { background: var(--navy-900); border-color: var(--navy-900); color: white; }
 .pillar-card:nth-child(2) h2, .pillar-card:nth-child(2) h3 { color: white; }
 .pillar-card:nth-child(2) p { color: #a9c1c8; }
@@ -406,11 +412,11 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 }
 .local-section > div:last-child > p:nth-of-type(2) { color: #9fb8bf; line-height: 1.8; max-width: 620px; }
 .local-section .button { margin-top: 1.5rem; }
-.local-map { align-items: center; aspect-ratio: 1; border: 1px solid rgba(115, 234, 220, 0.24); display: flex; flex-direction: column; justify-content: center; max-width: 480px; position: relative; }
-.local-map::before, .local-map::after { background: rgba(115, 234, 220, 0.16); content: ''; position: absolute; }
+.local-map { align-items: center; aspect-ratio: 1; border: 1px solid rgba(19, 172, 244, 0.24); display: flex; flex-direction: column; justify-content: center; max-width: 480px; position: relative; }
+.local-map::before, .local-map::after { background: rgba(19, 172, 244, 0.16); content: ''; position: absolute; }
 .local-map::before { height: 1px; left: 0; right: 0; }
 .local-map::after { bottom: 0; top: 0; width: 1px; }
-.local-map i { background: var(--teal-400); border: 8px solid rgba(32, 212, 194, 0.18); border-radius: 50%; box-shadow: 0 0 28px var(--teal-400); height: 28px; margin: 1.3rem; width: 28px; }
+.local-map i { background: var(--teal-400); border: 8px solid rgba(19, 172, 244, 0.18); border-radius: 50%; box-shadow: 0 0 28px var(--teal-400); height: 28px; margin: 1.3rem; width: 28px; }
 .local-map b { font-size: 1.25rem; letter-spacing: -0.03em; }
 .local-map span { color: #76939d; font-family: var(--font-geist-mono), monospace; font-size: 0.62rem; letter-spacing: 0.12em; }
 
@@ -430,7 +436,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 /* Interior pages */
 .page-hero {
   align-items: end;
-  background: radial-gradient(circle at 80% 55%, rgba(32, 212, 194, 0.12), transparent 25rem), var(--navy-950);
+  background: radial-gradient(circle at 80% 55%, rgba(19, 172, 244, 0.12), transparent 25rem), var(--navy-950);
   color: white;
   display: grid;
   gap: 4rem;
@@ -626,13 +632,13 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .pharma-system > div:last-child > p:last-of-type { color: #9bb3bb; line-height: 1.8; }
 .pharma-system ul { display: grid; gap: 0.8rem; grid-template-columns: 1fr 1fr; list-style: none; margin: 2rem 0 0; padding: 0; }
 .pharma-system li { border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 0.78rem; padding-top: 0.8rem; }
-.system-diagram { aspect-ratio: 1; border: 1px solid rgba(115, 234, 220, 0.22); max-width: 520px; position: relative; }
-.system-diagram::before, .system-diagram::after { background: rgba(115, 234, 220, 0.15); content: ''; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); }
+.system-diagram { aspect-ratio: 1; border: 1px solid rgba(19, 172, 244, 0.22); max-width: 520px; position: relative; }
+.system-diagram::before, .system-diagram::after { background: rgba(19, 172, 244, 0.15); content: ''; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); }
 .system-diagram::before { height: 1px; width: 100%; }.system-diagram::after { height: 100%; width: 1px; }
 .diagram-core { align-items: center; background: var(--navy-900); border: 1px solid var(--teal-400); border-radius: 50%; display: flex; font-family: var(--font-geist-mono), monospace; font-size: 0.64rem; height: 140px; justify-content: center; left: 50%; letter-spacing: 0.12em; line-height: 1.7; position: absolute; text-align: center; top: 50%; transform: translate(-50%, -50%); width: 140px; z-index: 2; }
-.diagram-node { background: var(--navy-950); border: 1px solid rgba(115, 234, 220, 0.35); color: var(--teal-300); font-family: var(--font-geist-mono), monospace; font-size: 0.58rem; letter-spacing: 0.12em; padding: 0.6rem 0.8rem; position: absolute; z-index: 2; }
+.diagram-node { background: var(--navy-950); border: 1px solid rgba(19, 172, 244, 0.35); color: var(--teal-300); font-family: var(--font-geist-mono), monospace; font-size: 0.58rem; letter-spacing: 0.12em; padding: 0.6rem 0.8rem; position: absolute; z-index: 2; }
 .node-one { left: 8%; top: 11%; }.node-two { right: 8%; top: 11%; }.node-three { bottom: 11%; left: 8%; }.node-four { bottom: 11%; right: 8%; }
-.evidence-note { align-items: start; background: #eaf6f5; display: grid; gap: 2rem; grid-template-columns: 100px 1fr; padding: 4rem clamp(1.25rem, 7vw, 7.5rem); }
+.evidence-note { align-items: start; background: var(--ice); display: grid; gap: 2rem; grid-template-columns: 100px 1fr; padding: 4rem clamp(1.25rem, 7vw, 7.5rem); }
 .evidence-note > span { color: var(--teal-500, #0f8e86); font-family: var(--font-geist-mono), monospace; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .evidence-note h2 { color: var(--navy-950); font-size: 1.7rem; letter-spacing: -0.04em; margin: 0 0 0.8rem; }
 .evidence-note p { color: var(--muted); line-height: 1.75; margin: 0; max-width: 900px; }
@@ -706,9 +712,9 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .desktop-nav { display: none; }
   .header-cta { display: none; }
   .mobile-menu { display: block; justify-self: end; position: relative; }
-  .mobile-menu summary { border: 1px solid rgba(115, 234, 220, 0.55); border-radius: 999px; cursor: pointer; font-size: 0.7rem; font-weight: 700; list-style: none; padding: 0.6rem 0.8rem; text-transform: uppercase; }
+  .mobile-menu summary { border: 1px solid rgba(19, 172, 244, 0.55); border-radius: 999px; cursor: pointer; font-size: 0.7rem; font-weight: 700; list-style: none; padding: 0.6rem 0.8rem; text-transform: uppercase; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
-  .mobile-menu > div { background: var(--navy-950); border: 1px solid rgba(115, 234, 220, 0.25); display: flex; flex-direction: column; min-width: 210px; padding: 0.7rem; position: absolute; right: 0; top: calc(100% + 0.8rem); }
+  .mobile-menu > div { background: var(--navy-950); border: 1px solid rgba(19, 172, 244, 0.25); display: flex; flex-direction: column; min-width: 210px; padding: 0.7rem; position: absolute; right: 0; top: calc(100% + 0.8rem); }
   .mobile-menu a { border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; padding: 0.9rem; }
   .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .brief-section, .pharma-system, .contact-section, .product-detail, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
   .workflow-copy { position: static; }
