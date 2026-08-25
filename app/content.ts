@@ -228,6 +228,47 @@ export const products: readonly Product[] = [
   },
 ] as const;
 
+export type SolutionProfile = {
+  slug: string;
+  name: string;
+  problem: string;
+  summary: string;
+  workflow: readonly string[];
+  hardwareFamilies: readonly Product['family'][];
+  softwareSlugs: readonly string[];
+};
+
+export const solutionProfiles: readonly SolutionProfile[] = [
+  { slug: 'attendance-automation', name: 'Attendance Automation', problem: 'Manual attendance collection and exception handling can make shift operations harder to review.', summary: 'Connect attendance devices and operational software around the policies, locations, shifts, and review flow that matter to the organization.', workflow: ['Capture attendance event', 'Apply the approved shift and leave context', 'Review exceptions with responsible teams', 'Prepare records for approved downstream use'], hardwareFamilies: ['Attendance'], softwareSlugs: ['easytime-online', 'hrms-payroll'] },
+  { slug: 'multi-location-attendance', name: 'Multi-location Attendance', problem: 'Distributed sites need a consistent way to understand attendance without losing local operating context.', summary: 'Plan attendance capture, review responsibilities, and rollout sequencing across locations with configuration confirmed for each site.', workflow: ['Map locations and operating patterns', 'Select appropriate attendance endpoints', 'Define review ownership by site', 'Confirm reporting and support routines'], hardwareFamilies: ['Attendance'], softwareSlugs: ['easytime-online'] },
+  { slug: 'physical-access-control', name: 'Physical Access Control', problem: 'Workplaces need clear, auditable control over who can enter defined areas and when.', summary: 'Combine access-control terminals, entrance hardware, workflows, and operating roles around the site’s real entry conditions.', workflow: ['Map people and entry points', 'Define access rules and exceptions', 'Select terminals and entrance controls', 'Test, train, and support the operating process'], hardwareFamilies: ['Access control', 'Entrance management'], softwareSlugs: ['visitor-management'] },
+  { slug: 'visitor-security', name: 'Visitor Security', problem: 'Visitor entry can become inconsistent when registration, host coordination, and records are disconnected.', summary: 'Structure visitor registration, host coordination, entry records, movement decisions, and check-out around local security requirements.', workflow: ['Register visitor details', 'Coordinate with the host', 'Apply site entry process', 'Record visit completion and exceptions'], hardwareFamilies: ['Access control'], softwareSlugs: ['visitor-management'] },
+  { slug: 'entrance-management', name: 'Entrance Management', problem: 'Busy pedestrian and vehicle entry points require a deliberate mix of access logic, physical equipment, and operating ownership.', summary: 'Choose barriers, turnstiles, boom barriers, screening, and connected access equipment around entry flow and local site conditions.', workflow: ['Assess pedestrian and vehicle flow', 'Select physical entrance equipment', 'Confirm access or screening logic', 'Establish operating and support ownership'], hardwareFamilies: ['Entrance management', 'Access control'], softwareSlugs: ['visitor-management'] },
+  { slug: 'canteen-operations', name: 'Canteen Operations', problem: 'Meal-service records and employee entitlement handling can become difficult to reconcile across a busy workplace.', summary: 'Structure employee identification, entitlement rules, transaction records, and operational reporting around the canteen workflow.', workflow: ['Identify employee', 'Validate approved entitlement', 'Record the transaction', 'Review operational usage records'], hardwareFamilies: ['Attendance'], softwareSlugs: ['canteen-management'] },
+] as const;
+
+export type IndustryProfile = {
+  slug: string;
+  name: string;
+  context: string;
+  workflow: readonly string[];
+  solutionSlugs: readonly string[];
+};
+
+export const industryProfiles: readonly IndustryProfile[] = [
+  { slug: 'manufacturing', name: 'Manufacturing', context: 'Shift patterns, site entry, contractors, and controlled operating zones often need to work together.', workflow: ['Map shifts and entry points', 'Define workforce and contractor roles', 'Select attendance and entrance systems', 'Confirm reporting and support routine'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'entrance-management'] },
+  { slug: 'corporate', name: 'Corporate Offices', context: 'Visitor coordination, employee entry, attendance, and people operations need a clear daily workflow.', workflow: ['Map employee and visitor journeys', 'Define access and attendance requirements', 'Confirm software roles and reporting', 'Support adoption and review'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
+  { slug: 'pharma', name: 'Pharmaceutical & Research', context: 'Controlled areas, workforce records, visitors, and entry conditions need deliberate operating design.', workflow: ['Understand controlled areas', 'Map workforce and visitor movement', 'Define entry and attendance workflow', 'Confirm documentation and support needs'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'visitor-security'] },
+  { slug: 'healthcare', name: 'Healthcare', context: 'People movement, shifts, visitors, and sensitive operating areas require careful site-specific planning.', workflow: ['Map staff and visitor movement', 'Define shift and entry requirements', 'Select appropriate systems', 'Confirm operating ownership'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
+  { slug: 'education', name: 'Education', context: 'Campuses and institutions may need reliable attendance, visitor coordination, and entry management.', workflow: ['Identify campus entry points', 'Map staff and visitor flow', 'Confirm attendance and access needs', 'Plan support and governance'], solutionSlugs: ['attendance-automation', 'visitor-security', 'entrance-management'] },
+  { slug: 'construction', name: 'Construction', context: 'Changing sites, workforce movement, contractors, and perimeter conditions require practical operating controls.', workflow: ['Assess site and workforce context', 'Map contractor and visitor flow', 'Plan attendance and entry control', 'Review deployment and support routine'], solutionSlugs: ['multi-location-attendance', 'visitor-security', 'entrance-management'] },
+  { slug: 'government', name: 'Government', context: 'Public-facing locations and administrative facilities may require clear visitor, entry, and workforce processes.', workflow: ['Map public and staff journeys', 'Define controlled areas', 'Select suitable workflows', 'Establish ownership and support'], solutionSlugs: ['visitor-security', 'physical-access-control', 'entrance-management'] },
+  { slug: 'banking', name: 'Banking', context: 'Branch and office operations may require controlled entry, employee attendance, and visitor workflows.', workflow: ['Assess branch and office context', 'Map access and visitor needs', 'Confirm attendance requirements', 'Review support and escalation paths'], solutionSlugs: ['physical-access-control', 'visitor-security', 'attendance-automation'] },
+  { slug: 'logistics', name: 'Logistics', context: 'Shift operations, gates, vehicles, and workforce movement can create complex operational entry conditions.', workflow: ['Map gates and operating shifts', 'Identify workforce and vehicle flow', 'Select entry and attendance systems', 'Confirm handover and support'], solutionSlugs: ['multi-location-attendance', 'entrance-management', 'physical-access-control'] },
+  { slug: 'retail', name: 'Retail', context: 'Distributed stores need practical attendance, employee entry, and operating support that fits local conditions.', workflow: ['Map store and workforce pattern', 'Confirm attendance and access needs', 'Plan rollout by location', 'Establish support routine'], solutionSlugs: ['multi-location-attendance', 'attendance-automation'] },
+  { slug: 'hospitality', name: 'Hospitality', context: 'Guest-facing facilities may need coordinated employee attendance, visitor flow, and controlled staff areas.', workflow: ['Map staff and guest movement', 'Define staff-area access needs', 'Select attendance and visitor workflow', 'Confirm operating ownership'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
+] as const;
+
 type Industry = {
   name: string;
   description: string;
