@@ -30,12 +30,6 @@ const industryLinks = [
   { label: 'Logistics & warehousing', href: '/industries/logistics' },
 ] as const;
 
-const technologyGroups = [
-  { title: 'Identity', links: [{ label: 'Face recognition', href: '/technologies#identity' }, { label: 'Fingerprint biometrics', href: '/technologies#identity' }, { label: 'RFID and credentials', href: '/technologies#identity' }] },
-  { title: 'Connected systems', links: [{ label: 'Device communication', href: '/technologies#connected-systems' }, { label: 'Workflow automation', href: '/technologies#workflow' }, { label: 'APIs and integrations', href: '/integrations' }] },
-  { title: 'Technical review', links: [{ label: 'Engineering', href: '/engineering' }, { label: 'Security and audit', href: '/technologies#security' }, { label: 'Talk to an engineer', href: '/contact?topic=technology' }] },
-] as const;
-
 function MegaGroup({ title, groups }: { title: string; groups: readonly { title: string; links: readonly { label: string; href: string }[] }[] }) {
   return (
     <details className="mega-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
@@ -63,12 +57,9 @@ export function SiteHeader() {
           <summary>Industries<span aria-hidden="true">⌄</span></summary>
           <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
         </details>
-        <MegaGroup title="Technologies" groups={technologyGroups} />
-        <Link href="/resources">Resources</Link>
-        <Link href="/support">Support</Link>
         <details className="mega-menu company-menu" onMouseEnter={(event) => { event.currentTarget.open = true; }} onMouseLeave={(event) => { event.currentTarget.open = false; }}>
           <summary>Company<span aria-hidden="true">⌄</span></summary>
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and information</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/contact">Ahmedabad office<span aria-hidden="true">→</span></Link><Link href="/privacy">Privacy policy<span aria-hidden="true">→</span></Link><Link href="/terms">Terms and conditions<span aria-hidden="true">→</span></Link></div></div></div>
+          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and support</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/technologies">Technology overview<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
         </details>
       </nav>
 
@@ -76,7 +67,7 @@ export function SiteHeader() {
 
       <details className="mobile-menu">
         <summary aria-label="Open navigation">Menu</summary>
-        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/technologies">Technologies</Link><Link href="/engineering">Engineering</Link><Link href="/resources">Resources</Link><Link href="/case-studies">Customer proof</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/company">Company</Link><Link href="/contact">Book a demo</Link></div>
+        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/company">Company</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
       </details>
     </header>
   );
