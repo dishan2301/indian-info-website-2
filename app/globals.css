@@ -424,7 +424,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .footer-lead { align-items: end; border-bottom: 1px solid rgba(255, 255, 255, 0.13); display: flex; gap: 3rem; justify-content: space-between; padding: 6rem 0; }
 .footer-lead h2 { font-size: clamp(2.2rem, 4vw, 4.2rem); max-width: 15ch; }
 .section-kicker.light { color: var(--teal-300); }
-.footer-grid { display: grid; gap: 3rem; grid-template-columns: 1.5fr repeat(3, 1fr); padding: 4rem 0; }
+.footer-grid { display: grid; gap: 2.2rem; grid-template-columns: 1.35fr repeat(4, 1fr); padding: 4rem 0; }
 .footer-grid > div { display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-brand img { filter: brightness(0) invert(1); height: auto; max-width: 220px; }
 .footer-brand p, .footer-grid a, .footer-grid address { color: #8fa7af; font-size: 0.8rem; font-style: normal; line-height: 1.8; }
@@ -698,7 +698,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .pillar-card:last-child { grid-column: 1 / -1; min-height: 330px; }
   .industry-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
-  .footer-grid > div:last-child { grid-column: 2 / -1; }
+  .footer-grid > div:nth-child(4), .footer-grid > div:last-child { grid-column: 2 / -1; }
   .product-family { grid-template-columns: 1fr; }
   .pharma-needs { grid-template-columns: 1fr 1fr; }
   .software-category { grid-template-columns: 1fr; }
@@ -723,7 +723,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .about-direction-grid, .brief-section, .pharma-system, .contact-section, .product-detail, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
   .workflow-copy { position: static; }
   .pillar-grid, .featured-products, .catalog-grid, .industry-grid, .footer-grid, .principle-grid { grid-template-columns: 1fr; }
-  .pillar-card:last-child, .footer-grid > div:last-child { grid-column: auto; }
+  .pillar-card:last-child, .footer-grid > div:nth-child(4), .footer-grid > div:last-child { grid-column: auto; }
   .pillar-card { min-height: 360px; }
   .product-image { height: 300px; }
   .footer-lead, .decision-band, .selection-note { align-items: flex-start; flex-direction: column; }

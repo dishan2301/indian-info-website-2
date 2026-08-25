@@ -23,8 +23,20 @@ export function SiteFooter() {
           <h3>Explore</h3>
           <Link href="/platform">Platform</Link>
           <Link href="/products">Products</Link>
-          <Link href="/industries/pharma">Pharma solutions</Link>
-          <Link href="/about">About</Link>
+          <Link href="/software">Software</Link>
+          <Link href="/hrms-payroll">HRMS & Payroll</Link>
+          <Link href="/solutions">Solutions</Link>
+          <Link href="/industries">Industries</Link>
+        </div>
+        <div>
+          <h3>Technical</h3>
+          <Link href="/technologies">Technologies</Link>
+          <Link href="/engineering">Engineering</Link>
+          <Link href="/integrations">Integrations</Link>
+          <Link href="/compare">Compare products</Link>
+          <Link href="/resources">Resources</Link>
+          <Link href="/support">Support</Link>
+          <Link href="/about">Company</Link>
         </div>
         <div>
           <h3>Contact</h3>
