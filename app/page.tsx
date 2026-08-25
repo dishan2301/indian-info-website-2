@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import { HeroPosterCarousel } from '@/components/homepage/hero-poster-carousel';
-import { ClientGrid, CompanyStrength, EditorialSection, FinalPosterCTA, StoryRail } from '@/components/homepage/poster-sections';
-import { AutomaticConnectedCapabilities, AutomaticCorePortfolio, AutomaticProductSpotlight, AutomaticSolutionPosters, AutomaticTechnologyShowcase, IndustryStoryScroller } from '@/components/homepage/poster-showcases';
+import { CompanyOverview, IndustriesAndClients, QuotesAndNews } from '@/components/homepage/home-curated-sections';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
-import { products } from './content';
 
 export const metadata: Metadata = {
   title: 'Indian Infotech | Workforce and Workplace Systems',
@@ -17,17 +15,9 @@ export default function Home() {
   return <main>
     <SiteHeader />
     <HeroPosterCarousel />
-    <StoryRail />
-    <AutomaticCorePortfolio />
-    <AutomaticTechnologyShowcase />
-    <AutomaticSolutionPosters />
-    <CompanyStrength />
-    <AutomaticProductSpotlight products={products} />
-    <IndustryStoryScroller />
-    <ClientGrid />
-    <AutomaticConnectedCapabilities />
-    <EditorialSection />
-    <FinalPosterCTA />
+    <CompanyOverview />
+    <IndustriesAndClients />
+    <QuotesAndNews />
     <SiteFooter />
   </main>;
 }
