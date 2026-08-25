@@ -39,6 +39,20 @@ const workflow = [
   { number: '04', title: 'Operate', text: 'Support HR, payroll, security, and facility teams with practical systems and records.' },
 ];
 
+const technologySignals = [
+  { number: '01', title: 'Face recognition', text: 'Published across the AI-series attendance and access-control portfolio.' },
+  { number: '02', title: 'Fingerprint identity', text: 'Published across access-control and attendance device offerings.' },
+  { number: '03', title: 'Controlled entry', text: 'Flap barriers, turnstiles, boom barriers, and screening equipment.' },
+  { number: '04', title: 'Operational software', text: 'Attendance, HRMS, visitor, and canteen workflows from the current portfolio.' },
+] as const;
+
+const deliveryStages = [
+  { number: '01', title: 'Discover', text: 'Map sites, people, entry points, policies, exceptions, and reporting needs.' },
+  { number: '02', title: 'Design', text: 'Shortlist the hardware, software, workflow, and rollout sequence.' },
+  { number: '03', title: 'Deploy', text: 'Coordinate configuration, installation, testing, training, and go-live.' },
+  { number: '04', title: 'Support', text: 'Define ownership, issue routes, operating checks, and future expansion.' },
+] as const;
+
 const featuredProducts = products.filter((product) => product.image);
 
 export default function Home() {
@@ -89,10 +103,11 @@ export default function Home() {
             <span>II / OPERATIONS CORE</span>
             <span className="live-label"><i /> PLATFORM SCOPE</span>
           </div>
-          <div className="system-orbit" aria-hidden="true">
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <div className="orbit-core"><span>WORKFORCE</span><strong>+</strong><span>WORKPLACE</span></div>
+          <div className="hero-product-stage">
+            <div className="hero-device hero-device-main"><Image src="/products/ai-60/angle.png" alt="AI 60 face recognition attendance device" width={720} height={720} priority /></div>
+            <div className="hero-device hero-device-left"><Image src="/products/i-18.jpg" alt="I-18 fingerprint access control device" width={420} height={420} /></div>
+            <div className="hero-device hero-device-right"><Image src="/products/fbl-200/main.png" alt="FBL 200 flap barrier" width={500} height={500} /></div>
+            <span className="hero-stage-label label-one">AUTHENTICATE</span><span className="hero-stage-label label-two">CONTROL ENTRY</span><span className="hero-stage-label label-three">RECORD OPERATIONS</span>
           </div>
           <div className="signal-list">
             {platformSignals.map((signal) => (
@@ -172,6 +187,29 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="technology-section">
+        <div className="technology-intro">
+          <p className="section-kicker light">Portfolio technology</p>
+          <h2>Technology shown only where the current portfolio supports it.</h2>
+          <p>No speculative AI, security, cloud, API, or integration claims are added. These signals reflect capabilities currently published across Indian Infotech products and software.</p>
+          <Link className="text-link light-link" href="/products">Inspect the product portfolio <b aria-hidden="true">↗</b></Link>
+        </div>
+        <div className="technology-list">
+          {technologySignals.map((signal) => <article key={signal.number}><span>{signal.number}</span><div><h3>{signal.title}</h3><p>{signal.text}</p></div></article>)}
+        </div>
+      </section>
+
+      <section className="section connected-section">
+        <div className="section-heading split-heading"><div><p className="section-kicker">Connected operating model</p><h2>From an event at the edge to a reviewed business record.</h2></div><p>The exact integrations and data flows are confirmed during solution design. The architecture below shows the operating relationship—not an unsupported technical promise.</p></div>
+        <div className="connected-model" aria-label="Connected system workflow">
+          <article><span>01 / EDGE</span><h3>Capture an event</h3><p>Attendance device, access terminal, visitor desk, barrier, or workplace transaction.</p></article>
+          <b aria-hidden="true">→</b>
+          <article><span>02 / WORKFLOW</span><h3>Apply operating rules</h3><p>Attendance, shifts, leave, access, visitor, or canteen workflow selected for the organization.</p></article>
+          <b aria-hidden="true">→</b>
+          <article><span>03 / REVIEW</span><h3>Support responsible teams</h3><p>Provide clearer records for authorized HR, payroll, security, facility, or management users.</p></article>
+        </div>
+      </section>
+
       <section className="section" id="industries">
         <div className="section-heading split-heading">
           <div><p className="section-kicker">Built around operating reality</p><h2>Systems shaped for complex workplaces.</h2></div>
@@ -202,6 +240,38 @@ export default function Home() {
               <div><span>{product.family}</span><h3>{product.name}</h3><p>{product.description}</p></div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="engineering-section">
+        <div className="engineering-visual">
+          <Image src="/products/fht2300/model-l.png" alt="FHT2300 full-height turnstile product" width={700} height={674} />
+          <div><span>REAL PRODUCT MEDIA</span><strong>FHT2300 series</strong><p>Full-height entrance control from the published portfolio.</p></div>
+        </div>
+        <div className="engineering-copy">
+          <p className="section-kicker light">Delivery engineering</p>
+          <h2>A practical path from site requirement to supported operation.</h2>
+          <div className="engineering-stages">{deliveryStages.map((stage) => <article key={stage.number}><span>{stage.number}</span><div><h3>{stage.title}</h3><p>{stage.text}</p></div></article>)}</div>
+          <Link className="button button-primary" href="/contact">Talk to the team <span aria-hidden="true">↗</span></Link>
+        </div>
+      </section>
+
+      <section className="section integration-section">
+        <div className="section-heading split-heading"><div><p className="section-kicker">Integration readiness</p><h2>Make every connection explicit before deployment.</h2></div><p>Named integrations will be published only after technical verification. Until then, these are the questions used to define a responsible integration scope.</p></div>
+        <div className="integration-grid">
+          <article><span>01</span><h3>Systems</h3><p>Which attendance, HRMS, payroll, access, visitor, or reporting systems are involved?</p></article>
+          <article><span>02</span><h3>Data flow</h3><p>What information moves, in which direction, at what frequency, and under whose control?</p></article>
+          <article><span>03</span><h3>Exceptions</h3><p>What happens during offline operation, rejected events, duplicates, or synchronization failures?</p></article>
+          <article><span>04</span><h3>Ownership</h3><p>Who approves, monitors, supports, and changes each connection after rollout?</p></article>
+        </div>
+      </section>
+
+      <section className="homepage-resources">
+        <div className="homepage-resource-lead"><p className="section-kicker light">Resources and support</p><h2>Move from research to a technically grounded conversation.</h2><p>Use current catalogue and platform guidance, search the site, or contact the relevant team for approved technical material.</p></div>
+        <div className="homepage-resource-links">
+          <Link href="/resources"><span>01 / RESOURCE CENTER</span><h3>Browse guidance and archive status.</h3><b aria-hidden="true">→</b></Link>
+          <Link href="/search"><span>02 / GLOBAL SEARCH</span><h3>Find products, software, and industries.</h3><b aria-hidden="true">→</b></Link>
+          <Link href="/contact"><span>03 / SALES & SUPPORT</span><h3>Reach the Ahmedabad team directly.</h3><b aria-hidden="true">→</b></Link>
         </div>
       </section>
 
