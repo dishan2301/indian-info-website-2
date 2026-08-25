@@ -33,6 +33,19 @@ export default function AboutPage() {
         <div><p>Indian Infotech began in 2011 and operates from Thaltej, Ahmedabad. The company’s portfolio now spans 12+ products and serves 2,000+ clients across 7+ countries.</p><p>The next chapter is about presenting that breadth as one clear workforce and workplace story—without losing the practical, relationship-led character of the business.</p></div>
       </section>
 
+      <section className="about-direction-grid" aria-label="Indian Infotech mission and vision">
+        <article>
+          <p className="section-kicker">Our mission</p>
+          <h2>Operational efficiency with resilient security.</h2>
+          <p>We&apos;re committed to crafting intuitive solutions that empower businesses to enhance operational efficiencies, fortify their security infrastructures, and embrace digital transformation with resilience and agility.</p>
+        </article>
+        <article>
+          <p className="section-kicker">Our vision</p>
+          <h2>Scalable systems for a global clientele.</h2>
+          <p>We aim to set new industry benchmarks, delivering bespoke, scalable solutions that resonate with the evolving needs of a global clientele, driving progress through customer-centric innovation.</p>
+        </article>
+      </section>
+
       <section className="principles-section">
         <div className="section-heading"><p className="section-kicker light">How we approach projects</p><h2>Clear requirements before complex systems.</h2></div>
         <div className="principle-grid">{principles.map((principle) => <article key={principle.number}><span>{principle.number}</span><h3>{principle.title}</h3><p>{principle.text}</p></article>)}</div>

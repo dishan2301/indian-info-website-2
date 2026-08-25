@@ -645,6 +645,10 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 
 .internal-proof { padding-inline: clamp(1.25rem, 7vw, 7.5rem); }
 .principles-section { background: var(--navy-950); color: white; padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 7vw, 7.5rem); }
+.about-direction-grid { background: var(--mist); display: grid; gap: 1px; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 clamp(1.25rem, 7vw, 7.5rem); }
+.about-direction-grid article { background: white; padding: clamp(2rem, 5vw, 4.5rem); }
+.about-direction-grid h2 { color: var(--navy-950); font-size: clamp(1.8rem, 3vw, 3rem); letter-spacing: -.05em; line-height: 1.08; margin: .8rem 0 1rem; max-width: 14ch; }
+.about-direction-grid article > p:last-child { color: var(--muted); line-height: 1.8; margin: 0; max-width: 58ch; }
 .principles-section .section-heading h2 { color: white; max-width: 15ch; }
 .principle-grid { border: 1px solid rgba(255, 255, 255, 0.13); display: grid; grid-template-columns: repeat(3, 1fr); }
 .principle-grid article { border-right: 1px solid rgba(255, 255, 255, 0.13); min-height: 310px; padding: 2rem; }
@@ -716,7 +720,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
   .mobile-menu > div { background: var(--navy-950); border: 1px solid rgba(19, 172, 244, 0.25); display: flex; flex-direction: column; min-width: 210px; padding: 0.7rem; position: absolute; right: 0; top: calc(100% + 0.8rem); }
   .mobile-menu a { border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; padding: 0.9rem; }
-  .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .brief-section, .pharma-system, .contact-section, .product-detail, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
+  .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .about-direction-grid, .brief-section, .pharma-system, .contact-section, .product-detail, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
   .workflow-copy { position: static; }
   .pillar-grid, .featured-products, .catalog-grid, .industry-grid, .footer-grid, .principle-grid { grid-template-columns: 1fr; }
   .pillar-card:last-child, .footer-grid > div:last-child { grid-column: auto; }
