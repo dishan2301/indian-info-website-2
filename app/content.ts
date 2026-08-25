@@ -6,6 +6,30 @@ export const companyFacts = [
   { value: '12+', label: 'Products across the portfolio' },
 ] as const;
 
+export const customerOrganizations = [
+  { name: 'Torrent Power', logo: '/clients/client-logo-1.png' },
+  { name: 'Chiripal Industries Limited', logo: '/clients/client-logo-2.png' },
+  { name: 'Aditya Birla Group', logo: '/clients/client-logo-3.png' },
+  { name: 'Zydus Lifesciences', logo: '/clients/client-logo-4.png' },
+  { name: 'AAD Mining Executors Group', logo: '/clients/client-logo-5.png' },
+  { name: 'Mylan', logo: '/clients/client-logo-6.png' },
+  { name: 'Astral Pipes', logo: '/clients/client-logo-7.png' },
+  { name: 'Lincoln Pharmaceuticals Limited', logo: '/clients/client-logo-8.png' },
+  { name: 'Windsor Machines Limited', logo: '/clients/client-logo-9.png' },
+  { name: 'Bayer CropScience', logo: '/clients/client-logo-10.png' },
+  { name: 'RSWM Limited', logo: '/clients/client-logo-11.png' },
+  { name: 'Torrent Gas', logo: '/clients/client-logo-12.png' },
+  { name: 'Smith Structures India Pvt. Ltd.', logo: '/clients/client-logo-13.png' },
+  { name: 'IIT Gandhinagar', logo: '/clients/client-logo-14.png' },
+  { name: 'Cadila Pharmaceuticals Limited', logo: '/clients/client-logo-15.png' },
+  { name: 'Varuna Group', logo: '/clients/client-logo-16.png' },
+  { name: 'Swiss', logo: '/clients/client-logo-17.png' },
+  { name: 'Sutlej Textiles and Industries Limited', logo: '/clients/client-logo-18.png' },
+  { name: 'Meghmani Group', logo: '/clients/client-logo-19.png' },
+  { name: 'Sudiva', logo: '/clients/client-logo-20.png' },
+  { name: 'Haitian International', logo: '/clients/client-logo-21.png' },
+] as const;
+
 export const platformPillars = [
   {
     number: '01',

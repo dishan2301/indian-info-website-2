@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CustomerCoverflow } from '@/components/ui/3-d-coverflow-carousel';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
-import { companyFacts, industries, platformPillars, products } from './content';
+import { companyFacts, customerOrganizations, industries, platformPillars, products } from './content';
 
 export const metadata: Metadata = {
   title: 'Workforce & Workplace Solutions | Indian Infotech',
@@ -110,6 +111,8 @@ export default function Home() {
           <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>
         ))}
       </section>
+
+      <CustomerCoverflow items={customerOrganizations} />
 
       <section className="section platform-section">
         <div className="section-heading split-heading">
