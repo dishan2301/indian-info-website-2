@@ -994,6 +994,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .architecture-panel li { border-top: 1px solid rgba(255,255,255,.18); color: #d5e4e7; padding: 1.25rem 0; }
 .architecture-panel li:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
 .route-facts { margin-bottom: clamp(4rem, 8vw, 7rem); }
+.company-legacy-image { border: 1px solid var(--line); margin-bottom: clamp(3rem, 6vw, 5rem); overflow: hidden; }
+.company-legacy-image img { display: block; height: clamp(260px, 42vw, 620px); object-fit: cover; width: 100%; }
 .route-link-list { display: grid; grid-template-columns: repeat(2, 1fr); }
 .route-link-list a { border-top: 1px solid rgba(255,255,255,.15); color: white; font-size: 1.15rem; padding: 1.1rem 0; }
 .route-link-list a:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.15); }
