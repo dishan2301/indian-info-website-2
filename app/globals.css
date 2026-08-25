@@ -1045,6 +1045,9 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .product-viewer-controls button { align-items: center; display: inline-flex; font-size: 1.1rem; height: 38px; justify-content: center; width: 42px; }
 .product-viewer-controls button:hover, .product-viewer-controls button:focus-visible { background: var(--navy-900); color: white; }
 .product-viewer-controls span { color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: .58rem; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
+.product-viewer-scrub { align-items: center; background: var(--mist); border: 1px solid var(--line); border-top: 0; color: var(--navy-900); display: flex; gap: .8rem; padding: .7rem .8rem; }
+.product-viewer-scrub span { font-family: var(--font-geist-mono), monospace; font-size: .58rem; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.product-viewer-scrub input { accent-color: var(--brand-accent); flex: 1; min-width: 0; }
 .product-viewer-thumbs { display: grid; gap: .5rem; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: .7rem; }
 .product-viewer-thumbs button { aspect-ratio: 1; overflow: hidden; padding: .2rem; }
 .product-viewer-thumbs button.active { border: 2px solid var(--teal-500, #0f8e86); }
