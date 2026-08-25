@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import type { CSSProperties } from 'react';
 import type { Product } from '@/app/content';
 
 type PosterMedia = { desktop: string; mobile: string; alt: string };
@@ -56,6 +57,29 @@ export function AutomaticCorePortfolio() {
       </article>)}
     </div>
     <div className="poster-auto-labels" aria-hidden="true">{corePortfolio.map((item, index) => <span data-active={index === motion.active} key={item.slug}>{item.title}</span>)}</div>
+  </section>;
+}
+
+const connectedCapabilities = [
+  { title: 'Workforce attendance', eyebrow: 'Workforce', description: 'Capture time, shifts, and exceptions through one accountable attendance workflow.', href: '/solutions/attendance-automation', desktop: '/campaign/solutions/attendance-desktop-v2.webp', mobile: '/campaign/solutions/attendance-mobile-v2.webp', alt: 'Employees using attendance technology at work' },
+  { title: 'Physical access', eyebrow: 'Security', description: 'Coordinate identities, permissions, readers, and secure entry points across the site.', href: '/solutions/physical-access-control', desktop: '/campaign/solutions/access-desktop-v2.webp', mobile: '/campaign/solutions/access-mobile-v2.webp', alt: 'Modern workplace physical access control' },
+  { title: 'Visitor operations', eyebrow: 'Workplace', description: 'Connect preregistration, host approval, check-in, and visit records without friction.', href: '/software/visitor-management', desktop: '/campaign/solutions/visitor-desktop-v2.webp', mobile: '/campaign/solutions/visitor-mobile-v2.webp', alt: 'Visitor check-in at a corporate reception' },
+  { title: 'HRMS & payroll', eyebrow: 'Software', description: 'Bring employee records, payroll, self-service, and lifecycle workflows into one platform.', href: '/hrms-payroll', desktop: '/campaign/core-systems/hrms-payroll-desktop-v2.webp', mobile: '/campaign/core-systems/hrms-payroll-mobile-v2.webp', alt: 'HR team reviewing workforce operations' },
+  { title: 'Entrance management', eyebrow: 'Infrastructure', description: 'Plan pedestrian gates, turnstiles, vehicle barriers, and access logic as one system.', href: '/solutions/entrance-management', desktop: '/campaign/solutions/entrance-desktop-v2.webp', mobile: '/campaign/solutions/entrance-mobile-v2.webp', alt: 'Connected entrance management at an industrial campus' },
+] as const;
+
+export function AutomaticConnectedCapabilities() {
+  const motion = useAutomaticIndex(connectedCapabilities.length, 3600);
+  const style = { '--slide-index': motion.active, '--desktop-slide-index': Math.min(motion.active, connectedCapabilities.length - 3) } as CSSProperties;
+  return <section className="poster-mosaic-section connected-capabilities" aria-labelledby="mosaic-heading" onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
+    <div className="poster-section-intro"><p>Connected capabilities</p><h2 id="mosaic-heading">One system starts with a real use case.</h2><span>Capabilities move together in one structured view. Each card opens the complete workflow.</span></div>
+    <div className="capability-viewport">
+      <div className="capability-track" style={style}>{connectedCapabilities.map((item, index) => <Link className="capability-card" data-current={index === motion.active} href={item.href} tabIndex={Math.abs(index - motion.active) <= 2 ? undefined : -1} key={item.title}>
+        <div className="capability-media"><Image className="art-desktop" src={item.desktop} alt={item.alt} fill sizes="(max-width: 760px) 86vw, 33vw" /><Image className="art-mobile" src={item.mobile} alt="" fill sizes="86vw" aria-hidden="true" /></div>
+        <div className="capability-copy"><span>{item.eyebrow}</span><h3>{item.title}</h3><p>{item.description}</p><b>Explore capability <i aria-hidden="true">↗</i></b></div>
+      </Link>)}</div>
+    </div>
+    <div className="capability-progress" aria-hidden="true">{connectedCapabilities.map((item, index) => <span data-active={index === motion.active} key={item.title} />)}</div>
   </section>;
 }
 

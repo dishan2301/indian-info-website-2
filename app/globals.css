@@ -1358,7 +1358,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .poster-technology-media { min-height: 620px; overflow: hidden; position: relative; }
 .poster-technology-media img { animation: media-calm-enter 850ms both cubic-bezier(.22,1,.36,1); object-fit: cover; }
 .poster-technology-copy { align-content: center; background: #f4f8fa; display: grid; padding: clamp(2rem, 5vw, 5rem); }
-.poster-technology-copy > p, .solution-poster-copy > p, .featured-product-copy > p, .industry-story article > p, .poster-mosaic span, .editorial-grid a > span {
+.poster-technology-copy > p, .solution-poster-copy > p, .featured-product-copy > p, .industry-story article > p, .capability-copy > span, .editorial-grid a > span {
   color: #0095e9;
   font-family: var(--font-geist-mono), monospace;
   font-size: .64rem;
@@ -1439,17 +1439,26 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .client-logo-section > .poster-link { margin-left: max(0px, calc((100% - 1320px) / 2)); }
 
 .poster-mosaic-section, .editorial-section { background: #f7fbfd; padding: clamp(7rem, 11vw, 11rem) clamp(1.25rem, 6vw, 6rem); }
-.poster-mosaic { display: grid; gap: 1rem; grid-auto-rows: 320px; grid-template-columns: repeat(2, 1fr); margin: 0 auto; max-width: 1320px; }
-.poster-mosaic a { color: white; overflow: hidden; padding: 2rem; position: relative; }
-.poster-mosaic a.mosaic-wide { grid-row: span 2; }
-.poster-mosaic img { object-fit: cover; transition: transform 300ms ease; z-index: 0; }
-.poster-mosaic a:hover img, .poster-mosaic a:focus-visible img { transform: scale(1.025); }
-.poster-mosaic i { background: linear-gradient(0deg, rgba(4,4,4,.75), rgba(4,4,4,.03) 72%); inset: 0; position: absolute; z-index: 1; }
-.poster-mosaic span, .poster-mosaic h3, .poster-mosaic b { bottom: 2rem; position: absolute; z-index: 2; }
-.poster-mosaic span { bottom: 5.3rem; color: #9ecf09; }
-.poster-mosaic h3 { font-size: clamp(1.7rem, 3vw, 3.2rem); letter-spacing: -.055em; line-height: 1; margin: 0; }
-.poster-mosaic b { right: 2rem; transition: transform 220ms ease; }
-.poster-mosaic a:hover b, .poster-mosaic a:focus-visible b { transform: translate(4px, -2px); }
+.connected-capabilities { overflow: hidden; }
+.connected-capabilities > .poster-section-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); }
+.connected-capabilities > .poster-section-intro > p { grid-column: 1 / -1; }
+.connected-capabilities > .poster-section-intro > span { align-self: end; color: var(--muted); line-height: 1.65; max-width: 48ch; }
+.capability-viewport { margin: 0 auto; max-width: 1320px; overflow: visible; }
+.capability-track { display: flex; gap: 1rem; transform: translate3d(calc(var(--desktop-slide-index) * (-33.333% - .34rem)), 0, 0); transition: transform 850ms cubic-bezier(.22,1,.36,1); }
+.capability-card { background: white; border: 1px solid var(--line); flex: 0 0 calc((100% - 2rem) / 3); min-width: 0; transition: border-color 250ms ease, transform 250ms ease; }
+.capability-card[data-current='true'] { border-color: #13acf4; transform: translateY(-6px); }
+.capability-media { aspect-ratio: 4 / 3; overflow: hidden; position: relative; }
+.capability-media img { object-fit: cover; transition: transform 500ms ease; }
+.capability-card:hover .capability-media img, .capability-card:focus-visible .capability-media img { transform: scale(1.025); }
+.capability-copy { min-height: 245px; padding: 1.5rem; }
+.capability-copy > span { color: #087fba; }
+.capability-copy h3 { color: var(--ink); font-size: clamp(1.45rem, 2vw, 2.15rem); letter-spacing: -.045em; line-height: 1.05; margin: .75rem 0; }
+.capability-copy p { color: var(--muted); font-size: .78rem; line-height: 1.6; margin: 0; }
+.capability-copy b { color: #087fba; display: block; font-size: .67rem; margin-top: 1.25rem; text-transform: uppercase; }
+.capability-copy i { font-style: normal; margin-left: .4rem; }
+.capability-progress { display: flex; gap: .45rem; margin: 1.6rem auto 0; max-width: 1320px; }
+.capability-progress span { background: #d8e0e5; height: 3px; transition: background 300ms ease, flex 300ms ease; width: 28px; }
+.capability-progress span[data-active='true'] { background: linear-gradient(90deg, #13acf4, #9ecf09); width: 72px; }
 
 .editorial-section { background: #fff; }
 .editorial-grid { display: grid; gap: 1.5rem; grid-template-columns: 1.35fr .65fr; margin: 0 auto; max-width: 1320px; }
@@ -1507,8 +1516,14 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .client-logo-grid { grid-template-columns: repeat(3, 1fr); }
   .client-logo-grid > div, .client-logo-grid > div:nth-child(4n), .client-logo-grid > div:nth-child(7n) { border-right: 1px solid var(--line); min-height: 90px; }
   .client-logo-grid > div:nth-child(3n) { border-right: 0; }
-  .poster-mosaic { display: block; }
-  .poster-mosaic a { aspect-ratio: 4 / 5; display: block; margin-bottom: 1rem; }
+  .connected-capabilities > .poster-section-intro { display: block; }
+  .connected-capabilities > .poster-section-intro > span { display: block; margin-top: 1rem; }
+  .capability-viewport { margin-right: -1.25rem; }
+  .capability-track { transform: translate3d(calc(var(--slide-index) * (-86% - 1rem)), 0, 0); }
+  .capability-card { flex-basis: 86%; }
+  .capability-card[data-current='true'] { transform: none; }
+  .capability-media { aspect-ratio: 4 / 5; }
+  .capability-copy { min-height: 230px; padding: 1.25rem; }
   .editorial-grid { display: block; }
   .editorial-grid a { margin-bottom: 3rem; }
   .final-poster-cta { min-height: 70svh; padding: 6rem 1.25rem; }
@@ -1517,7 +1532,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 
 @media (prefers-reduced-motion: reduce) {
   .poster-technology-media img, .featured-product-poster > img { animation: none; }
-  .solution-poster > img, .industry-story-visual img, .poster-mosaic img, .editorial-grid img { transition: none; transform: none; }
+  .solution-poster > img, .industry-story-visual img, .capability-media img, .editorial-grid img { transition: none; transform: none; }
 }
 
 /* Professional type scale, quicker motion, and editorial routes. */

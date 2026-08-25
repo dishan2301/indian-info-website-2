@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { HeroPosterCarousel } from '@/components/homepage/hero-poster-carousel';
-import { ClientGrid, CompanyStrength, EditorialSection, FinalPosterCTA, PosterMosaic, StoryRail } from '@/components/homepage/poster-sections';
-import { AutomaticCorePortfolio, AutomaticProductSpotlight, AutomaticSolutionPosters, AutomaticTechnologyShowcase, IndustryStoryScroller } from '@/components/homepage/poster-showcases';
+import { ClientGrid, CompanyStrength, EditorialSection, FinalPosterCTA, StoryRail } from '@/components/homepage/poster-sections';
+import { AutomaticConnectedCapabilities, AutomaticCorePortfolio, AutomaticProductSpotlight, AutomaticSolutionPosters, AutomaticTechnologyShowcase, IndustryStoryScroller } from '@/components/homepage/poster-showcases';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
 import { products } from './content';
@@ -25,7 +25,7 @@ export default function Home() {
     <AutomaticProductSpotlight products={products} />
     <IndustryStoryScroller />
     <ClientGrid />
-    <PosterMosaic />
+    <AutomaticConnectedCapabilities />
     <EditorialSection />
     <FinalPosterCTA />
     <SiteFooter />

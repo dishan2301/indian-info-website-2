@@ -18,16 +18,6 @@ export function CompanyStrength() { return <section className="company-strength"
 
 export function ClientGrid() { return <section className="client-logo-section" aria-labelledby="clients-heading"><div className="poster-section-intro"><p>Customer roster</p><h2 id="clients-heading">Trusted across industries.</h2><span>Organizations displayed on Indian Infotech’s published customer roster.</span></div><div className="client-logo-grid">{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</div><Link className="poster-link" href="/case-studies">Explore customer proof <span aria-hidden="true">↗</span></Link></section>; }
 
-const mosaic = [
-  { title: 'Workforce attendance', eyebrow: 'Workforce', href: '/solutions/attendance-automation', image: '/campaign/solutions/attendance-desktop-v2.webp', className: 'mosaic-wide' },
-  { title: 'Physical access', eyebrow: 'Security', href: '/solutions/physical-access-control', image: '/campaign/solutions/access-desktop-v2.webp', className: '' },
-  { title: 'Visitor operations', eyebrow: 'Workplace', href: '/software/visitor-management', image: '/campaign/solutions/visitor-desktop-v2.webp', className: '' },
-  { title: 'HRMS & payroll', eyebrow: 'Software', href: '/hrms-payroll', image: '/campaign/hero/security-desktop-v2.webp', className: '' },
-  { title: 'Entrance management', eyebrow: 'Infrastructure', href: '/solutions/entrance-management', image: '/campaign/solutions/entrance-desktop-v2.webp', className: 'mosaic-wide' },
-] as const;
-
-export function PosterMosaic() { return <section className="poster-mosaic-section" aria-labelledby="mosaic-heading"><div className="poster-section-intro"><p>Connected capabilities</p><h2 id="mosaic-heading">One system starts with a real use case.</h2></div><div className="poster-mosaic">{mosaic.map((item) => <Link className={item.className} href={item.href} key={item.title}><Image src={item.image} alt="" fill sizes="(max-width: 760px) 100vw, 50vw" /><i /><span>{item.eyebrow}</span><h3>{item.title}</h3><b aria-hidden="true">↗</b></Link>)}</div></section>; }
-
 const editorial = [
   { category: 'Cloud attendance · Blog', title: 'Why your company needs EasyTime cloud attendance management.', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' },
   { category: 'Production technology · Blog', title: 'How AI technology is changing production lines.', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' },
