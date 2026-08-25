@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
+import { ProductViewer } from '../../../components/catalog/product-viewer';
 import { products } from '../../content';
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
@@ -53,15 +54,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} />
 
       <section className="product-detail section">
-        <div className="product-gallery" aria-label={`${product.name} product gallery`}>
-          {images.length > 0 ? images.map((image, index) => (
-            <figure className={index === 0 ? 'product-gallery-main' : ''} key={image}>
-              <Image src={image} alt={`${product.name} product view ${index + 1}`} width={760} height={760} priority={index === 0} />
-            </figure>
-          )) : (
-            <div className="product-media-missing"><span>Media review</span><strong>Approved product photography pending.</strong><p>We will not substitute a generic or AI-generated device image.</p></div>
-          )}
-        </div>
+        <ProductViewer name={product.name} images={images} />
 
         <div className="product-detail-copy">
           <p className="section-kicker">Selection overview</p>

@@ -65,7 +65,7 @@ export function SiteHeader() {
         <Link href="/support">Support</Link>
         <details className="mega-menu company-menu">
           <summary>Company<span aria-hidden="true">⌄</span></summary>
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link></div><div><h2>Information</h2><Link href="/contact">Ahmedabad office<span aria-hidden="true">→</span></Link><Link href="/privacy">Privacy policy<span aria-hidden="true">→</span></Link><Link href="/terms">Terms and conditions<span aria-hidden="true">→</span></Link></div></div></div>
+          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and information</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/contact">Ahmedabad office<span aria-hidden="true">→</span></Link><Link href="/privacy">Privacy policy<span aria-hidden="true">→</span></Link><Link href="/terms">Terms and conditions<span aria-hidden="true">→</span></Link></div></div></div>
         </details>
       </nav>
 
@@ -73,7 +73,7 @@ export function SiteHeader() {
 
       <details className="mobile-menu">
         <summary aria-label="Open navigation">Menu</summary>
-        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/technologies">Technologies</Link><Link href="/engineering">Engineering</Link><Link href="/resources">Resources</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/company">Company</Link><Link href="/contact">Book a demo</Link></div>
+        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/technologies">Technologies</Link><Link href="/engineering">Engineering</Link><Link href="/resources">Resources</Link><Link href="/case-studies">Customer proof</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/company">Company</Link><Link href="/contact">Book a demo</Link></div>
       </details>
     </header>
   );
