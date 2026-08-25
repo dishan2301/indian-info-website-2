@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { EnquiryBrief } from '@/components/contact/enquiry-brief';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
@@ -17,7 +18,11 @@ const contactOptions = [
   { label: 'WhatsApp', value: '+91 77780 66770', href: 'https://wa.me/917778066770' },
 ] as const;
 
-export default function ContactPage() {
+type ContactPageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const query = await searchParams;
+  const context = [query.product && `Product: ${query.product}`, query.software && `Software: ${query.software}`, query.resource && `Requested material: ${query.resource}`, query.products && `Products to compare: ${query.products}`].filter(Boolean).join(' · ');
   const localBusinessSchema = {
     '@context': 'https://schema.org', '@type': 'LocalBusiness', name: 'Indian Infotech',
     url: 'https://indianinfotech.org/contact', telephone: '+91-76000-66770', email: 'sales@indianinfotech.org',
@@ -41,6 +46,8 @@ export default function ContactPage() {
           <a className="button button-primary" href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6">Open in Google Maps <span aria-hidden="true">↗</span></a>
         </div>
       </section>
+
+      <section className="section enquiry-section"><EnquiryBrief initialContext={context} /></section>
 
       <section className="brief-section">
         <div><p className="section-kicker">A useful first message</p><h2>Include these details for a faster response.</h2></div>

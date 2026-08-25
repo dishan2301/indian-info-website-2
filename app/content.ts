@@ -113,6 +113,12 @@ export type Product = {
   description: string;
   image?: string;
   images?: readonly string[];
+  authentication: 'Face' | 'Fingerprint' | 'Biometric' | 'Connected access system' | 'Connected controller' | 'Screening';
+  application: 'Personnel access' | 'Attendance & access' | 'Vehicle entry' | 'Pedestrian entry' | 'Security screening';
+  connectivity: 'Confirm configuration';
+  deployment: 'Site assessment recommended';
+  softwareCompatibility: 'Verify during solution design';
+  status: 'Published portfolio';
 };
 
 export const products: readonly Product[] = [
@@ -123,6 +129,7 @@ export const products: readonly Product[] = [
     description: 'Fingerprint access control terminal for controlled workplace entry.',
     image: '/products/i-18.jpg',
     images: ['/products/i-18.jpg'],
+    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'i-202',
@@ -131,6 +138,7 @@ export const products: readonly Product[] = [
     description: 'Access control device for workforce and workplace security requirements.',
     image: '/products/i-202/main.jpg',
     images: ['/products/i-202/main.jpg'],
+    authentication: 'Biometric', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'is-500',
@@ -139,6 +147,7 @@ export const products: readonly Product[] = [
     description: 'Access control terminal for busy workplace environments.',
     image: '/products/is-500/main.png',
     images: ['/products/is-500/main.png', '/products/is-500/alternate.png'],
+    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'ai-60',
@@ -147,6 +156,7 @@ export const products: readonly Product[] = [
     description: 'Face-recognition terminal for attendance and access-control applications.',
     image: '/products/ai-60/angle.png',
     images: ['/products/ai-60/angle.png', '/products/ai-60/detail.png', '/products/ai-60/front.png'],
+    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'mini-ai-10',
@@ -155,6 +165,7 @@ export const products: readonly Product[] = [
     description: 'Compact face-recognition attendance device.',
     image: '/products/mini-ai-10/front.png',
     images: ['/products/mini-ai-10/front.png', '/products/mini-ai-10/angle.png'],
+    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'mini-ai-30',
@@ -163,12 +174,14 @@ export const products: readonly Product[] = [
     description: 'Face-recognition attendance device for modern teams.',
     image: '/products/mini-ai-30/front.png',
     images: ['/products/mini-ai-30/front.png', '/products/mini-ai-30/angle.png', '/products/mini-ai-30/detail.png'],
+    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'cmp-200',
     name: 'CMP 200',
     family: 'Entrance management',
     description: 'Automatic boom barrier for managed vehicle entry.',
+    authentication: 'Connected controller', application: 'Vehicle entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'fbl-200',
@@ -177,6 +190,7 @@ export const products: readonly Product[] = [
     description: 'Single-lane flap barrier for managed pedestrian entry.',
     image: '/products/fbl-200/main.png',
     images: ['/products/fbl-200/main.png'],
+    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'fbl-300',
@@ -185,6 +199,7 @@ export const products: readonly Product[] = [
     description: 'Flap barrier for controlled, high-traffic entry points.',
     image: '/products/fbl-300/main.png',
     images: ['/products/fbl-300/main.png'],
+    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'fht2300-series',
@@ -193,12 +208,14 @@ export const products: readonly Product[] = [
     description: 'Full-height turnstile series for restricted areas.',
     image: '/products/fht2300/model-l.png',
     images: ['/products/fht2300/model-l.png', '/products/fht2300/front.png', '/products/fht2300/detail.png'],
+    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'ts200-series',
     name: 'TS200 Series',
     family: 'Entrance management',
     description: 'Tripod turnstile series for orderly pedestrian access.',
+    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
     slug: 'd4330-metal-detector',
@@ -207,6 +224,7 @@ export const products: readonly Product[] = [
     description: 'Walk-through metal detection for security screening points.',
     image: '/products/d4330/front.png',
     images: ['/products/d4330/front.png', '/products/d4330/angle.png', '/products/d4330/detail.png', '/products/d4330/application.png'],
+    authentication: 'Screening', application: 'Security screening', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
 ] as const;
 

@@ -69,10 +69,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <p>{product.description} Indian Infotech can help assess the entry point, user flow, operating environment, and software requirements before final selection.</p>
           <dl className="product-summary-list">
             <div><dt>Product family</dt><dd>{product.family}</dd></div>
-            <div><dt>Authentication</dt><dd>Confirm for selected configuration</dd></div>
-            <div><dt>Connectivity</dt><dd>Confirm for selected configuration</dd></div>
-            <div><dt>Compatible software</dt><dd>Verify during solution design</dd></div>
-            <div><dt>Deployment environment</dt><dd>Site assessment recommended</dd></div>
+            <div><dt>Authentication</dt><dd>{product.authentication}</dd></div>
+            <div><dt>Primary application</dt><dd>{product.application}</dd></div>
+            <div><dt>Connectivity</dt><dd>{product.connectivity}</dd></div>
+            <div><dt>Compatible software</dt><dd>{product.softwareCompatibility}</dd></div>
+            <div><dt>Deployment environment</dt><dd>{product.deployment}</dd></div>
+            <div><dt>Catalogue status</dt><dd>{product.status}</dd></div>
           </dl>
           <div className="hero-actions product-actions">
             <Link className="button button-primary" href={`/contact?product=${product.slug}`}>Request a quote <span aria-hidden="true">↗</span></Link>
@@ -90,6 +92,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <li><span>04</span><strong>How should exceptions work?</strong><p>Define fallback, approvals, offline operation, and support.</p></li>
           <li><span>05</span><strong>What rollout is practical?</strong><p>Single location, phased sites, or multi-location operation.</p></li>
         </ol>
+      </section>
+
+      <section className="section product-resources-section">
+        <div className="section-heading split-heading"><div><p className="section-kicker">Downloads and support</p><h2>Request the approved material for this configuration.</h2></div><p>No generic or outdated file is offered as a current specification. Documents are released after the exact model and configuration are confirmed.</p></div>
+        <div className="product-resource-grid">
+          <article><span>01 / DATASHEET</span><h3>Technical datasheet</h3><p>Current approved file required for the selected model or variant.</p><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request datasheet ↗</Link></article>
+          <article><span>02 / MANUAL</span><h3>Installation or user manual</h3><p>Availability and version must be confirmed against the supplied equipment.</p><Link href={`/contact?product=${product.slug}&resource=manual`}>Request manual ↗</Link></article>
+          <article><span>03 / SOFTWARE</span><h3>Compatibility guidance</h3><p>Confirm supported software, integration method, and deployment requirements.</p><Link href={`/contact?product=${product.slug}&resource=compatibility`}>Verify compatibility ↗</Link></article>
+          <article><span>04 / SUPPORT</span><h3>Technical assistance</h3><p>Contact the support team with the model, site, and issue details.</p><a href={`mailto:support@indianinfotech.org?subject=${encodeURIComponent(`${product.name} support request`)}`}>Contact support ↗</a></article>
+        </div>
       </section>
 
       {related.length > 0 && (
