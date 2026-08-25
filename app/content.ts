@@ -128,7 +128,7 @@ export const products: readonly Product[] = [
     family: 'Access control',
     description: 'Fingerprint access control device for streamlined, controlled workplace entry.',
     image: '/products/i-18.jpg',
-    images: ['/products/i-18.jpg'],
+    images: ['/products/i-18.jpg', '/products/i-18-source.jpg'],
     authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -137,7 +137,7 @@ export const products: readonly Product[] = [
     family: 'Access control',
     description: 'Biometric access control and time-attendance device designed for secure entry and workforce records.',
     image: '/products/i-202/main.jpg',
-    images: ['/products/i-202/main.jpg'],
+    images: ['/products/i-202/main.jpg', '/products/i-202/source.jpg'],
     authentication: 'Biometric', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -146,7 +146,7 @@ export const products: readonly Product[] = [
     family: 'Access control',
     description: 'Fingerprint access control and time-attendance system designed for robust, high-efficiency workplace operation.',
     image: '/products/is-500/main.png',
-    images: ['/products/is-500/main.png', '/products/is-500/alternate.png'],
+    images: ['/products/is-500/main.png', '/products/is-500/alternate.png', '/products/is-500/source.png', '/products/is-500/source-angle.png'],
     authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -155,7 +155,7 @@ export const products: readonly Product[] = [
     family: 'Attendance',
     description: 'Facial-recognition technology integrating access control and time-attendance applications.',
     image: '/products/ai-60/angle.png',
-    images: ['/products/ai-60/angle.png', '/products/ai-60/detail.png', '/products/ai-60/front.png'],
+    images: ['/products/ai-60/angle.png', '/products/ai-60/detail.png', '/products/ai-60/front.png', '/products/ai-60/source-angle.png', '/products/ai-60/source-detail.png', '/products/ai-60/source-front.png'],
     authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -164,7 +164,7 @@ export const products: readonly Product[] = [
     family: 'Attendance',
     description: 'Compact visible-light facial-recognition device for secure attendance and access workflows.',
     image: '/products/mini-ai-10/front.png',
-    images: ['/products/mini-ai-10/front.png', '/products/mini-ai-10/angle.png'],
+    images: ['/products/mini-ai-10/front.png', '/products/mini-ai-10/angle.png', '/products/mini-ai-10/source-front.png', '/products/mini-ai-10/source-angle.png'],
     authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -173,7 +173,7 @@ export const products: readonly Product[] = [
     family: 'Attendance',
     description: 'Face-recognition access and attendance device for efficient workplace authentication.',
     image: '/products/mini-ai-30/front.png',
-    images: ['/products/mini-ai-30/front.png', '/products/mini-ai-30/angle.png', '/products/mini-ai-30/detail.png'],
+    images: ['/products/mini-ai-30/front.png', '/products/mini-ai-30/angle.png', '/products/mini-ai-30/detail.png', '/products/mini-ai-30/source-wide.png', '/products/mini-ai-30/source-angle.png', '/products/mini-ai-30/source-detail.png'],
     authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -189,7 +189,7 @@ export const products: readonly Product[] = [
     family: 'Entrance management',
     description: 'Single-lane flap barrier turnstile for seamless, secure pedestrian entry.',
     image: '/products/fbl-200/main.png',
-    images: ['/products/fbl-200/main.png'],
+    images: ['/products/fbl-200/main.png', '/products/fbl-200/source.png'],
     authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -198,7 +198,7 @@ export const products: readonly Product[] = [
     family: 'Entrance management',
     description: 'Single-lane flap barrier turnstile for efficient crowd and pedestrian management.',
     image: '/products/fbl-300/main.png',
-    images: ['/products/fbl-300/main.png'],
+    images: ['/products/fbl-300/main.png', '/products/fbl-300/source.png'],
     authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -207,7 +207,7 @@ export const products: readonly Product[] = [
     family: 'Entrance management',
     description: 'Full-height turnstile series engineered for controlled entry at sensitive access points.',
     image: '/products/fht2300/model-l.png',
-    images: ['/products/fht2300/model-l.png', '/products/fht2300/front.png', '/products/fht2300/detail.png'],
+    images: ['/products/fht2300/model-l.png', '/products/fht2300/front.png', '/products/fht2300/detail.png', '/products/fht2300/source-l.png', '/products/fht2300/source.png', '/products/fht2300/source-angle.png'],
     authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
   {
@@ -223,7 +223,7 @@ export const products: readonly Product[] = [
     family: 'Entrance management',
     description: 'High-performance walk-through metal detector for security screening points.',
     image: '/products/d4330/front.png',
-    images: ['/products/d4330/front.png', '/products/d4330/angle.png', '/products/d4330/detail.png', '/products/d4330/application.png'],
+    images: ['/products/d4330/front.png', '/products/d4330/angle.png', '/products/d4330/detail.png', '/products/d4330/application.png', '/products/d4330/source-front.png', '/products/d4330/source-angle.png'],
     authentication: 'Screening', application: 'Security screening', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
 ] as const;
