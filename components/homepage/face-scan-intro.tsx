@@ -21,6 +21,20 @@ export function FaceScanIntro() {
     const header = document.querySelector<HTMLElement>('.site-header');
     header?.removeAttribute('data-intro-finished');
 
+    if (window.location.hash === '#home') {
+      document.documentElement.dataset.faceIntro = 'complete';
+      header?.setAttribute('data-intro-finished', 'true');
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+      const frame = requestAnimationFrame(() => {
+        setDismissed(true);
+        window.scrollTo(0, 0);
+      });
+      return () => {
+        cancelAnimationFrame(frame);
+        delete document.documentElement.dataset.faceIntro;
+      };
+    }
+
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion) {
       document.documentElement.dataset.faceIntro = 'complete';
@@ -78,10 +92,11 @@ export function FaceScanIntro() {
     const draw = (time: number) => {
       context.clearRect(0, 0, width, height);
       const spread = Math.min(1, Math.max(0, (progress - .16) / .76));
-      const centerX = width * .64;
-      const centerY = height * .47;
-      const cameraX = width * .25;
-      const cameraY = height * .35;
+      const mobile = width < 760 && height > width;
+      const centerX = width * (mobile ? .82 : .64);
+      const centerY = height * (mobile ? .5 : .47);
+      const cameraX = width * (mobile ? .13 : .25);
+      const cameraY = height * (mobile ? .44 : .35);
 
       context.lineCap = 'round';
       for (let index = 0; index < 11; index += 1) {

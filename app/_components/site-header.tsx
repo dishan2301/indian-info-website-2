@@ -93,12 +93,12 @@ export function SiteHeader() {
 
   return (
     <header className="site-header" data-scrolled={scrolled}>
-      <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
-      <Link className="brand-mark" href="/" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
+      <Link className="brand" href="/#home" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
+      <Link className="brand-mark" href="/#home" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
         <Dock className="site-dock-brand" magnification={62} distance={105}>
-          <DockItem><DockLabel>Home</DockLabel><DockIcon><Link href="/" aria-label="Home"><House /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Home</DockLabel><DockIcon><Link href="/#home" aria-label="Home"><House /></Link></DockIcon></DockItem>
           <DockItem><DockLabel>Products</DockLabel><DockIcon><Link href="/products" aria-label="Products"><Boxes /></Link></DockIcon></DockItem>
           <DockItem><DockLabel>Software</DockLabel><DockIcon><Link href="/software" aria-label="Software"><Layers3 /></Link></DockIcon></DockItem>
           <DockItem><DockLabel>HRMS &amp; Payroll</DockLabel><DockIcon><Link href="/hrms-payroll" aria-label="HRMS and Payroll"><Building2 /></Link></DockIcon></DockItem>

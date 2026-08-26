@@ -24,7 +24,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const DOCK_HEIGHT = 92;
-const DOCK_ITEM_WIDTH = 46;
+const DOCK_ITEM_WIDTH = 42;
 const DEFAULT_MAGNIFICATION = 58;
 const DEFAULT_DISTANCE = 120;
 const DEFAULT_PANEL_HEIGHT = 54;

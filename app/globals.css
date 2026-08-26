@@ -23,8 +23,12 @@ html[data-face-intro='active'] .face-scan-intro + .site-header { opacity: 0; poi
 @keyframes face-grid-drift { from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; } to { background-position: 0 72px, 72px 0, 190px 170px, -230px 210px, 270px -240px; } }
 @media (max-width: 760px) {
   .face-scan-intro { height: 230svh; }
-  .face-scan-art { object-position: 58% center; }
-  .face-scan-rays { transform: scale(1.35); transform-origin: 62% 48%; }
+  .face-scan-stage { transform-origin: 50% 50%; }
+  .face-scan-art { object-fit: contain; transform: scale(1.35); }
+  .face-scan-rays { display: none; }
+  .face-scan-vignette { background: radial-gradient(circle at 82% 50%, transparent 12%, rgba(0,8,31,.14) 58%, rgba(0,5,22,.62) 100%); }
+  .face-scan-transition { transform-origin: 82% 50%; }
+  .face-scan-scroll { bottom: max(20px, env(safe-area-inset-bottom)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .face-scan-intro { height: 100svh; }
@@ -2051,3 +2055,77 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 
 /* Keep intro-to-navigation reveal after all header cascade layers. */
 .face-scan-intro + .site-header { transition: background .3s ease, box-shadow .3s ease, height .3s ease, opacity .45s ease, transform .45s ease; }
+
+/* Responsive guardrails: keep media, navigation, and long content inside the viewport. */
+html, body { max-width: 100%; overflow-x: clip; }
+img, video { max-width: 100%; }
+main, section, header, footer, nav, article, aside, form, fieldset { min-width: 0; }
+h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
+
+@media (max-width: 1180px) {
+  .site-header,
+  .site-header[data-scrolled='true'] {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .site-dock-nav,
+  .site-header[data-scrolled='false'] .site-dock-nav,
+  .site-header[data-scrolled='true'] .site-dock-nav {
+    display: none;
+  }
+  .mobile-menu { display: block; grid-column: 2; justify-self: end; position: relative; }
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .site-header[data-scrolled='true'] {
+    gap: .75rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+  }
+  .site-header .brand,
+  .site-header[data-scrolled='true'] .brand {
+    opacity: 1;
+    transform: none;
+    width: clamp(132px, 44vw, 164px);
+  }
+  .site-header .brand-mark { display: none; }
+  .header-actions, .desktop-nav, .site-dock-nav { display: none; }
+  .mobile-menu { color: var(--ink); grid-column: 2; }
+  .mobile-menu summary {
+    align-items: center;
+    background: rgba(255,255,255,.78);
+    display: flex;
+    min-height: 42px;
+    padding: .65rem .85rem;
+  }
+  .mobile-menu > div {
+    border-radius: 12px;
+    box-shadow: 0 18px 50px rgba(3,35,52,.3);
+    color: white;
+    max-height: calc(100dvh - 92px);
+    min-width: min(280px, calc(100vw - 2rem));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    right: 0;
+    z-index: 20;
+  }
+  .mobile-menu a { color: white; min-height: 44px; }
+  .home-news-header-row { gap: 1rem; }
+  .home-news-controls { flex-shrink: 0; }
+  .comparison-table-wrap { overscroll-behavior-inline: contain; }
+}
+
+@media (max-width: 420px) {
+  .home-client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-industry-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-news-controls button { height: 38px; width: 38px; }
+  .home-quote-grid blockquote { grid-template-columns: 1fr; }
+  .home-quote-grid blockquote > div { align-items: flex-start; flex-direction: row; grid-row: auto; margin: 0 0 .75rem; }
+  .home-quote-grid blockquote > div b { font-size: 3rem; }
+  .customer-roster-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .face-scan-art { object-fit: cover; object-position: center; transform: none; }
+  .face-scan-vignette { background: radial-gradient(circle at 65% 48%, transparent 20%, rgba(0,8,31,.2) 63%, rgba(0,5,22,.72) 100%); }
+}
