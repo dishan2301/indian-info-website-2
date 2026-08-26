@@ -56,6 +56,7 @@ export function SiteFooter() {
             Opp. Doordarshan Kendra, Thaltej<br />
             Ahmedabad 380054, Gujarat, India
           </address>
+          <iframe className="footer-map" title="Indian Infotech office in Ahmedabad" loading="lazy" src="https://www.google.com/maps?q=429%20Gala%20Empire%20Thaltej%20Ahmedabad%20380054&output=embed" />
         </div>
       </div>
 

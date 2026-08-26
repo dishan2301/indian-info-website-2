@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { Boxes, Building2, Factory, House, Info, Layers3, Search, UsersRound } from 'lucide-react';
+import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 
 const productGroups = [
   { title: 'Biometric & attendance', links: [{ label: 'Face recognition devices', href: '/products#attendance' }, { label: 'Fingerprint devices', href: '/products#access-control' }, { label: 'All attendance devices', href: '/products#attendance' }] },
@@ -86,7 +88,18 @@ export function SiteHeader() {
     <header className="site-header" data-scrolled={scrolled}>
       <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
 
-      <nav className="desktop-nav" aria-label="Main navigation">
+      <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
+        <Dock className="site-dock-brand" magnification={62} distance={105}>
+          <DockItem><DockLabel>Home</DockLabel><DockIcon><Link href="/" aria-label="Home"><House /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Products</DockLabel><DockIcon><Link href="/products" aria-label="Products"><Boxes /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Software</DockLabel><DockIcon><Link href="/software" aria-label="Software"><Layers3 /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>HRMS &amp; Payroll</DockLabel><DockIcon><Link href="/hrms-payroll" aria-label="HRMS and Payroll"><Building2 /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Solutions</DockLabel><DockIcon><Link href="/solutions" aria-label="Solutions"><UsersRound /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Industries</DockLabel><DockIcon><Link href="/industries" aria-label="Industries"><Factory /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>About us</DockLabel><DockIcon><Link href="/about-us" aria-label="About us"><Info /></Link></DockIcon></DockItem>
+          <DockItem><DockLabel>Search</DockLabel><DockIcon><Link href="/search" aria-label="Search"><Search /></Link></DockIcon></DockItem>
+        </Dock>
+        <div className="legacy-nav-menus">
         <MegaGroup title="Products" groups={productGroups} />
         <MegaGroup title="Software" groups={softwareGroups} />
         <MegaGroup title="Solutions" groups={solutionGroups} />
@@ -96,6 +109,7 @@ export function SiteHeader() {
         <InteractiveMenu title="Company" className="company-menu">
           <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about-us">About us<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and updates</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
         </InteractiveMenu>
+        </div>
       </nav>
 
       <div className="header-actions"><Link className="header-search" href="/search" aria-label="Search Indian Infotech website">Search</Link><Link className="header-compare" href="/compare">Compare</Link><Link className="header-cta" href="/contact">Book a demo</Link></div>
