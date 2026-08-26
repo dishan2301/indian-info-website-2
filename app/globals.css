@@ -1988,3 +1988,21 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 
 @media (max-width: 1180px) { .site-dock-nav { display: none; } .site-dock-nav + .header-actions .header-search, .site-dock-nav + .header-actions .header-compare { display: none; } }
 @media (max-width: 760px) { .footer-map { height: 150px; } }
+
+/* First view keeps full mega navigation. Scroll view switches to glass dock. */
+.site-header[data-scrolled='false'] .site-dock { display: none; }
+.site-header[data-scrolled='false'] .site-dock-nav { align-items: stretch; display: flex; gap: 0; justify-content: center; }
+.site-header[data-scrolled='false'] .legacy-nav-menus { align-items: stretch; display: flex; gap: .15rem; }
+.site-header[data-scrolled='true'] .legacy-nav-menus { display: none; }
+.site-header[data-scrolled='true'] .site-dock-nav { display: block; }
+.site-header[data-scrolled='false'] .header-search,
+.site-header[data-scrolled='false'] .header-compare { display: inline-block; }
+.site-header[data-scrolled='true'] .header-search,
+.site-header[data-scrolled='true'] .header-compare { display: none; }
+.site-header[data-scrolled='false'] .desktop-nav > .legacy-nav-menus > .mega-menu > summary { padding-inline: .8rem; }
+.footer-map { height: 240px; min-height: 220px; }
+
+@media (max-width: 1180px) {
+  .site-header[data-scrolled='false'] .site-dock-nav { display: none; }
+}
+@media (max-width: 760px) { .footer-map { height: 230px; } }
