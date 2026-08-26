@@ -94,7 +94,7 @@ export function SiteHeader() {
           <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
         </InteractiveMenu>
         <InteractiveMenu title="Company" className="company-menu">
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about">About the company<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and updates</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
+          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about-us">About us<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and updates</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
         </InteractiveMenu>
       </nav>
 
@@ -102,7 +102,7 @@ export function SiteHeader() {
 
       <details className="mobile-menu">
         <summary aria-label="Open navigation">Menu</summary>
-        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/company">Company</Link><Link href="/insights">News & insights</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
+        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/about-us">About us</Link><Link href="/insights">News & insights</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
       </details>
     </header>
   );

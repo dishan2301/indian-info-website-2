@@ -41,7 +41,7 @@ export function SiteFooter() {
           <Link href="/trust">Trust center</Link>
           <Link href="/academy">Academy</Link>
           <Link href="/status">System status</Link>
-          <Link href="/about">Company</Link>
+          <Link href="/about-us">About us</Link>
         </div>
         <div>
           <h3>Contact</h3>
