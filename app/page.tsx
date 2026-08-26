@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { HeroPosterCarousel } from '@/components/homepage/hero-poster-carousel';
+import { FaceScanIntro } from '@/components/homepage/face-scan-intro';
 import { CompanyOverview, IndustriesAndClients, QuotesAndNews } from '@/components/homepage/home-curated-sections';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return <main>
+    <FaceScanIntro />
     <SiteHeader />
     <HeroPosterCarousel />
     <CompanyOverview />

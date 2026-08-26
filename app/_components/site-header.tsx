@@ -78,15 +78,23 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 36);
+    const update = () => {
+      const intro = document.querySelector<HTMLElement>('.face-scan-intro');
+      setScrolled(window.scrollY > (intro?.offsetHeight ?? 0) + 36);
+    };
     update();
     window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return (
     <header className="site-header" data-scrolled={scrolled}>
       <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
+      <Link className="brand-mark" href="/" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
         <Dock className="site-dock-brand" magnification={62} distance={105}>

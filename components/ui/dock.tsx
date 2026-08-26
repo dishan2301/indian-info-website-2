@@ -24,6 +24,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const DOCK_HEIGHT = 92;
+const DOCK_ITEM_WIDTH = 46;
 const DEFAULT_MAGNIFICATION = 58;
 const DEFAULT_DISTANCE = 120;
 const DEFAULT_PANEL_HEIGHT = 54;
@@ -61,7 +62,7 @@ function DockItem({ children, className }: { children: ReactNode; className?: st
   const { distance, magnification, mouseX, spring } = useDock();
   const isHovered = useMotionValue(0);
   const mouseDistance = useTransform(mouseX, (value) => { const rect = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 }; return value - rect.x - rect.width / 2; });
-  const width = useSpring(useTransform(mouseDistance, [-distance, 0, distance], [40, magnification, 40]), spring);
+  const width = useSpring(useTransform(mouseDistance, [-distance, 0, distance], [DOCK_ITEM_WIDTH, magnification, DOCK_ITEM_WIDTH]), spring);
 
   return <motion.div ref={ref} style={{ width }} onHoverStart={() => isHovered.set(1)} onHoverEnd={() => isHovered.set(0)} onFocus={() => isHovered.set(1)} onBlur={() => isHovered.set(0)} className={cn('site-dock-item', className)} tabIndex={0}>
     {Children.map(children, (child) => isValidElement<InjectedProps>(child) ? cloneElement(child, { width, isHovered }) : child)}
@@ -71,11 +72,11 @@ function DockItem({ children, className }: { children: ReactNode; className?: st
 function DockLabel({ children, className, isHovered }: { children: ReactNode; className?: string; isHovered?: MotionValue<number> }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => { if (!isHovered) return; return isHovered.on('change', (latest) => setVisible(latest === 1)); }, [isHovered]);
-  return <AnimatePresence>{visible && <motion.span initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: -8 }} exit={{ opacity: 0, y: 3 }} className={cn('site-dock-label', className)} role="tooltip">{children}</motion.span>}</AnimatePresence>;
+  return <AnimatePresence>{visible && <motion.span initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }} className="site-dock-label-anchor"><span className={cn('site-dock-label', className)} role="tooltip">{children}</span></motion.span>}</AnimatePresence>;
 }
 
 function DockIcon({ children, className, width }: { children: ReactNode; className?: string; width?: MotionValue<number> }) {
-  const fallbackWidth = useMotionValue(40);
+  const fallbackWidth = useMotionValue(DOCK_ITEM_WIDTH);
   const iconWidth = useTransform(width ?? fallbackWidth, (value) => value / 2.2);
   return <motion.span style={{ width: iconWidth }} className={cn('site-dock-icon', className)}>{children}</motion.span>;
 }

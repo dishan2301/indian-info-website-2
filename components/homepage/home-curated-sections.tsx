@@ -44,11 +44,55 @@ function AnimatedCount({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function CompanyOverview() {
+  const destinationLogo = useRef<HTMLImageElement>(null);
+  const travellingLogo = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const sourceLogo = document.querySelector<HTMLElement>('.site-header .brand');
+    const destination = destinationLogo.current;
+    const traveller = travellingLogo.current;
+    if (!sourceLogo || !destination || !traveller || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const source = sourceLogo.getBoundingClientRect();
+      const target = destination.getBoundingClientRect();
+      const targetTop = target.top + window.scrollY;
+      const start = Math.max(56, targetTop - window.innerHeight * .94);
+      const end = Math.max(start + 1, targetTop - window.innerHeight * .1);
+      const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
+      const eased = progress * progress * (3 - 2 * progress);
+      const moving = progress > 0 && progress < 1;
+
+      sourceLogo.toggleAttribute('data-logo-travelling', progress > 0);
+      destination.style.opacity = progress < 1 ? '0' : '';
+      traveller.style.opacity = moving ? '1' : '0';
+      traveller.style.left = `${source.left + (target.left - source.left) * eased}px`;
+      traveller.style.top = `${source.top + (target.top - source.top) * eased}px`;
+      traveller.style.width = `${source.width + (target.width - source.width) * eased}px`;
+      traveller.style.height = `${source.height + (target.height - source.height) * eased}px`;
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      sourceLogo.removeAttribute('data-logo-travelling');
+      destination.style.opacity = '';
+    };
+  }, []);
+
   return <>
+    <Image ref={travellingLogo} className="company-travelling-logo" src="/indian-infotech-logo.png" alt="" width={520} height={188} aria-hidden="true" />
     <section className="home-company-page" aria-labelledby="why-indian-infotech">
       <div className="home-company-waves" aria-hidden="true"><i /><i /><i /></div>
       <Reveal className="home-company-identity">
-        <Image className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
+        <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
         <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
       </Reveal>
       <div className="home-company-copy">
