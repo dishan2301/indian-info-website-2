@@ -34,12 +34,12 @@ export default function AboutPage() {
       </section>
 
       <section className="about-direction-grid" aria-label="Indian Infotech mission and vision">
-        <article>
+        <article id="mission">
           <p className="section-kicker">Our mission</p>
           <h2>Operational efficiency with resilient security.</h2>
           <p>We&apos;re committed to crafting intuitive solutions that empower businesses to enhance operational efficiencies, fortify their security infrastructures, and embrace digital transformation with resilience and agility.</p>
         </article>
-        <article>
+        <article id="vision">
           <p className="section-kicker">Our vision</p>
           <h2>Scalable systems for a global clientele.</h2>
           <p>We aim to set new industry benchmarks, delivering bespoke, scalable solutions that resonate with the evolving needs of a global clientele, driving progress through customer-centric innovation.</p>

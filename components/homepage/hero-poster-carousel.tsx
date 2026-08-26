@@ -137,7 +137,7 @@ export function HeroPosterCarousel() {
       onBlurCapture={() => setPaused(false)}
     >
       {heroSlides.map((slide, index) => (
-        <article className={`poster-hero-slide poster-hero-${slide.textTone} poster-overlay-${slide.overlay}`} data-active={index === active} aria-hidden={index !== active} key={slide.id}>
+        <article className={`poster-hero-slide poster-hero-${slide.textTone} poster-overlay-${slide.overlay}`} data-active={index === active} data-slide={slide.id} aria-hidden={index !== active} key={slide.id}>
           <div className="poster-hero-media poster-hero-media-desktop">
             <Image src={slide.desktopMedia} alt={index === active ? slide.alt : ''} fill priority={index === 0} sizes="100vw" />
           </div>
