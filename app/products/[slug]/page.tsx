@@ -6,6 +6,7 @@ import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { ProductViewer } from '../../../components/catalog/product-viewer';
+import { StructuredData } from '../../../components/structured-data';
 import { products } from '../../content';
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
@@ -50,7 +51,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <main>
       <SiteHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <StructuredData data={productSchema} />
       <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} />
 
       <section className="product-detail section">

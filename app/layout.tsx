@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { StructuredData } from '@/components/structured-data';
 import './globals.css';
 
 const geistSans = Geist({
@@ -67,7 +68,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <a className="skip-link" href="#main-content">Skip to main content</a>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <StructuredData data={organizationSchema} />
         <div id="main-content">{children}</div>
       </body>
     </html>

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { EnquiryBrief } from '@/components/contact/enquiry-brief';
+import { StructuredData } from '@/components/structured-data';
+import { sanitizeQueryValue } from '@/lib/security.mjs';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
@@ -22,16 +24,15 @@ type ContactPageProps = { searchParams: Promise<Record<string, string | string[]
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const query = await searchParams;
-  const value = (entry: string | string[] | undefined) => Array.isArray(entry) ? entry.join(', ') : entry;
   const context = [
-    value(query.product) && `Product: ${value(query.product)}`,
-    value(query.products) && `Products to compare: ${value(query.products)}`,
-    value(query.software) && `Software: ${value(query.software)}`,
-    value(query.hrms) && `HRMS module: ${value(query.hrms)}`,
-    value(query.solution) && `Solution: ${value(query.solution)}`,
-    value(query.industry) && `Industry: ${value(query.industry)}`,
-    value(query.topic) && `Topic: ${value(query.topic)}`,
-    value(query.resource) && `Requested material: ${value(query.resource)}`,
+    sanitizeQueryValue(query.product) && `Product: ${sanitizeQueryValue(query.product)}`,
+    sanitizeQueryValue(query.products) && `Products to compare: ${sanitizeQueryValue(query.products)}`,
+    sanitizeQueryValue(query.software) && `Software: ${sanitizeQueryValue(query.software)}`,
+    sanitizeQueryValue(query.hrms) && `HRMS module: ${sanitizeQueryValue(query.hrms)}`,
+    sanitizeQueryValue(query.solution) && `Solution: ${sanitizeQueryValue(query.solution)}`,
+    sanitizeQueryValue(query.industry) && `Industry: ${sanitizeQueryValue(query.industry)}`,
+    sanitizeQueryValue(query.topic) && `Topic: ${sanitizeQueryValue(query.topic)}`,
+    sanitizeQueryValue(query.resource) && `Requested material: ${sanitizeQueryValue(query.resource)}`,
   ].filter(Boolean).join(' · ');
   const localBusinessSchema = {
     '@context': 'https://schema.org', '@type': 'LocalBusiness', name: 'Indian Infotech',
@@ -43,17 +44,17 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   return (
     <main>
       <SiteHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <StructuredData data={localBusinessSchema} />
       <PageHero eyebrow="Contact" title="Bring us the operating problem—not just a product name." description="Share your site, workforce, entry-point, attendance, or HRMS requirements. We’ll help shape a clearer starting scope." marker="II / AHMEDABAD" />
 
       <section className="contact-section">
         <div className="contact-options">
-          {contactOptions.map((option) => <a href={option.href} key={option.label}><span>{option.label}</span><strong>{option.value}</strong><b aria-hidden="true">↗</b></a>)}
+          {contactOptions.map((option) => <a href={option.href} rel={option.href.startsWith('https:') ? 'noreferrer' : undefined} key={option.label}><span>{option.label}</span><strong>{option.value}</strong><b aria-hidden="true">↗</b></a>)}
         </div>
         <div className="contact-office">
           <p className="section-kicker light">Head office</p><h2>Ahmedabad, Gujarat</h2>
           <address>429, 425, 403 Gala Empire<br />Opp. Doordarshan Kendra, Thaltej<br />Ahmedabad 380054<br />Gujarat, India</address>
-          <a className="button button-primary" href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6">Open in Google Maps <span aria-hidden="true">↗</span></a>
+          <a className="button button-primary" href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6" rel="noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

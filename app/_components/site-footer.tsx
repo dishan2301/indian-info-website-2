@@ -47,7 +47,7 @@ export function SiteFooter() {
           <h3>Contact</h3>
           <a href="mailto:sales@indianinfotech.org">sales@indianinfotech.org</a>
           <a href="tel:+917600066770">+91 76000 66770</a>
-          <a href="https://wa.me/917778066770">WhatsApp</a>
+          <a href="https://wa.me/917778066770" rel="noreferrer">WhatsApp</a>
         </div>
         <div>
           <h3>Office</h3>
@@ -56,7 +56,7 @@ export function SiteFooter() {
             Opp. Doordarshan Kendra, Thaltej<br />
             Ahmedabad 380054, Gujarat, India
           </address>
-          <iframe className="footer-map" title="Indian Infotech office in Ahmedabad" loading="lazy" src="https://www.google.com/maps?q=429%20Gala%20Empire%20Thaltej%20Ahmedabad%20380054&output=embed" />
+          <a href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6" rel="noreferrer">Open in Google Maps ↗</a>
         </div>
       </div>
 

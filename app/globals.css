@@ -1965,10 +1965,6 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .site-header .brand { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0; }
 .footer-brand img { background: transparent; border-radius: 0; padding: 0; }
 .site-footer { background: #08090a; isolation: isolate; }
-.site-footer::before,
-.site-footer::after { border: 0; border-radius: 0; height: 100%; opacity: .3; width: 100%; z-index: -1; }
-.site-footer::before { background: url('https://indianinfotech.org/wp-content/themes/indian-infotech/assets/images/footer_background_left.png') no-repeat left top / auto 100%; bottom: auto; left: 0; right: auto; top: 0; }
-.site-footer::after { background: url('https://indianinfotech.org/wp-content/themes/indian-infotech/assets/images/footer_background_right.png') no-repeat right bottom / auto 100%; bottom: 0; left: auto; right: 0; }
 .footer-grid, .footer-lead, .footer-bottom { backdrop-filter: blur(1px); }
 
 .poster-eyebrow,
@@ -2004,7 +2000,6 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .about-why-section li span { color: #518000; font-family: var(--font-geist-mono),monospace; font-size: .7rem; }
 
 @media (max-width: 760px) {
-  .site-footer::before, .site-footer::after { background-size: auto 58%; opacity: .22; }
   .about-secure-section, .about-why-section { grid-template-columns: 1fr; }
   .poster-eyebrow, .home-company-copy > .home-company-intro > p, .home-section-heading > p, .home-client-heading > p, .home-news-heading > p { font-size: .78rem; }
 }
@@ -2027,10 +2022,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .site-dock-label { background: #073e61; border: 1px solid rgba(158,207,9,.7); border-radius: 8px; box-shadow: 0 8px 20px rgba(3,35,52,.24); color: white; display: block; font-size: .68rem; font-weight: 750; letter-spacing: .02em; padding: .38rem .56rem; }
 .site-dock-label::after { border-bottom: 5px solid #073e61; border-left: 5px solid transparent; border-right: 5px solid transparent; content: ''; left: 50%; position: absolute; top: -5px; transform: translateX(-50%); }
 .site-dock-nav + .header-actions .header-search, .site-dock-nav + .header-actions .header-compare { display: none; }
-.footer-map { border: 1px solid rgba(255,255,255,.16); filter: grayscale(.25) saturate(.8); height: 110px; margin-top: .8rem; opacity: .86; width: 100%; }
 
 @media (max-width: 1180px) { .site-dock-nav { display: none; } .site-dock-nav + .header-actions .header-search, .site-dock-nav + .header-actions .header-compare { display: none; } }
-@media (max-width: 760px) { .footer-map { height: 150px; } }
 
 /* First view keeps full mega navigation. Scroll view switches to glass dock. */
 .site-header[data-scrolled='false'] .site-dock { display: none; }
@@ -2044,12 +2037,10 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .site-header[data-scrolled='true'] .header-search,
 .site-header[data-scrolled='true'] .header-compare { display: none; }
 .site-header[data-scrolled='false'] .desktop-nav > .legacy-nav-menus > .mega-menu > summary { padding-inline: .8rem; }
-.footer-map { height: 240px; min-height: 220px; }
 
 @media (max-width: 1180px) {
   .site-header[data-scrolled='false'] .site-dock-nav { display: none; }
 }
-@media (max-width: 760px) { .footer-map { height: 230px; } }
 
 @keyframes dock-drop-in { from { opacity: 0; transform: translateY(-14px) scale(.96); } to { opacity: 1; transform: translateY(8px) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .site-header[data-scrolled='true'] .site-dock { animation: none; } }

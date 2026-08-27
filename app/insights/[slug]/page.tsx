@@ -25,7 +25,7 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     <article className="insight-article">
       <div className="insight-article-image"><Image src={article.image} alt="" fill priority sizes="(max-width: 900px) 100vw, 72vw" /></div>
       <div className="insight-article-body">{article.sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p>{section.body}</p></section>)}
-        <aside><p>Original publication</p><span>This article is an edited overview. Read the original Indian Infotech publication for the complete source material.</span><a href={article.sourceUrl} target="_blank" rel="noreferrer">Read original article ↗</a></aside>
+        <aside><p>Original publication</p><span>This article is an edited overview. Read the original Indian Infotech publication for the complete source material.</span><a href={article.sourceUrl} target="_blank" rel="noopener noreferrer">Read original article ↗</a></aside>
         <Link className="text-link" href="/insights">← All news & insights</Link>
       </div>
     </article>
