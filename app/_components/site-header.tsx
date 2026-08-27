@@ -33,6 +33,26 @@ const industryLinks = [
   { label: 'Logistics & warehousing', href: '/industries/logistics' },
 ] as const;
 
+const mobilePrimaryLinks = [
+  { label: 'Products', href: '/products', icon: Boxes },
+  { label: 'Software', href: '/software', icon: Layers3 },
+  { label: 'Solutions', href: '/solutions', icon: UsersRound },
+  { label: 'Industries', href: '/industries', icon: Factory },
+] as const;
+
+const mobileUtilityLinks = [
+  { label: 'Compare', href: '/compare' },
+  { label: 'Search', href: '/search' },
+  { label: 'Support', href: '/support' },
+  { label: 'Book a demo', href: '/contact' },
+] as const;
+
+const mobileMenuGroups = [
+  { title: 'Products', links: [{ label: 'All products', href: '/products' }, { label: 'Attendance devices', href: '/products#attendance' }, { label: 'Access control', href: '/products#access-control' }, { label: 'Entrance management', href: '/products#entrance-management' }] },
+  { title: 'Software', links: [{ label: 'Easytime Online', href: '/software/easytime-online' }, { label: 'HRMS & Payroll', href: '/software/hrms-payroll' }, { label: 'Visitor management', href: '/software/visitor-management' }, { label: 'Canteen management', href: '/software/canteen-management' }] },
+  { title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Case studies', href: '/case-studies' }, { label: 'Resources', href: '/resources' }, { label: 'Insights', href: '/insights' }] },
+] as const;
+
 function InteractiveMenu({ title, className = '', children }: { title: string; className?: string; children: ReactNode }) {
   const menu = useRef<HTMLDetailsElement>(null);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -76,6 +96,7 @@ function MegaGroup({ title, groups }: { title: string; groups: readonly { title:
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const mobileMenu = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
     const update = () => {
@@ -122,9 +143,43 @@ export function SiteHeader() {
 
       <div className="header-actions"><Link className="header-search" href="/search" aria-label="Search Indian Infotech website">Search</Link><Link className="header-compare" href="/compare">Compare</Link><Link className="header-cta" href="/contact">Book a demo</Link></div>
 
-      <details className="mobile-menu">
+      <details
+        className="mobile-menu"
+        ref={mobileMenu}
+        onClick={(event) => { if ((event.target as Element).closest('a')) mobileMenu.current?.removeAttribute('open'); }}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape' && mobileMenu.current?.open) {
+            mobileMenu.current.open = false;
+            mobileMenu.current.querySelector('summary')?.focus();
+          }
+        }}
+      >
         <summary aria-label="Open navigation">Menu</summary>
-        <div><Link href="/products">Products</Link><Link href="/compare">Compare products</Link><Link href="/software">Software</Link><Link href="/solutions">Solutions</Link><Link href="/industries">Industries</Link><Link href="/about-us">About us</Link><Link href="/insights">News & insights</Link><Link href="/support">Support</Link><Link href="/search">Search</Link><Link href="/contact">Book a demo</Link></div>
+        <div className="mobile-menu-panel">
+          <div className="mobile-menu-shell">
+            <div className="mobile-menu-topline">
+              <span>Indian Infotech</span>
+              <b>Access, workforce, software</b>
+            </div>
+            <div className="mobile-menu-primary">
+              {mobilePrimaryLinks.map((link) => {
+                const Icon = link.icon;
+                return <Link href={link.href} key={link.label}><Icon aria-hidden="true" /><span>{link.label}</span></Link>;
+              })}
+            </div>
+            <div className="mobile-menu-groups">
+              {mobileMenuGroups.map((group) => (
+                <div key={group.title}>
+                  <h2>{group.title}</h2>
+                  {group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}
+                </div>
+              ))}
+            </div>
+            <div className="mobile-menu-utility">
+              {mobileUtilityLinks.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}
+            </div>
+          </div>
+        </div>
       </details>
     </header>
   );
