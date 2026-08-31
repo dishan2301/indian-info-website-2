@@ -1039,6 +1039,152 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .product-summary-list dd { text-align: left; }
 }
 
+/* Keep interior route content centered on narrow screens. */
+@media (max-width: 760px) {
+  .page-hero,
+  .page-hero-copy,
+  .section-heading,
+  .split-heading,
+  .route-detail-intro,
+  .route-feature-band,
+  .decision-band,
+  .selection-note,
+  .resource-request,
+  .architecture-panel,
+  .compact-final-cta,
+  .footer-lead,
+  .showcase-heading,
+  .home-company-copy,
+  .poster-hero-copy,
+  .core-system-copy,
+  .product-poster-copy,
+  .featured-product-copy,
+  .technology-intro,
+  .engineering-copy,
+  .homepage-resource-lead,
+  .support-human-section > div:last-child,
+  .contact-office,
+  .brief-section,
+  .about-story,
+  .pharma-intro,
+  .local-section,
+  .workflow-copy,
+  .product-detail-copy,
+  .software-detail-copy,
+  .capability-copy,
+  .status-panel,
+  .builder-form,
+  .legal-copy {
+    text-align: center;
+  }
+
+  .section-kicker,
+  .section-heading .section-kicker,
+  .page-hero-copy .section-kicker,
+  .route-feature-band .section-kicker,
+  .decision-band .section-kicker,
+  .selection-note .section-kicker,
+  .resource-request .section-kicker,
+  .architecture-panel .section-kicker,
+  .showcase-heading .section-kicker {
+    justify-content: center;
+  }
+
+  .page-hero h1,
+  .page-hero-copy > p:last-child,
+  .section-heading h2,
+  .split-heading > p,
+  .route-detail-intro h2,
+  .route-detail-intro > div:last-child > p,
+  .route-feature-band h2,
+  .route-feature-band p:last-child,
+  .decision-band h2,
+  .selection-note h2,
+  .resource-request h2,
+  .showcase-heading h2,
+  .showcase-heading > p:not(.section-kicker),
+  .home-company-copy,
+  .poster-hero-copy,
+  .core-system-copy,
+  .product-poster-copy,
+  .featured-product-copy,
+  .technology-intro h2,
+  .workflow-copy h2,
+  .local-section h2,
+  .brief-section h2,
+  .about-story h2,
+  .pharma-intro h2,
+  .capability-copy h2,
+  .status-panel h2,
+  .legal-copy h1,
+  .legal-copy h2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button,
+  .outline-link,
+  .text-link,
+  .route-card > .text-link,
+  .enquiry-submit,
+  .builder-actions {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .route-card,
+  .route-related-grid > div,
+  .software-card-copy,
+  .product-feature > div:last-child,
+  .pillar-card,
+  .industry-card,
+  .principle-grid article,
+  .customer-roster-grid > div {
+    align-items: center;
+    text-align: center;
+  }
+
+  .route-card p,
+  .route-card h2,
+  .route-card-eyebrow,
+  .route-card-index,
+  .route-related-grid ul,
+  .route-related-grid a,
+  .software-card-copy p,
+  .product-feature p,
+  .pillar-card p,
+  .industry-card p,
+  .principle-grid article p,
+  .customer-roster-grid small,
+  .customer-roster-grid span {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .route-link-list a,
+  .route-link-list div,
+  .route-workflow li,
+  .workflow-list li,
+  .product-discovery li,
+  .software-workflow li,
+  .architecture-panel li {
+    text-align: center;
+  }
+
+  .route-link-list span {
+    float: none;
+    display: block;
+    margin-top: .35rem;
+  }
+
+  .comparison-table,
+  .comparison-table * {
+    text-align: left;
+  }
+}
+
 /* Expanded homepage */
 .hero-product-stage { height: 370px; overflow: hidden; position: relative; }
 .hero-product-stage::before { background: linear-gradient(90deg, transparent, rgba(115,234,220,.22), transparent); bottom: 38px; content: ''; height: 1px; left: 8%; position: absolute; right: 8%; }
