@@ -9,7 +9,7 @@ const companyFacts = [{ value: 14, suffix: '+', label: 'Years of experience' }, 
 const industries = [{ name: 'Pharma', slug: 'pharma' }, { name: 'Chemical', slug: 'chemical' }, { name: 'Textiles', slug: 'textiles' }, { name: 'Manufacturing', slug: 'manufacturing' }, { name: 'Service provider', slug: 'service-provider' }, { name: 'Engineering', slug: 'engineering' }, { name: 'Food industries', slug: 'food-industries' }] as const;
 const industryCollage = [{ name: 'Pharma', image: '/campaign/industries/pharma-desktop-v2.webp' }, { name: 'Manufacturing', image: '/campaign/industries/manufacturing-desktop-v2.webp' }, { name: 'Corporate services', image: '/campaign/industries/corporate-desktop-v2.webp' }, { name: 'Hospitality', image: '/campaign/industries/hospitality-desktop-v2.webp' }] as const;
 const clientQuotes = [{ quote: 'Smooth HRMS implementation with reliable attendance and prompt support.', source: 'HR Team', mark: 'HR' }, { quote: 'Strong technical expertise with professional implementation.', source: 'Management', mark: 'MG' }, { quote: 'User-friendly system with accurate attendance tracking. Support response is quick and dependable.', source: 'IT Team, HCP Pvt. Ltd.', mark: 'HCP' }, { quote: 'Seamless hardware and software integration delivered on time. Highly satisfied with the service quality.', source: 'Indbest Healthcare Pvt. Ltd.', mark: 'IH' }] as const;
-const news = [{ category: 'Cloud attendance · Blog', title: 'Why your company needs EasyTime cloud attendance management', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'How AI technology is changing production lines', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
+const news = [{ category: 'Customer support · Blog', title: "How we're using RAG to help customers solve problems faster", href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'How AI is making our daily work easier', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.png' }, { category: 'Cloud attendance · Blog', title: 'Why your company needs EasyTime cloud attendance management', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'How AI technology is changing production lines', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
 
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -94,6 +94,7 @@ export function CompanyOverview() {
       <Reveal className="home-company-identity">
         <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
         <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
+        <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyFacts.map((fact) => <div key={fact.label}><AnimatedCount value={fact.value} suffix={fact.suffix} /><span>{fact.label}</span></div>)}</div>
       </Reveal>
       <div className="home-company-copy">
         <Reveal className="home-company-intro"><p>Why Indian Infotech</p><h2 id="why-indian-infotech">Practical technology. Dependable delivery.</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
@@ -103,7 +104,6 @@ export function CompanyOverview() {
         </Reveal>
       </div>
     </section>
-    <section className="home-fact-strip" aria-label="Indian Infotech company facts">{companyFacts.map((fact) => <div key={fact.label}><AnimatedCount value={fact.value} suffix={fact.suffix} /><span>{fact.label}</span></div>)}</section>
   </>;
 }
 
@@ -111,7 +111,7 @@ export function IndustriesAndClients() {
   return <section className="home-industry-client-page" aria-labelledby="home-industries-heading">
     <div className="home-industry-layout"><div><Reveal className="home-section-heading"><p>Industries</p><h2 id="home-industries-heading">Industry understanding, built into every solution.</h2><span>Seven sectors from Indian Infotech’s established portfolio.</span></Reveal><div className="home-industry-list">{industries.map((industry) => <div key={industry.slug}><Image src={`/industries/icons/${industry.slug}.png`} alt="" width={56} height={51} /><strong>{industry.name}</strong></div>)}</div></div>
       <Reveal className="home-industry-collage">{industryCollage.map((item) => <figure key={item.name}><Image src={item.image} alt={`${item.name} workplace`} fill sizes="(max-width: 760px) 50vw, 20vw" /><figcaption>{item.name}</figcaption></figure>)}</Reveal></div>
-    <Reveal className="home-client-heading"><p>Our clients</p><h2>Organizations that choose Indian Infotech.</h2></Reveal>
+    <Reveal className="home-client-heading"><p>2,000+ clients served</p><h2>Trusted by organizations across industries and 7+ countries.</h2><span>The logos below are a selection from our 2,000+ client base.</span></Reveal>
     <div className="home-client-grid">{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</div>
   </section>;
 }

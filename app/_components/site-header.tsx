@@ -100,8 +100,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     const update = () => {
-      const intro = document.querySelector<HTMLElement>('.face-scan-intro');
-      setScrolled(window.scrollY > (intro?.offsetHeight ?? 0) + 36);
+      setScrolled(window.scrollY > 36);
     };
     update();
     window.addEventListener('scroll', update, { passive: true });
