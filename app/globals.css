@@ -2124,6 +2124,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 @media (max-width: 760px) {
   .about-secure-section, .about-why-section { grid-template-columns: 1fr; }
   .poster-eyebrow, .home-company-copy > .home-company-intro > p, .home-section-heading > p, .home-client-heading > p, .home-news-heading > p { font-size: .78rem; }
+  .home-company-page { scroll-margin-top: 72px; }
+  .home-company-page > .home-company-copy { padding-top: 3rem; }
 }
 @media (prefers-reduced-motion: reduce) { .home-company-page::before, .home-company-identity[data-visible='true'] .home-fact-strip div, .home-reveal[data-visible='true'] > p:first-child { animation: none; } .home-fact-strip div { opacity: 1; transform: none; transition: none; } }
 
