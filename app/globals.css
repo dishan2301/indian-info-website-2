@@ -1333,6 +1333,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .comparison-picker label small { color: var(--muted); font-size: .62rem; }
 .comparison-table-wrap { overflow-x: auto; }
 .comparison-table-wrap:focus-visible { outline: 2px solid var(--teal-500, #0f8e86); outline-offset: 3px; }
+.comparison-mobile-cards { display: none; }
 .comparison-table { background: white; border-collapse: collapse; min-width: 900px; table-layout: fixed; width: 100%; }
 .comparison-table caption { color: var(--muted); font-size: .7rem; line-height: 1.6; padding: 1rem; text-align: left; }
 .comparison-table th, .comparison-table td { border: 1px solid var(--line); padding: 1rem; text-align: left; vertical-align: top; }
@@ -1364,6 +1365,23 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 @media (max-width: 520px) {
   .header-actions .header-cta { display: none; }
   .comparison-picker > div, .search-results { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .comparison-table-wrap { display: none; }
+  .comparison-mobile-cards { display: grid; gap: 1rem; }
+  .comparison-mobile-card { background: white; border: 1px solid var(--line); padding: 1rem; }
+  .comparison-mobile-card > img,
+  .comparison-mobile-pending { background: var(--mist); display: block; height: 180px; margin: 0 auto 1rem; object-fit: contain; width: 100%; }
+  .comparison-mobile-pending { align-items: center; color: var(--muted); display: flex; font-size: .65rem; justify-content: center; text-transform: uppercase; }
+  .comparison-mobile-card-heading { text-align: center; }
+  .comparison-mobile-card-heading > span { color: var(--teal-500, #0f8e86); font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+  .comparison-mobile-card-heading h2 { color: var(--navy-950); font-size: 1.6rem; margin: .45rem 0 .65rem; }
+  .comparison-mobile-card-heading a { color: var(--teal-500, #0f8e86); font-size: .68rem; font-weight: 700; text-transform: uppercase; }
+  .comparison-mobile-card dl { margin: 1.25rem 0 0; }
+  .comparison-mobile-card dl div { border-top: 1px solid var(--line); padding: .75rem 0; }
+  .comparison-mobile-card dt { color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; }
+  .comparison-mobile-card dd { color: var(--navy-900); font-size: .84rem; line-height: 1.55; margin: .3rem 0 0; }
 }
 
 /* Enterprise route system */

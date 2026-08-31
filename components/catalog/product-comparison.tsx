@@ -33,8 +33,9 @@ export function ProductComparison({ products }: { products: readonly ComparisonP
       </fieldset>
 
       {selected.length >= 2 ? (
-        <div className="comparison-table-wrap" tabIndex={0} aria-label="Scrollable product comparison table">
-          <table className="comparison-table">
+        <>
+          <div className="comparison-table-wrap" tabIndex={0} aria-label="Scrollable product comparison table">
+            <table className="comparison-table">
             <caption>Selected product comparison. Technical configuration must be confirmed with Indian Infotech.</caption>
             <thead><tr><th scope="col">Compare</th>{selected.map((product) => <th scope="col" key={product.slug}><div className="compare-product-head">{product.image ? <Image src={product.image} alt={`${product.name} product`} width={180} height={180} /> : <span>Media pending</span>}<strong>{product.name}</strong><Link href={`/products/${product.slug}`}>Product details ↗</Link></div></th>)}</tr></thead>
             <tbody>
@@ -46,8 +47,16 @@ export function ProductComparison({ products }: { products: readonly ComparisonP
               <tr><th scope="row">Software compatibility</th>{selected.map((product) => <td key={product.slug}>Verify during solution design</td>)}</tr>
               <tr><th scope="row">Deployment fit</th>{selected.map((product) => <td key={product.slug}>Site assessment recommended</td>)}</tr>
             </tbody>
-          </table>
-        </div>
+            </table>
+          </div>
+          <div className="comparison-mobile-cards" aria-label="Product comparison cards">
+            {selected.map((product) => <article className="comparison-mobile-card" key={product.slug}>
+              {product.image ? <Image src={product.image} alt={`${product.name} product`} width={180} height={180} /> : <span className="comparison-mobile-pending">Media pending</span>}
+              <div className="comparison-mobile-card-heading"><span>{product.family}</span><h2>{product.name}</h2><Link href={`/products/${product.slug}`}>Product details ↗</Link></div>
+              <dl><div><dt>Overview</dt><dd>{product.description}</dd></div><div><dt>Authentication</dt><dd>Confirm selected configuration</dd></div><div><dt>Connectivity</dt><dd>Confirm selected configuration</dd></div><div><dt>Software</dt><dd>Verify during solution design</dd></div><div><dt>Deployment</dt><dd>Site assessment recommended</dd></div></dl>
+            </article>)}
+          </div>
+        </>
       ) : <div className="comparison-empty"><h2>Select at least two products.</h2><p>The comparison table will appear here.</p></div>}
 
       <div className="comparison-actions"><p>Need a specification-level comparison? Share the site, authentication, capacity, connectivity, and software requirements.</p><Link className="button button-primary" href={`/contact?products=${selectedSlugs.join(',')}`}>Request comparison help <span aria-hidden="true">↗</span></Link></div>
