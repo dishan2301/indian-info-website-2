@@ -31,7 +31,12 @@ export async function POST(request: Request) {
   try {
     const delivery = await fetch(`https://formsubmit.co/ajax/${CONTACT_DESTINATION}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: "https://indian-info-website-2.vercel.app",
+        Referer: CONTACT_PAGE,
+      },
       body: JSON.stringify({
         name: result.data.name,
         email: result.data.email,
@@ -45,7 +50,10 @@ export async function POST(request: Request) {
         _url: CONTACT_PAGE,
       }),
     })
-    const deliveryResult = await delivery.json() as { success?: string | boolean }
+    const deliveryResult = await delivery.json() as { success?: string | boolean; message?: string }
+    if (/needs activation/iu.test(deliveryResult.message || "")) {
+      return NextResponse.json({ ok: false, error: "Email delivery is awaiting owner activation. Please try again shortly." }, { status: 503 })
+    }
     if (!delivery.ok || deliveryResult.success === false || deliveryResult.success === "false") throw new Error("Delivery rejected")
   } catch {
     return NextResponse.json({ ok: false, error: "Email delivery is temporarily unavailable. Please try again." }, { status: 502 })
