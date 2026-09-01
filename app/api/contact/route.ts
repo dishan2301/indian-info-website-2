@@ -50,8 +50,14 @@ export async function POST(request: Request) {
         _url: CONTACT_PAGE,
       }),
     })
-    const deliveryResult = await delivery.json() as { success?: string | boolean; message?: string }
-    if (/needs activation/iu.test(deliveryResult.message || "")) {
+    const responseText = await delivery.text()
+    let deliveryResult: { success?: string | boolean; message?: string } = {}
+    try {
+      deliveryResult = JSON.parse(responseText) as typeof deliveryResult
+    } catch {
+      deliveryResult.message = responseText
+    }
+    if (/needs activation/iu.test(deliveryResult.message || responseText)) {
       return NextResponse.json({ ok: false, error: "Email delivery is awaiting owner activation. Please try again shortly." }, { status: 503 })
     }
     if (!delivery.ok || deliveryResult.success === false || deliveryResult.success === "false") throw new Error("Delivery rejected")
