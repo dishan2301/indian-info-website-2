@@ -8,6 +8,7 @@ import { ContactCard } from "@/components/ui/contact-card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
+import { validateContactSubmission } from "@/lib/security.mjs"
 
 type EnquiryBriefProps = { initialContext?: string }
 
@@ -22,13 +23,35 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
     setMessage("")
 
     try {
-      const response = await fetch("/api/contact", {
+      const values = Object.fromEntries(new FormData(form))
+      const validation = validateContactSubmission(values)
+      if (validation.spam) return
+      if (!validation.valid) throw new Error(validation.errors[0])
+
+      const response = await fetch("https://formsubmit.co/ajax/chaudharydishan90@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: validation.data.name,
+          email: validation.data.email,
+          phone: validation.data.phone,
+          organization: validation.data.organization || "Not provided",
+          message: validation.data.message,
+          context: validation.data.context || "Direct contact page enquiry",
+          _subject: `Indian Infotech website enquiry from ${validation.data.name}`,
+          _template: "table",
+          _captcha: "false",
+          _url: "https://indian-info-website-2.vercel.app/contact",
+        }),
       })
-      const result = await response.json() as { ok?: boolean; error?: string }
-      if (!response.ok || !result.ok) throw new Error(result.error || "Unable to send your message.")
+      const result = await response.json() as { success?: string | boolean; message?: string }
+      if (/needs activation/iu.test(result.message || "")) {
+        form.reset()
+        setStatus("sent")
+        setMessage("We sent a one-time activation email to the site owner. Click the newest activation link, then submit again.")
+        return
+      }
+      if (!response.ok || result.success === false || result.success === "false") throw new Error("Email delivery is temporarily unavailable. Please try again.")
       form.reset()
       setStatus("sent")
       setMessage("Thank you. Your message has been sent to our team.")

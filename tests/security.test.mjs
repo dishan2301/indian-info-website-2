@@ -49,12 +49,11 @@ test('frontend source has no silent network-transmission sink', () => {
   const files = ['app', 'components', 'lib'].flatMap(filesWithin).filter((path) => ['.js', '.mjs', '.ts', '.tsx'].includes(extname(path)));
   const forbidden = [/\bfetch\s*\(/u, /\bXMLHttpRequest\b/u, /\bsendBeacon\b/u, /\bWebSocket\s*\(/u, /<form[^>]+action=/u];
   for (const path of files) {
-    if (path === 'app/api/contact/route.ts' || path === 'components/contact/enquiry-brief.tsx') continue;
+    if (path === 'components/contact/enquiry-brief.tsx') continue;
     const source = readFileSync(path, 'utf8');
     for (const pattern of forbidden) assert.doesNotMatch(source, pattern, `${path} introduced browser data egress`);
   }
-  assert.match(readFileSync('components/contact/enquiry-brief.tsx', 'utf8'), /fetch\("\/api\/contact"/u);
-  assert.match(readFileSync('app/api/contact/route.ts', 'utf8'), /https:\/\/formsubmit\.co\/ajax\//u);
+  assert.match(readFileSync('components/contact/enquiry-brief.tsx', 'utf8'), /fetch\("https:\/\/formsubmit\.co\/ajax\/chaudharydishan90@gmail\.com"/u);
 });
 
 test('public build contains no source maps, environment files, or workspace paths', { skip: !existsSync('dist/client') }, () => {
