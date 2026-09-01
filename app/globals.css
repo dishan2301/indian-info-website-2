@@ -2566,6 +2566,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .footer-v2-icon { align-items: center; background: rgba(255, 255, 255, .75); border: 1px solid rgba(19, 172, 244, .25); border-radius: 50%; box-shadow: 0 2px 8px rgba(7, 62, 97, .06); color: #0877a8; display: inline-flex; height: 44px; justify-content: center; transition: border-color .2s, color .2s, transform .2s; width: 44px; }
 .footer-v2-icon:hover { border-color: #9ecf09; color: #518000; transform: translateY(-2px); }
 .footer-v2-nav, .footer-v2-contact { grid-column: span 2; }
+.footer-v2-contact { border-left: 1px solid rgba(19, 172, 244, .18); padding-left: clamp(1.25rem, 2vw, 2rem); }
 .footer-v2-nav h3, .footer-v2-contact h3 { color: #073e61; font-family: var(--font-geist-mono), monospace; font-size: .75rem; font-weight: 800; letter-spacing: .14em; margin: 0 0 1.25rem; text-transform: uppercase; }
 .footer-v2-nav ul, .footer-v2-contact ul { display: grid; gap: .75rem; list-style: none; margin: 0; padding: 0; }
 .footer-v2-nav a, .footer-v2-contact a { color: #53675d; font-size: .875rem; line-height: 1.5; text-decoration: none; transition: color .2s; }
@@ -2581,6 +2582,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 @media (max-width: 1000px) {
   .footer-v2-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-v2-brand, .footer-v2-contact { grid-column: 1 / -1; padding-right: 0; }
+  .footer-v2-contact { border-left: 0; padding-left: 0; }
   .footer-v2-nav { grid-column: span 1; }
 }
 @media (max-width: 640px) {
