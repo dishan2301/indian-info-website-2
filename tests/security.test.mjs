@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
 import { extname, join } from 'node:path';
-import { contentSecurityPolicy, createEnquiryMailto, sanitizeQueryValue, serializeStructuredData } from '../lib/security.mjs';
+import { contentSecurityPolicy, createEnquiryMailto, sanitizeQueryValue, serializeStructuredData, validateContactSubmission } from '../lib/security.mjs';
 
 test('CSP forbids framing, objects, inline handlers, and eval in production', () => {
   const policy = contentSecurityPolicy('known-nonce', true);
@@ -27,6 +27,17 @@ test('structured data cannot close its script element', () => {
   assert.deepEqual(JSON.parse(serialized), { value: '</script><script>alert(1)</script>&\u2028' });
 });
 
+test('contact submissions validate required fields and silently trap bots', () => {
+  const valid = validateContactSubmission({ name: 'Asha Patel', email: 'asha@example.com', phone: '+91 98765 43210', message: 'Please share attendance options.' });
+  assert.equal(valid.valid, true);
+  assert.equal(valid.spam, false);
+  const invalid = validateContactSubmission({ name: 'A', email: 'not-an-email', phone: '123', message: 'short' });
+  assert.equal(invalid.valid, false);
+  assert.equal(invalid.errors.length, 4);
+  const bot = validateContactSubmission({ website: 'https://spam.example', name: '', email: '', phone: '', message: '' });
+  assert.equal(bot.spam, true);
+});
+
 function filesWithin(root) {
   return readdirSync(root, { withFileTypes: true }).flatMap((entry) => {
     const path = join(root, entry.name);
@@ -38,9 +49,12 @@ test('frontend source has no silent network-transmission sink', () => {
   const files = ['app', 'components', 'lib'].flatMap(filesWithin).filter((path) => ['.js', '.mjs', '.ts', '.tsx'].includes(extname(path)));
   const forbidden = [/\bfetch\s*\(/u, /\bXMLHttpRequest\b/u, /\bsendBeacon\b/u, /\bWebSocket\s*\(/u, /<form[^>]+action=/u];
   for (const path of files) {
+    if (path === 'app/api/contact/route.ts' || path === 'components/contact/enquiry-brief.tsx') continue;
     const source = readFileSync(path, 'utf8');
     for (const pattern of forbidden) assert.doesNotMatch(source, pattern, `${path} introduced browser data egress`);
   }
+  assert.match(readFileSync('components/contact/enquiry-brief.tsx', 'utf8'), /fetch\("\/api\/contact"/u);
+  assert.match(readFileSync('app/api/contact/route.ts', 'utf8'), /https:\/\/formsubmit\.co\/ajax\//u);
 });
 
 test('public build contains no source maps, environment files, or workspace paths', { skip: !existsSync('dist/client') }, () => {

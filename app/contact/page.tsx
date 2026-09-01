@@ -9,13 +9,6 @@ import { SiteHeader } from '../_components/site-header';
 
 export const metadata: Metadata = createPageMetadata({ title: 'Contact Indian Infotech in Ahmedabad', description: 'Contact Indian Infotech for biometric attendance, access control, entrance management, HRMS, payroll, and workplace software.', path: '/contact' });
 
-const contactOptions = [
-  { label: 'Sales', value: 'sales@indianinfotech.org', href: 'mailto:sales@indianinfotech.org?subject=Workforce%20and%20workplace%20consultation' },
-  { label: 'Support', value: 'support@indianinfotech.org', href: 'mailto:support@indianinfotech.org' },
-  { label: 'Phone', value: '+91 76000 66770', href: 'tel:+917600066770' },
-  { label: 'WhatsApp', value: '+91 77780 66770', href: 'https://wa.me/917778066770' },
-] as const;
-
 type ContactPageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
@@ -42,23 +35,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   };
 
   return (
-    <main>
+    <main className="contact-page">
       <SiteHeader />
       <StructuredData data={localBusinessSchema} />
       <PageHero eyebrow="Contact" title="Bring us the operating problem—not just a product name." description="Share your site, workforce, entry-point, attendance, or HRMS requirements. We’ll help shape a clearer starting scope." marker="II / AHMEDABAD" />
 
-      <section className="contact-section">
-        <div className="contact-options">
-          {contactOptions.map((option) => <a href={option.href} rel={option.href.startsWith('https:') ? 'noreferrer' : undefined} key={option.label}><span>{option.label}</span><strong>{option.value}</strong><b aria-hidden="true">↗</b></a>)}
-        </div>
-        <div className="contact-office">
-          <p className="section-kicker light">Head office</p><h2>Ahmedabad, Gujarat</h2>
-          <address>429, 425, 403 Gala Empire<br />Opp. Doordarshan Kendra, Thaltej<br />Ahmedabad 380054<br />Gujarat, India</address>
-          <a className="button button-primary" href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6" rel="noreferrer">Open in Google Maps <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
-
-      <section className="section enquiry-section"><EnquiryBrief initialContext={context} /></section>
+      <section className="contact-card-section"><EnquiryBrief initialContext={context} /></section>
 
       <section className="brief-section">
         <div><p className="section-kicker">A useful first message</p><h2>Include these details for a faster response.</h2></div>

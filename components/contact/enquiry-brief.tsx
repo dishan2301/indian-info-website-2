@@ -1,36 +1,90 @@
-'use client';
+"use client"
 
-import { FormEvent, useState } from 'react';
-import { createEnquiryMailto } from '@/lib/security.mjs';
+import { FormEvent, useState } from "react"
+import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react"
 
-type EnquiryBriefProps = { initialContext?: string };
+import { Button } from "@/components/ui/button"
+import { ContactCard } from "@/components/ui/contact-card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
-export function EnquiryBrief({ initialContext = '' }: EnquiryBriefProps) {
-  const [status, setStatus] = useState('');
+type EnquiryBriefProps = { initialContext?: string }
 
-  function submitBrief(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const { href, truncated } = createEnquiryMailto(Object.fromEntries(form));
-    setStatus(truncated ? 'Your email application should open. Some oversized text was shortened for safety.' : 'Your email application should open with the completed enquiry brief.');
-    window.location.href = href;
+export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+  const [message, setMessage] = useState("")
+
+  async function submitBrief(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = event.currentTarget
+    setStatus("sending")
+    setMessage("")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      })
+      const result = await response.json() as { ok?: boolean; error?: string }
+      if (!response.ok || !result.ok) throw new Error(result.error || "Unable to send your message.")
+      form.reset()
+      setStatus("sent")
+      setMessage("Thank you. Your message has been sent to our team.")
+    } catch (error) {
+      setStatus("error")
+      setMessage(error instanceof Error ? error.message : "Unable to send your message. Please try again.")
+    }
   }
 
   return (
-    <form className="enquiry-form" onSubmit={submitBrief}>
-      <div className="enquiry-form-heading"><p className="section-kicker">Structured enquiry</p><h2>Prepare a useful solution brief.</h2><p>This form opens your email application and does not upload data to the website.</p></div>
-      <div className="enquiry-fields">
-        <label><span>Enquiry type</span><select name="enquiryType" defaultValue="Product or solution quote"><option>Product or solution quote</option><option>Software demo</option><option>Technical material</option><option>Support request</option><option>General enquiry</option></select></label>
-        <label><span>Organization</span><input name="organization" autoComplete="organization" maxLength={120} required /></label>
-        <label><span>Contact name</span><input name="name" autoComplete="name" maxLength={100} required /></label>
-        <label><span>Telephone</span><input name="phone" type="tel" autoComplete="tel" maxLength={40} pattern="[+0-9() .-]{7,40}" required /></label>
-        <label><span>Number and type of sites</span><input name="sites" maxLength={160} placeholder="Example: two manufacturing facilities" /></label>
-        <label><span>Approximate workforce size</span><input name="workforce" inputMode="numeric" maxLength={20} /></label>
-        <label className="full-field"><span>Product or software context</span><input name="context" maxLength={500} defaultValue={initialContext} /></label>
-        <label className="full-field"><span>Requirements</span><textarea name="requirements" rows={6} maxLength={1200} required placeholder="Entry points, authentication, attendance, HRMS, visitor, canteen, reporting, integration, rollout, or support needs…" /></label>
-        <label className="consent-field full-field"><input type="checkbox" required /><span>I agree to send these details to Indian Infotech for a response to this enquiry.</span></label>
-        <div className="enquiry-submit full-field"><button className="button button-primary" type="submit">Open completed email <span aria-hidden="true">↗</span></button><p role="status">{status}</p></div>
-      </div>
-    </form>
-  );
+    <ContactCard
+      title="Get in touch"
+      description="Tell us what you need for attendance, access control, entrance management, HRMS, payroll, or workplace operations. We usually respond within one business day."
+      contactInfo={[
+        { icon: MailIcon, label: "Email", value: "sales@indianinfotech.org" },
+        { icon: PhoneIcon, label: "Phone", value: "+91 76000 66770" },
+        { icon: MapPinIcon, label: "Head office", value: "Gala Empire, Thaltej, Ahmedabad" },
+      ]}
+    >
+      <form className="contact-form" onSubmit={submitBrief}>
+        <div className="contact-form-field">
+          <Label htmlFor="contact-name">Name</Label>
+          <Input id="contact-name" name="name" autoComplete="name" maxLength={100} required />
+        </div>
+        <div className="contact-form-field">
+          <Label htmlFor="contact-email">Email</Label>
+          <Input id="contact-email" name="email" type="email" autoComplete="email" maxLength={254} required />
+        </div>
+        <div className="contact-form-field">
+          <Label htmlFor="contact-phone">Phone</Label>
+          <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" maxLength={40} required />
+        </div>
+        <div className="contact-form-field">
+          <Label htmlFor="contact-organization">Organization</Label>
+          <Input id="contact-organization" name="organization" autoComplete="organization" maxLength={120} />
+        </div>
+        <div className="contact-form-field">
+          <Label htmlFor="contact-message">Message</Label>
+          <Textarea id="contact-message" name="message" rows={6} maxLength={2000} required />
+        </div>
+        <input type="hidden" name="context" value={initialContext} />
+        <div className="contact-honeypot" aria-hidden="true">
+          <Label htmlFor="contact-website">Leave this field empty</Label>
+          <Input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />
+        </div>
+        <label className="contact-form-consent">
+          <input type="checkbox" required />
+          <span>I agree to send these details to Indian Infotech for a response.</span>
+        </label>
+        <Button type="submit" disabled={status === "sending"}>
+          {status === "sending" ? "Sending…" : "Send message"}
+        </Button>
+        <p className={`contact-form-status contact-form-status-${status}`} role="status" aria-live="polite">
+          {message}
+        </p>
+      </form>
+    </ContactCard>
+  )
 }
