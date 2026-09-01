@@ -3,13 +3,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Boxes, Building2, Factory, House, Info, Layers3, Search, UsersRound } from 'lucide-react';
-import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
+import { Boxes, Building2, Factory, House, Info, Layers3, UsersRound } from 'lucide-react';
 
 const productGroups = [
   { title: 'Biometric & attendance', links: [{ label: 'Face recognition devices', href: '/products#attendance' }, { label: 'Fingerprint devices', href: '/products#access-control' }, { label: 'All attendance devices', href: '/products#attendance' }] },
   { title: 'Access control', links: [{ label: 'Access control terminals', href: '/products#access-control' }, { label: 'Flap barriers', href: '/products#entrance-management' }, { label: 'Turnstiles & screening', href: '/products#entrance-management' }] },
-  { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Compare products', href: '/compare' }, { label: 'Product guidance', href: '/resources' }] },
+  { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Product guidance', href: '/resources' }] },
 ] as const;
 
 const softwareGroups = [
@@ -40,11 +39,19 @@ const mobilePrimaryLinks = [
   { label: 'Industries', href: '/industries', icon: Factory },
 ] as const;
 
+const dockLinks = [
+  { label: 'Home', href: '/#home', icon: House },
+  { label: 'Products', href: '/products', icon: Boxes },
+  { label: 'Software', href: '/software', icon: Layers3 },
+  { label: 'HRMS & Payroll', href: '/hrms-payroll', icon: Building2 },
+  { label: 'Solutions', href: '/solutions', icon: UsersRound },
+  { label: 'Industries', href: '/industries', icon: Factory },
+  { label: 'About us', href: '/about-us', icon: Info },
+] as const;
+
 const mobileUtilityLinks = [
-  { label: 'Compare', href: '/compare' },
-  { label: 'Search', href: '/search' },
   { label: 'Support', href: '/support' },
-  { label: 'Book a demo', href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ] as const;
 
 const mobileMenuGroups = [
@@ -87,7 +94,7 @@ function MegaGroup({ title, groups }: { title: string; groups: readonly { title:
       <div className="mega-panel">
         <div className="mega-panel-top"><span>Indian Infotech systems</span><Link href="/contact">Discuss a requirement ↗</Link></div>
         <div className="mega-columns">
-          {groups.map((group) => <div key={group.title}><h2>{group.title}</h2>{group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}
+          {groups.map((group) => <div key={group.title}><p className="mega-heading">{group.title}</p>{group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}
         </div>
       </div>
     </InteractiveMenu>
@@ -117,16 +124,7 @@ export function SiteHeader() {
       <Link className="brand-mark" href="/#home" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
-        <Dock className="site-dock-brand" magnification={62} distance={105}>
-          <DockItem><DockLabel>Home</DockLabel><DockIcon><Link href="/#home" aria-label="Home"><House /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>Products</DockLabel><DockIcon><Link href="/products" aria-label="Products"><Boxes /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>Software</DockLabel><DockIcon><Link href="/software" aria-label="Software"><Layers3 /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>HRMS &amp; Payroll</DockLabel><DockIcon><Link href="/hrms-payroll" aria-label="HRMS and Payroll"><Building2 /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>Solutions</DockLabel><DockIcon><Link href="/solutions" aria-label="Solutions"><UsersRound /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>Industries</DockLabel><DockIcon><Link href="/industries" aria-label="Industries"><Factory /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>About us</DockLabel><DockIcon><Link href="/about-us" aria-label="About us"><Info /></Link></DockIcon></DockItem>
-          <DockItem><DockLabel>Search</DockLabel><DockIcon><Link href="/search" aria-label="Search"><Search /></Link></DockIcon></DockItem>
-        </Dock>
+        <div className="site-dock-shell"><div className="site-dock site-dock-brand" role="toolbar" aria-label="Indian Infotech navigation">{dockLinks.map((item) => { const Icon = item.icon; return <div className="site-dock-item" key={item.href}><span className="site-dock-label-anchor"><span className="site-dock-label" role="tooltip">{item.label}</span></span><span className="site-dock-icon"><Link href={item.href} aria-label={item.label}><Icon /></Link></span></div>; })}</div></div>
         <div className="legacy-nav-menus">
         <MegaGroup title="Products" groups={productGroups} />
         <MegaGroup title="Software" groups={softwareGroups} />
@@ -135,12 +133,12 @@ export function SiteHeader() {
           <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
         </InteractiveMenu>
         <InteractiveMenu title="Company" className="company-menu">
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><h2>Indian Infotech</h2><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about-us">About us<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><h2>Proof and updates</h2><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
+          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><p className="mega-heading">Indian Infotech</p><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about-us">About us<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><p className="mega-heading">Proof and updates</p><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
         </InteractiveMenu>
         </div>
       </nav>
 
-      <div className="header-actions"><Link className="header-search" href="/search" aria-label="Search Indian Infotech website">Search</Link><Link className="header-compare" href="/compare">Compare</Link><Link className="header-cta" href="/contact">Book a demo</Link></div>
+      <div className="header-actions"><Link className="header-cta" href="/contact">Contact Us</Link></div>
 
       <details
         className="mobile-menu"
@@ -169,7 +167,7 @@ export function SiteHeader() {
             <div className="mobile-menu-groups">
               {mobileMenuGroups.map((group) => (
                 <div key={group.title}>
-                  <h2>{group.title}</h2>
+                  <p className="mega-heading">{group.title}</p>
                   {group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}
                 </div>
               ))}

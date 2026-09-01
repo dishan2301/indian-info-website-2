@@ -7,8 +7,8 @@ import type { IndustryProfile, Product, SolutionProfile, SoftwarePlatform } from
 
 type CompanySlide = { eyebrow: string; title: string; text: string; href: string; cta: string; image: string; alt: string };
 const companySlides: readonly CompanySlide[] = [
-  { eyebrow: 'Company', title: 'Workforce and workplace systems, grounded in Ahmedabad.', text: 'Since 2011, Indian Infotech has built a published portfolio across biometric devices, access, entrance, workforce software, and HRMS workflows.', href: '/company', cta: 'Explore company', image: '/company/ai-cover-workplace.png', alt: 'AI-generated modern workplace entrance with biometric access control' },
-  { eyebrow: 'Trust', title: 'Capability shown through the systems you can inspect.', text: 'Explore real product media, software routes, customer roster, support paths, and evidence standards across the site.', href: '/about', cta: 'Read about Indian Infotech', image: '/company/support-cta.png', alt: 'Indian Infotech support team' },
+  { eyebrow: 'Company', title: 'Workforce and workplace systems, grounded in Ahmedabad.', text: 'Since 2011, Indian Infotech has built a published portfolio across biometric devices, access, entrance, workforce software, and HRMS workflows.', href: '/company', cta: 'Explore company', image: '/company/ai-cover-workplace.webp', alt: 'AI-generated modern workplace entrance with biometric access control' },
+  { eyebrow: 'Trust', title: 'Capability shown through the systems you can inspect.', text: 'Explore real product media, software routes, customer roster, support paths, and evidence standards across the site.', href: '/about', cta: 'Read about Indian Infotech', image: '/company/support-cta.webp', alt: 'Indian Infotech support team' },
   { eyebrow: 'Portfolio', title: 'From identity at the edge to workforce operations.', text: 'Connect attendance, controlled entry, visitor workflows, canteen operations, HRMS, and payroll planning around your facility.', href: '/platform', cta: 'See the platform', image: '/products/ai-60/angle.png', alt: 'AI 60 face recognition device' },
   { eyebrow: 'Consultation', title: 'Start with the operating problem.', text: 'Bring workforce size, sites, entry points, software, and support needs to a practical solution conversation.', href: '/contact', cta: 'Talk to the team', image: '/products/fht2300/model-l.png', alt: 'FHT2300 full-height turnstile' },
 ];
@@ -41,13 +41,13 @@ const technologyItems: readonly TechnologyItem[] = [
   { title: 'Face recognition', text: 'Published across AI-series attendance and access-control products.', image: '/products/ai-60/detail.png', href: '/technologies#identity' },
   { title: 'Fingerprint recognition', text: 'Published across access-control and attendance device offerings.', image: '/products/i-18.jpg', href: '/technologies#identity' },
   { title: 'RFID / card authentication', text: 'Review credential and access requirements during solution design.', image: '/products/is-500/main.png', href: '/technologies#identity' },
-  { title: '3D structured-light facial recognition', text: 'Technology topic for technical review; product availability must be confirmed.', image: '/technology/ai-structured-light.png', href: '/technologies#identity', status: 'Review topic' },
+  { title: '3D structured-light facial recognition', text: 'Technology topic for technical review; product availability must be confirmed.', image: '/technology/ai-structured-light.webp', href: '/technologies#identity', status: 'Review topic' },
   { title: 'Finger vein recognition', text: 'Technology topic for technical review; not presented as a published product claim.', image: '/products/ai-60/source-detail.png', href: '/technologies#identity', status: 'Review topic' },
   { title: 'Controlled entrance technology', text: 'Flap barriers, turnstiles, boom barriers, and screening equipment.', image: '/products/fbl-300/main.png', href: '/technologies#connected-systems' },
   { title: 'Attendance workflow technology', text: 'Device capture, software review, shifts, leave, and operational records.', image: '/products/mini-ai-10/front.png', href: '/technologies#workflow' },
 ];
 
-export function TechnologyShowcase() { return <section className="home-showcase home-technology-showcase" aria-labelledby="home-technology-title"><div className="showcase-heading"><p className="section-kicker">Technology</p><h2 id="home-technology-title">Identity and entry technology, shown with evidence status.</h2><p>Explore published capability and clearly marked technical review topics.</p><Link className="outline-link" href="/technologies">Explore technologies ↗</Link></div><AutoTrack>{technologyItems.map((item) => <Link className="showcase-card" href={item.href} key={item.title}><Image src={item.image} alt="" width={420} height={300} /><div><span>{item.status ?? 'Published portfolio'}</span><h3>{item.title}</h3><p>{item.text}</p><b>View technology ↗</b></div></Link>)}</AutoTrack></section>; }
+export function TechnologyShowcase() { return <section className="home-showcase home-technology-showcase" aria-labelledby="home-technology-title"><div className="showcase-heading"><p className="section-kicker">Technology</p><h2 id="home-technology-title">Identity and entry technology, shown with evidence status.</h2><p>Explore published capability and clearly marked technical review topics.</p><Link className="outline-link" href="/technologies">Explore technologies ↗</Link></div><AutoTrack>{technologyItems.map((item) => <Link className="showcase-card" href={item.href} key={item.title}><Image src={item.image} alt={`${item.title} technology illustration`} width={420} height={300} /><div><span>{item.status ?? 'Published portfolio'}</span><h3>{item.title}</h3><p>{item.text}</p><b>View technology ↗</b></div></Link>)}</AutoTrack></section>; }
 
 export function ProductPosterShowcase({ products }: { products: readonly Product[] }) {
   const [active, setActive] = useState(0);
@@ -58,7 +58,7 @@ export function ProductPosterShowcase({ products }: { products: readonly Product
   const product = products[active];
   return <section className="product-poster-showcase" aria-labelledby="home-products-title" aria-live="polite">
     <div className="product-poster-visual" key={product.slug}>
-      <Image src={`/posters/${product.slug}.png`} alt={`AI-generated poster scene for ${product.name}`} fill sizes="100vw" />
+      <Image src={`/posters/${product.slug}.webp`} alt={`AI-generated poster scene for ${product.name}`} fill sizes="100vw" />
     </div>
     <div className="product-poster-overlay" />
     <div className="product-poster-copy" key={`${product.slug}-copy`}>

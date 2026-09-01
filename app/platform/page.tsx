@@ -1,16 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { industries, platformPillars } from '../content';
 
-export const metadata: Metadata = {
-  title: 'Workforce & Workplace Platform | Indian Infotech',
-  description: 'Explore Indian Infotech systems for HRMS, attendance, access control, entrance, visitor, and canteen operations.',
-  alternates: { canonical: '/platform' },
-  openGraph: { title: 'Workforce & Workplace Platform | Indian Infotech', description: 'Practical systems for people, identity, entry, and workplace operations.', url: '/platform' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Workforce & Workplace Platform', description: 'Explore connected HRMS, attendance, access control, entrance, visitor, and canteen operations.', path: '/platform' });
 
 const capabilities = [
   {

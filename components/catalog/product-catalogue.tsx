@@ -35,7 +35,7 @@ export function ProductCatalogue({ products }: { products: readonly Product[] })
         <label><span>Application</span><select value={application} onChange={(event) => setApplication(event.target.value as typeof application)}>{applicationOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
         <label><span>Approved media</span><select value={media} onChange={(event) => setMedia(event.target.value as typeof media)}><option>All</option><option>Available</option><option>Pending</option></select></label>
       </div>
-      <div className="catalogue-toolbar"><p aria-live="polite">{filtered.length} of {products.length} products</p><button type="button" onClick={clearFilters}>Clear filters</button><Link href="/compare">Compare selected models ↗</Link></div>
+      <div className="catalogue-toolbar"><p aria-live="polite">{filtered.length} of {products.length} products</p><button type="button" onClick={clearFilters}>Clear filters</button></div>
       {filtered.length > 0 ? <div className="catalogue-results">{filtered.map((product) => (
         <article className="catalog-card" key={product.slug}>
           <Link href={`/products/${product.slug}`} aria-label={`View ${product.name} product details`}>

@@ -290,6 +290,11 @@ export type IndustryProfile = {
 
 export const industryProfiles: readonly IndustryProfile[] = [
   { slug: 'manufacturing', name: 'Manufacturing', context: 'Shift patterns, site entry, contractors, and controlled operating zones often need to work together.', workflow: ['Map shifts and entry points', 'Define workforce and contractor roles', 'Select attendance and entrance systems', 'Confirm reporting and support routine'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'entrance-management'] },
+  { slug: 'chemical', name: 'Chemical', context: 'Safety-conscious chemical facilities need coordinated identity, contractor attendance, and controlled movement around processing and restricted areas.', workflow: ['Map shifts, contractors, and safety zones', 'Define identity and access responsibilities', 'Select suitable attendance and entrance systems', 'Confirm exception, reporting, and support routines'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'entrance-management'] },
+  { slug: 'textile', name: 'Textile', context: 'Large textile workforces, rotating shifts, production lines, and multiple entry points benefit from a consistent attendance and access workflow.', workflow: ['Map shifts and production entry points', 'Identify permanent and contract workforce journeys', 'Plan attendance capture and controlled access', 'Confirm location reporting and support'], solutionSlugs: ['attendance-automation', 'multi-location-attendance', 'physical-access-control'] },
+  { slug: 'engineering', name: 'Engineering', context: 'Engineering workplaces may need to coordinate employee attendance, visitor movement, and access to design, prototype, tool, or project areas.', workflow: ['Map teams, visitors, and project zones', 'Define attendance and restricted-area rules', 'Select access and workforce systems', 'Test handoffs and establish support ownership'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
+  { slug: 'food', name: 'Food Processing', context: 'Food facilities need practical workforce attendance and controlled production entry that fit hygiene checkpoints, shift changes, and site policy.', workflow: ['Map hygiene and workforce entry steps', 'Define shift, contractor, and zone requirements', 'Select attendance and access workflows', 'Confirm exceptions, records, and support'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'canteen-operations'] },
+  { slug: 'service-provider', name: 'Service Providers', context: 'Service-led organizations need straightforward employee attendance, visitor coordination, and workplace access across offices and customer-facing locations.', workflow: ['Map employee and visitor journeys', 'Define attendance and workplace access needs', 'Plan software roles across locations', 'Confirm adoption and support ownership'], solutionSlugs: ['multi-location-attendance', 'visitor-security', 'physical-access-control'] },
   { slug: 'corporate', name: 'Corporate Offices', context: 'Visitor coordination, employee entry, attendance, and people operations need a clear daily workflow.', workflow: ['Map employee and visitor journeys', 'Define access and attendance requirements', 'Confirm software roles and reporting', 'Support adoption and review'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
   { slug: 'pharma', name: 'Pharmaceutical & Research', context: 'Controlled areas, workforce records, visitors, and entry conditions need deliberate operating design.', workflow: ['Understand controlled areas', 'Map workforce and visitor movement', 'Define entry and attendance workflow', 'Confirm documentation and support needs'], solutionSlugs: ['attendance-automation', 'physical-access-control', 'visitor-security'] },
   { slug: 'healthcare', name: 'Healthcare', context: 'People movement, shifts, visitors, and sensitive operating areas require careful site-specific planning.', workflow: ['Map staff and visitor movement', 'Define shift and entry requirements', 'Select appropriate systems', 'Confirm operating ownership'], solutionSlugs: ['attendance-automation', 'visitor-security', 'physical-access-control'] },
@@ -324,12 +329,12 @@ export const industries: readonly Industry[] = [
   {
     name: 'Chemical',
     description: 'Identity and access workflows for safety-conscious facilities.',
-    href: '/platform#industries',
+    href: '/industries/chemical',
   },
   {
     name: 'Textiles',
     description: 'Attendance and workforce systems for large, multi-shift teams.',
-    href: '/platform#industries',
+    href: '/industries/textile',
   },
   {
     name: 'Corporate offices',
@@ -339,6 +344,6 @@ export const industries: readonly Industry[] = [
   {
     name: 'Food industries',
     description: 'Canteen, attendance, and controlled-area workflows.',
-    href: '/platform#industries',
+    href: '/industries/food',
   },
 ] as const;

@@ -7,6 +7,7 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { ProductViewer } from '../../../components/catalog/product-viewer';
 import { StructuredData } from '../../../components/structured-data';
+import { absoluteUrl, createPageMetadata } from '@/lib/site';
 import { products } from '../../content';
 
 type ProductPageProps = { params: Promise<{ slug: string }> };
@@ -19,17 +20,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { slug } = await params;
   const product = products.find((item) => item.slug === slug);
   if (!product) return {};
-  return {
-    title: `${product.name} ${product.family} | Indian Infotech`,
-    description: product.description,
-    alternates: { canonical: `/products/${product.slug}` },
-    openGraph: {
-      title: `${product.name} | Indian Infotech`,
-      description: product.description,
-      url: `/products/${product.slug}`,
-      images: product.image ? [{ url: product.image, alt: `${product.name} product` }] : undefined,
-    },
-  };
+  return createPageMetadata({ title: `${product.name} ${product.family}`, description: product.description, path: `/products/${product.slug}`, image: product.image });
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
@@ -42,17 +33,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
+    model: product.name,
     description: product.description,
     brand: { '@type': 'Brand', name: 'Indian Infotech' },
     category: product.family,
-    image: images.map((image) => `https://indianinfotech.org${image}`),
+    image: images.map((image) => absoluteUrl(image)),
+    url: absoluteUrl(`/products/${product.slug}`),
   };
+  const productFaqs = [
+    { question: `What is the ${product.name} used for?`, answer: `${product.description} Its primary published application is ${product.application.toLowerCase()}.` },
+    { question: `How does the ${product.name} authenticate users?`, answer: `The published authentication category is ${product.authentication.toLowerCase()}. Exact enrollment and operating capability must be confirmed for the selected configuration.` },
+    { question: `Which software works with the ${product.name}?`, answer: `${product.softwareCompatibility}. Indian Infotech confirms the software, connectivity, data flow, and version requirements during solution design.` },
+    { question: `How should the ${product.name} be selected and deployed?`, answer: `${product.deployment}. Review the users, entry point, environment, power, network, workflow, and support needs before purchase.` },
+  ];
+  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: productFaqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
 
   return (
     <main>
       <SiteHeader />
       <StructuredData data={productSchema} />
-      <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} />
+      <StructuredData data={faqSchema} />
+      <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} path={`/products/${product.slug}`} />
 
       <section className="product-detail section">
         <ProductViewer name={product.name} images={images} />
@@ -111,6 +112,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </section>
       )}
+      <section className="section seo-faq"><div className="section-heading"><p className="section-kicker">Frequently asked questions</p><h2>Confirm the product in its deployment context.</h2></div><div>{productFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
       <SiteFooter />
     </main>
   );

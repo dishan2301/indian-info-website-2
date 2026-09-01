@@ -1,15 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 
-export const metadata: Metadata = {
-  title: 'Pharma Access Control & Attendance | Indian Infotech',
-  description: 'Access control, door interlocking, biometric attendance, visitor, and HRMS systems for pharmaceutical facilities in India.',
-  alternates: { canonical: '/industries/pharma' },
-  openGraph: { title: 'Pharma Access Control & Attendance | Indian Infotech', description: 'Workplace and workforce systems for controlled pharmaceutical operations.', url: '/industries/pharma' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Pharma Access Control & Attendance', description: 'Access control, door interlocking, biometric attendance, visitor, and HRMS systems for pharmaceutical facilities in India.', path: '/industries/pharma', image: '/campaign/industries/pharma-desktop-v2.webp' });
 
 const pharmaNeeds = [
   { number: '01', title: 'Controlled-area entry', text: 'Plan identity and entry workflows around restricted zones, personnel roles, and the facility’s approved operating procedures.' },
@@ -22,7 +18,7 @@ export default function PharmaPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="Pharmaceutical operations" title="Control entry. Track attendance. Support audit-ready workflows." description="Door interlocking, biometric attendance, access control, visitor management, and HRMS systems for pharmaceutical and research facilities." marker="II / PHARMA" />
+      <PageHero eyebrow="Pharmaceutical operations" title="Control entry. Track attendance. Support audit-ready workflows." description="Door interlocking, biometric attendance, access control, visitor management, and HRMS systems for pharmaceutical and research facilities." marker="II / PHARMA" breadcrumbs={[{ label: 'Industries', href: '/industries' }, { label: 'Pharmaceutical & research' }]} path="/industries/pharma" />
 
       <section className="pharma-intro">
         <div><p className="section-kicker">Designed around controlled workplaces</p><h2>The facility comes first.</h2></div>

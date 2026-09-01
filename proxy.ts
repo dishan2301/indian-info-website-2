@@ -3,6 +3,9 @@ import { contentSecurityPolicy, SECURITY_HEADERS } from '@/lib/security.mjs';
 
 const LEGACY_REDIRECTS = new Map([
   ['/contact-us', '/contact'],
+  ['/about', '/about-us'],
+  ['/industries/textiles', '/industries/textile'],
+  ['/industries/food-industries', '/industries/food'],
   ['/blogs', '/resources'],
   ['/blog-detail', '/resources'],
   ['/softwares', '/software'],
@@ -39,7 +42,7 @@ export function proxy(request: NextRequest) {
   const nonce = btoa(crypto.randomUUID());
   const policy = contentSecurityPolicy(nonce);
 
-  if (process.env.NODE_ENV === 'production' && request.headers.get('x-forwarded-proto') === 'http') {
+  if (process.env.VERCEL && process.env.NODE_ENV === 'production' && request.headers.get('x-forwarded-proto') === 'http') {
     const secureUrl = request.nextUrl.clone();
     secureUrl.protocol = 'https:';
     return secure(NextResponse.redirect(secureUrl, 308), policy);
@@ -53,6 +56,7 @@ export function proxy(request: NextRequest) {
   requestHeaders.set('x-nonce', nonce);
 
   const response = NextResponse.next({ request: { headers: requestHeaders } });
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   return secure(response, policy);
 }
 

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { RouteCardGrid } from '../_components/enterprise-route';
 
-export const metadata: Metadata = { title: 'Integrations | Indian Infotech', description: 'Plan device, workforce software, HRMS, payroll, and enterprise integration requirements with Indian Infotech.', alternates: { canonical: '/integrations' } };
+export const metadata: Metadata = createPageMetadata({ title: 'Workforce System Integrations', description: 'Plan device, attendance software, HRMS, payroll, ERP, and enterprise integration requirements.', path: '/integrations' });
 const cards = [
   ['Attendance to workforce workflows', 'Map the journey from a device event to review, approval, reporting, and downstream workforce processes.', 'Attendance data flow'],
   ['HRMS and payroll readiness', 'Clarify the records, ownership, policy rules, and compatibility questions that sit between attendance and payroll.', 'HRMS / payroll'],

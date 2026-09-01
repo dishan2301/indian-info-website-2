@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { StructuredData } from '@/components/structured-data';
+import { absoluteUrl } from '@/lib/site';
 
 type PageHeroProps = {
   eyebrow: string;
@@ -7,10 +9,19 @@ type PageHeroProps = {
   description: string;
   marker?: string;
   breadcrumbs?: readonly { label: string; href?: string }[];
+  path?: string;
 };
 
-export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs, path }: PageHeroProps) {
   const trail = breadcrumbs ?? [{ label: eyebrow }];
+  const breadcrumbSchema = path ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      ...trail.map((item, index) => ({ '@type': 'ListItem', position: index + 2, name: item.label, item: absoluteUrl(item.href ?? path) })),
+    ],
+  } : null;
   const key = eyebrow.toLowerCase();
   const industryMedia: Record<string, { desktop: string; mobile: string; tone: 'light' }> = {
     manufacturing: { desktop: '/campaign/industries/manufacturing-desktop-v2.webp', mobile: '/campaign/industries/manufacturing-mobile-v2.webp', tone: 'light' },
@@ -37,6 +48,7 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
           : { desktop: '/campaign/hero/identity-desktop-v2.webp', mobile: '/campaign/hero/identity-mobile-v2.webp', tone: 'dark' });
   return (
     <>
+      {breadcrumbSchema ? <StructuredData data={breadcrumbSchema} /> : null}
       <section className={`page-hero page-hero-${media.tone}`}>
         <div className="page-hero-media page-hero-media-desktop"><Image src={media.desktop} alt="" fill priority sizes="100vw" /></div>
         <div className="page-hero-media page-hero-media-mobile"><Image src={media.mobile} alt="" fill priority sizes="100vw" /></div>

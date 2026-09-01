@@ -2,16 +2,12 @@ import type { Metadata } from 'next';
 import { EnquiryBrief } from '@/components/contact/enquiry-brief';
 import { StructuredData } from '@/components/structured-data';
 import { sanitizeQueryValue } from '@/lib/security.mjs';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = {
-  title: 'Contact Indian Infotech | Ahmedabad',
-  description: 'Contact Indian Infotech in Ahmedabad for biometric attendance, access control, entrance management, HRMS, and workplace software.',
-  alternates: { canonical: '/contact' },
-  openGraph: { title: 'Contact Indian Infotech | Ahmedabad', description: 'Discuss your workforce and workplace technology requirements.', url: '/contact' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Contact Indian Infotech in Ahmedabad', description: 'Contact Indian Infotech for biometric attendance, access control, entrance management, HRMS, payroll, and workplace software.', path: '/contact' });
 
 const contactOptions = [
   { label: 'Sales', value: 'sales@indianinfotech.org', href: 'mailto:sales@indianinfotech.org?subject=Workforce%20and%20workplace%20consultation' },
@@ -26,10 +22,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   const query = await searchParams;
   const context = [
     sanitizeQueryValue(query.product) && `Product: ${sanitizeQueryValue(query.product)}`,
-    sanitizeQueryValue(query.products) && `Products to compare: ${sanitizeQueryValue(query.products)}`,
     sanitizeQueryValue(query.software) && `Software: ${sanitizeQueryValue(query.software)}`,
     sanitizeQueryValue(query.hrms) && `HRMS module: ${sanitizeQueryValue(query.hrms)}`,
     sanitizeQueryValue(query.solution) && `Solution: ${sanitizeQueryValue(query.solution)}`,
+    sanitizeQueryValue(query.solutions) && `Solution modules: ${sanitizeQueryValue(query.solutions)}`,
+    sanitizeQueryValue(query.workforce) && `Workforce: ${sanitizeQueryValue(query.workforce)}`,
+    sanitizeQueryValue(query.locations) && `Locations: ${sanitizeQueryValue(query.locations)}`,
+    sanitizeQueryValue(query.authentication) && `Authentication: ${sanitizeQueryValue(query.authentication)}`,
+    sanitizeQueryValue(query.deployment) && `Deployment: ${sanitizeQueryValue(query.deployment)}`,
     sanitizeQueryValue(query.industry) && `Industry: ${sanitizeQueryValue(query.industry)}`,
     sanitizeQueryValue(query.topic) && `Topic: ${sanitizeQueryValue(query.topic)}`,
     sanitizeQueryValue(query.resource) && `Requested material: ${sanitizeQueryValue(query.resource)}`,

@@ -1,33 +1,35 @@
 import type { MetadataRoute } from 'next';
-import { hrmsModules, products, softwarePlatforms } from './content';
+import { SITE_URL } from '@/lib/site';
+import { hrmsModules, industryProfiles, products, softwarePlatforms, solutionProfiles } from './content';
+import { insights } from './insights/content';
+import { seoLandingPages } from './seo-landing-content';
 
-const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/industries/pharma', '/technologies', '/engineering', '/integrations', '/resources', '/support', '/case-studies', '/partners', '/developers', '/academy', '/trust', '/status', '/search', '/company', '/about', '/contact', '/solution-builder', '/privacy', '/terms'];
+const routes = ['', '/platform', '/products', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/resources', '/insights', '/support', '/case-studies', '/partners', '/developers', '/academy', '/certification', '/trust', '/status', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://indianinfotech.org';
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}${route}`,
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1 : route === '/platform' || route === '/products' ? 0.9 : 0.7,
   }));
   const productRoutes = products.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}/products/${product.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
   const softwareRoutes = softwarePlatforms.map((software) => ({
-    url: `${baseUrl}/software/${software.slug}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}/software/${software.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
   const hrmsRoutes = hrmsModules.map((module) => ({
-    url: `${baseUrl}/hrms-payroll/${module.slug}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}/hrms-payroll/${module.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }));
-  return [...staticRoutes, ...productRoutes, ...softwareRoutes, { url: `${baseUrl}/hrms-payroll`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes];
+  const solutionRoutes = solutionProfiles.map((item) => ({ url: `${SITE_URL}/solutions/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
+  const industryRoutes = industryProfiles.map((item) => ({ url: `${SITE_URL}/industries/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
+  const insightRoutes = insights.map((item) => ({ url: `${SITE_URL}/insights/${item.slug}`, lastModified: new Date(item.date), changeFrequency: 'monthly' as const, priority: 0.7 }));
+  const landingRoutes = seoLandingPages.map((item) => ({ url: `${SITE_URL}/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.9 }));
+  return [...staticRoutes, ...landingRoutes, ...productRoutes, ...softwareRoutes, { url: `${SITE_URL}/hrms-payroll`, changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes, ...solutionRoutes, ...industryRoutes, ...insightRoutes];
 }

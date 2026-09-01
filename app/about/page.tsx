@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { companyFacts } from '../content';
 
-export const metadata: Metadata = {
-  title: 'About Us | Indian Infotech',
-  description: 'Indian Infotech develops HRMS, access control, biometric, and cleanroom systems from Ahmedabad.',
-  alternates: { canonical: '/about-us' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'About Indian Infotech', description: 'Founded in Ahmedabad in 2011, Indian Infotech develops HRMS, biometric attendance, access control, and clean-room systems.', path: '/about-us' });
 
 const strengths = ['Comprehensive HRMS Solutions', 'Robust Access Control Systems', 'Advanced Biometric Integrations', 'Tailored Industry-specific Applications'] as const;
 

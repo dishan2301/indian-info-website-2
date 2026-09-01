@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = { title: 'Trust Center | Indian Infotech', description: 'Security, privacy, availability, and compliance review information for Indian Infotech.', alternates: { canonical: '/trust' } };
+export const metadata: Metadata = createPageMetadata({ title: 'Security & Trust Center', description: 'Security, privacy, availability, and compliance review information for Indian Infotech systems.', path: '/trust' });
 const controls = ['Identity and access ownership', 'Audit and operational records', 'Backups and recovery responsibilities', 'Data retention and deletion', 'Hosting, subprocessors, and availability', 'Vulnerability and incident response'];
 export default function TrustPage() { return <main><SiteHeader /><PageHero eyebrow="Trust center" title="Security questions deserve named owners and evidence." description="This public trust index explains the topics to verify during procurement. Certifications, uptime, encryption details, subprocessors, and compliance statements are not published until approved source evidence is available." marker="II / TRUST" /><section className="section"><div className="section-heading split-heading"><div><p className="section-kicker">Review domains</p><h2>Ask the questions that affect deployment.</h2></div><p>Use this list with your IT, security, privacy, and implementation stakeholders before approving a system design.</p></div><div className="route-link-list">{controls.map((control) => <div key={control}>{control}<span>Evidence status: request review</span></div>)}</div></section><section className="route-feature-band"><div><p className="section-kicker light">Procurement review</p><h2>Need security or privacy documentation?</h2><p>Send your questionnaire and deployment context to the appropriate owner.</p></div><Link className="button button-primary" href="/contact?topic=security">Request trust review <span aria-hidden="true">↗</span></Link></section><SiteFooter /></main>; }

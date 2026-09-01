@@ -84,8 +84,8 @@ export function AutomaticConnectedCapabilities() {
 }
 
 const technologies: readonly (PosterMedia & { title: string; description: string; href: string })[] = [
-  { title: 'Face intelligence', description: 'Visible-light and structured-light topics connected to real attendance and access-control use cases.', href: '/technologies#identity', desktop: '/technology/ai-structured-light.png', mobile: '/technology/ai-structured-light.png', alt: 'Structured-light facial recognition technology visual' },
-  { title: 'Fingerprint identity', description: 'Established biometric authentication for controlled entry and workforce attendance.', href: '/products#access-control', desktop: '/posters/i-18.png', mobile: '/products/i-18.jpg', alt: 'Fingerprint access-control technology' },
+  { title: 'Face intelligence', description: 'Visible-light and structured-light topics connected to real attendance and access-control use cases.', href: '/technologies#identity', desktop: '/technology/ai-structured-light.webp', mobile: '/technology/ai-structured-light.webp', alt: 'Structured-light facial recognition technology visual' },
+  { title: 'Fingerprint identity', description: 'Established biometric authentication for controlled entry and workforce attendance.', href: '/products#access-control', desktop: '/posters/i-18.webp', mobile: '/products/i-18.jpg', alt: 'Fingerprint access-control technology' },
   { title: 'Connected access', description: 'Readers, gates, barriers, and operating rules designed as one site-specific entry system.', href: '/solutions/physical-access-control', desktop: '/campaign/solutions/access-desktop-v2.webp', mobile: '/campaign/solutions/access-mobile-v2.webp', alt: 'Connected access-control gates in a corporate lobby' },
   { title: 'Edge intelligence', description: 'Device-side identity and computer-vision capabilities reviewed against product and deployment evidence.', href: '/technologies', desktop: '/campaign/hero/innovation-desktop-v2.webp', mobile: '/campaign/hero/innovation-mobile-v2.webp', alt: 'Engineer testing edge identity technology' },
   { title: 'Workforce workflows', description: 'Attendance events become useful when shifts, leave, review, and operational ownership connect.', href: '/software', desktop: '/campaign/hero/security-desktop-v2.webp', mobile: '/campaign/hero/security-mobile-v2.webp', alt: 'Connected workforce and facility operations environment' },
@@ -136,7 +136,7 @@ export function AutomaticProductSpotlight({ products }: { products: readonly Pro
   const motion = useAutomaticIndex(products.length, 3800);
   const product = products[motion.active];
   return <section className="featured-product-poster" aria-labelledby="featured-product-heading" onFocusCapture={motion.pause} onBlurCapture={motion.resume}>
-    <Image className="art-desktop" src={`/posters/${product.slug}.png`} alt={`Campaign artwork for ${product.name}`} fill sizes="100vw" key={`${product.slug}-desktop`} />
+    <Image className="art-desktop" src={`/posters/${product.slug}.webp`} alt={`Campaign artwork for ${product.name}`} fill sizes="100vw" key={`${product.slug}-desktop`} />
     <Image className="art-mobile" src={`/posters/mobile/${product.slug}-v2.webp`} alt="" fill sizes="100vw" aria-hidden="true" key={`${product.slug}-mobile`} />
     <div className="featured-product-shade" />
     <div className="featured-product-copy" key={`${product.slug}-copy`}><p>Featured product · {product.family}</p><h2 id="featured-product-heading">{product.name}</h2><span>{product.description}</span><ul><li>{product.authentication}</li><li>{product.application}</li><li>{product.deployment}</li></ul><Link href={`/products/${product.slug}`}>Explore product <b aria-hidden="true">↗</b></Link></div>

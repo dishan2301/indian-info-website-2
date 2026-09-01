@@ -1,16 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { insights } from './content';
 
-export const metadata: Metadata = {
-  title: 'News, Blogs & Insights | Indian Infotech',
-  description: 'Indian Infotech company updates, workplace technology blogs, and practical guidance.',
-  alternates: { canonical: '/insights' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Workforce Technology News & Insights', description: 'Indian Infotech updates and practical guidance on attendance, HRMS, access control, visitors, and workplace technology.', path: '/insights' });
 
 export default function InsightsPage() {
   return <main>
@@ -19,7 +16,7 @@ export default function InsightsPage() {
     <section className="section insights-index" aria-labelledby="latest-insights">
       <div className="section-heading split-heading"><div><p className="section-kicker">Latest articles</p><h2 id="latest-insights">From the Indian Infotech blog.</h2></div><p>Verified articles from Indian Infotech’s published library, presented with clearer technical and operating context.</p></div>
       <div className="insight-grid">{insights.map((article) => <article key={article.slug}>
-        <Link className="insight-card-media" href={`/insights/${article.slug}`}><Image src={article.image} alt="" fill sizes="(max-width: 760px) 100vw, 50vw" /></Link>
+        <Link className="insight-card-media" href={`/insights/${article.slug}`}><Image src={article.image} alt={`Illustration for ${article.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></Link>
         <div><p>{article.category} · {article.date}</p><h2><Link href={`/insights/${article.slug}`}>{article.title}</Link></h2><span>{article.summary}</span><Link className="text-link" href={`/insights/${article.slug}`}>Read article ↗</Link></div>
       </article>)}</div>
     </section>

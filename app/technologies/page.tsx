@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { RouteCardGrid } from '../_components/enterprise-route';
 
-export const metadata: Metadata = { title: 'Technologies | Indian Infotech', description: 'Explore the identity, connected-system, workflow, and security capabilities to validate during solution design.', alternates: { canonical: '/technologies' } };
+export const metadata: Metadata = createPageMetadata({ title: 'Identity & Workplace Technologies', description: 'Explore identity, connected-system, workflow, and security capabilities for workforce solution design.', path: '/technologies' });
 const cards = [
   ['Identity and credentials', 'Face, fingerprint, biometric, RFID, and other authentication methods are selected around the real use case and device configuration.', 'Face recognition'],
   ['Connected devices', 'Attendance and access endpoints can be planned with network, controller, barrier, and site conditions in view.', 'Device communication'],

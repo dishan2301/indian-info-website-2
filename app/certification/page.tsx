@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = {
-  title: 'ISO 9001 Certification | Indian Infotech',
-  description: 'Understand what ISO 9001 quality management certification means and why current certificate details matter.',
-  alternates: { canonical: '/certification' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'ISO 9001 Certification Information', description: 'Understand what ISO 9001 quality management certification means and how to request current Indian Infotech certificate details.', path: '/certification' });
 
 const benefits = [
   { number: '01', title: 'Consistent processes', text: 'A quality management system gives teams a repeatable framework for controlling work and reviewing results.' },

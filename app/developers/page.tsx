@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = { title: 'Developers | Indian Infotech', description: 'Integration planning and developer resources for Indian Infotech systems.', alternates: { canonical: '/developers' } };
+export const metadata: Metadata = createPageMetadata({ title: 'Developer & Integration Resources', description: 'Integration planning and developer resources for Indian Infotech devices and workforce systems.', path: '/developers' });
 const topics = ['Employee and attendance data flows', 'Device synchronization', 'Leave and payroll exports', 'Authentication and access boundaries', 'Webhooks, rate limits, and versioning'];
 export default function DevelopersPage() { return <main><SiteHeader /><PageHero eyebrow="Developers" title="Make integration questions visible before implementation." description="Use this starting map to prepare an API or systems-integration review. Endpoint references, SDKs, credentials, and sandbox access are published only after technical ownership is confirmed." marker="II / DEVELOPERS" /><section className="section"><div className="section-heading split-heading"><div><p className="section-kicker">Integration checklist</p><h2>Bring the data flow, not only the system names.</h2></div><p>Document source of truth, synchronization direction, frequency, employee identity, error handling, and support ownership for each connection.</p></div><div className="route-link-list">{topics.map((topic) => <div key={topic}>{topic}<span>Review with engineering</span></div>)}</div></section><section className="route-feature-band"><div><p className="section-kicker light">Technical review</p><h2>Need API or device-integration confirmation?</h2><p>Share systems, fields, timing, authentication requirements, and rollout constraints.</p></div><Link className="button button-primary" href="/contact?topic=integration">Start integration review <span aria-hidden="true">↗</span></Link></section><SiteFooter /></main>; }

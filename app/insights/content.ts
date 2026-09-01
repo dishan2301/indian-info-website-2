@@ -32,7 +32,7 @@ export const insights: readonly Insight[] = [
     date: '27 August 2026',
     title: 'How AI Is Making Our Daily Work Easier',
     summary: 'A practical look at how our team uses AI to write cleaner code, improve documentation, analyze data, support customers, and spend more time solving meaningful problems.',
-    image: '/company/ai-cover-workplace.png',
+    image: '/company/ai-cover-workplace.webp',
     sections: [
       { title: 'AI has become part of the team', body: 'Artificial intelligence is no longer just a buzzword. From writing code to answering customer emails, AI tools now support our day-to-day workflow and help us work faster, smarter, and with less friction.' },
       { title: '1. Faster, cleaner code', body: 'AI coding assistants reduce repetitive development work and leave our engineers with more time for the problems that need real judgment.', points: ['Generate starter code and boilerplate in seconds', 'Suggest fixes for bugs early', 'Review pull requests and flag potential issues', 'Explain unfamiliar codebases during onboarding'] },

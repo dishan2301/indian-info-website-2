@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { ProductCatalogue } from '@/components/catalog/product-catalogue';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { products } from '../content';
 
-export const metadata: Metadata = {
-  title: 'Biometric & Access Control Products | Indian Infotech',
-  description: 'Explore 12+ Indian Infotech products for biometric attendance, access control, and entrance management in Ahmedabad, Gujarat.',
-  alternates: { canonical: '/products' },
-  openGraph: { title: 'Biometric & Access Control Products | Indian Infotech', description: 'Access control, attendance, and entrance-management devices for real workplaces.', url: '/products' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Biometric & Access Control Products', description: 'Explore Indian Infotech devices for biometric attendance, access control, turnstiles, barriers, and entrance management.', path: '/products' });
 
 export default function ProductsPage() {
   return (

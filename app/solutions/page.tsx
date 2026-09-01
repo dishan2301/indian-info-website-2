@@ -1,16 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { RouteCardGrid } from '../_components/enterprise-route';
 import { solutionProfiles } from '../content';
 
-export const metadata: Metadata = {
-  title: 'Solutions | Indian Infotech',
-  description: 'Explore evidence-led workforce, access, entrance, visitor, and canteen operating solutions from Indian Infotech.',
-  alternates: { canonical: '/solutions' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Workforce, Access & Workplace Solutions', description: 'Explore workforce, biometric attendance, access, entrance, visitor, and canteen operating solutions.', path: '/solutions' });
 
 export default function SolutionsPage() {
   return <main><SiteHeader /><PageHero eyebrow="Solutions" title="Start with the operating problem, then connect the right system." description="Indian Infotech solutions bring together verified hardware, software, site conditions, and support ownership. Every recommendation is confirmed during solution design." marker="II / SOLUTIONS" />

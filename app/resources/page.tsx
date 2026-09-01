@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/site';
 import { ResourceLibrary } from '@/components/resources/resource-library';
 import { RoiCalculator } from '@/components/resources/roi-calculator';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = {
-  title: 'Resources & Technical Guidance | Indian Infotech',
-  description: 'Find Indian Infotech product, software, industry, and implementation resources.',
-  alternates: { canonical: '/resources' },
-  openGraph: { title: 'Resources | Indian Infotech', description: 'Product, software, industry, and implementation guidance.', url: '/resources' },
-};
+export const metadata: Metadata = createPageMetadata({ title: 'Resources & Technical Guidance', description: 'Find Indian Infotech product, software, industry, ROI, and implementation resources.', path: '/resources' });
 
 export default function ResourcesPage() {
   return (
