@@ -7,7 +7,7 @@ export default function Logo() {
       alt="Indian Infotech"
       width={1030}
       height={242}
-      className="h-auto w-[230px] max-w-full"
+      className="footer-v2-logo"
     />
   )
 }
