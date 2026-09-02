@@ -1428,6 +1428,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .route-link-list { display: grid; grid-template-columns: repeat(2, 1fr); }
 .route-link-list a { border-top: 1px solid rgba(255,255,255,.15); color: white; font-size: 1.15rem; padding: 1.1rem 0; }
 .route-link-list a:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.15); }
+.route-dark-section .route-link-list > div { border-top: 1px solid rgba(255,255,255,.15); color: white; font-size: 1.05rem; padding: 1.1rem 0; }
+.route-dark-section .route-link-list > div:nth-last-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.15); }
 .builder-section { background: #eef4f3; }
 .builder-form { background: white; border: 1px solid var(--line); display: grid; gap: 1.25rem; margin: 0 auto; max-width: 980px; padding: clamp(1.25rem, 4vw, 3rem); }
 .builder-field { display: grid; gap: .55rem; }

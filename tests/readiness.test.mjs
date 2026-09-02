@@ -89,10 +89,19 @@ test('technical buyers can download specifications and use tender guidance', () 
 
 test('knowledge center indexes current guidance without inventing API availability', () => {
   const knowledge = readFileSync('app/knowledge/page.tsx', 'utf8');
-  for (const item of ['CollectionPage', 'ItemList', 'FAQPage', 'Product catalogue', 'Integration planning', 'Trust Center', 'Business-case calculator']) assert.match(knowledge, new RegExp(item));
+  for (const item of ['CollectionPage', 'ItemList', 'FAQPage', 'Product catalogue', 'Integration reference', 'Trust Center', 'Business-case calculator']) assert.match(knowledge, new RegExp(item));
   assert.match(knowledge, /only after its product or software version, owner, and source are approved/);
   assert.match(readFileSync('app/support/page.tsx', 'utf8'), /href: title === 'Raise a support request'.*'\/knowledge'/);
   assert.match(readFileSync('app/sitemap.ts', 'utf8'), /'\/knowledge'/);
+});
+
+test('integration reference separates brochure facts from unavailable API details', () => {
+  const reference = readFileSync('app/developers/integration-reference/page.tsx', 'utf8');
+  for (const item of ['Published integration scope', 'Authentication and authorization', 'Endpoint paths and methods', 'Version and change policy', 'Technical source required']) assert.match(reference, new RegExp(item));
+  assert.match(reference, /do not prove that a REST API, SDK, webhook/);
+  const brief = readFileSync('app/developers/integration-brief/route.ts', 'utf8');
+  assert.match(brief, /Do not include passwords, tokens, private keys/);
+  assert.match(brief, /Content-Disposition/);
 });
 
 test('phase-five polish keeps navigation accessible and defers offscreen work', () => {

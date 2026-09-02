@@ -25,7 +25,7 @@ const references = [
   ['/products', 'Product catalogue', 'Browse the approved portfolio'],
   ['/resources', 'Downloads and resources', 'Find current technical material'],
   ['/resources#roi-calculator', 'Business-case calculator', 'Test editable assumptions'],
-  ['/integrations', 'Integration planning', 'Map the required data flow'],
+  ['/developers/integration-reference', 'Integration reference', 'Review verified interface facts'],
   ['/trust', 'Trust Center', 'Review evidence and controls'],
   ['/case-studies', 'Customer evidence', 'Read permission-backed stories'],
 ] as const;

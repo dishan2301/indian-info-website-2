@@ -21,6 +21,7 @@ const resources: readonly ResourceItem[] = [
   { title: 'Security and trust review', description: 'Review data handling, deployment-security questions, compliance evidence status, and procurement routes.', type: 'Guide', area: 'Company', href: '/trust' },
   { title: 'Public website security controls', description: 'Inspect the verified browser and transport-control scope applied to this website, with product and deployment boundaries stated clearly.', type: 'Guide', area: 'Company', href: '/trust/security' },
   { title: 'Consultant and tender specification guide', description: 'A printable checklist for operating scope, functional requirements, integrations, commercial response, and evidence-led bid evaluation.', type: 'Tender resource', area: 'Company', href: '/resources/procurement' },
+  { title: 'Integration discovery brief', description: 'Capture systems, owners, identity keys, fields, security, testing, cutover, monitoring, and support before interface review.', type: 'Guide', area: 'Software', href: '/developers/integration-brief', download: true },
   { title: 'Knowledge Center', description: 'Use one maintained index for product selection, integrations, procurement, operations, support, trust guidance, and explainers.', type: 'Guide', area: 'Company', href: '/knowledge' },
   { title: 'Product portfolio', description: 'Browse access-control, attendance, and entrance-management products with real product media.', type: 'Overview', area: 'Products', href: '/products' },
   { title: 'Product selection guidance', description: 'Review the operating questions that shape device and deployment selection.', type: 'Guide', area: 'Products', href: '/products' },
@@ -54,7 +55,7 @@ export function ResourceLibrary() {
       <p className="resource-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'resource' : 'resources'} found</p>
       <div className="resource-grid">
         {filtered.map((resource) => {
-          const content = <><span>{resource.type} · {resource.area}</span><h2>{resource.title}</h2><p>{resource.description}</p><b>{resource.download ? 'Download PDF ↓' : resource.href ? 'Open resource ↗' : resource.requestHref ? 'Request source material ↗' : 'Editorial review pending'}</b></>;
+          const content = <><span>{resource.type} · {resource.area}</span><h2>{resource.title}</h2><p>{resource.description}</p><b>{resource.download ? 'Download file ↓' : resource.href ? 'Open resource ↗' : resource.requestHref ? 'Request source material ↗' : 'Editorial review pending'}</b></>;
           if (resource.href && resource.download) return <a className="resource-card" href={resource.href} download key={resource.title}>{content}</a>;
           if (resource.href) return <Link className="resource-card" href={resource.href} key={resource.title}>{content}</Link>;
           if (resource.requestHref) return <Link className="resource-card archived" id={resource.title === 'AI technology in production lines' ? 'legacy-editorial' : undefined} href={resource.requestHref} key={resource.title}>{content}</Link>;
