@@ -113,3 +113,18 @@ test('brochure-backed software facts have one display and download source', () =
   assert.match(download, /Content-Disposition/);
   assert.match(download, /Confirm the exact software version/);
 });
+
+test('trust center publishes an evidence register without inventing certifications', () => {
+  const evidence = readFileSync('app/trust/content.ts', 'utf8');
+  for (const status of ['Published', 'Request review', 'Awaiting approved source', 'Not connected']) assert.match(evidence, new RegExp(status));
+  for (const owner of ['Website operations', 'Support', 'Quality', 'Engineering']) assert.match(evidence, new RegExp(owner));
+  const trust = readFileSync('app/trust/page.tsx', 'utf8');
+  assert.match(trust, /trustEvidence\.map/);
+  assert.match(trust, /ItemList/);
+  const security = readFileSync('app/trust/security/page.tsx', 'utf8');
+  for (const control of ['Transport security', 'Content execution', 'Framing protection', 'Browser capabilities']) assert.match(evidence, new RegExp(control));
+  assert.match(security, /do not automatically describe/i);
+  const disclosure = readFileSync('app/trust/responsible-disclosure/page.tsx', 'utf8');
+  assert.match(disclosure, /does not promise a response or remediation deadline/i);
+  assert.match(disclosure, /companyProfile\.supportEmail/);
+});

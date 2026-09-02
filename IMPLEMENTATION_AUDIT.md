@@ -19,6 +19,7 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - One H1 per sitemap page, semantic heading order, image alternative text, keyboard focus styles, form labels, skip navigation, responsive layouts, and reduced-motion rules.
 - Search, product filtering, product comparison, per-product specification downloads, multi-module solution architecture and quote brief generator, printable tender guidance, and transparent ROI calculator.
 - EasyTime Online and Canteen Management now expose brochure-sourced, configuration-qualified facts from the shared software catalogue; every software route also provides a generated specification-summary download.
+- The Trust Center now exposes a typed evidence register with status and ownership, verified public-website security controls, responsible vulnerability-reporting guidance, and explicit boundaries around deployment-specific evidence.
 - Offscreen homepage chapters defer rendering work, hero image requests use panel-aware responsive sizes, skip navigation lands on a focusable target, decorative navigation roles were removed, and the fixed WhatsApp action respects mobile safe areas.
 - Security headers, HTTPS upgrade behavior, CSP nonces, safe enquiry handling, and privacy-aware optional analytics.
 - WebP derivatives for large live poster, company, and technology images. Affected files are approximately 34–155 KB instead of 1.2–1.9 MB PNG sources.
@@ -42,7 +43,7 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - `npm run build:vercel`: passed, including TypeScript and 106 generated pages.
 - `npm run check:readiness`: passed, including 28 one-hop 301 redirect records, claim provenance, proof publication gates, PDF/resource artifacts, launch runbook, and responsive image-size checks.
 - `npm run build:vercel`: passed via the validated Vinext build path; the environment's standalone Next 16 `--showConfig` parser is not usable here even though `npx tsc --noEmit` passes.
-- Local production crawl: 101 sitemap pages, 116 internal links, 126 rendered images, and 267 JSON-LD blocks checked with zero errors. The public URL was separately checked for HTTP availability; its new-route 404s are recorded above.
+- Local production crawl: 103 sitemap pages, 118 internal links, 126 rendered images, and 274 JSON-LD blocks checked with zero errors. The public URL was separately checked for HTTP availability; its new-route 404s are recorded above.
 - The rendered audit checks HTTP status, unique titles/descriptions/canonicals, social metadata, indexability, one H1, heading-level order, JSON-LD parsing, broken internal links, missing image alt attributes, broken rendered images, search noindex, 404 behavior, and production robots directives.
 
 ## Not fulfilled yet

@@ -43,6 +43,7 @@ const footerSections = [
       ["Support", "/support"],
       ["Developer resources", "/developers"],
       ["Trust center", "/trust"],
+      ["Security reporting", "/trust/responsible-disclosure"],
       ["Academy", "/academy"],
     ],
   },
