@@ -128,3 +128,14 @@ test('trust center publishes an evidence register without inventing certificatio
   assert.match(disclosure, /does not promise a response or remediation deadline/i);
   assert.match(disclosure, /companyProfile\.supportEmail/);
 });
+
+test('case-study intake preserves metric provenance and permission', () => {
+  const proof = readFileSync('app/proof-content.ts', 'utf8');
+  for (const item of ['Baseline period', 'source record', 'calculation method', 'Publication permission', 'withdrawal contact']) assert.match(proof, new RegExp(item, 'i'));
+  const contribute = readFileSync('app/case-studies/contribute/page.tsx', 'utf8');
+  assert.match(contribute, /Submission does not grant publication permission/);
+  assert.match(contribute, /HowTo/);
+  const brief = readFileSync('app/case-studies/brief/route.ts', 'utf8');
+  assert.match(brief, /Content-Disposition/);
+  assert.match(brief, /Every metric must retain its baseline/);
+});

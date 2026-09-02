@@ -1413,7 +1413,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .route-detail-intro h2 { color: var(--navy-950); font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.055em; line-height: 1.04; margin: 1rem 0; max-width: 16ch; }
 .route-detail-intro > div:last-child > p { color: var(--muted); line-height: 1.8; margin: 0 0 1.5rem; }
 .route-related-grid { background: var(--line); border: 1px solid var(--line); display: grid; gap: 1px; grid-template-columns: 1fr 1fr; }
-.route-related-grid > div { background: white; min-height: 280px; padding: 1.75rem; }
+.route-related-grid > div, .route-related-grid > article { background: white; min-height: 280px; padding: 1.75rem; }
 .route-related-grid h3 { color: var(--navy-950); font-size: 1.2rem; margin: 0 0 1.2rem; }
 .route-related-grid ul { color: var(--muted); line-height: 1.8; margin: 0 0 1.5rem; padding-left: 1rem; }
 .route-related-grid a { border-top: 1px solid var(--line); color: var(--navy-900); display: block; font-size: .75rem; padding: .75rem 0; }
@@ -1636,7 +1636,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .route-card-grid, .route-related-grid, .route-link-list { grid-template-columns: 1fr; }
   .route-feature-band { align-items: flex-start; flex-direction: column; }
   .route-detail-intro { grid-template-columns: 1fr; }
-  .route-related-grid > div { min-height: 0; }
+  .route-related-grid > div, .route-related-grid > article { min-height: 0; }
   .route-link-list a:nth-last-child(2) { border-bottom: 0; }
   .product-viewer-stage { height: 82vw; min-height: 280px; }
   .product-viewer-controls span { font-size: .52rem; }

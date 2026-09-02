@@ -40,3 +40,11 @@ export const evidenceQueue = [
   { id: 'industry-metrics', label: 'Industry deployment metrics', requirement: 'Source record, reporting period, calculation method, and owner approval', owner: 'Operations', status: 'awaiting-source' },
   { id: 'certificates', label: 'Certificates and quality policy', requirement: 'Current PDF, scope, certificate number, issuer, issue and expiry dates, and publication approval', owner: 'Quality', status: 'awaiting-source' },
 ] as const satisfies readonly { id: string; label: string; requirement: string; owner: string; status: EvidenceStatus }[];
+
+export const caseStudyBriefSections = [
+  { title: 'Customer and approver', prompts: ['Legal organization name and industry', 'Named customer contact, role, and approval authority', 'Indian Infotech project owner and internal evidence owner'] },
+  { title: 'Operating challenge', prompts: ['Sites, workforce, entry points, users, or transactions in scope', 'Previous process and the problem it created', 'Baseline period, baseline value, source record, and calculation method'] },
+  { title: 'Delivered solution', prompts: ['Products, software, versions, modules, and integrations used', 'Implementation scope, rollout dates, training, and customer responsibilities', 'Important configuration limits, exclusions, dependencies, and support model'] },
+  { title: 'Measured outcome', prompts: ['Outcome value, unit, period, source record, and calculation method', 'Who validated the result and when', 'Other changes that may have influenced the result'] },
+  { title: 'Publication permission', prompts: ['Approved customer name, logo, quote, person, role, images, and links', 'Approved website, PDF, proposal, social, and sales-use channels', 'Permission reference, approval date, approver, review date, and withdrawal contact'] },
+] as const;
