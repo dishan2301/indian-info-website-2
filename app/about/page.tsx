@@ -32,6 +32,8 @@ export default function AboutPage() {
 
     <section className="proof-strip internal-proof" aria-label="Company facts">{companyFacts.map((fact) => <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}</section>
 
+    <section className="section" aria-labelledby="company-timeline-title"><div className="section-heading split-heading"><div><p className="section-kicker">Company timeline</p><h2 id="company-timeline-title">From time-office systems to connected workplaces.</h2></div><p>Only milestones supported by the supplied company material are shown. Leadership biographies, branch history, awards, and press mentions remain unpublished until approved sources are supplied.</p></div><div className="route-link-list"><div><strong>2011</strong> · Indian Infotech founded in Ahmedabad<span>HRMS, office automation, access control, and clean-room door-interlock focus</span></div><div><strong>Today</strong> · Connected workforce and workplace portfolio<span>Attendance, HRMS, payroll, access, entrance, visitor, canteen, media, and industrial AI systems</span></div></div></section>
+
     <section className="about-why-section"><div><p className="section-kicker">Why Indian Infotech</p><h2>Technology blended with practicality.</h2><p>Our offerings are not just products but gateways to efficiency, security, and progress.</p></div><ul>{strengths.map((strength, index) => <li key={strength}><span>0{index + 1}</span>{strength}</li>)}</ul></section>
 
     <section className="decision-band"><div><p className="section-kicker light">Need help?</p><h2>Take the Next Step with Indian Infotech.</h2></div><Link className="button button-primary" href="/contact">Contact us now <span aria-hidden="true">↗</span></Link></section>

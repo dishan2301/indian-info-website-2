@@ -3,8 +3,9 @@ import { SITE_URL } from '@/lib/site';
 import { hrmsModules, industryProfiles, products, softwarePlatforms, solutionProfiles } from './content';
 import { insights } from './insights/content';
 import { seoLandingPages } from './seo-landing-content';
+import { approvedCaseStudies } from './proof-content';
 
-const routes = ['', '/platform', '/products', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/resources', '/insights', '/support', '/case-studies', '/partners', '/developers', '/academy', '/certification', '/trust', '/status', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
+const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/resources', '/insights', '/support', '/case-studies', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
@@ -31,5 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const industryRoutes = industryProfiles.map((item) => ({ url: `${SITE_URL}/industries/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
   const insightRoutes = insights.map((item) => ({ url: `${SITE_URL}/insights/${item.slug}`, lastModified: new Date(item.date), changeFrequency: 'monthly' as const, priority: 0.7 }));
   const landingRoutes = seoLandingPages.map((item) => ({ url: `${SITE_URL}/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.9 }));
-  return [...staticRoutes, ...landingRoutes, ...productRoutes, ...softwareRoutes, { url: `${SITE_URL}/hrms-payroll`, changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes, ...solutionRoutes, ...industryRoutes, ...insightRoutes];
+  const caseStudyRoutes = approvedCaseStudies.map((item) => ({ url: `${SITE_URL}/case-studies/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.75 }));
+  return [...staticRoutes, ...landingRoutes, ...productRoutes, ...softwareRoutes, { url: `${SITE_URL}/hrms-payroll`, changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes, ...solutionRoutes, ...industryRoutes, ...insightRoutes, ...caseStudyRoutes];
 }

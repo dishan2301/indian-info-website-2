@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { validateContactSubmission } from "@/lib/security.mjs"
+import { companyProfile } from "@/lib/company-profile"
 
 type EnquiryBriefProps = { initialContext?: string }
 
@@ -41,7 +42,7 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
           _subject: `Indian Infotech website enquiry from ${validation.data.name}`,
           _template: "table",
           _captcha: "false",
-          _url: "https://indian-info-website-2.vercel.app/contact",
+          _url: window.location.href.split("?")[0],
         }),
       })
       const result = await response.json() as { success?: string | boolean; message?: string }
@@ -66,8 +67,8 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
       title="Get in touch"
       description="Tell us what you need for attendance, access control, entrance management, HRMS, payroll, or workplace operations. We usually respond within one business day."
       contactInfo={[
-        { icon: MailIcon, label: "Email", value: "sales@indianinfotech.org" },
-        { icon: PhoneIcon, label: "Phone", value: "+91 76000 66770" },
+        { icon: MailIcon, label: "Email", value: companyProfile.email },
+        { icon: PhoneIcon, label: "Phone", value: companyProfile.phoneDisplay },
         { icon: MapPinIcon, label: "Head office", value: "Gala Empire, Thaltej, Ahmedabad" },
       ]}
     >

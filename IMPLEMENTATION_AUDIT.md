@@ -1,6 +1,6 @@
 # Indian Infotech implementation audit
 
-**Audit date:** 1 September 2026  
+**Audit date:** 2 September 2026  
 **Audited plans:** `INDIAN_INFOTECH_SEO_90_PLUS_PLAN.md` and `indian_infotech_website_transformation_report.md`  
 **Verified deployment:** https://indian-info-website-2.vercel.app
 
@@ -22,6 +22,13 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - Unsupported anonymous testimonial copy was removed; named outcomes, quotations, and metrics are now explicitly gated on evidence and display permission.
 - Sitemap modification dates are emitted only for editorial content with a real publication date, avoiding artificial daily freshness signals.
 - Production deployment completed to the linked Vercel project.
+- Homepage statistics now come from one provenance-aware company profile, render their final values in initial HTML, and animate from zero when the stats enter view.
+- `/compare` provides side-by-side selection for up to three products, including use-case fields, contact-for-pricing, and datasheet request routes.
+- `/testimonials` and `/case-studies` are dedicated publication gates; unsupported anonymous quotes and unapproved outcomes are not rendered as proof.
+- The supplied company brochure is available as a direct PDF resource. Unsupplied certificate, policy, customer, and product-download records remain explicitly pending instead of being fabricated.
+- Industry detail pages include context-specific solution routes, recommended product starting points, specialist CTAs, and evidence-safe case-study slots.
+- Redirects are defined once in `lib/legacy-routes.mjs`, executed as one-hop 301s, and checked by `npm run check:readiness`.
+- `CUTOVER_RUNBOOK.md` records the DNS, SSL, MX-preservation, analytics, account-verification, rollback, and post-launch operator gates that code cannot complete on its own.
 
 ## Verification evidence
 
@@ -30,6 +37,8 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - `npm run lint`: passed.
 - `npm run build`: passed.
 - `npm run build:vercel`: passed, including TypeScript and 106 generated pages.
+- `npm run check:readiness`: passed, including 28 one-hop 301 redirect records, claim provenance, proof publication gates, PDF/resource artifacts, launch runbook, and responsive image-size checks.
+- `npm run build:vercel`: passed via the validated Vinext build path; the environment's standalone Next 16 `--showConfig` parser is not usable here even though `npx tsc --noEmit` passes.
 - Production crawl: 99 sitemap pages, 100 internal links, 129 rendered images, and 258 JSON-LD blocks checked with zero errors.
 - The rendered audit checks HTTP status, unique titles/descriptions/canonicals, social metadata, indexability, one H1, heading-level order, JSON-LD parsing, broken internal links, missing image alt attributes, broken rendered images, search noindex, 404 behavior, and production robots directives.
 
@@ -40,6 +49,7 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - `indianinfotech.org` still serves the legacy WordPress website. The new site is correctly canonicalized to its current Vercel production domain until a custom-domain cutover is authorized.
 - Google Search Console verification and GA4 conversion reporting are not active because their account values have not been supplied.
 - Google PageSpeed Insights returned HTTP 429 during this audit. Lighthouse 90+/95+ scores and field Core Web Vitals are therefore not proven.
+- The public status page was removed from navigation and sitemap until a real uptime monitor and incident workflow are connected; support remains the issue route.
 
 ### Evidence and operational content
 

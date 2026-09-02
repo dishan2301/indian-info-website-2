@@ -4,6 +4,9 @@ import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
+import { RouteCardGrid } from '../../_components/enterprise-route';
+import { products } from '../../content';
+import { approvedCaseStudies } from '../../proof-content';
 
 export const metadata: Metadata = createPageMetadata({ title: 'Pharma Access Control & Attendance', description: 'Access control, door interlocking, biometric attendance, visitor, and HRMS systems for pharmaceutical facilities in India.', path: '/industries/pharma', image: '/campaign/industries/pharma-desktop-v2.webp' });
 
@@ -15,6 +18,8 @@ const pharmaNeeds = [
 ] as const;
 
 export default function PharmaPage() {
+  const recommended = products.filter((product) => ['i-18', 'ai-60', 'fbl-200', 'fbl-300', 'fht2300-series'].includes(product.slug));
+  const caseStudies = approvedCaseStudies.filter((study) => /pharma|research/i.test(study.industry));
   return (
     <main>
       <SiteHeader />
@@ -40,7 +45,9 @@ export default function PharmaPage() {
       </section>
 
       <section className="evidence-note"><span>Important</span><div><h2>System capability is not a compliance certificate.</h2><p>Published claims will remain specific and evidence-based. Final compliance depends on facility design, installation, procedures, validation, documentation, and applicable regulatory requirements.</p></div></section>
-      <section className="decision-band"><div><p className="section-kicker light">Discuss your facility</p><h2>Map doors, zones, shifts, visitors, and workforce workflows.</h2></div><Link className="button button-primary" href="/contact">Book a pharma consultation <span aria-hidden="true">↗</span></Link></section>
+      <section className="section"><div className="section-heading split-heading"><div><p className="section-kicker">Products for pharma</p><h2>Start with controlled entry and workforce identity.</h2></div><p>Final selection depends on clean-room design, door logic, credentials, throughput, network, documentation, and facility validation.</p></div><RouteCardGrid cards={recommended.map((product) => ({ title: product.name, description: product.description, href: `/products/${product.slug}`, eyebrow: product.family }))} /></section>
+      <section className="section">{caseStudies.length ? <RouteCardGrid cards={caseStudies.map((study) => ({ title: study.client, description: study.outcome, href: `/case-studies/${study.slug}`, eyebrow: 'Approved pharma case study' }))} /> : <div className="proof-evidence-queue"><span>PHARMA / CUSTOMER EVIDENCE</span><h2>Named deployment story awaiting client approval.</h2><p>No pharma client result, deployment size, or quotation is published until written permission and supporting evidence are supplied.</p><Link className="button button-primary" href="/contact?topic=case-study&industry=pharma">Submit approved evidence <span aria-hidden="true">↗</span></Link></div>}</section>
+      <section className="decision-band"><div><p className="section-kicker light">Discuss your facility</p><h2>Talk to our pharma solutions team.</h2></div><Link className="button button-primary" href="/contact?industry=pharma">Book a pharma consultation <span aria-hidden="true">↗</span></Link></section>
       <SiteFooter />
     </main>
   );

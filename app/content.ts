@@ -1,9 +1,8 @@
+import { companyProfile, companyStats } from '@/lib/company-profile';
+
 export const companyFacts = [
-  { value: '2011', label: 'Founded in Ahmedabad' },
-  { value: '14+', label: 'Years of experience' },
-  { value: '2,000+', label: 'Clients served' },
-  { value: '7+', label: 'Countries reached' },
-  { value: '12+', label: 'Products across the portfolio' },
+  { value: String(companyProfile.foundedYear), label: 'Founded in Ahmedabad' },
+  ...companyStats.map(({ display, label }) => ({ value: display, label })),
 ] as const;
 
 export const customerOrganizations = [

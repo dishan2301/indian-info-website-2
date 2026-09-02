@@ -20,7 +20,7 @@ export default function Home() {
       <p className="section-kicker">Connected workforce and workplace systems</p>
       <h1 id="home-primary-heading">Workforce &amp; Workplace Technology for Modern Businesses</h1>
       <p>One connected ecosystem for biometric attendance, HRMS, payroll, access control, visitor management, and workplace operations across India.</p>
-      <div className="hero-actions"><Link className="button button-primary" href="/solutions">Explore solutions <span aria-hidden="true">↗</span></Link><Link className="button outline-button" href="/contact">Book a demo</Link></div>
+      <div className="hero-actions"><Link className="button button-primary" href="/solutions">Explore solutions <span aria-hidden="true">↗</span></Link><Link className="button outline-button" href="/resources#roi-calculator">Estimate ROI</Link><Link className="button outline-button" href="/contact?topic=pricing">Get pricing</Link></div>
     </section>
     <CompanyOverview />
     <IndustriesAndClients />

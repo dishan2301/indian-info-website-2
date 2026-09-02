@@ -8,10 +8,11 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
-    "build:vercel": "next build",
+    "build:vercel": "vinext build",
     "check:seo": "node --test tests/seo.test.mjs",
     "audit:seo": "node tests/rendered-seo-audit.mjs",
     "check:security": "node --test tests/security.test.mjs",
+    "check:readiness": "node --test tests/readiness.test.mjs",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },

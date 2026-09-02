@@ -34,7 +34,7 @@ export function ContactCard({
       <div className="contact-card-copy">
         <div>
           <p className="contact-card-kicker">Indian Infotech · Ahmedabad</p>
-          <h1>{title}</h1>
+          <h2>{title}</h2>
           <p className="contact-card-description">{description}</p>
           <div className="contact-card-info-grid">
             {contactInfo?.map((info) => (

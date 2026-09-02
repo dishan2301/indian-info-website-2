@@ -17,7 +17,6 @@ const pageEntries: readonly SearchEntry[] = [
   { title: 'Developers', description: 'Integration planning and developer review topics.', type: 'Technical', href: '/developers', keywords: 'API SDK webhook integration employee attendance device' },
   { title: 'Academy', description: 'Role-based learning paths for customers and partners.', type: 'Training', href: '/academy', keywords: 'training certification implementation administrator partner' },
   { title: 'Trust center', description: 'Security, privacy, availability, and compliance review domains.', type: 'Trust', href: '/trust', keywords: 'security privacy compliance encryption audit backup' },
-  { title: 'System status', description: 'Service communication and support issue route.', type: 'Support', href: '/status', keywords: 'status uptime incident availability outage' },
   { title: 'About Indian Infotech', description: 'Company background, verified operating facts, and working principles.', type: 'Company', href: '/about-us', keywords: 'Ahmedabad Gujarat founded 2011 clients countries' },
   { title: 'Contact Indian Infotech', description: 'Sales, support, telephone, WhatsApp, and Ahmedabad office details.', type: 'Contact', href: '/contact', keywords: 'demo quote engineer office email phone' },
 ] as const;

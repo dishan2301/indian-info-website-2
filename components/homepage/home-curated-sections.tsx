@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { customerOrganizations } from '@/app/content';
+import { companyStats } from '@/lib/company-profile';
 
-const companyFacts = [{ value: 14, suffix: '+', label: 'Years of experience' }, { value: 12, suffix: '+', label: 'Products' }, { value: 7, suffix: '+', label: 'Countries served' }, { value: 2000, suffix: '+', label: 'Happy clients' }] as const;
 const industries = [
   { name: 'Pharma', slug: 'pharma', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v1.webp', alt: 'Original 3D scene of secure staff entry in a modern pharmaceutical facility' },
   { name: 'Chemical', slug: 'chemical', eyebrow: 'Safety-led operations', title: 'The right people, in the right operating areas.', text: 'Connect identity, attendance, contractor movement, and controlled access across complex processing environments.', image: '/generated/industries/chemical-workplace-v1.webp', alt: 'Original 3D scene of controlled workforce entry at a chemical processing plant' },
@@ -15,14 +15,7 @@ const industries = [
   { name: 'Engineering', slug: 'engineering', eyebrow: 'Protected project spaces', title: 'Secure the journey from design to delivery.', text: 'Shape access and workforce workflows around studios, prototype floors, tools, and project zones.', image: '/generated/industries/engineering-workplace-v1.webp', alt: 'Original 3D scene of controlled access in an engineering and prototyping center' },
   { name: 'Food industries', slug: 'food', eyebrow: 'Hygienic operations', title: 'Clean entry. Accountable shifts. Confident output.', text: 'Support hygiene checkpoints, attendance, and controlled production access across food facilities.', image: '/generated/industries/food-industries-workplace-v1.webp', alt: 'Original 3D scene of hygienic workforce entry in a food processing facility' },
 ] as const;
-const clientQuotes = [
-  { quote: 'Smooth HRMS implementation with reliable attendance and prompt support.', source: 'HR Team', logo: '/clients/client-logo-1.png', logoAlt: 'Torrent Power logo' },
-  { quote: 'Strong technical expertise with professional implementation.', source: 'Management', logo: '/clients/client-logo-4.png', logoAlt: 'Zydus Lifesciences logo' },
-  { quote: 'User-friendly system with accurate attendance tracking. Support response is quick and dependable.', source: 'IT Team, HCP Pvt. Ltd.', logo: '/clients/hcp-logo.png', logoAlt: 'HCP logo' },
-  { quote: 'Seamless hardware and software integration delivered on time. Highly satisfied with the service quality.', source: 'Indbest Healthcare Pvt. Ltd.', logo: '/clients/indbest-logo.png', logoAlt: 'Indbest Healthcare logo' },
-  { quote: 'Reliable workforce systems across a fast-moving textile operation.', source: 'Operations Team, Sutlej Textiles and Industries Limited', logo: '/clients/sutlej-logo.png', logoAlt: 'Sutlej Textiles and Industries Limited logo' },
-] as const;
-const news = [{ category: 'Customer support · Blog', title: "How we're using RAG to help customers solve problems faster", href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'How AI is making our daily work easier', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.webp' }, { category: 'Cloud attendance · Blog', title: 'Why your company needs EasyTime cloud attendance management', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'How AI technology is changing production lines', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
+const news = [{ category: 'Customer support · Blog', title: 'RAG customer support: faster answers from existing knowledge', href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'AI workplace automation: practical uses for Indian businesses', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.webp' }, { category: 'Cloud attendance · Blog', title: 'Biometric attendance system cost in India: cloud pricing factors', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'AI in manufacturing: a practical guide for production teams', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
 
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,24 +29,28 @@ function Reveal({ children, className = '' }: { children: ReactNode; className?:
   return <div className={`home-reveal ${className}`.trim()} ref={ref}>{children}</div>;
 }
 
-function AnimatedCount({ value, suffix }: { value: number; suffix: string }) {
+function AnimatedCount({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const ref = useRef<HTMLElement>(null);
-  const [shown, setShown] = useState(0);
+  const [shown, setShown] = useState(value);
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setShown(value - value);
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { setShown(value); return; }
       const started = performance.now();
-      const animate = (now: number) => { const progress = Math.min((now - started) / 1200, 1); setShown(Math.round(value * (1 - Math.pow(1 - progress, 3)))); if (progress < 1) requestAnimationFrame(animate); };
+      const animate = (now: number) => {
+        const progress = Math.min((now - started) / 1100, 1);
+        setShown(Math.round(value * (1 - (1 - progress) ** 3)));
+        if (progress < 1) requestAnimationFrame(animate);
+      };
       requestAnimationFrame(animate);
-    }, { threshold: .5 });
+    }, { threshold: .35 });
     observer.observe(node);
     return () => observer.disconnect();
   }, [value]);
-  return <strong ref={ref}>{shown.toLocaleString('en-IN')}{suffix}</strong>;
+  return <strong ref={ref} aria-label={`${value.toLocaleString('en-IN')}${suffix} ${label}`} data-final-value={value}>{shown.toLocaleString('en-IN')}{suffix}</strong>;
 }
 
 export function CompanyOverview() {
@@ -107,7 +104,7 @@ export function CompanyOverview() {
       <Reveal className="home-company-identity">
         <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
         <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
-        <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyFacts.map((fact) => <div key={fact.label}><AnimatedCount value={fact.value} suffix={fact.suffix} /><span>{fact.label}</span></div>)}</div>
+        <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyStats.map((fact) => <div key={fact.id}><AnimatedCount value={fact.value} suffix={fact.suffix} label={fact.label} /><span>{fact.label}</span></div>)}</div>
       </Reveal>
       <div className="home-company-copy">
         <Reveal className="home-company-intro"><p>Why Indian Infotech</p><h2 id="why-indian-infotech">Practical technology. Dependable delivery.</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
@@ -147,8 +144,7 @@ export function QuotesAndNews() {
   useEffect(() => { if (paused || matchMedia('(prefers-reduced-motion: reduce)').matches) return; const timer = window.setInterval(() => setActive((current) => (current + 1) % news.length), 5000); return () => clearInterval(timer); }, [paused]);
   const move = (direction: number) => setActive((current) => (current + direction + news.length) % news.length);
   return <section className="home-quotes-news-page" aria-labelledby="client-quotes-heading">
-    <Reveal className="home-section-heading"><p>Client’s Quote</p><h2 id="client-quotes-heading">Feedback from teams we support.</h2></Reveal>
-    <div className="home-quote-grid">{clientQuotes.map((item) => <blockquote key={item.source}><div><Image className="home-quote-logo" src={item.logo} alt={item.logoAlt} width={120} height={48} /><b aria-hidden="true">“</b></div><p>{item.quote}</p><cite>— {item.source}</cite></blockquote>)}</div>
+    <Reveal className="home-section-heading"><p>Customer evidence</p><h2 id="client-quotes-heading">Named stories, published with permission.</h2><span>Anonymous quotations are not presented as proof. Customer names, roles, results, and assets appear only after the source and publication approval are recorded.</span><Link className="text-link" href="/testimonials">View testimonial standard and publication status →</Link></Reveal>
     <div className="home-news-header-row"><div className="home-news-heading"><p>News &amp; blogs</p><h2>Practical thinking for modern workplaces.</h2></div><div className="home-news-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous article">←</button><button type="button" onClick={() => move(1)} aria-label="Next article">→</button></div></div>
     <div className="home-news-viewport" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}><div className="home-news-track" style={{ transform: `translate3d(-${active * 100}%,0,0)` }}>{news.map((item) => <Link href={item.href} key={item.title}><div><Image src={item.image} alt={`Illustration for ${item.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><span>{item.category}</span><h3>{item.title}</h3><b>Read more ↗</b></Link>)}</div></div>
     <div className="home-news-dots" aria-label="Choose article">{news.map((item, index) => <button type="button" aria-label={`Show ${item.title}`} aria-current={index === active} onClick={() => setActive(index)} key={item.title} />)}</div>

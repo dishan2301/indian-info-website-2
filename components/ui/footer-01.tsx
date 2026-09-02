@@ -3,6 +3,7 @@ import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 
 import Logo from "@/components/ui/footer-01-utils/logo"
 import { Separator } from "@/components/ui/separator"
+import { companyProfile } from "@/lib/company-profile"
 
 const footerSections = [
   {
@@ -10,12 +11,14 @@ const footerSections = [
     links: [
       ["Platform", "/platform"],
       ["Products", "/products"],
+      ["Compare products", "/compare"],
       ["Software", "/software"],
       ["HRMS & Payroll", "/hrms-payroll"],
       ["Solutions", "/solutions"],
       ["Industries", "/industries"],
       ["News & insights", "/insights"],
       ["About us", "/about-us"],
+      ["Testimonials", "/testimonials"],
     ],
   },
   {
@@ -37,30 +40,29 @@ const footerSections = [
       ["Integrations", "/integrations"],
       ["Resources", "/resources"],
       ["Support", "/support"],
-      ["Developers", "/developers"],
+      ["Developers (coming soon)", "/developers"],
       ["Trust center", "/trust"],
       ["Academy", "/academy"],
-      ["System status", "/status"],
     ],
   },
 ] as const
 
 const contactLinks = [
   {
-    label: "sales@indianinfotech.org",
-    href: "mailto:sales@indianinfotech.org",
+    label: companyProfile.email,
+    href: `mailto:${companyProfile.email}`,
     icon: Mail,
     external: false,
   },
   {
-    label: "+91 76000 66770",
-    href: "tel:+917600066770",
+    label: companyProfile.phoneDisplay,
+    href: companyProfile.phoneHref,
     icon: Phone,
     external: false,
   },
   {
-    label: "WhatsApp · +91 77780 66770",
-    href: "https://wa.me/917778066770",
+    label: `WhatsApp · ${companyProfile.whatsappDisplay}`,
+    href: companyProfile.whatsappHref,
     icon: MessageCircle,
     external: true,
   },
@@ -159,7 +161,7 @@ export default function Footer() {
                   <address>
                     429, 425, 403 Gala Empire<br />
                     Opp. Doordarshan Kendra, Thaltej<br />
-                    Ahmedabad 380054, Gujarat, India
+                    {companyProfile.address.locality} {companyProfile.address.postalCode}, {companyProfile.address.region}, {companyProfile.address.country}
                     <span className="footer-v2-map-link">
                       Open in Google Maps <ArrowUpRight aria-hidden="true" size={14} />
                     </span>

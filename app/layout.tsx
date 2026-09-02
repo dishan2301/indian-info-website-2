@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { StructuredData } from '@/components/structured-data';
 import { Analytics } from '@/components/analytics';
 import { IS_INDEXABLE, SITE_URL } from '@/lib/site';
+import { companyProfile, postalAddressSchema } from '@/lib/company-profile';
 import './globals.css';
 
 const geistSans = Geist({
@@ -28,7 +29,10 @@ export const metadata: Metadata = {
   robots: IS_INDEXABLE ? { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } } : { index: false, follow: false },
   icons: { icon: '/favicon.svg' },
   manifest: '/manifest.webmanifest',
-  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
+  verification: process.env.GOOGLE_SITE_VERIFICATION || process.env.BING_SITE_VERIFICATION ? {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    other: process.env.BING_SITE_VERIFICATION ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION } : undefined,
+  } : undefined,
   openGraph: {
     siteName: 'Indian Infotech',
     locale: 'en_IN',
@@ -48,9 +52,9 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': ['Organization', 'LocalBusiness'], '@id': `${SITE_URL}/#organization`, name: 'Indian Infotech', url: SITE_URL,
-      logo: `${SITE_URL}/indian-infotech-logo.png`, image: `${SITE_URL}/og.png`, foundingDate: '2011', email: 'sales@indianinfotech.org', telephone: '+91-76000-66770',
-      address: { '@type': 'PostalAddress', streetAddress: '429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Thaltej', addressLocality: 'Ahmedabad', addressRegion: 'Gujarat', postalCode: '380054', addressCountry: 'IN' },
+      '@type': ['Organization', 'LocalBusiness'], '@id': `${SITE_URL}/#organization`, name: companyProfile.name, url: SITE_URL,
+      logo: `${SITE_URL}/indian-infotech-logo.png`, image: `${SITE_URL}/og.png`, foundingDate: String(companyProfile.foundedYear), email: companyProfile.email, telephone: companyProfile.phoneSchema,
+      address: postalAddressSchema,
       areaServed: { '@type': 'Country', name: 'India' },
     },
     {
@@ -71,6 +75,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <StructuredData data={organizationSchema} />
         <div id="main-content">{children}</div>
+        <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">WhatsApp</a>
         <Analytics />
       </body>
     </html>

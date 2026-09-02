@@ -6,13 +6,18 @@ import { useMemo, useState } from 'react';
 type ResourceItem = {
   title: string;
   description: string;
-  type: 'Overview' | 'Guide' | 'Industry' | 'Archived topic';
+  type: 'Brochure' | 'Case study' | 'Whitepaper' | 'Guide' | 'Overview' | 'Industry' | 'Archived topic';
   area: 'Products' | 'Software' | 'Industry' | 'Company';
   href?: string;
   requestHref?: string;
+  download?: boolean;
 };
 
 const resources: readonly ResourceItem[] = [
+  { title: 'Indian Infotech company brochure', description: 'Company overview covering HRMS, attendance, canteen, visitor, entrance, access-control, door-interlock, and industrial AI systems.', type: 'Brochure', area: 'Company', href: '/indian-infotech-company-brochure.pdf', download: true },
+  { title: 'Customer case studies', description: 'Permission-backed deployment stories are listed here as each client, scope, and measurable outcome is approved.', type: 'Case study', area: 'Company', href: '/case-studies' },
+  { title: 'Security and compliance whitepapers', description: 'No approved whitepaper is available yet; request current security or compliance material for the proposed deployment.', type: 'Whitepaper', area: 'Company', requestHref: '/contact?topic=security&resource=whitepaper' },
+  { title: 'Security and trust review', description: 'Review data handling, deployment-security questions, compliance evidence status, and procurement routes.', type: 'Guide', area: 'Company', href: '/trust' },
   { title: 'Product portfolio', description: 'Browse access-control, attendance, and entrance-management products with real product media.', type: 'Overview', area: 'Products', href: '/products' },
   { title: 'Product selection guidance', description: 'Review the operating questions that shape device and deployment selection.', type: 'Guide', area: 'Products', href: '/products' },
   { title: 'Software platform overview', description: 'Explore Easytime Online, HRMS and Payroll, visitor, and canteen workflows.', type: 'Overview', area: 'Software', href: '/software' },
@@ -21,7 +26,7 @@ const resources: readonly ResourceItem[] = [
   { title: 'Rent-based cloud attendance management', description: 'Legacy Easytime article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Software', requestHref: '/contact?resource=rent-based-cloud-attendance' },
 ] as const;
 
-const types = ['All', 'Overview', 'Guide', 'Industry', 'Archived topic'] as const;
+const types = ['All', 'Brochure', 'Case study', 'Whitepaper', 'Guide', 'Overview', 'Industry', 'Archived topic'] as const;
 
 export function ResourceLibrary() {
   const [query, setQuery] = useState('');
@@ -44,7 +49,8 @@ export function ResourceLibrary() {
       <p className="resource-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'resource' : 'resources'} found</p>
       <div className="resource-grid">
         {filtered.map((resource) => {
-          const content = <><span>{resource.type} · {resource.area}</span><h2>{resource.title}</h2><p>{resource.description}</p><b>{resource.href ? 'Open resource ↗' : resource.requestHref ? 'Request source material ↗' : 'Editorial review pending'}</b></>;
+          const content = <><span>{resource.type} · {resource.area}</span><h2>{resource.title}</h2><p>{resource.description}</p><b>{resource.download ? 'Download PDF ↓' : resource.href ? 'Open resource ↗' : resource.requestHref ? 'Request source material ↗' : 'Editorial review pending'}</b></>;
+          if (resource.href && resource.download) return <a className="resource-card" href={resource.href} download key={resource.title}>{content}</a>;
           if (resource.href) return <Link className="resource-card" href={resource.href} key={resource.title}>{content}</Link>;
           if (resource.requestHref) return <Link className="resource-card archived" id={resource.title === 'AI technology in production lines' ? 'legacy-editorial' : undefined} href={resource.requestHref} key={resource.title}>{content}</Link>;
           return <article className="resource-card archived" id={resource.title === 'AI technology in production lines' ? 'legacy-editorial' : undefined} key={resource.title}>{content}</article>;

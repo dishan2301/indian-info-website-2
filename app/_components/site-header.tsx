@@ -8,7 +8,7 @@ import { Boxes, Building2, Factory, House, Info, Layers3, UsersRound } from 'luc
 const productGroups = [
   { title: 'Biometric & attendance', links: [{ label: 'Face recognition devices', href: '/products#attendance' }, { label: 'Fingerprint devices', href: '/products#access-control' }, { label: 'All attendance devices', href: '/products#attendance' }] },
   { title: 'Access control', links: [{ label: 'Access control terminals', href: '/products#access-control' }, { label: 'Flap barriers', href: '/products#entrance-management' }, { label: 'Turnstiles & screening', href: '/products#entrance-management' }] },
-  { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Product guidance', href: '/resources' }] },
+  { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Compare products', href: '/compare' }, { label: 'Product guidance', href: '/resources' }] },
 ] as const;
 
 const softwareGroups = [
@@ -57,7 +57,7 @@ const mobileUtilityLinks = [
 const mobileMenuGroups = [
   { title: 'Products', links: [{ label: 'All products', href: '/products' }, { label: 'Attendance devices', href: '/products#attendance' }, { label: 'Access control', href: '/products#access-control' }, { label: 'Entrance management', href: '/products#entrance-management' }] },
   { title: 'Software', links: [{ label: 'Easytime Online', href: '/software/easytime-online' }, { label: 'HRMS & Payroll', href: '/software/hrms-payroll' }, { label: 'Visitor management', href: '/software/visitor-management' }, { label: 'Canteen management', href: '/software/canteen-management' }] },
-  { title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Case studies', href: '/case-studies' }, { label: 'Resources', href: '/resources' }, { label: 'Insights', href: '/insights' }] },
+  { title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Case studies', href: '/case-studies' }, { label: 'Testimonials', href: '/testimonials' }, { label: 'Resources', href: '/resources' }, { label: 'Insights', href: '/insights' }] },
 ] as const;
 
 function InteractiveMenu({ title, className = '', children }: { title: string; className?: string; children: ReactNode }) {
