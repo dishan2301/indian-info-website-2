@@ -1454,13 +1454,19 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .roi-calculator { background: var(--navy-950); color: #fff; display: grid; gap: 2rem; grid-template-columns: 1.1fr .9fr; padding: clamp(1.5rem, 4vw, 3.5rem); }
 .roi-calculator h2 { font-size: clamp(1.8rem, 3vw, 3rem); letter-spacing: -.05em; margin: .7rem 0; max-width: 15ch; }
 .roi-calculator p { color: #b9ced1; line-height: 1.65; max-width: 52ch; }
-.roi-controls { display: grid; gap: 1rem; }
+.roi-controls { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .roi-controls label { color: #d8e6e7; display: grid; font-size: .72rem; gap: .45rem; letter-spacing: .06em; text-transform: uppercase; }
-.roi-controls input { background: #fff; border: 0; color: var(--navy-950); font: inherit; padding: .85rem; }
+.roi-controls input { background: #fff; border: 1px solid transparent; color: var(--navy-950); font: inherit; min-width: 0; padding: .85rem; width: 100%; }
+.roi-controls input:focus-visible { border-color: var(--teal-300); outline: 3px solid rgba(142,227,217,.3); }
 .roi-result { border-left: 1px solid rgba(255,255,255,.25); grid-column: 2; grid-row: 1 / span 2; padding-left: 2rem; }
 .roi-result > span { color: #8ee3d9; font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
-.roi-result strong { display: block; font-size: clamp(2.3rem, 5vw, 4.5rem); letter-spacing: -.06em; margin: 1.5rem 0 .5rem; }
+.roi-result dl { display: grid; gap: 1px; margin: 1.5rem 0; }
+.roi-result dl > div { border-top: 1px solid rgba(255,255,255,.18); display: grid; gap: .4rem; padding: .85rem 0; }
+.roi-result dl > div:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
+.roi-result dt { color: #b9ced1; font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; }
+.roi-result dd { font-size: clamp(1.35rem, 2.4vw, 2rem); font-weight: 750; letter-spacing: -.04em; margin: 0; }
 .roi-result small { color: #b9ced1; display: block; line-height: 1.55; margin: 0 0 1.25rem; max-width: 52ch; }
+.roi-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 .floating-whatsapp { align-items: center; background: #167d5b; border: 2px solid white; border-radius: 999px; bottom: max(1.1rem, env(safe-area-inset-bottom)); box-shadow: 0 8px 30px rgba(5,29,35,.22); color: white; display: flex; font-size: .7rem; font-weight: 800; justify-content: center; min-height: 48px; padding: .7rem 1rem; position: fixed; right: max(1.1rem, env(safe-area-inset-right)); text-decoration: none; text-transform: uppercase; z-index: 90; }
 .floating-whatsapp:hover, .floating-whatsapp:focus-visible { background: #0e6448; }
 .status-panel { align-items: flex-start; background: #eef4f3; border: 1px solid var(--line); display: flex; gap: 1rem; padding: clamp(1.5rem, 4vw, 3rem); }
@@ -1595,7 +1601,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .product-poster-copy > p:not(.section-kicker, .product-poster-family) { font-size: .92rem; }
 }
 @media (max-width: 760px) { .trust-register { grid-template-columns: 1fr; } }
-@media (max-width: 760px) { .roi-calculator { display: block; } .roi-controls { margin: 1.5rem 0; } .roi-result { border-left: 0; border-top: 1px solid rgba(255,255,255,.25); padding: 1.5rem 0 0; } }
+@media (max-width: 760px) { .roi-calculator { display: block; } .roi-controls { grid-template-columns: 1fr; margin: 1.5rem 0; } .roi-result { border-left: 0; border-top: 1px solid rgba(255,255,255,.25); padding: 1.5rem 0 0; } }
 .customer-roster { background: #f7fbfa; }
 .customer-roster-grid { background: var(--line); border: 1px solid var(--line); display: grid; gap: 1px; grid-template-columns: repeat(3, 1fr); }
 .customer-roster-grid > div { background: white; display: flex; flex-direction: column; gap: .5rem; min-height: 92px; padding: 1.2rem; }

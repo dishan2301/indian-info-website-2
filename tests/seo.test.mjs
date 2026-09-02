@@ -97,5 +97,7 @@ test('audit priorities stay visible and evidence-safe', async () => {
   assert.match(catalogue, /Side-by-side comparison/);
   assert.match(catalogue, /Compare up to three products/);
   assert.match(insights, /Biometric Attendance System Cost in India/);
-  assert.match(roi, /Assumption: 35%/);
+  assert.match(roi, /Recoverable time \(%\)/);
+  assert.match(roi, /not guaranteed cash savings/i);
+  assert.match(roi, /Download summary/);
 });
