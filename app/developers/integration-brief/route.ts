@@ -1,3 +1,5 @@
+import { companyProfile } from '@/lib/company-profile';
+
 export function GET() {
   const text = [
     'INDIAN INFOTECH — INTEGRATION DISCOVERY BRIEF', '',
@@ -23,7 +25,7 @@ export function GET() {
     'PUBLICATION GATE',
     '- Do not publish endpoints, schemas, credentials, SDKs, rate limits, or compatibility promises without the production-interface owner’s approval.',
     '- Retain the approved source, applicable versions, review date, and accountable owner with every published reference.', '',
-    'Contact: sales@indianinfotech.org',
+    `Contact: ${companyProfile.email}`,
   ].join('\n');
 
   return new Response(text, { headers: {

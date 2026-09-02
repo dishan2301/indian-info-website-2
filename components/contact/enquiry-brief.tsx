@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react"
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import { ContactCard } from "@/components/ui/contact-card"
@@ -26,10 +27,13 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
     try {
       const values = Object.fromEntries(new FormData(form))
       const validation = validateContactSubmission(values)
-      if (validation.spam) return
+      if (validation.spam) {
+        setStatus("idle")
+        return
+      }
       if (!validation.valid) throw new Error(validation.errors[0])
 
-      const response = await fetch("https://formsubmit.co/ajax/chaudharydishan90@gmail.com", {
+      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(companyProfile.email)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -65,11 +69,11 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
   return (
     <ContactCard
       title="Get in touch"
-      description="Tell us what you need for attendance, access control, entrance management, HRMS, payroll, or workplace operations. We usually respond within one business day."
+      description="Tell us what you need for attendance, access control, entrance management, HRMS, payroll, or workplace operations. Include the installed context or decision you need help with."
       contactInfo={[
-        { icon: MailIcon, label: "Email", value: companyProfile.email },
-        { icon: PhoneIcon, label: "Phone", value: companyProfile.phoneDisplay },
-        { icon: MapPinIcon, label: "Head office", value: "Gala Empire, Thaltej, Ahmedabad" },
+        { icon: MailIcon, label: "Email", value: companyProfile.email, href: `mailto:${companyProfile.email}` },
+        { icon: PhoneIcon, label: "Phone", value: companyProfile.phoneDisplay, href: companyProfile.phoneHref },
+        { icon: MapPinIcon, label: "Head office", value: "Gala Empire, Thaltej, Ahmedabad", href: companyProfile.mapsHref },
       ]}
     >
       <form className="contact-form" onSubmit={submitBrief}>
@@ -98,10 +102,10 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
           <Label htmlFor="contact-website">Leave this field empty</Label>
           <Input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />
         </div>
-        <label className="contact-form-consent">
-          <input type="checkbox" required />
-          <span>I agree to send these details to Indian Infotech for a response.</span>
-        </label>
+        <div className="contact-form-consent">
+          <input id="contact-consent" type="checkbox" required />
+          <label htmlFor="contact-consent">I agree to send these details to Indian Infotech for a response, as described in the <Link href="/privacy">privacy notice</Link>.</label>
+        </div>
         <Button type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
         </Button>

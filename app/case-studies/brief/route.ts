@@ -1,4 +1,5 @@
 import { caseStudyBriefSections } from '@/app/proof-content';
+import { companyProfile } from '@/lib/company-profile';
 
 export function GET() {
   const text = [
@@ -9,7 +10,7 @@ export function GET() {
     '- Named facts and assets will not be published until the customer approver and Indian Infotech evidence owner approve the final draft.',
     '- Every metric must retain its baseline, period, unit, source, calculation method, and validator.',
     '- Submit the completed brief and approved assets through the case-study contact route.', '',
-    'Contact: sales@indianinfotech.org',
+    `Contact: ${companyProfile.email}`,
   ].join('\n');
   return new Response(text, { headers: {
     'Content-Type': 'text/plain; charset=utf-8',

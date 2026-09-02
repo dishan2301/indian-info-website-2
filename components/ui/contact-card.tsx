@@ -3,10 +3,11 @@ import { type LucideIcon, PlusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-type ContactInfoProps = React.ComponentProps<"div"> & {
+type ContactInfoProps = {
   icon: LucideIcon
   label: string
   value: string
+  href?: string
 }
 
 type ContactCardProps = React.ComponentProps<"div"> & {
@@ -50,14 +51,13 @@ export function ContactCard({
   )
 }
 
-function ContactInfo({ icon: Icon, label, value, className, ...props }: ContactInfoProps) {
-  return (
-    <div className={cn("contact-card-info", className)} {...props}>
+function ContactInfo({ icon: Icon, label, value, href }: ContactInfoProps) {
+  const content = <>
       <div className="contact-card-info-icon"><Icon aria-hidden="true" /></div>
       <div>
         <p>{label}</p>
         <span>{value}</span>
       </div>
-    </div>
-  )
+    </>
+  return href ? <a className="contact-card-info" href={href}>{content}</a> : <div className="contact-card-info">{content}</div>
 }

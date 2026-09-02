@@ -60,6 +60,7 @@ test('live source has no stale Vercel form URL or insecure asset URL', () => {
     const source = readFileSync(path, 'utf8');
     assert.doesNotMatch(source, /indian-info-website-2\.vercel\.app/);
     assert.doesNotMatch(source, /["'`]http:\/\//);
+    assert.doesNotMatch(source, /info@indianinfotech\.org|chaudharydishan90@gmail\.com/);
   }
 });
 

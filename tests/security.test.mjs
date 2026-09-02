@@ -53,7 +53,11 @@ test('frontend source has no silent network-transmission sink', () => {
     const source = readFileSync(path, 'utf8');
     for (const pattern of forbidden) assert.doesNotMatch(source, pattern, `${path} introduced browser data egress`);
   }
-  assert.match(readFileSync('components/contact/enquiry-brief.tsx', 'utf8'), /fetch\("https:\/\/formsubmit\.co\/ajax\/chaudharydishan90@gmail\.com"/u);
+  const contact = readFileSync('components/contact/enquiry-brief.tsx', 'utf8');
+  assert.match(contact, /formsubmit\.co\/ajax\/\$\{encodeURIComponent\(companyProfile\.email\)\}/u);
+  assert.doesNotMatch(contact, /chaudharydishan90@gmail\.com/u);
+  assert.match(contact, /href="\/privacy"/u);
+  assert.match(readFileSync('app/privacy/page.tsx', 'utf8'), /through FormSubmit, a third-party form-delivery service/u);
 });
 
 test('public build contains no source maps, environment files, or workspace paths', { skip: !existsSync('dist/client') }, () => {

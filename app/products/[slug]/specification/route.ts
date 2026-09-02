@@ -1,4 +1,5 @@
 import { products } from '@/app/content';
+import { companyProfile } from '@/lib/company-profile';
 
 export async function GET(_: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -21,7 +22,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug: stri
     'Important: This summary contains only currently published catalogue information. Confirm the exact model, variant, capacity, interfaces, environment, software version, accessories, warranty, and installation scope before procurement.',
     '',
     `Product page: /products/${product.slug}`,
-    'Contact: info@indianinfotech.org',
+    `Contact: ${companyProfile.email}`,
   ].join('\n');
 
   return new Response(text, {

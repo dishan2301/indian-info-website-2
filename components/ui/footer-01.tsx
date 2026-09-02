@@ -156,7 +156,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="https://maps.app.goo.gl/77cgnPHz1p1tyUyb6"
+                  href={companyProfile.mapsHref}
                   target="_blank"
                   rel="noreferrer"
                 >

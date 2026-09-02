@@ -1,4 +1,5 @@
 import { softwarePlatforms } from '@/app/content';
+import { companyProfile } from '@/lib/company-profile';
 
 export async function GET(_: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -17,7 +18,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug: stri
     `Evidence source: ${software.evidenceSource ?? 'Published Indian Infotech software catalogue'}`, '',
     'Important: Confirm the exact software version, licensed modules, device compatibility, capacity, interface, hosting, security, implementation, and support scope before procurement.', '',
     `Software page: /software/${software.slug}`,
-    'Contact: info@indianinfotech.org',
+    `Contact: ${companyProfile.email}`,
   ].join('\n');
 
   return new Response(text, { headers: {
