@@ -88,6 +88,14 @@ test('technical buyers can download specifications and use tender guidance', () 
   for (const item of ['Discover', 'Design', 'Prove', 'Operate', 'Public endpoint documentation is pending approval']) assert.match(developers, new RegExp(item));
 });
 
+test('product comparison preserves a shortlist through review', () => {
+  const comparison = readFileSync('components/catalog/product-catalogue.tsx', 'utf8');
+  assert.match(comparison, /syncComparisonUrl/);
+  assert.match(comparison, /searchParams\.set\('products', comparison\.join\(','\)\)/);
+  assert.match(comparison, /topic=product-comparison&products=/);
+  assert.match(readFileSync('app/contact/page.tsx', 'utf8'), /Product shortlist:/);
+});
+
 test('knowledge center indexes current guidance without inventing API availability', () => {
   const knowledge = readFileSync('app/knowledge/page.tsx', 'utf8');
   for (const item of ['CollectionPage', 'ItemList', 'FAQPage', 'Product catalogue', 'Integration reference', 'Trust Center', 'Business-case calculator']) assert.match(knowledge, new RegExp(item));

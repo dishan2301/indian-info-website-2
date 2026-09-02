@@ -22,6 +22,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   const query = await searchParams;
   const context = [
     sanitizeQueryValue(query.product) && `Product: ${sanitizeQueryValue(query.product)}`,
+    sanitizeQueryValue(query.products) && `Product shortlist: ${sanitizeQueryValue(query.products)}`,
     sanitizeQueryValue(query.software) && `Software: ${sanitizeQueryValue(query.software)}`,
     sanitizeQueryValue(query.hrms) && `HRMS module: ${sanitizeQueryValue(query.hrms)}`,
     sanitizeQueryValue(query.solution) && `Solution: ${sanitizeQueryValue(query.solution)}`,

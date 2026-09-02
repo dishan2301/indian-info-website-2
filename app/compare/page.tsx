@@ -17,7 +17,7 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
   return <main>
     <SiteHeader />
     <PageHero eyebrow="Product comparison" title="Shortlist and compare up to three products." description="Filter by product family, authentication, or application, then compare use-case fit, deployment guidance, connectivity, pricing route, and datasheet status side by side." marker="II / COMPARE" />
-    <section className="section"><ProductCatalogue products={products} initialComparison={initialComparison} /></section>
+    <section className="section"><ProductCatalogue products={products} initialComparison={initialComparison} syncComparisonUrl /></section>
     <SiteFooter />
   </main>;
 }

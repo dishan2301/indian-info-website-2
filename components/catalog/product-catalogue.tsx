@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { Product } from '@/app/content';
 
 const familyOptions = ['All', 'Access control', 'Attendance', 'Entrance management'] as const;
 const authenticationOptions = ['All', 'Face', 'Fingerprint', 'Biometric', 'Connected access system', 'Connected controller', 'Screening'] as const;
 const applicationOptions = ['All', 'Personnel access', 'Attendance & access', 'Vehicle entry', 'Pedestrian entry', 'Security screening'] as const;
 
-export function ProductCatalogue({ products, initialComparison = [] }: { products: readonly Product[]; initialComparison?: readonly string[] }) {
+export function ProductCatalogue({ products, initialComparison = [], syncComparisonUrl = false }: { products: readonly Product[]; initialComparison?: readonly string[]; syncComparisonUrl?: boolean }) {
   const [query, setQuery] = useState('');
   const [family, setFamily] = useState<(typeof familyOptions)[number]>('All');
   const [authentication, setAuthentication] = useState<(typeof authenticationOptions)[number]>('All');
@@ -25,6 +25,14 @@ export function ProductCatalogue({ products, initialComparison = [] }: { product
     });
   }, [application, authentication, family, media, products, query]);
   const comparedProducts = products.filter((product) => comparison.includes(product.slug));
+
+  useEffect(() => {
+    if (!syncComparisonUrl) return;
+    const url = new URL(window.location.href);
+    if (comparison.length > 0) url.searchParams.set('products', comparison.join(','));
+    else url.searchParams.delete('products');
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`);
+  }, [comparison, syncComparisonUrl]);
 
   function clearFilters() { setQuery(''); setFamily('All'); setAuthentication('All'); setApplication('All'); setMedia('All'); }
   function toggleComparison(slug: string) {
@@ -51,7 +59,7 @@ export function ProductCatalogue({ products, initialComparison = [] }: { product
         </article>
       ))}</div> : <div className="resource-empty"><h2>No products match these filters.</h2><p>Clear the filters or broaden the search.</p><button type="button" onClick={clearFilters}>Reset catalogue</button></div>}
       {comparedProducts.length > 0 && <section className="product-comparison" id="product-comparison" aria-labelledby="product-comparison-title">
-        <div><p className="section-kicker">Side-by-side comparison</p><h2 id="product-comparison-title">Compare up to three products.</h2><button type="button" onClick={() => setComparison([])}>Clear comparison</button></div>
+        <div><p className="section-kicker">Side-by-side comparison</p><h2 id="product-comparison-title">Compare up to three products.</h2><Link className="comparison-enquiry" href={`/contact?topic=product-comparison&products=${encodeURIComponent(comparison.join(','))}`}>Review this shortlist ↗</Link><button type="button" onClick={() => setComparison([])}>Clear comparison</button></div>
         <div className="comparison-scroll"><table><thead><tr><th scope="col">Specification</th>{comparedProducts.map((product) => <th scope="col" key={product.slug}><Link href={`/products/${product.slug}`}>{product.name} ↗</Link></th>)}</tr></thead><tbody>
           <tr><th scope="row">Family</th>{comparedProducts.map((product) => <td key={product.slug}>{product.family}</td>)}</tr>
           <tr><th scope="row">Authentication</th>{comparedProducts.map((product) => <td key={product.slug}>{product.authentication}</td>)}</tr>
