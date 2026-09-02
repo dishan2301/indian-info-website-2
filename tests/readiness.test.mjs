@@ -87,6 +87,14 @@ test('technical buyers can download specifications and use tender guidance', () 
   for (const item of ['Discover', 'Design', 'Prove', 'Operate', 'Public endpoint documentation is pending approval']) assert.match(developers, new RegExp(item));
 });
 
+test('knowledge center indexes current guidance without inventing API availability', () => {
+  const knowledge = readFileSync('app/knowledge/page.tsx', 'utf8');
+  for (const item of ['CollectionPage', 'ItemList', 'FAQPage', 'Product catalogue', 'Integration planning', 'Trust Center', 'Business-case calculator']) assert.match(knowledge, new RegExp(item));
+  assert.match(knowledge, /only after its product or software version, owner, and source are approved/);
+  assert.match(readFileSync('app/support/page.tsx', 'utf8'), /href: title === 'Raise a support request'.*'\/knowledge'/);
+  assert.match(readFileSync('app/sitemap.ts', 'utf8'), /'\/knowledge'/);
+});
+
 test('phase-five polish keeps navigation accessible and defers offscreen work', () => {
   const layout = readFileSync('app/layout.tsx', 'utf8');
   assert.match(layout, /id="main-content" tabIndex=\{-1\}/);

@@ -39,6 +39,7 @@ const footerSections = [
       ["Engineering", "/engineering"],
       ["Integrations", "/integrations"],
       ["Resources", "/resources"],
+      ["Knowledge Center", "/knowledge"],
       ["Tender resources", "/resources/procurement"],
       ["Support", "/support"],
       ["Developer resources", "/developers"],
