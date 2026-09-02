@@ -74,6 +74,14 @@ test('fill images declare responsive sizes', () => {
   }
 });
 
+test('public media does not ship unused legacy duplicates beside WebP assets', () => {
+  for (const path of filesWithin('public')) {
+    const extension = extname(path);
+    if (!['.jpg', '.jpeg', '.png'].includes(extension)) continue;
+    assert.equal(existsSync(`${path.slice(0, -extension.length)}.webp`), false, `${path} duplicates an available WebP asset`);
+  }
+});
+
 test('technical buyers can download specifications and use tender guidance', () => {
   const specification = readFileSync('app/products/[slug]/specification/route.ts', 'utf8');
   assert.match(specification, /Content-Disposition/);
