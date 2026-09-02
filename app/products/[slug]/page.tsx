@@ -73,6 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </dl>
           <div className="hero-actions product-actions">
             <Link className="button button-primary" href={`/contact?product=${product.slug}`}>Request a quote <span aria-hidden="true">↗</span></Link>
+            <Link className="button outline-button" href={`/compare?products=${product.slug}#product-comparison`}>Compare this product</Link>
             <Link className="button outline-button" href="/contact">Talk to an engineer</Link>
           </div>
         </div>

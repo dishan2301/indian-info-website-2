@@ -32,6 +32,7 @@ const descriptions = new Map();
 const canonicals = new Map();
 const internalLinks = new Set();
 const internalImages = new Set();
+const inboundLinks = new Map(paths.map((path) => [path, new Set()]));
 let schemaBlocks = 0;
 
 for (const { path, response, text: html } of pages) {
@@ -72,7 +73,11 @@ for (const { path, response, text: html } of pages) {
   }
   for (const hrefMatch of html.matchAll(/<a[^>]+href="([^"]+)"/gi)) {
     const href = decode(hrefMatch[1]);
-    if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/_next/')) internalLinks.add(stripQuery(href));
+    if (href.startsWith('/') && !href.startsWith('//') && !href.startsWith('/_next/')) {
+      const target = stripQuery(href);
+      internalLinks.add(target);
+      if (target !== path) inboundLinks.get(target)?.add(path);
+    }
   }
   for (const imageTag of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = imageTag[0];
@@ -81,6 +86,9 @@ for (const { path, response, text: html } of pages) {
     if (src?.startsWith('/')) internalImages.add(src.split('#')[0]);
   }
 }
+
+const orphanedPages = [...inboundLinks].filter(([path, sources]) => path !== '/' && sources.size === 0).map(([path]) => path);
+for (const path of orphanedPages) errors.push(`${path}: no internal link from another sitemap page`);
 
 for (const path of internalLinks) {
   const { response } = await get(path, { redirect: 'follow' });
@@ -99,5 +107,5 @@ if (missing.response.status !== 404) errors.push(`/this-route-must-not-exist: ex
 const robotsTxt = await get('/robots.txt');
 if (!robotsTxt.text.includes('Allow: /') || !robotsTxt.text.includes('Sitemap:')) errors.push('/robots.txt: production discovery directives missing');
 
-console.log(JSON.stringify({ pages: pages.length, internalLinks: internalLinks.size, internalImages: internalImages.size, schemaBlocks, errors }, null, 2));
+console.log(JSON.stringify({ pages: pages.length, internalLinks: internalLinks.size, internalImages: internalImages.size, schemaBlocks, orphanedPages, errors }, null, 2));
 if (errors.length) process.exitCode = 1;

@@ -9,13 +9,13 @@ const familyOptions = ['All', 'Access control', 'Attendance', 'Entrance manageme
 const authenticationOptions = ['All', 'Face', 'Fingerprint', 'Biometric', 'Connected access system', 'Connected controller', 'Screening'] as const;
 const applicationOptions = ['All', 'Personnel access', 'Attendance & access', 'Vehicle entry', 'Pedestrian entry', 'Security screening'] as const;
 
-export function ProductCatalogue({ products }: { products: readonly Product[] }) {
+export function ProductCatalogue({ products, initialComparison = [] }: { products: readonly Product[]; initialComparison?: readonly string[] }) {
   const [query, setQuery] = useState('');
   const [family, setFamily] = useState<(typeof familyOptions)[number]>('All');
   const [authentication, setAuthentication] = useState<(typeof authenticationOptions)[number]>('All');
   const [application, setApplication] = useState<(typeof applicationOptions)[number]>('All');
   const [media, setMedia] = useState<'All' | 'Available' | 'Pending'>('All');
-  const [comparison, setComparison] = useState<string[]>([]);
+  const [comparison, setComparison] = useState<string[]>(() => initialComparison.filter((slug) => products.some((product) => product.slug === slug)).slice(0, 3));
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
