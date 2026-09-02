@@ -72,3 +72,17 @@ test('fill images declare responsive sizes', () => {
     }
   }
 });
+
+test('technical buyers can download specifications and use tender guidance', () => {
+  const specification = readFileSync('app/products/[slug]/specification/route.ts', 'utf8');
+  assert.match(specification, /Content-Disposition/);
+  assert.match(specification, /currently published catalogue information/);
+  const product = readFileSync('app/products/[slug]/page.tsx', 'utf8');
+  assert.match(product, /Download summary/);
+  const procurement = readFileSync('app/resources/procurement/page.tsx', 'utf8');
+  for (const item of ['Operating scope', 'Functional requirements', 'Integration requirements', 'Commercial response', 'Evaluation method']) assert.match(procurement, new RegExp(item));
+  assert.match(readFileSync('app/sitemap.ts', 'utf8'), /\/resources\/procurement/);
+  const developers = readFileSync('app/developers/page.tsx', 'utf8');
+  assert.doesNotMatch(developers, /noIndex/);
+  for (const item of ['Discover', 'Design', 'Prove', 'Operate', 'Public endpoint documentation is pending approval']) assert.match(developers, new RegExp(item));
+});

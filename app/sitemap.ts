@@ -5,7 +5,7 @@ import { insights } from './insights/content';
 import { seoLandingPages } from './seo-landing-content';
 import { approvedCaseStudies } from './proof-content';
 
-const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/resources', '/insights', '/support', '/case-studies', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
+const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/developers', '/resources', '/resources/procurement', '/insights', '/support', '/case-studies', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({

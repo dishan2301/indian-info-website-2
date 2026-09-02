@@ -944,6 +944,18 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .enquiry-submit { align-items: flex-start; flex-direction: column; }
 }
 
+.print-actions { align-items: center; display: flex; flex-wrap: wrap; gap: .75rem; }
+.print-button { cursor: pointer; font: inherit; }
+.procurement-guide .route-related-grid article { min-height: 100%; }
+.procurement-guide li { color: var(--muted); line-height: 1.65; margin-top: .75rem; }
+@media print {
+  .site-header, .footer-v2, .route-feature-band, .print-actions, .floating-whatsapp { display: none !important; }
+  body { background: white !important; color: black !important; }
+  main, .section, .page-hero { padding: 1rem 0 !important; }
+  .route-related-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .route-related-grid article, .product-summary-list { break-inside: avoid; }
+}
+
 /* 2026 interactive homepage polish */
 .site-header {
   background: rgba(247, 251, 253, .9);

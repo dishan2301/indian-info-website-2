@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 type ResourceItem = {
   title: string;
   description: string;
-  type: 'Brochure' | 'Case study' | 'Whitepaper' | 'Guide' | 'Overview' | 'Industry' | 'Archived topic';
+  type: 'Brochure' | 'Case study' | 'Whitepaper' | 'Guide' | 'Tender resource' | 'Overview' | 'Industry' | 'Archived topic';
   area: 'Products' | 'Software' | 'Industry' | 'Company';
   href?: string;
   requestHref?: string;
@@ -18,6 +18,7 @@ const resources: readonly ResourceItem[] = [
   { title: 'Customer case studies', description: 'Permission-backed deployment stories are listed here as each client, scope, and measurable outcome is approved.', type: 'Case study', area: 'Company', href: '/case-studies' },
   { title: 'Security and compliance whitepapers', description: 'No approved whitepaper is available yet; request current security or compliance material for the proposed deployment.', type: 'Whitepaper', area: 'Company', requestHref: '/contact?topic=security&resource=whitepaper' },
   { title: 'Security and trust review', description: 'Review data handling, deployment-security questions, compliance evidence status, and procurement routes.', type: 'Guide', area: 'Company', href: '/trust' },
+  { title: 'Consultant and tender specification guide', description: 'A printable checklist for operating scope, functional requirements, integrations, commercial response, and evidence-led bid evaluation.', type: 'Tender resource', area: 'Company', href: '/resources/procurement' },
   { title: 'Product portfolio', description: 'Browse access-control, attendance, and entrance-management products with real product media.', type: 'Overview', area: 'Products', href: '/products' },
   { title: 'Product selection guidance', description: 'Review the operating questions that shape device and deployment selection.', type: 'Guide', area: 'Products', href: '/products' },
   { title: 'Software platform overview', description: 'Explore Easytime Online, HRMS and Payroll, visitor, and canteen workflows.', type: 'Overview', area: 'Software', href: '/software' },
@@ -26,7 +27,7 @@ const resources: readonly ResourceItem[] = [
   { title: 'Rent-based cloud attendance management', description: 'Legacy Easytime article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Software', requestHref: '/contact?resource=rent-based-cloud-attendance' },
 ] as const;
 
-const types = ['All', 'Brochure', 'Case study', 'Whitepaper', 'Guide', 'Overview', 'Industry', 'Archived topic'] as const;
+const types = ['All', 'Brochure', 'Case study', 'Whitepaper', 'Guide', 'Tender resource', 'Overview', 'Industry', 'Archived topic'] as const;
 
 export function ResourceLibrary() {
   const [query, setQuery] = useState('');

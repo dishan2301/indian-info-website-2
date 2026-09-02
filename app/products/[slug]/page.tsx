@@ -92,10 +92,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <section className="section product-resources-section">
         <div className="section-heading split-heading"><div><p className="section-kicker">Downloads and support</p><h2>Request the approved material for this configuration.</h2></div><p>No generic or outdated file is offered as a current specification. Documents are released after the exact model and configuration are confirmed.</p></div>
         <div className="product-resource-grid">
-          <article><span>01 / DATASHEET</span><h3>Technical datasheet</h3><p>Current approved file required for the selected model or variant.</p><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request datasheet ↗</Link></article>
+          <article><span>01 / SPECIFICATION</span><h3>Published specification summary</h3><p>Download the current catalogue fields shown on this page, with configuration limits stated clearly.</p><a href={`/products/${product.slug}/specification`} download>Download summary ↓</a></article>
           <article><span>02 / MANUAL</span><h3>Installation or user manual</h3><p>Availability and version must be confirmed against the supplied equipment.</p><Link href={`/contact?product=${product.slug}&resource=manual`}>Request manual ↗</Link></article>
           <article><span>03 / SOFTWARE</span><h3>Compatibility guidance</h3><p>Confirm supported software, integration method, and deployment requirements.</p><Link href={`/contact?product=${product.slug}&resource=compatibility`}>Verify compatibility ↗</Link></article>
-          <article><span>04 / SUPPORT</span><h3>Technical assistance</h3><p>Contact the support team with the model, site, and issue details.</p><a href={`mailto:support@indianinfotech.org?subject=${encodeURIComponent(`${product.name} support request`)}`}>Contact support ↗</a></article>
+          <article><span>04 / DATASHEET</span><h3>Approved manufacturer datasheet</h3><p>Request the current model- and variant-specific source before procurement.</p><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request datasheet ↗</Link></article>
         </div>
       </section>
 

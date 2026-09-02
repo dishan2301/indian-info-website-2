@@ -61,7 +61,8 @@ export function ProductCatalogue({ products }: { products: readonly Product[] })
           <tr><th scope="row">Connectivity</th>{comparedProducts.map((product) => <td key={product.slug}>{product.connectivity}</td>)}</tr>
           <tr><th scope="row">Software compatibility</th>{comparedProducts.map((product) => <td key={product.slug}>{product.softwareCompatibility}</td>)}</tr>
           <tr><th scope="row">Evidence status</th>{comparedProducts.map((product) => <td key={product.slug}>{product.status}</td>)}</tr>
-          <tr><th scope="row">Datasheet</th>{comparedProducts.map((product) => <td key={product.slug}><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request current datasheet ↗</Link></td>)}</tr>
+          <tr><th scope="row">Specification</th>{comparedProducts.map((product) => <td key={product.slug}><a href={`/products/${product.slug}/specification`} download>Download published summary ↓</a></td>)}</tr>
+          <tr><th scope="row">Approved datasheet</th>{comparedProducts.map((product) => <td key={product.slug}><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request current datasheet ↗</Link></td>)}</tr>
         </tbody></table></div>
       </section>}
     </div>
