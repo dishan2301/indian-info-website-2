@@ -2,7 +2,8 @@
 
 **Audit date:** 2 September 2026  
 **Audited plans:** `INDIAN_INFOTECH_SEO_90_PLUS_PLAN.md` and `indian_infotech_website_transformation_report.md`  
-**Verified deployment:** https://indian-info-website-2.vercel.app
+**Source commit:** `670578a` (pushed to `github/main`)
+**Current production URL:** https://indian-info-website-2.vercel.app
 
 ## Result
 
@@ -21,7 +22,7 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - WebP derivatives for large live poster, company, and technology images. Affected files are approximately 34–155 KB instead of 1.2–1.9 MB PNG sources.
 - Unsupported anonymous testimonial copy was removed; named outcomes, quotations, and metrics are now explicitly gated on evidence and display permission.
 - Sitemap modification dates are emitted only for editorial content with a real publication date, avoiding artificial daily freshness signals.
-- Production deployment completed to the linked Vercel project.
+- The source commit is pushed and the current Vercel URL responds, but its deployed revision has not yet picked up the new routes (the new `/compare`, `/testimonials`, `/trust/quality-policy`, and brochure URL currently return 404). A deployment-provider handoff is required before calling the new release live.
 - Homepage statistics now come from one provenance-aware company profile, render their final values in initial HTML, and animate from zero when the stats enter view.
 - `/compare` provides side-by-side selection for up to three products, including use-case fields, contact-for-pricing, and datasheet request routes.
 - `/testimonials` and `/case-studies` are dedicated publication gates; unsupported anonymous quotes and unapproved outcomes are not rendered as proof.
@@ -39,7 +40,7 @@ The code and deployed site fulfill the implementable technical SEO foundation an
 - `npm run build:vercel`: passed, including TypeScript and 106 generated pages.
 - `npm run check:readiness`: passed, including 28 one-hop 301 redirect records, claim provenance, proof publication gates, PDF/resource artifacts, launch runbook, and responsive image-size checks.
 - `npm run build:vercel`: passed via the validated Vinext build path; the environment's standalone Next 16 `--showConfig` parser is not usable here even though `npx tsc --noEmit` passes.
-- Production crawl: 99 sitemap pages, 100 internal links, 129 rendered images, and 258 JSON-LD blocks checked with zero errors.
+- Local production crawl: 99 sitemap pages, 101 internal links, 126 rendered images, and 260 JSON-LD blocks checked with zero errors. The public URL was separately checked for HTTP availability; its new-route 404s are recorded above.
 - The rendered audit checks HTTP status, unique titles/descriptions/canonicals, social metadata, indexability, one H1, heading-level order, JSON-LD parsing, broken internal links, missing image alt attributes, broken rendered images, search noindex, 404 behavior, and production robots directives.
 
 ## Not fulfilled yet
