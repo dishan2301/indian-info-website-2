@@ -101,3 +101,15 @@ test('phase-five polish keeps navigation accessible and defers offscreen work', 
   assert.match(styles, /safe-area-inset-bottom/);
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
+
+test('brochure-backed software facts have one display and download source', () => {
+  const content = readFileSync('app/content.ts', 'utf8');
+  for (const value of ['Up to 3 metres', 'Up to 10,000 templates', 'Less than one second', '60+ functional MIS reports', 'ERP, payroll, and SAP']) assert.match(content, new RegExp(value.replace(/[+]/g, '\\+')));
+  assert.match(content, /evidenceSource:/);
+  const page = readFileSync('app/software/[slug]/page.tsx', 'utf8');
+  assert.match(page, /software\.publishedFacts\.map/);
+  assert.match(page, /featureList:/);
+  const download = readFileSync('app/software/[slug]/specification/route.ts', 'utf8');
+  assert.match(download, /Content-Disposition/);
+  assert.match(download, /Confirm the exact software version/);
+});

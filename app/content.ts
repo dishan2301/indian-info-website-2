@@ -37,6 +37,8 @@ export type SoftwarePlatform = {
   modules: readonly string[];
   workflow: readonly string[];
   legacyPath: string;
+  publishedFacts?: readonly { label: string; value: string }[];
+  evidenceSource?: string;
 };
 
 export const softwarePlatforms: readonly SoftwarePlatform[] = [
@@ -48,6 +50,17 @@ export const softwarePlatforms: readonly SoftwarePlatform[] = [
     modules: ['Attendance', 'Shift operations', 'Leave workflows', 'Overtime review', 'Reports'],
     workflow: ['Capture attendance', 'Review exceptions', 'Apply shift and leave rules', 'Prepare approved records'],
     legacyPath: '/softwares/cost-effective/',
+    publishedFacts: [
+      { label: 'Face capture distance', value: 'Up to 3 metres' },
+      { label: 'Facial template capacity', value: 'Up to 10,000 templates' },
+      { label: 'Verification methods', value: 'Face, fingerprint, and RFID' },
+      { label: 'Network options', value: 'Wi-Fi, 3G, and 4G' },
+      { label: 'Face verification time', value: 'Less than one second' },
+      { label: 'Architecture', value: 'Client-server with MS SQL backend' },
+      { label: 'Reporting', value: '60+ functional MIS reports and report writer' },
+      { label: 'Published integration scope', value: 'ERP, payroll, and SAP' },
+    ],
+    evidenceSource: 'Indian Infotech company brochure; exact device and configuration must be confirmed',
   },
   {
     slug: 'hrms-payroll',
@@ -75,6 +88,15 @@ export const softwarePlatforms: readonly SoftwarePlatform[] = [
     modules: ['Employee identification', 'Meal transactions', 'Entitlement rules', 'Usage records', 'Operational reports'],
     workflow: ['Identify employee', 'Validate entitlement', 'Record transaction', 'Reconcile usage'],
     legacyPath: '/softwares/communication-ease/',
+    publishedFacts: [
+      { label: 'Transaction modes', value: 'Prepaid and postpaid' },
+      { label: 'Operating scope', value: 'Multi-company and multi-location' },
+      { label: 'Vendor operation', value: 'Multi-vendor support' },
+      { label: 'Employee identification', value: 'Biometric device workflow' },
+      { label: 'Published integration scope', value: 'Payroll or ERP deductions' },
+      { label: 'Reporting', value: 'Excel reporting and report writer' },
+    ],
+    evidenceSource: 'Indian Infotech company brochure; exact software version and configuration must be confirmed',
   },
   {
     slug: 'hexin-mediaa-wave',

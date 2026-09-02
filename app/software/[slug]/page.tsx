@@ -25,7 +25,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   const { slug } = await params;
   const software = softwarePlatforms.find((item) => item.slug === slug);
   if (!software) notFound();
-  const softwareSchema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: software.name, description: software.summary, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url: absoluteUrl(`/software/${software.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
+  const softwareSchema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: software.name, description: software.summary, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', featureList: software.publishedFacts?.map((fact) => `${fact.label}: ${fact.value}`), url: absoluteUrl(`/software/${software.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
   const softwareFaqs = [
     { question: `What does ${software.name} help manage?`, answer: `${software.summary} The published module scope includes ${software.modules.slice(0, 4).join(', ')}.` },
     { question: `Can ${software.name} connect with existing systems?`, answer: 'Integration depends on the approved data flow, product version, devices, APIs or exports, security requirements, and connected system. These are confirmed during solution design.' },
@@ -48,6 +48,8 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
         </div>
         <div className="software-detail-copy"><p className="section-kicker">Platform scope</p><h2>Build around the people and decisions inside the workflow.</h2><p>{software.summary}</p><ul>{software.modules.map((module) => <li key={module}>{module}</li>)}</ul><Link className="button button-primary" href={`/contact?software=${software.slug}`}>Request a demo <span aria-hidden="true">↗</span></Link></div>
       </section>
+
+      {software.publishedFacts?.length ? <section className="section software-published-specs"><div className="section-heading split-heading"><div><p className="section-kicker">Published specification</p><h2>Brochure-sourced facts, with configuration limits visible.</h2></div><p>{software.evidenceSource}. These values describe the published system scope, not an automatic promise for every device, license, or deployment.</p></div><dl className="product-summary-list">{software.publishedFacts.map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl><div className="hero-actions"><a className="button button-primary" href={`/software/${software.slug}/specification`} download>Download specification summary ↓</a><Link className="button outline-button" href={`/contact?software=${software.slug}&resource=specification`}>Verify configuration</Link></div></section> : null}
 
       <section className="software-workflow">
         <div><p className="section-kicker light">Operating flow</p><h2>A clear sequence from input to reviewed record.</h2></div>
