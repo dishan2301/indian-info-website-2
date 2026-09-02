@@ -25,6 +25,19 @@ test('shared metadata emits canonical, social, and robots controls', async () =>
   for (const requirement of ['canonical:', 'openGraph:', 'twitter:', 'robots,']) {
     assert.match(source, new RegExp(requirement));
   }
+  assert.match(source, /image \? 'summary_large_image' : 'summary'/);
+  assert.match(source, /images: image \? \[image\] : undefined/);
+});
+
+test('detail-page social images are record-specific or deliberately absent', async () => {
+  const [products, insights, caseStudies, software, solutions, industries, hrms] = await Promise.all([
+    read('app/products/[slug]/page.tsx'), read('app/insights/[slug]/page.tsx'), read('app/case-studies/[slug]/page.tsx'),
+    read('app/software/[slug]/page.tsx'), read('app/solutions/[slug]/page.tsx'), read('app/industries/[slug]/page.tsx'), read('app/hrms-payroll/[slug]/page.tsx'),
+  ]);
+  assert.match(products, /image: product\.image \?\? null/);
+  assert.match(insights, /image: article\.image/);
+  assert.match(caseStudies, /image: item\.logo/);
+  for (const source of [software, solutions, industries, hrms]) assert.match(source, /image: null/);
 });
 
 test('production discovery and preview noindex controls are present', async () => {

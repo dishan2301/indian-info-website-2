@@ -13,7 +13,7 @@ export function generateStaticParams() { return solutionProfiles.map((item) => (
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const item = solutionProfiles.find((candidate) => candidate.slug === slug);
-  return item ? createPageMetadata({ title: item.name, description: item.summary, path: `/solutions/${item.slug}` }) : {};
+  return item ? createPageMetadata({ title: item.name, description: item.summary, path: `/solutions/${item.slug}`, image: null }) : {};
 }
 
 export default async function SolutionDetailPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -11,7 +11,7 @@ import { industryProfiles, products, solutionProfiles } from '../../content';
 import { approvedCaseStudies } from '../../proof-content';
 
 export function generateStaticParams() { return industryProfiles.map((item) => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = industryProfiles.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} Workforce & Access Solutions`, description: item.context, path: `/industries/${item.slug}` }) : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = industryProfiles.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} Workforce & Access Solutions`, description: item.context, path: `/industries/${item.slug}`, image: null }) : {}; }
 
 export default async function IndustryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

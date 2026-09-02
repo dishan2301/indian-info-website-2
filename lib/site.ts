@@ -20,7 +20,7 @@ export function createPageMetadata({
   title: string;
   description: string;
   path: string;
-  image?: string;
+  image?: string | null;
   type?: 'website' | 'article';
   noIndex?: boolean;
 }): Metadata {
@@ -28,13 +28,14 @@ export function createPageMetadata({
   const robots = noIndex || !IS_INDEXABLE
     ? { index: false, follow: !noIndex }
     : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1, 'max-video-preview': -1 } };
+  const socialImages = image ? [{ url: image, alt: fullTitle }] : undefined;
 
   return {
     title: { absolute: fullTitle },
     description,
     alternates: { canonical: path },
     robots,
-    openGraph: { title: fullTitle, description, url: path, siteName: SITE_NAME, locale: 'en_IN', type, images: [{ url: image, alt: fullTitle }] },
-    twitter: { card: 'summary_large_image', title: fullTitle, description, images: [image] },
+    openGraph: { title: fullTitle, description, url: path, siteName: SITE_NAME, locale: 'en_IN', type, images: socialImages },
+    twitter: { card: image ? 'summary_large_image' : 'summary', title: fullTitle, description, images: image ? [image] : undefined },
   };
 }

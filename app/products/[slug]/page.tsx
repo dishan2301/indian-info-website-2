@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { slug } = await params;
   const product = products.find((item) => item.slug === slug);
   if (!product) return {};
-  return createPageMetadata({ title: `${product.name} ${product.family}`, description: product.description, path: `/products/${product.slug}`, image: product.image });
+  return createPageMetadata({ title: `${product.name} ${product.family}`, description: product.description, path: `/products/${product.slug}`, image: product.image ?? null });
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

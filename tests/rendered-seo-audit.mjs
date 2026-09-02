@@ -57,11 +57,16 @@ for (const { path, response, text: html } of pages) {
       errors.push(`${path}: heading level jumps from H${headingLevels[index - 1]} to H${headingLevels[index]}`);
     }
   }
-  for (const social of ['og:title', 'og:description', 'og:image', 'twitter:card']) {
+  for (const social of ['og:title', 'og:description', 'twitter:card']) {
     if (!html.includes(`content="${social}`) && !html.includes(`property="${social}`) && !html.includes(`name="${social}`)) {
       errors.push(`${path}: missing ${social}`);
     }
   }
+  const socialImage = match(html, /<meta[^>]+property="og:image"[^>]+content="([^"]*)"/i)
+    || match(html, /<meta[^>]+content="([^"]*)"[^>]+property="og:image"/i);
+  if (path === '/' && !socialImage?.endsWith('/og.png')) errors.push('/: missing company social image');
+  if (/^\/insights\//.test(path) && (!socialImage || socialImage.endsWith('/og.png'))) errors.push(`${path}: missing record-specific social image`);
+  if (/^\/(?:products|software|solutions|industries|hrms-payroll)\//.test(path) && socialImage?.endsWith('/og.png')) errors.push(`${path}: inherited generic social image`);
 
   for (const [map, value, label] of [[titles, title, 'title'], [descriptions, description, 'description'], [canonicals, canonical, 'canonical']]) {
     if (value && map.has(value)) errors.push(`${path}: duplicate ${label} also used by ${map.get(value)}`);

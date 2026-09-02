@@ -13,7 +13,7 @@ export function generateStaticParams() { return approvedCaseStudies.map(({ slug 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const item = approvedCaseStudies.find((candidate) => candidate.slug === slug);
-  return item ? createPageMetadata({ title: `${item.client} Case Study`, description: item.outcome, path: `/case-studies/${item.slug}` }) : {};
+  return item ? createPageMetadata({ title: `${item.client} Case Study`, description: item.outcome, path: `/case-studies/${item.slug}`, image: item.logo }) : {};
 }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {

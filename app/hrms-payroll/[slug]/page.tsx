@@ -9,7 +9,7 @@ import { WorkflowBand } from '../../_components/enterprise-route';
 import { hrmsModules } from '../../content';
 
 export function generateStaticParams() { return hrmsModules.map((item) => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = hrmsModules.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} HRMS Module`, description: item.summary, path: `/hrms-payroll/${item.slug}` }) : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = hrmsModules.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} HRMS Module`, description: item.summary, path: `/hrms-payroll/${item.slug}`, image: null }) : {}; }
 
 export default async function HrmsModulePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

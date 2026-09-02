@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: SoftwarePageProps): Promise<M
   const { slug } = await params;
   const software = softwarePlatforms.find((item) => item.slug === slug);
   if (!software) return {};
-  return createPageMetadata({ title: `${software.name} Software`, description: software.summary, path: `/software/${software.slug}` });
+  return createPageMetadata({ title: `${software.name} Software`, description: software.summary, path: `/software/${software.slug}`, image: null });
 }
 
 export default async function SoftwareDetailPage({ params }: SoftwarePageProps) {
