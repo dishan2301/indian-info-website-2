@@ -105,6 +105,9 @@
 .home-industry-count i { background: rgba(255,255,255,.5); height: 1px; width: 32px; }
 .home-client-heading,
 .home-news-heading { margin-top: clamp(2.75rem, 4vw, 4rem); padding-top: clamp(2rem, 3vw, 2.75rem); }
+.home-company-page,
+.home-industry-client-page,
+.home-quotes-news-page { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 .home-client-heading > span { color: #53675d; display: block; line-height: 1.65; margin-top: 1rem; }
 .home-client-grid { display: grid; gap: .6rem; grid-template-columns: repeat(7, 1fr); margin-top: 1.75rem; }
 .home-client-grid div { align-items: center; background: #fff; border: 1px solid #e2ebe6; border-radius: .7rem; display: flex; justify-content: center; min-height: 92px; padding: .85rem; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
@@ -1458,8 +1461,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .roi-result > span { color: #8ee3d9; font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
 .roi-result strong { display: block; font-size: clamp(2.3rem, 5vw, 4.5rem); letter-spacing: -.06em; margin: 1.5rem 0 .5rem; }
 .roi-result small { color: #b9ced1; display: block; line-height: 1.55; margin: 0 0 1.25rem; max-width: 52ch; }
-.floating-whatsapp { align-items: center; background: #167d5b; border: 2px solid white; border-radius: 999px; bottom: 1.1rem; box-shadow: 0 8px 30px rgba(5,29,35,.22); color: white; display: flex; font-size: .7rem; font-weight: 800; justify-content: center; min-height: 48px; padding: .7rem 1rem; position: fixed; right: 1.1rem; text-decoration: none; text-transform: uppercase; z-index: 90; }
-.floating-whatsapp:hover { background: #0e6448; }
+.floating-whatsapp { align-items: center; background: #167d5b; border: 2px solid white; border-radius: 999px; bottom: max(1.1rem, env(safe-area-inset-bottom)); box-shadow: 0 8px 30px rgba(5,29,35,.22); color: white; display: flex; font-size: .7rem; font-weight: 800; justify-content: center; min-height: 48px; padding: .7rem 1rem; position: fixed; right: max(1.1rem, env(safe-area-inset-right)); text-decoration: none; text-transform: uppercase; z-index: 90; }
+.floating-whatsapp:hover, .floating-whatsapp:focus-visible { background: #0e6448; }
 .status-panel { align-items: flex-start; background: #eef4f3; border: 1px solid var(--line); display: flex; gap: 1rem; padding: clamp(1.5rem, 4vw, 3rem); }
 .status-panel h2 { color: var(--navy-950); font-size: clamp(1.8rem, 3vw, 3rem); letter-spacing: -.05em; margin: .6rem 0; }
 .status-panel p { color: var(--muted); line-height: 1.7; max-width: 60ch; }

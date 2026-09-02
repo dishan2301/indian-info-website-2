@@ -74,7 +74,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <StructuredData data={organizationSchema} />
-        <div id="main-content">{children}</div>
+        <div id="main-content" tabIndex={-1}>{children}</div>
         <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">WhatsApp</a>
         <Analytics />
       </body>

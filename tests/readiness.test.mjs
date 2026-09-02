@@ -86,3 +86,18 @@ test('technical buyers can download specifications and use tender guidance', () 
   assert.doesNotMatch(developers, /noIndex/);
   for (const item of ['Discover', 'Design', 'Prove', 'Operate', 'Public endpoint documentation is pending approval']) assert.match(developers, new RegExp(item));
 });
+
+test('phase-five polish keeps navigation accessible and defers offscreen work', () => {
+  const layout = readFileSync('app/layout.tsx', 'utf8');
+  assert.match(layout, /id="main-content" tabIndex=\{-1\}/);
+  const header = readFileSync('app/_components/site-header.tsx', 'utf8');
+  assert.doesNotMatch(header, /role="toolbar"/);
+  assert.match(header, /aria-label="Navigation menu"/);
+  const hero = readFileSync('components/homepage/hero-poster-carousel.tsx', 'utf8');
+  assert.match(hero, /activePanel === index/);
+  assert.match(hero, /quality=\{82\}/);
+  const styles = readFileSync('app/globals.css', 'utf8');
+  assert.match(styles, /content-visibility:\s*auto/);
+  assert.match(styles, /safe-area-inset-bottom/);
+  assert.match(styles, /prefers-reduced-motion:\s*reduce/);
+});

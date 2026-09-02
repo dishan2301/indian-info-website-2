@@ -43,7 +43,7 @@ test('homepage has one semantic H1 and clear-image rendering remains enabled', a
   assert.equal((page.match(/<h1(?:\s|>)/g) ?? []).length, 1);
   assert.match(styles, /image-rendering:\s*auto/);
   assert.doesNotMatch(styles, /\.workforce-screen-card img\s*\{[^}]*filter:\s*blur/);
-  assert.match(hero, /quality=\{90\}/);
+  assert.match(hero, /quality=\{82\}/);
 });
 
 test('contact card does not introduce a second page heading', async () => {

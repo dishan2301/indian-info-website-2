@@ -18,7 +18,7 @@ export function HeroPoster() {
   return <section className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
     <div className="workforce-screen-grid" aria-label="Explore workforce systems">
       {workforceScenes.map((scene, index) => <Link className="workforce-screen-card" data-active={activePanel === index} href={scene.href} onMouseEnter={() => setActivePanel(index)} onFocus={() => setActivePanel(index)} onClick={() => setActivePanel(index)} key={scene.title}>
-        <Image src={scene.image} alt={scene.alt} fill sizes="(max-width: 760px) 100vw, 60vw" quality={90} priority={index === 0} />
+        <Image src={scene.image} alt={scene.alt} fill sizes={activePanel === index ? '(max-width: 760px) 100vw, 68vw' : '(max-width: 760px) 100vw, 10vw'} quality={82} priority={index === 0} />
         <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><strong>{scene.title}</strong><em>{scene.text}</em><b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
       </Link>)}
     </div>

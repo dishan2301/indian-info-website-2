@@ -124,7 +124,7 @@ export function SiteHeader() {
       <Link className="brand-mark" href="/#home" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
-        <div className="site-dock-shell"><div className="site-dock site-dock-brand" role="toolbar" aria-label="Indian Infotech navigation">{dockLinks.map((item) => { const Icon = item.icon; return <div className="site-dock-item" key={item.href}><span className="site-dock-label-anchor"><span className="site-dock-label" role="tooltip">{item.label}</span></span><span className="site-dock-icon"><Link href={item.href} aria-label={item.label}><Icon /></Link></span></div>; })}</div></div>
+        <div className="site-dock-shell"><div className="site-dock site-dock-brand" aria-label="Indian Infotech navigation">{dockLinks.map((item) => { const Icon = item.icon; return <div className="site-dock-item" key={item.href}><span className="site-dock-label-anchor"><span className="site-dock-label">{item.label}</span></span><span className="site-dock-icon"><Link href={item.href} aria-label={item.label}><Icon /></Link></span></div>; })}</div></div>
         <div className="legacy-nav-menus">
         <MegaGroup title="Products" groups={productGroups} />
         <MegaGroup title="Software" groups={softwareGroups} />
@@ -151,7 +151,7 @@ export function SiteHeader() {
           }
         }}
       >
-        <summary aria-label="Open navigation">Menu</summary>
+        <summary aria-label="Navigation menu">Menu</summary>
         <div className="mobile-menu-panel">
           <div className="mobile-menu-shell">
             <div className="mobile-menu-topline">
