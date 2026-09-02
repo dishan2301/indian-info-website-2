@@ -130,6 +130,10 @@ test('phase-five polish keeps navigation accessible and defers offscreen work', 
   const hero = readFileSync('components/homepage/hero-poster-carousel.tsx', 'utf8');
   assert.match(hero, /activePanel === index/);
   assert.match(hero, /quality=\{82\}/);
+  const news = readFileSync('components/homepage/home-curated-sections.tsx', 'utf8');
+  assert.match(news, /media\.addEventListener\('change', sync\)/);
+  assert.match(news, /aria-hidden=\{index !== active\}/);
+  assert.match(news, /tabIndex=\{index === active \? undefined : -1\}/);
   const styles = readFileSync('app/globals.css', 'utf8');
   assert.match(styles, /content-visibility:\s*auto/);
   assert.match(styles, /safe-area-inset-bottom/);
