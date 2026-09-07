@@ -974,10 +974,14 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .home-quote-slide:hover { border-color: #13acf4; box-shadow: inset 0 0 40px rgba(19,172,244,.1); transform: translateY(-4px); }
 .home-quote-slide:hover::after { transform: translate(-3rem,-2rem); }
 .home-quote-slide > div { align-items: center; display: flex; flex-direction: column; grid-row: 1 / 3; margin-right: 1.25rem; }
-.home-quote-slide .home-quote-logo { background: #fff; border-radius: .4rem; height: 48px; object-fit: contain; width: 138px; }
-.home-quote-slide > div b { color: #0877a8; font-family: Georgia, serif; font-size: 5rem; line-height: .78; transition: color .3s ease, transform .3s ease; }
+.home-quote-slide .home-quote-logo { background: #fff; border-radius: .4rem; height: 48px; margin-top: -.25rem; object-fit: contain; width: 138px; transform-origin: center; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .home-quote-slide .home-quote-logo:hover { animation: quote-logo-spin .45s ease-in-out; }
+}
+@keyframes quote-logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.home-quote-slide > div b { color: #0877a8; font-family: Georgia, serif; font-size: 5rem; line-height: .78; margin-top: .85rem; transition: color .3s ease, transform .3s ease; }
 .home-quote-slide:hover > div b { color: #628800; transform: translateY(-3px) rotate(-8deg); }
-.home-quote-slide p { border-left: 3px solid rgba(19,172,244,.35); color: #17344a; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.2rem,2.1vw,1.8rem); font-style: italic; font-weight: 500; letter-spacing: -.025em; line-height: 1.55; margin: 0; max-width: 60rem; padding-left: 1rem; transition: color .3s ease, border-color .3s ease; }
+.home-quote-slide p { border-left: 3px solid rgba(19,172,244,.35); color: #17344a; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.2rem,2.1vw,1.8rem); font-style: italic; font-weight: 500; letter-spacing: -.025em; line-height: 1.55; margin: .65rem 0 0; max-width: 60rem; padding-left: 1rem; transition: color .3s ease, border-color .3s ease; }
 .home-quote-slide:hover p { border-left-color: #9ecf09; color: #075674; }
 .home-quote-slide cite { align-self: end; background: rgba(158,207,9,.13); border: 1px solid rgba(98,136,0,.18); border-radius: 999px; color: #476400; font-size: .8rem; font-style: normal; font-weight: 800; justify-self: start; margin-top: 1rem; padding: .45rem .85rem; }
 .home-quote-dots, .home-news-dots { display: flex; gap: .45rem; justify-content: center; margin-top: 1rem; }
