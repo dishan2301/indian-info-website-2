@@ -141,7 +141,8 @@
   .home-industry-heading { grid-template-columns: 1fr; }
   .home-industry-heading > p { grid-column: auto; }
   .home-industry-experience { grid-template-columns: 1fr; }
-  .home-industry-list { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: thin; }
+  .home-industry-list { display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: none; }
+  .home-industry-list::-webkit-scrollbar { display: none; }
   .home-industry-list button { border: 1px solid rgba(7,62,97,.15); border-radius: 999px; display: flex; flex: 0 0 auto; min-height: 46px; padding: .65rem 1rem; width: auto; }
   .home-industry-list button:first-child { border-top: 1px solid rgba(7,62,97,.15); }
   .home-industry-list button i { display: none; }
