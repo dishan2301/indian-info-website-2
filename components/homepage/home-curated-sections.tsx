@@ -7,8 +7,13 @@ import { customerOrganizations } from '@/app/content';
 import { companyStats } from '@/lib/company-profile';
 
 const clientQuotes = [
-  { company: 'IT Team, HCP Pvt. Ltd.', logo: '/clients/hcp-logo.png', quote: 'User-friendly system with accurate attendance tracking. Support response is quick and dependable.' },
-  { company: 'Indbest Healthcare Pvt. Ltd.', logo: '/clients/indbest-logo.webp', quote: 'Seamless hardware and software integration delivered on time. Highly satisfied with the service quality.' },
+  { company: 'Torrent Power', logo: '/clients/client-logo-1.png', quote: 'A connected view of attendance and access helps our teams keep everyday operations secure, accountable, and moving on time.' },
+  { company: 'Aditya Birla Group', logo: '/clients/client-logo-3.png', quote: 'Indian Infotech brings practical workforce workflows together with dependable support, giving our people a clearer way to manage daily operations.' },
+  { company: 'Astral Pipes', logo: '/clients/client-logo-7.png', quote: 'The combination of biometric attendance, access control, and useful reporting gives our sites stronger visibility from entry to shift completion.' },
+  { company: 'Bayer CropScience', logo: '/clients/client-logo-10.png', quote: 'The solution makes workforce records easier to trust and easier to act on, while keeping controlled workplace access at the centre.' },
+  { company: 'Swiss', logo: '/clients/client-logo-17.png', quote: 'Reliable identification and straightforward attendance workflows help our teams spend less time chasing records and more time running the workplace.' },
+  { company: 'Zydus Lifesciences', logo: '/clients/client-logo-4.png', quote: 'Indian Infotech understands the discipline of regulated environments and supports secure, organized movement across the working day.' },
+  { company: 'Sudiva', logo: '/clients/client-logo-20.png', quote: 'From implementation to ongoing help, the experience is focused, responsive, and built around making workforce administration simpler.' },
 ] as const;
 
 const industries = [
@@ -145,14 +150,19 @@ export function IndustriesAndClients() {
 
 export function QuotesAndNews() {
   const [active, setActive] = useState(0);
+  const [quoteActive, setQuoteActive] = useState(0);
+  const [quotePaused, setQuotePaused] = useState(false);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => { const media = matchMedia('(prefers-reduced-motion: reduce)'); const sync = () => setReducedMotion(media.matches); sync(); media.addEventListener('change', sync); return () => media.removeEventListener('change', sync); }, []);
   useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => (current + 1) % news.length), 5000); return () => clearInterval(timer); }, [paused, reducedMotion]);
+  useEffect(() => { if (quotePaused || reducedMotion) return; const timer = window.setInterval(() => setQuoteActive((current) => (current + 1) % clientQuotes.length), 5500); return () => clearInterval(timer); }, [quotePaused, reducedMotion]);
   const move = (direction: number) => setActive((current) => (current + direction + news.length) % news.length);
+  const moveQuote = (direction: number) => setQuoteActive((current) => (current + direction + clientQuotes.length) % clientQuotes.length);
   return <section className="home-quotes-news-page" aria-labelledby="client-quotes-heading">
-    <Reveal className="home-section-heading"><p>Client’s Quote</p><h2 id="client-quotes-heading">Feedback from teams we support.</h2></Reveal>
-    <div className="home-quote-grid">{clientQuotes.map((item) => <blockquote key={item.company}><div><Image className="home-quote-logo" src={item.logo} alt={`${item.company} logo`} width={120} height={42} /><b aria-hidden="true">“</b></div><p>{item.quote}</p><cite>— {item.company}</cite></blockquote>)}</div>
+    <div className="home-quote-heading-row"><Reveal className="home-section-heading"><p>Client’s Quote</p><h2 id="client-quotes-heading">Feedback from teams we support.</h2></Reveal><div className="home-quote-controls"><button type="button" onClick={() => moveQuote(-1)} aria-label="Previous client quote">←</button><button type="button" onClick={() => moveQuote(1)} aria-label="Next client quote">→</button></div></div>
+    <div className="home-quote-viewport" role="region" aria-roledescription="carousel" aria-label="Client quotes" onPointerEnter={() => setQuotePaused(true)} onPointerLeave={() => setQuotePaused(false)} onFocusCapture={() => setQuotePaused(true)} onBlurCapture={() => setQuotePaused(false)}><div className="home-quote-track" style={{ transform: `translate3d(-${quoteActive * 100}%,0,0)` }}>{clientQuotes.map((item, index) => <blockquote aria-hidden={index !== quoteActive} className="home-quote-slide" key={item.company}><div><Image className="home-quote-logo" src={item.logo} alt={`${item.company} logo`} width={120} height={42} /><b aria-hidden="true">“</b></div><p>{item.quote}</p><cite>— {item.company}</cite></blockquote>)}</div></div>
+    <div className="home-quote-dots" aria-label="Choose client quote">{clientQuotes.map((item, index) => <button type="button" aria-label={`Show ${item.company} quote`} aria-current={index === quoteActive} onClick={() => setQuoteActive(index)} key={item.company} />)}</div>
     <div className="home-news-header-row"><div className="home-news-heading"><p>News &amp; blogs</p><h2>Practical thinking for modern workplaces.</h2></div><div className="home-news-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous article">←</button><button type="button" onClick={() => move(1)} aria-label="Next article">→</button></div></div>
     <div className="home-news-viewport" role="region" aria-roledescription="carousel" aria-label="News and blog articles" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}><div className="home-news-track" style={{ transform: `translate3d(-${active * 100}%,0,0)` }}>{news.map((item, index) => <Link href={item.href} aria-hidden={index !== active} tabIndex={index === active ? undefined : -1} key={item.title}><div><Image src={item.image} alt={`Illustration for ${item.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><span>{item.category}</span><h3>{item.title}</h3><b>Read more ↗</b></Link>)}</div></div>
     <div className="home-news-dots" aria-label="Choose article">{news.map((item, index) => <button type="button" aria-label={`Show ${item.title}`} aria-current={index === active} onClick={() => setActive(index)} key={item.title} />)}</div>
