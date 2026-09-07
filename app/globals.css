@@ -1024,7 +1024,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .site-header::after { background: linear-gradient(90deg, var(--teal-400), var(--brand-green), transparent 72%); bottom: -1px; content: ''; height: 2px; left: 0; position: absolute; width: 42%; }
 .site-header[data-scrolled='true'] { background: rgba(247, 251, 253, .96); box-shadow: 0 14px 42px rgba(3, 35, 52, .14); height: 70px; }
 .site-header .brand { background: rgba(255,255,255,.7); border: 1px solid rgba(19,172,244,.14); border-radius: 12px; box-shadow: 0 8px 24px rgba(5,60,82,.07); padding: .5rem .65rem; transform-origin: left center; transition: opacity .3s ease, transform .3s ease; }
-.site-header[data-scrolled='true'] .brand { opacity: .68; transform: scale(.88); }
+.site-header[data-scrolled='true'] .brand { opacity: 1; transform: scale(.88); }
 .site-header .brand[data-logo-travelling] { opacity: 0; transition: none; }
 .site-header .brand-mark { align-items: center; display: flex; height: 46px; justify-content: center; left: clamp(1.25rem, 3vw, 3.5rem); opacity: 0; pointer-events: none; position: absolute; top: 50%; transform: translateY(-50%) scale(.82); transition: opacity .25s ease, transform .3s cubic-bezier(.22,1,.36,1); width: 46px; }
 .site-header .brand[data-logo-travelling] + .brand-mark { opacity: 1; pointer-events: auto; transform: translateY(-50%) scale(1); }
