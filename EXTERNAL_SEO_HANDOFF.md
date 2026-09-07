@@ -4,6 +4,8 @@ Audit date: 7 September 2026
 
 ## Verified public DNS
 
+The public nameservers are `dns1.bigrock.in` through `dns4.bigrock.in`; DNS changes require the authorized BigRock account.
+
 | Control | Current public record | Status |
 | --- | --- | --- |
 | SPF | `v=spf1 include:spf.protection.outlook.com -all` | Active |
@@ -41,5 +43,6 @@ Use this record for every approved Google Business Profile, directory, social pr
 
 - GA4/GTM loads only when a valid environment ID is supplied.
 - Meta Pixel loads only when a valid numeric `NEXT_PUBLIC_META_PIXEL_ID` is supplied.
+- The Sites environment currently has no configured GA4, GTM, or Meta Pixel ID.
 - The official LinkedIn profile is linked in the footer and Organization structured data.
 - The private Sites deployment has no custom domain attached, so do not submit the preview URL to search engines or business directories.
