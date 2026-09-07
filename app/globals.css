@@ -2687,6 +2687,26 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
   .seo-benefits > ul,.seo-industries > ul { grid-template-columns: 1fr; }
 }
 
+/* Mobile home hero: five equally weighted, static stories in the normal page flow. */
+@media (max-width: 760px) {
+  .workforce-screen { min-height: 0; padding: .75rem; }
+  .workforce-screen-grid { display: grid; gap: .75rem; height: auto; }
+  .workforce-screen-card,
+  .workforce-screen-card[data-active='true'] { flex: none; height: 250px; min-height: 250px; }
+  .workforce-screen-card img,
+  .workforce-screen-card[data-active='true'] img { filter: none; transform: none; transition: none; }
+  .workforce-screen-card-copy,
+  .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy { align-items: start; bottom: 0; gap: .45rem; padding: 1rem 1.1rem; transform: none; }
+  .workforce-screen-card-copy strong,
+  .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy strong { font-size: 1.1rem; min-width: 0; transform: none; writing-mode: horizontal-tb; }
+  .workforce-screen-card-copy em,
+  .workforce-screen-card-copy b,
+  .workforce-screen-card[data-active='true'] .workforce-screen-card-copy em,
+  .workforce-screen-card[data-active='true'] .workforce-screen-card-copy b { display: block; max-height: none; opacity: 1; transition: none; }
+  .workforce-screen-card-copy em { font-size: .78rem; line-height: 1.45; }
+  .workforce-screen-card-copy b { font-size: .64rem; }
+}
+
 /* Light site footer. Semantic classes keep styling reliable in production. */
 .footer-v2 { background: linear-gradient(145deg, #f7fbfd 0%, #eef9ff 52%, #f4faea 100%); border-top: 1px solid rgba(19, 172, 244, .2); color: #17344a; isolation: isolate; overflow: hidden; position: relative; }
 .footer-v2-orb { background: rgba(19, 172, 244, .1); border: 1px solid rgba(158, 207, 9, .25); border-radius: 50%; filter: blur(48px); height: 32rem; pointer-events: none; position: absolute; right: -10rem; top: -10rem; width: 32rem; }
