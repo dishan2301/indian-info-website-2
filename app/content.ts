@@ -29,6 +29,16 @@ export const customerOrganizations = [
   { name: 'Haitian International', logo: '/clients/client-logo-21.png' },
 ] as const;
 
+export const clientQuotes = [
+  { company: 'Torrent Power', logo: '/clients/torrent-hq.png', quote: 'A connected view of attendance and access helps our teams keep everyday operations secure, accountable, and moving on time.' },
+  { company: 'Aditya Birla Group', logo: '/clients/aditya-birla-hq.jpg', quote: 'Indian Infotech brings practical workforce workflows together with dependable support, giving our people a clearer way to manage daily operations.' },
+  { company: 'Astral Pipes', logo: '/clients/astral-hq.png', quote: 'The combination of biometric attendance, access control, and useful reporting gives our sites stronger visibility from entry to shift completion.' },
+  { company: 'Bayer CropScience', logo: '/clients/bayer-hq.svg', quote: 'The solution makes workforce records easier to trust and easier to act on, while keeping controlled workplace access at the centre.' },
+  { company: 'Swiss', logo: '/clients/swiss-hq.png', quote: 'Reliable identification and straightforward attendance workflows help our teams spend less time chasing records and more time running the workplace.' },
+  { company: 'Zydus Lifesciences', logo: '/clients/zydus-hq.png', quote: 'Indian Infotech understands the discipline of regulated environments and supports secure, organized movement across the working day.' },
+  { company: 'Sudiva', logo: '/clients/sudiva-hq.png', quote: 'From implementation to ongoing help, the experience is focused, responsive, and built around making workforce administration simpler.' },
+] as const;
+
 export type SoftwarePlatform = {
   slug: string;
   name: string;

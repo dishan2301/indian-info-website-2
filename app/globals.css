@@ -2641,8 +2641,8 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .workforce-screen-card { background: #0b1821; color: white; flex: 1 1 0; min-width: 0; overflow: hidden; position: relative; text-decoration: none; transition: flex-grow .55s cubic-bezier(.22,1,.36,1); }
 .workforce-screen-card[data-active='true'] { flex-grow: 5; }
 .workforce-screen-card img { image-rendering: auto; object-fit: cover; }
-.workforce-screen-card::after { background: linear-gradient(180deg,rgba(3,14,21,.08) 20%,rgba(3,14,21,.34) 52%,rgba(3,14,21,.96) 100%); content: ''; inset: 0; position: absolute; }
-.workforce-screen-card-copy { bottom: 0; display: grid; gap: .65rem; left: 0; padding: clamp(1rem,3vw,3rem); position: absolute; right: 0; z-index: 1; }
+.workforce-screen-card::after { background: transparent; content: ''; inset: 0; position: absolute; }
+.workforce-screen-card-copy { bottom: 0; display: grid; gap: .65rem; left: 0; padding: clamp(1rem,3vw,3rem); position: absolute; right: 0; text-shadow: 0 1px 3px rgba(3,14,21,.72); z-index: 1; }
 .workforce-screen-card-copy small { color: #bce858; font-family: var(--font-geist-mono),monospace; font-size: .58rem; font-weight: 750; letter-spacing: .1em; opacity: .95; text-transform: uppercase; white-space: nowrap; }
 .workforce-screen-card-copy strong { font-size: clamp(.95rem,2vw,2rem); line-height: 1.05; min-width: 14rem; text-wrap: balance; }
 .workforce-screen-card-copy em,.workforce-screen-card-copy b { color: rgba(255,255,255,.8); font-size: clamp(.72rem,1vw,.98rem); font-style: normal; line-height: 1.55; max-height: 0; max-width: 44ch; opacity: 0; overflow: hidden; transition: max-height .45s ease,opacity .35s ease; }
