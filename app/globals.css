@@ -1078,9 +1078,9 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .home-news-track span { align-self: end; color: #518000; font-size: .65rem; font-weight: 700; margin-top: 1.5rem; text-transform: uppercase; }
 .home-news-track h3 { font-size: clamp(1.25rem,2.3vw,2.15rem); line-height: 1.12; margin-bottom: .8rem; margin-top: .5rem; max-width: 24ch; }
 .home-news-track b { color: #0877a8; font-size: .72rem; margin-bottom: 1.5rem; }
-.home-news-dots { display: flex; gap: .45rem; justify-content: center; margin-top: 1rem; }
-.home-news-dots button { background: #bdd0d7; border: 0; border-radius: 999px; cursor: pointer; height: 6px; padding: 0; transition: background .25s ease, width .25s ease; width: 18px; }
-.home-news-dots button[aria-current='true'] { background: linear-gradient(90deg,var(--teal-400),var(--brand-green)); width: 44px; }
+.home-news-dots, .home-quote-dots { display: flex; gap: .45rem; justify-content: center; margin-top: 1rem; }
+.home-news-dots button, .home-quote-dots button { background: #bdd0d7; border: 0; border-radius: 999px; cursor: pointer; height: 6px; padding: 0; transition: background .25s ease, width .25s ease; width: 18px; }
+.home-news-dots button[aria-current='true'], .home-quote-dots button[aria-current='true'] { background: linear-gradient(90deg,var(--teal-400),var(--brand-green)); width: 44px; }
 
 .certification-overview, .certificate-verification { align-items: center; display: grid; gap: clamp(2.5rem,6vw,7rem); grid-template-columns: minmax(280px,.8fr) minmax(0,1.2fr); padding: clamp(4.5rem,8vw,8rem) clamp(1.25rem,7vw,7.5rem); }
 .certification-badge { background: white; border: 1px solid #dceae4; border-radius: 1.25rem; box-shadow: 0 24px 60px rgba(5,60,82,.1); padding: 2rem; }
