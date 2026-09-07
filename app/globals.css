@@ -2161,14 +2161,17 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 /* Shared command-deck navigation: one mounted panel means sibling hover is immediate. */
 .site-header { gap: clamp(.85rem,1.7vw,1.6rem); grid-template-columns: minmax(170px,210px) minmax(0,1fr) auto; padding-inline: clamp(1rem,2.2vw,2.5rem); }
 .premium-nav { align-items: center; align-self: stretch; display: flex; max-width: none; position: relative; width: 100%; z-index: 30; }
-.premium-nav-rail { align-items: center; background: rgba(255,255,255,.72); border: 1px solid rgba(19,172,244,.2); border-radius: 999px; box-shadow: 0 10px 28px rgba(3,35,52,.08), inset 0 1px 0 rgba(255,255,255,.9); display: flex; gap: .34rem; justify-content: center; min-height: 50px; padding: .35rem .45rem; width: 100%; }
-.premium-nav-link, .premium-nav-trigger { align-items: center; border-radius: 999px; color: #17344a; display: inline-flex; font-size: .78rem; font-weight: 750; justify-content: center; letter-spacing: .01em; min-height: 40px; padding: 0 .58rem; white-space: nowrap; }
-.premium-nav-trigger { appearance: none; background: transparent; border: 0; cursor: pointer; flex: 0 1 auto; font: inherit; gap: .4rem; min-width: 0; transition: background 160ms ease, color 160ms ease, transform 160ms ease; }
-.premium-nav-link { transition: background 160ms ease, color 160ms ease; }
+.premium-nav::before { animation: nav-aura 9s ease-in-out infinite; background: linear-gradient(90deg, rgba(19,172,244,.2), rgba(158,207,9,.18), rgba(19,172,244,.2)); border-radius: 999px; content: ''; filter: blur(12px); inset: 17px 8px; opacity: .8; pointer-events: none; position: absolute; }
+.premium-nav-rail { align-items: center; background: rgba(255,255,255,.82); border: 1px solid rgba(19,172,244,.2); border-radius: 999px; box-shadow: 0 7px 20px rgba(3,35,52,.08), inset 0 1px 0 rgba(255,255,255,.95); display: flex; gap: .2rem; justify-content: center; min-height: 44px; overflow: hidden; padding: .22rem .32rem; position: relative; width: 100%; }
+.premium-nav-rail::after { animation: nav-sheen 5.5s ease-in-out infinite; background: linear-gradient(100deg, transparent 18%, rgba(255,255,255,.6) 50%, transparent 82%); content: ''; inset: 0; pointer-events: none; position: absolute; transform: translateX(-100%); }
+.premium-nav-link, .premium-nav-trigger { align-items: center; border-radius: 999px; color: #17344a; display: inline-flex; font-size: .71rem; font-weight: 750; justify-content: center; letter-spacing: .01em; min-height: 34px; padding: 0 .48rem; position: relative; white-space: nowrap; z-index: 1; }
+.premium-nav-trigger { appearance: none; background: transparent; border: 0; cursor: pointer; flex: 0 1 auto; font: inherit; gap: .28rem; min-width: 0; transition: background 160ms ease, color 160ms ease, transform 160ms ease; }
+.premium-nav-link { transition: background 160ms ease, color 160ms ease, transform 160ms ease; }
 .premium-nav-link:hover, .premium-nav-link:focus-visible { background: rgba(19,172,244,.1); color: #075674; outline: 0; }
 .premium-nav-trigger span { color: #0b92bf; font-size: .7rem; transition: transform 160ms ease; }
 .premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: linear-gradient(135deg, rgba(19,172,244,.13), rgba(158,207,9,.13)); color: #075674; outline: 0; }
 .premium-nav-trigger:hover span, .premium-nav-trigger:focus-visible span, .premium-nav-trigger[aria-expanded='true'] span { transform: translate(2px,-2px); }
+.premium-nav-link:hover, .premium-nav-link:focus-visible, .premium-nav-trigger:hover, .premium-nav-trigger:focus-visible { transform: translateY(-1px); }
 .header-actions .header-cta { align-items: center; border-radius: 999px; display: inline-flex; justify-content: center; min-height: 48px; padding: 0 1.15rem; }
 .premium-mega-shell { display: grid; left: clamp(1rem,2.2vw,2.5rem); max-width: none; opacity: 0; pointer-events: none; position: fixed; right: clamp(1rem,2.2vw,2.5rem); top: 84px; transform: translateY(-8px); transition: opacity 120ms ease, transform 160ms cubic-bezier(.22,1,.36,1); visibility: hidden; width: auto; }
 .site-header[data-scrolled='true'] .premium-mega-shell { top: 70px; }
@@ -2188,6 +2191,9 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .premium-mega-columns a:hover, .premium-mega-columns a:focus-visible { color: #073e61; padding-left: .3rem; }
 .premium-mega-columns a span { color: #0b92bf; }
 @media (prefers-reduced-motion: reduce) { .premium-nav *, .premium-mega-shell, .premium-mega-panel { transition: none; } }
+@keyframes nav-aura { 0%, 100% { filter: blur(12px); opacity: .55; transform: scaleX(.98); } 50% { filter: blur(16px); opacity: .9; transform: scaleX(1.015); } }
+@keyframes nav-sheen { 0%, 62%, 100% { transform: translateX(-100%); } 82% { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .premium-nav::before, .premium-nav-rail::after { animation: none; } }
 
 /* Website navigation dock */
 .site-dock-nav { align-self: center; display: block; min-width: 0; position: relative; z-index: 2; }
