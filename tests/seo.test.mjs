@@ -85,7 +85,10 @@ test('customer proof stays permission-gated and sitemap dates remain current', a
     read('components/homepage/home-curated-sections.tsx'), read('app/proof-content.ts'), read('app/testimonials/page.tsx'),
     read('app/sitemap.ts'), read('app/products/[slug]/page.tsx'),
   ]);
-  assert.equal((homepage.match(/quote: '/g) ?? []).length, 0);
+  assert.match(homepage, /Client’s Quote/);
+  assert.match(homepage, /Feedback from teams we support\./);
+  assert.match(homepage, /IT Team, HCP Pvt\. Ltd\./);
+  assert.match(homepage, /Indbest Healthcare Pvt\. Ltd\./);
   assert.match(proof, /approvedTestimonials: readonly Testimonial\[\] = \[\]/);
   assert.match(proof, /approvedCaseStudies: readonly CaseStudy\[\] = \[\]/);
   assert.match(testimonials, /No permission-backed named testimonial is published yet/);

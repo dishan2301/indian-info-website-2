@@ -6,6 +6,11 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { customerOrganizations } from '@/app/content';
 import { companyStats } from '@/lib/company-profile';
 
+const clientQuotes = [
+  { company: 'IT Team, HCP Pvt. Ltd.', logo: '/clients/hcp-logo.png', quote: 'User-friendly system with accurate attendance tracking. Support response is quick and dependable.' },
+  { company: 'Indbest Healthcare Pvt. Ltd.', logo: '/clients/indbest-logo.webp', quote: 'Seamless hardware and software integration delivered on time. Highly satisfied with the service quality.' },
+] as const;
+
 const industries = [
   { name: 'Pharma', slug: 'pharma', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v1.webp', alt: 'Original 3D scene of secure staff entry in a modern pharmaceutical facility' },
   { name: 'Chemical', slug: 'chemical', eyebrow: 'Safety-led operations', title: 'The right people, in the right operating areas.', text: 'Connect identity, attendance, contractor movement, and controlled access across complex processing environments.', image: '/generated/industries/chemical-workplace-v1.webp', alt: 'Original 3D scene of controlled workforce entry at a chemical processing plant' },
@@ -146,7 +151,8 @@ export function QuotesAndNews() {
   useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => (current + 1) % news.length), 5000); return () => clearInterval(timer); }, [paused, reducedMotion]);
   const move = (direction: number) => setActive((current) => (current + direction + news.length) % news.length);
   return <section className="home-quotes-news-page" aria-labelledby="client-quotes-heading">
-    <Reveal className="home-section-heading"><p>Customer evidence</p><h2 id="client-quotes-heading">Named stories, published with permission.</h2><span>Anonymous quotations are not presented as proof. Customer names, roles, results, and assets appear only after the source and publication approval are recorded.</span><Link className="text-link" href="/testimonials">View testimonial standard and publication status →</Link></Reveal>
+    <Reveal className="home-section-heading"><p>Client’s Quote</p><h2 id="client-quotes-heading">Feedback from teams we support.</h2></Reveal>
+    <div className="home-quote-grid">{clientQuotes.map((item) => <blockquote key={item.company}><div><Image className="home-quote-logo" src={item.logo} alt={`${item.company} logo`} width={120} height={42} /><b aria-hidden="true">“</b></div><p>{item.quote}</p><cite>— {item.company}</cite></blockquote>)}</div>
     <div className="home-news-header-row"><div className="home-news-heading"><p>News &amp; blogs</p><h2>Practical thinking for modern workplaces.</h2></div><div className="home-news-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous article">←</button><button type="button" onClick={() => move(1)} aria-label="Next article">→</button></div></div>
     <div className="home-news-viewport" role="region" aria-roledescription="carousel" aria-label="News and blog articles" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}><div className="home-news-track" style={{ transform: `translate3d(-${active * 100}%,0,0)` }}>{news.map((item, index) => <Link href={item.href} aria-hidden={index !== active} tabIndex={index === active ? undefined : -1} key={item.title}><div><Image src={item.image} alt={`Illustration for ${item.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><span>{item.category}</span><h3>{item.title}</h3><b>Read more ↗</b></Link>)}</div></div>
     <div className="home-news-dots" aria-label="Choose article">{news.map((item, index) => <button type="button" aria-label={`Show ${item.title}`} aria-current={index === active} onClick={() => setActive(index)} key={item.title} />)}</div>
