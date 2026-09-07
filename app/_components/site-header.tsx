@@ -58,7 +58,7 @@ const menuItems = [
   { title: 'Company', href: '/about-us', eyebrow: 'Indian Infotech', groups: [{ title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Partners', href: '/partners' }, { label: 'Case studies', href: '/case-studies' }] }, { title: 'Insights & support', links: [{ label: 'Insights', href: '/insights' }, { label: 'Resources', href: '/resources' }, { label: 'Support center', href: '/support' }] }] },
 ] as const;
 
-const homeNavLink = { label: 'Home', href: '/#home' } as const;
+const homeNavLink = { label: 'Home', href: '/' } as const;
 const endingNavLinks = [{ label: 'About', href: '/about-us' }, { label: 'Blog', href: '/insights' }] as const;
 
 function PremiumNav() {
@@ -115,8 +115,8 @@ export function SiteHeader() {
 
   return (
     <header className="site-header" data-scrolled={scrolled}>
-      <Link className="brand" href="/#home" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
-      <Link className="brand-mark" href="/#home" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
+      <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
+      <Link className="brand-mark" href="/" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <PremiumNav />
 
