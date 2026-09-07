@@ -29,6 +29,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   if (!product) notFound();
   const images = product.images ?? [];
   const related = products.filter((item) => item.family === product.family && item.slug !== product.slug).slice(0, 3);
+  const usageSteps = product.family === 'Attendance'
+    ? ['Confirm the workforce, shifts, locations, and attendance policy.', 'Install the device at an assessed entry point with approved power and network.', 'Enroll authorized users and test authentication, exceptions, and offline handling.', 'Connect approved attendance software and review records before payroll use.']
+    : product.family === 'Access control'
+      ? ['Confirm the door, user group, access levels, and safety requirements.', 'Mount and power the device according to the approved site installation plan.', 'Enroll authorized users and test authentication, fallback, and exit behavior.', 'Connect the approved access software and review events with the security owner.']
+      : ['Confirm the entry lane, throughput, safety clearance, and operating owner.', 'Install and align the equipment with the approved access-control layout.', 'Connect the controller or screening workflow and test safe operating behavior.', 'Train operators, document exceptions, and schedule routine inspection and support.'];
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -79,6 +84,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
+      <section className="section product-usage-section" aria-labelledby="product-usage-title">
+        <div className="section-heading split-heading"><div><p className="section-kicker">How to use this product</p><h2 id="product-usage-title">A clear path from selection to daily operation.</h2></div><p>Use these steps as a starting point. Final installation, enrollment, network, and software instructions depend on the supplied model and approved configuration.</p></div>
+        <div className="product-usage-grid"><ol>{usageSteps.map((step, index) => <li key={step}><span>0{index + 1}</span><p>{step}</p></li>)}</ol><aside><p>Need the full reference?</p><h3>Open the Indian Infotech guidance PDF.</h3><span>Use the brochure for product families, operating context, and solution questions. Request the model-specific manual or datasheet when your configuration is confirmed.</span><a className="button button-primary" href="/indian-infotech-company-brochure.pdf" target="_blank" rel="noreferrer">Open guidance PDF ↗</a></aside></div>
+      </section>
+
       <section className="product-discovery">
         <div><p className="section-kicker light">Before specification</p><h2>Five questions shape the right selection.</h2></div>
         <ol>
@@ -94,7 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="section-heading split-heading"><div><p className="section-kicker">Downloads and support</p><h2>Request the approved material for this configuration.</h2></div><p>No generic or outdated file is offered as a current specification. Documents are released after the exact model and configuration are confirmed.</p></div>
         <div className="product-resource-grid">
           <article><span>01 / SPECIFICATION</span><h3>Published specification summary</h3><p>Download the current catalogue fields shown on this page, with configuration limits stated clearly.</p><a href={`/products/${product.slug}/specification`} download>Download summary ↓</a></article>
-          <article><span>02 / MANUAL</span><h3>Installation or user manual</h3><p>Availability and version must be confirmed against the supplied equipment.</p><Link href={`/contact?product=${product.slug}&resource=manual`}>Request manual ↗</Link></article>
+          <article><span>02 / GUIDANCE</span><h3>Product guidance PDF</h3><p>Review the product families and operating context before requesting a model-specific manual.</p><a href="/indian-infotech-company-brochure.pdf" target="_blank" rel="noreferrer">Open guidance PDF ↗</a></article>
           <article><span>03 / SOFTWARE</span><h3>Compatibility guidance</h3><p>Confirm supported software, integration method, and deployment requirements.</p><Link href={`/contact?product=${product.slug}&resource=compatibility`}>Verify compatibility ↗</Link></article>
           <article><span>04 / DATASHEET</span><h3>Approved manufacturer datasheet</h3><p>Request the current model- and variant-specific source before procurement.</p><Link href={`/contact?product=${product.slug}&resource=datasheet`}>Request datasheet ↗</Link></article>
         </div>

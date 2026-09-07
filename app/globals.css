@@ -677,6 +677,17 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .product-actions { margin-top: 2rem; }
 .outline-button { border: 1px solid #b5cac7; color: var(--navy-900); }
 .product-discovery { background: var(--navy-950); color: white; display: grid; gap: clamp(4rem, 8vw, 8rem); grid-template-columns: minmax(260px, .65fr) minmax(0, 1.35fr); padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 7vw, 7.5rem); }
+.product-usage-section { background: #f7fbfa; }
+.product-usage-grid { display: grid; gap: clamp(2rem, 6vw, 6rem); grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); }
+.product-usage-grid ol { list-style: none; margin: 0; padding: 0; }
+.product-usage-grid li { align-items: start; border-top: 1px solid var(--line); display: grid; gap: 1.25rem; grid-template-columns: 42px 1fr; padding: 1.25rem 0; }
+.product-usage-grid li:last-child { border-bottom: 1px solid var(--line); }
+.product-usage-grid li > span { color: var(--teal-500); font-family: var(--font-geist-mono), monospace; font-size: .65rem; font-weight: 800; }
+.product-usage-grid li p { color: var(--navy-900); font-size: clamp(1rem, 1.4vw, 1.25rem); font-weight: 700; line-height: 1.35; margin: 0; }
+.product-usage-grid aside { align-self: start; background: var(--navy-950); border-radius: 18px; box-shadow: 0 18px 44px rgba(3,35,52,.14); color: white; padding: clamp(1.5rem, 3vw, 2.5rem); }
+.product-usage-grid aside p { color: var(--teal-300); font-family: var(--font-geist-mono), monospace; font-size: .65rem; letter-spacing: .1em; margin: 0; text-transform: uppercase; }
+.product-usage-grid aside h3 { font-size: clamp(1.5rem, 2.4vw, 2.25rem); letter-spacing: -.04em; line-height: 1.05; margin: 1rem 0; }
+.product-usage-grid aside > span { color: #b5c8cd; display: block; line-height: 1.7; margin-bottom: 1.5rem; }
 .product-discovery .section-kicker { justify-content: flex-start; }
 .product-discovery h2 { font-size: clamp(2.2rem, 4vw, 4rem); letter-spacing: -.055em; line-height: 1.03; margin: 1rem 0; max-width: 13ch; }
 .product-discovery ol { list-style: none; margin: 0; padding: 0; }
@@ -903,7 +914,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .mobile-menu summary::-webkit-details-marker { display: none; }
   .mobile-menu > div { background: var(--navy-950); border: 1px solid rgba(19, 172, 244, 0.25); display: flex; flex-direction: column; min-width: 210px; padding: 0.7rem; position: absolute; right: 0; top: calc(100% + 0.8rem); }
   .mobile-menu a { border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; padding: 0.9rem; }
-  .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .about-direction-grid, .brief-section, .pharma-system, .contact-section, .product-detail, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
+  .split-heading, .workflow-section, .local-section, .pharma-intro, .about-story, .about-direction-grid, .brief-section, .pharma-system, .contact-section, .product-detail, .product-usage-grid, .product-discovery, .software-detail, .software-workflow, .enquiry-form { grid-template-columns: 1fr; }
   .workflow-copy { position: static; }
   .pillar-grid, .featured-products, .catalog-grid, .industry-grid, .footer-grid, .principle-grid { grid-template-columns: 1fr; }
   .pillar-card:last-child, .footer-grid > div:nth-child(4), .footer-grid > div:last-child { grid-column: auto; }
