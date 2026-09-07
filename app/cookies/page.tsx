@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { companyProfile } from '@/lib/company-profile';
 import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
@@ -18,7 +17,7 @@ export default function CookiePolicyPage() {
       <h2>Optional analytics</h2>
       <p>Performance-friendly analytics may be enabled only after an approved measurement identifier and the appropriate consent process are configured. When enabled, analytics helps Indian Infotech understand page use and actions such as demo, phone, email, WhatsApp, and enquiry clicks.</p>
       <h2>Your choices</h2>
-      <p>You can control cookies through your browser. Blocking essential browser storage may affect some interactive features. For questions, contact <a href={`mailto:${companyProfile.email}`}>{companyProfile.email}</a>.</p>
+      <p>You can control cookies through your browser. Blocking essential browser storage may affect some interactive features. For questions, use the <Link href="/contact?topic=cookies">contact form</Link>.</p>
       <p><Link href="/privacy">Read the privacy policy →</Link></p>
     </section>
     <SiteFooter />

@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Workforce & Workplace Solutions | Indian Infotech',
+  title: 'Access Control & Attendance Products | Indian Infotech',
   description:
-    'Biometric attendance, access control, entrance management, and HRMS solutions from Indian Infotech, Ahmedabad.',
+    'Explore Indian Infotech access control, biometric attendance, HRMS, payroll, and workplace products for businesses across India.',
   applicationName: 'Indian Infotech',
   authors: [{ name: 'Indian Infotech' }],
   creator: 'Indian Infotech',

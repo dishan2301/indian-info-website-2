@@ -52,8 +52,8 @@ const footerSections = [
 
 const contactLinks = [
   {
-    label: companyProfile.email,
-    href: `mailto:${companyProfile.email}`,
+    label: "Email us",
+    href: "/contact?topic=email",
     icon: Mail,
     external: false,
   },

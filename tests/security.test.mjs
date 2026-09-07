@@ -54,7 +54,7 @@ test('frontend source has no silent network-transmission sink', () => {
     for (const pattern of forbidden) assert.doesNotMatch(source, pattern, `${path} introduced browser data egress`);
   }
   const contact = readFileSync('components/contact/enquiry-brief.tsx', 'utf8');
-  assert.match(contact, /formsubmit\.co\/ajax\/\$\{encodeURIComponent\(companyProfile\.email\)\}/u);
+  assert.match(contact, /formsubmit\.co\/ajax\/\$\{encodeURIComponent\(companyProfile\.formRecipientEmail\)\}/u);
   assert.doesNotMatch(contact, /chaudharydishan90@gmail\.com/u);
   assert.match(contact, /href="\/privacy"/u);
   assert.match(readFileSync('app/privacy/page.tsx', 'utf8'), /through FormSubmit, a third-party form-delivery service/u);

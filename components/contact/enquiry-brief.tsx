@@ -33,7 +33,7 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
       }
       if (!validation.valid) throw new Error(validation.errors[0])
 
-      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(companyProfile.email)}`, {
+      const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(companyProfile.formRecipientEmail)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -51,9 +51,8 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
       })
       const result = await response.json() as { success?: string | boolean; message?: string }
       if (/needs activation/iu.test(result.message || "")) {
-        form.reset()
-        setStatus("sent")
-        setMessage("We sent a one-time activation email to the site owner. Click the newest activation link, then submit again.")
+        setStatus("error")
+        setMessage("Email delivery is not active yet. Open the newest FormSubmit activation email sent to the site owner, click Activate Form, then submit again.")
         return
       }
       if (!response.ok || result.success === false || result.success === "false") throw new Error("Email delivery is temporarily unavailable. Please try again.")
@@ -71,7 +70,7 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
       title="Get in touch"
       description="Tell us what you need for attendance, access control, entrance management, HRMS, payroll, or workplace operations. Include the installed context or decision you need help with."
       contactInfo={[
-        { icon: MailIcon, label: "Email", value: companyProfile.email, href: `mailto:${companyProfile.email}` },
+        { icon: MailIcon, label: "Email us", value: "Use the contact form", href: "/contact?topic=email" },
         { icon: PhoneIcon, label: "Phone", value: companyProfile.phoneDisplay, href: companyProfile.phoneHref },
         { icon: MapPinIcon, label: "Head office", value: "Gala Empire, Thaltej, Ahmedabad", href: companyProfile.mapsHref },
       ]}

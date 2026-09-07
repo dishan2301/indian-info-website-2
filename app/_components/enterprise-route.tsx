@@ -15,7 +15,7 @@ export function RouteCardGrid({ cards }: { cards: readonly RouteCard[] }) {
       {cards.map((card, index) => (
         <Link className="route-card" href={card.href} key={`${card.href}-${card.title}`}>
           {card.image ? (
-            <span className="route-card-media"><Image src={card.image} alt="" width={720} height={480} /></span>
+            <span className="route-card-media"><Image src={card.image} alt={`${card.title} illustration`} width={720} height={480} /></span>
           ) : null}
           <span className="route-card-index">0{index + 1}</span>
           {card.eyebrow ? <span className="route-card-eyebrow">{card.eyebrow}</span> : null}

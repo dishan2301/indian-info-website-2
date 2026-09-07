@@ -1,8 +1,13 @@
+const salesMailbox = ['sales', 'indianinfotech.org'].join('@');
+const supportMailbox = ['support', 'indianinfotech.org'].join('@');
+const formRecipientMailbox = ['chaudharydishan90', 'gmail.com'].join('@');
+
 export const companyProfile = {
   name: 'Indian Infotech',
   foundedYear: 2011,
-  email: 'sales@indianinfotech.org',
-  supportEmail: 'support@indianinfotech.org',
+  email: salesMailbox,
+  formRecipientEmail: formRecipientMailbox,
+  supportEmail: supportMailbox,
   phoneDisplay: '+91 76000 66770',
   phoneHref: 'tel:+917600066770',
   phoneSchema: '+91-76000-66770',

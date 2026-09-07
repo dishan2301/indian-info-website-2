@@ -12,7 +12,7 @@ export default function DefaultDemo() {
       <ContactCard
         title="Get in touch"
         contactInfo={[
-          { icon: MailIcon, label: "Email", value: "sales@indianinfotech.org" },
+          { icon: MailIcon, label: "Email", value: "Use the contact form", href: "/contact?topic=email" },
           { icon: PhoneIcon, label: "Phone", value: "+91 76000 66770" },
           { icon: MapPinIcon, label: "Address", value: "Thaltej, Ahmedabad" },
         ]}
