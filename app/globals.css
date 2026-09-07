@@ -2072,6 +2072,8 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .insight-article-body aside { background: var(--ice); display: grid; justify-items: start; margin: 2rem 0 3rem; padding: 1.5rem; }
 .insight-article-body aside span { color: var(--muted); line-height: 1.65; }
 .insight-article-body aside a { border-bottom: 1px solid #13acf4; font-size: .78rem; font-weight: 750; margin-top: 1rem; padding-bottom: .35rem; }
+.insight-article-body .route-link-list a { border-color: var(--line); color: var(--navy-950); }
+.insight-article-body .route-link-list a:hover, .insight-article-body .route-link-list a:focus-visible { color: var(--teal-500, #0f8e86); }
 
 @media (max-width: 760px) {
   .poster-hero h1, .poster-hero h2 { font-size: clamp(2.65rem, 11.5vw, 3.8rem); max-width: 12ch; }
