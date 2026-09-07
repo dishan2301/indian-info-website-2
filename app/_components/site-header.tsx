@@ -58,11 +58,8 @@ const menuItems = [
   { title: 'Company', href: '/about-us', eyebrow: 'Indian Infotech', groups: [{ title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Partners', href: '/partners' }, { label: 'Case studies', href: '/case-studies' }] }, { title: 'Insights & support', links: [{ label: 'Insights', href: '/insights' }, { label: 'Resources', href: '/resources' }, { label: 'Support center', href: '/support' }] }] },
 ] as const;
 
-const primaryNavLinks = [
-  { label: 'Home', href: '/#home' },
-  { label: 'About', href: '/about-us' },
-  { label: 'Blog', href: '/insights' },
-] as const;
+const homeNavLink = { label: 'Home', href: '/#home' } as const;
+const endingNavLinks = [{ label: 'About', href: '/about-us' }, { label: 'Blog', href: '/insights' }] as const;
 
 function PremiumNav() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -79,11 +76,12 @@ function PremiumNav() {
   return (
     <nav className="desktop-nav premium-nav" aria-label="Main navigation" onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }} onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); (event.target as HTMLElement).closest('button')?.focus(); } }}>
       <div className="premium-nav-rail" data-open={Boolean(activeMenu)}>
-        {primaryNavLinks.map((item) => <Link className="premium-nav-link" href={item.href} key={item.label}>{item.label}</Link>)}
+        <Link className="premium-nav-link" href={homeNavLink.href}>{homeNavLink.label}</Link>
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
           return <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(isActive ? null : item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}<span aria-hidden="true">↗</span></button>;
         })}
+        {endingNavLinks.map((item) => <Link className="premium-nav-link" href={item.href} key={item.label}>{item.label}</Link>)}
       </div>
       <div className="premium-mega-shell" data-open={Boolean(activeMenu)}>
         {menuItems.map((item) => {
