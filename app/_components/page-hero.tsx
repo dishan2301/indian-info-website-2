@@ -37,7 +37,9 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
     hospitality: { desktop: '/campaign/industries/hospitality-desktop-v2.webp', mobile: '/campaign/industries/hospitality-mobile-v2.webp', tone: 'light' },
   };
   const specificIndustryMedia = key.includes('pharmaceutical') ? industryMedia['pharmaceutical & research'] : key.includes('industr') ? industryMedia[title.toLowerCase()] : undefined;
-  const media = specificIndustryMedia || (key.includes('software') || key.includes('hrms') || key.includes('developer') || key.includes('integration') || key.includes('platform')
+  const media = specificIndustryMedia || (key.includes('hrms')
+    ? { desktop: '/campaign/core-systems/hrms-payroll-desktop-v2.webp', mobile: '/campaign/core-systems/hrms-payroll-mobile-v2.webp', tone: 'light' }
+    : key.includes('software') || key.includes('developer') || key.includes('integration') || key.includes('platform')
     ? { desktop: '/campaign/hero/security-desktop-v2.webp', mobile: '/campaign/hero/security-mobile-v2.webp', tone: 'light' }
     : key.includes('industry') || key.includes('pharma') || key.includes('workforce')
       ? { desktop: '/campaign/hero/workforce-desktop-v2.webp', mobile: '/campaign/hero/workforce-mobile-v2.webp', tone: 'dark' }
