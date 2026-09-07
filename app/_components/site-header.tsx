@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Boxes, Building2, Factory, House, Info, Layers3, UsersRound } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Boxes, Factory, Layers3, UsersRound } from 'lucide-react';
 
 const productGroups = [
   { title: 'Biometric & attendance', links: [{ label: 'Face recognition devices', href: '/products#attendance' }, { label: 'Fingerprint devices', href: '/products#access-control' }, { label: 'All attendance devices', href: '/products#attendance' }] },
@@ -39,16 +39,6 @@ const mobilePrimaryLinks = [
   { label: 'Industries', href: '/industries', icon: Factory },
 ] as const;
 
-const dockLinks = [
-  { label: 'Home', href: '/#home', icon: House },
-  { label: 'Products', href: '/products', icon: Boxes },
-  { label: 'Software', href: '/software', icon: Layers3 },
-  { label: 'HRMS & Payroll', href: '/hrms-payroll', icon: Building2 },
-  { label: 'Solutions', href: '/solutions', icon: UsersRound },
-  { label: 'Industries', href: '/industries', icon: Factory },
-  { label: 'About us', href: '/about-us', icon: Info },
-] as const;
-
 const mobileUtilityLinks = [
   { label: 'Support', href: '/support' },
   { label: 'Contact Us', href: '/contact' },
@@ -60,44 +50,46 @@ const mobileMenuGroups = [
   { title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Case studies', href: '/case-studies' }, { label: 'Testimonials', href: '/testimonials' }, { label: 'Resources', href: '/resources' }, { label: 'Insights', href: '/insights' }] },
 ] as const;
 
-function InteractiveMenu({ title, className = '', children }: { title: string; className?: string; children: ReactNode }) {
-  const menu = useRef<HTMLDetailsElement>(null);
+const menuItems = [
+  { title: 'Products', href: '/products', eyebrow: 'Indian Infotech hardware', groups: productGroups },
+  { title: 'Software', href: '/software', eyebrow: 'Indian Infotech software', groups: softwareGroups },
+  { title: 'Solutions', href: '/solutions', eyebrow: 'Integrated operations', groups: solutionGroups },
+  { title: 'Industries', href: '/industries', eyebrow: 'Industry operating contexts', groups: [{ title: 'Built for your environment', links: industryLinks }] },
+  { title: 'Company', href: '/about-us', eyebrow: 'Indian Infotech', groups: [{ title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Partners', href: '/partners' }, { label: 'Case studies', href: '/case-studies' }] }, { title: 'Insights & support', links: [{ label: 'Insights', href: '/insights' }, { label: 'Resources', href: '/resources' }, { label: 'Support center', href: '/support' }] }] },
+] as const;
+
+function PremiumNav() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const cancelClose = () => window.clearTimeout(closeTimer.current);
-  const openMenu = () => { cancelClose(); if (menu.current) menu.current.open = true; };
-  const closeMenu = (delay = 240) => {
+  const openMenu = (title: string) => { cancelClose(); setActiveMenu(title); };
+  const closeMenu = (delay = 140) => {
     cancelClose();
-    closeTimer.current = window.setTimeout(() => { if (menu.current) menu.current.open = false; }, delay);
+    closeTimer.current = window.setTimeout(() => setActiveMenu(null), delay);
   };
 
   useEffect(() => () => cancelClose(), []);
 
   return (
-    <details
-      className={`mega-menu ${className}`.trim()}
-      ref={menu}
-      onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(); }}
-      onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }}
-      onFocus={openMenu}
-      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }}
-      onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); menu.current?.querySelector('summary')?.focus(); } }}
-    >
-      <summary>{title}<span aria-hidden="true">⌄</span></summary>
-      {children}
-    </details>
-  );
-}
-
-function MegaGroup({ title, groups }: { title: string; groups: readonly { title: string; links: readonly { label: string; href: string }[] }[] }) {
-  return (
-    <InteractiveMenu title={title}>
-      <div className="mega-panel">
-        <div className="mega-panel-top"><span>Indian Infotech systems</span><Link href="/contact">Discuss a requirement ↗</Link></div>
-        <div className="mega-columns">
-          {groups.map((group) => <div key={group.title}><p className="mega-heading">{group.title}</p>{group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}
-        </div>
+    <nav className="desktop-nav premium-nav" aria-label="Main navigation" onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }} onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); (event.target as HTMLElement).closest('button')?.focus(); } }}>
+      <div className="premium-nav-rail" data-open={Boolean(activeMenu)}>
+        <span className="premium-nav-kicker">Explore</span>
+        {menuItems.map((item) => {
+          const isActive = activeMenu === item.title;
+          return <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(isActive ? null : item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}<span aria-hidden="true">↗</span></button>;
+        })}
+        <Link className="premium-nav-contact" href="/contact">Talk to an expert <span aria-hidden="true">→</span></Link>
       </div>
-    </InteractiveMenu>
+      <div className="premium-mega-shell" data-open={Boolean(activeMenu)}>
+        {menuItems.map((item) => {
+          const isActive = activeMenu === item.title;
+          return <section aria-hidden={!isActive} className={`premium-mega-panel${isActive ? ' is-active' : ''}`} id={`nav-panel-${item.title}`} inert={!isActive} key={item.title}>
+            <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.title} that move with your operation.</h2><Link href={item.href}>View all {item.title.toLowerCase()} <b aria-hidden="true">→</b></Link></div>
+            <div className="premium-mega-columns">{item.groups.map((group) => <div key={group.title}><p>{group.title}</p>{group.links.map((link) => <Link href={link.href} key={link.label}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}</div>
+          </section>;
+        })}
+      </div>
+    </nav>
   );
 }
 
@@ -123,20 +115,7 @@ export function SiteHeader() {
       <Link className="brand" href="/#home" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1030} height={242} priority /></Link>
       <Link className="brand-mark" href="/#home" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
-      <nav className="desktop-nav site-dock-nav" aria-label="Main navigation">
-        <div className="site-dock-shell"><div className="site-dock site-dock-brand" aria-label="Indian Infotech navigation">{dockLinks.map((item) => { const Icon = item.icon; return <div className="site-dock-item" key={item.href}><span className="site-dock-label-anchor"><span className="site-dock-label">{item.label}</span></span><span className="site-dock-icon"><Link href={item.href} aria-label={item.label}><Icon /></Link></span></div>; })}</div></div>
-        <div className="legacy-nav-menus">
-        <MegaGroup title="Products" groups={productGroups} />
-        <MegaGroup title="Software" groups={softwareGroups} />
-        <MegaGroup title="Solutions" groups={solutionGroups} />
-        <InteractiveMenu title="Industries">
-          <div className="mega-panel industries-panel"><div className="mega-panel-top"><span>Industry operating contexts</span><Link href="/contact">Plan an industry solution ↗</Link></div><div className="industry-menu-grid">{industryLinks.map((link, index) => <Link href={link.href} key={link.label}><span>0{index + 1}</span>{link.label}<b aria-hidden="true">→</b></Link>)}</div></div>
-        </InteractiveMenu>
-        <InteractiveMenu title="Company" className="company-menu">
-          <div className="mega-panel compact-mega-panel"><div className="mega-columns"><div><p className="mega-heading">Indian Infotech</p><Link href="/company">Company overview<span aria-hidden="true">→</span></Link><Link href="/about-us">About us<span aria-hidden="true">→</span></Link><Link href="/engineering">Engineering and implementation<span aria-hidden="true">→</span></Link><Link href="/partners">Partners<span aria-hidden="true">→</span></Link></div><div><p className="mega-heading">Proof and updates</p><Link href="/case-studies">Customer deployments<span aria-hidden="true">→</span></Link><Link href="/insights">News & insights<span aria-hidden="true">→</span></Link><Link href="/resources">Resources<span aria-hidden="true">→</span></Link><Link href="/support">Support center<span aria-hidden="true">→</span></Link></div></div></div>
-        </InteractiveMenu>
-        </div>
-      </nav>
+      <PremiumNav />
 
       <div className="header-actions"><Link className="header-cta" href="/contact">Contact Us</Link></div>
 
