@@ -54,6 +54,7 @@ const organizationSchema = {
     {
       '@type': ['Organization', 'LocalBusiness'], '@id': `${SITE_URL}/#organization`, name: companyProfile.name, url: SITE_URL,
       logo: `${SITE_URL}/indian-infotech-logo.png`, image: `${SITE_URL}/og.png`, foundingDate: String(companyProfile.foundedYear), email: companyProfile.email, telephone: companyProfile.phoneSchema,
+      sameAs: [companyProfile.linkedInHref],
       address: postalAddressSchema,
       areaServed: { '@type': 'Country', name: 'India' },
     },

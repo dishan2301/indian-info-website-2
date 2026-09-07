@@ -13,6 +13,7 @@ export const companyProfile = {
   phoneSchema: '+91-76000-66770',
   whatsappDisplay: '+91 77780 66770',
   whatsappHref: 'https://wa.me/917778066770',
+  linkedInHref: 'https://in.linkedin.com/company/indian-infotech',
   mapsHref: 'https://maps.app.goo.gl/77cgnPHz1p1tyUyb6',
   address: {
     street: '429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Thaltej',

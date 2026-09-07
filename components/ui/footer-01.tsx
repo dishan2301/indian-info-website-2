@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { ArrowUpRight, BriefcaseBusiness, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 
 import Logo from "@/components/ui/footer-01-utils/logo"
 import { Separator } from "@/components/ui/separator"
@@ -67,6 +67,12 @@ const contactLinks = [
     label: `WhatsApp · ${companyProfile.whatsappDisplay}`,
     href: companyProfile.whatsappHref,
     icon: MessageCircle,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    href: companyProfile.linkedInHref,
+    icon: BriefcaseBusiness,
     external: true,
   },
 ] as const

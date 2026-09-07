@@ -15,7 +15,7 @@ export default function CookiePolicyPage() {
       <h2>Current website use</h2>
       <p>The public website does not require advertising cookies to browse its product, software, solution, or company information. Essential browser features may store short-lived technical information needed for security, navigation, or form behavior.</p>
       <h2>Optional analytics</h2>
-      <p>Performance-friendly analytics may be enabled only after an approved measurement identifier and the appropriate consent process are configured. When enabled, analytics helps Indian Infotech understand page use and actions such as demo, phone, email, WhatsApp, and enquiry clicks.</p>
+      <p>Performance-friendly analytics or advertising measurement may be enabled only after an approved measurement identifier and the appropriate consent process are configured. When enabled, measurement helps Indian Infotech understand page use and actions such as demo, phone, email, WhatsApp, and enquiry clicks.</p>
       <h2>Your choices</h2>
       <p>You can control cookies through your browser. Blocking essential browser storage may affect some interactive features. For questions, use the <Link href="/contact?topic=cookies">contact form</Link>.</p>
       <p><Link href="/privacy">Read the privacy policy →</Link></p>
