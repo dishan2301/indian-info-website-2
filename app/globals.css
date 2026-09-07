@@ -2749,6 +2749,23 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
   .contact-card-copy { grid-column: span 1; min-height: auto; }
   .contact-card-info-grid { grid-template-columns: 1fr; margin-top: 3rem; }
 }
+
+/* Navigation contrast and separation: keep the mega panel visually distinct from the rail. */
+.premium-nav::after { content: ''; height: .75rem; left: 0; pointer-events: auto; position: absolute; right: 0; top: 100%; }
+.premium-nav-link:hover, .premium-nav-link:focus-visible { background: #073e61; color: #fff; }
+.premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: #073e61; color: #fff; }
+.premium-nav-trigger:hover span, .premium-nav-trigger:focus-visible span, .premium-nav-trigger[aria-expanded='true'] span { color: #b9e63c; }
+.premium-mega-shell { top: calc(84px + .75rem); }
+.site-header[data-scrolled='true'] .premium-mega-shell { top: calc(70px + .75rem); }
+.premium-mega-shell::before { background: rgba(7,62,97,.98); border-color: rgba(19,172,244,.42); box-shadow: 0 26px 70px rgba(3,35,52,.3); }
+.premium-mega-intro { border-right-color: rgba(255,255,255,.2); }
+.premium-mega-intro > span, .premium-mega-columns p { color: #b9e63c; }
+.premium-mega-intro h2 { color: #fff; }
+.premium-mega-intro a { color: #73d8f4; }
+.premium-mega-columns p { border-bottom-color: rgba(255,255,255,.2); }
+.premium-mega-columns a { border-bottom-color: rgba(255,255,255,.15); color: #e8f5f7; }
+.premium-mega-columns a:hover, .premium-mega-columns a:focus-visible { background: rgba(19,172,244,.16); color: #fff; padding-left: .55rem; padding-right: .4rem; }
+.premium-mega-columns a span { color: #73d8f4; }
 @media (max-width: 760px) {
   .contact-card-section { padding-inline: 1rem; }
   .contact-card { grid-template-columns: 1fr; }
