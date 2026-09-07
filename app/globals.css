@@ -2752,12 +2752,12 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 
 /* Navigation contrast and separation: keep the mega panel visually distinct from the rail. */
 .premium-nav::after { content: ''; height: .75rem; left: 0; pointer-events: auto; position: absolute; right: 0; top: 100%; }
-.premium-nav-link:hover, .premium-nav-link:focus-visible { background: rgba(203,213,220,.65); color: #073e61; }
-.premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: rgba(203,213,220,.65); color: #073e61; }
+.premium-nav-link:hover, .premium-nav-link:focus-visible { background: rgba(183,195,203,.72); color: #073e61; }
+.premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: rgba(183,195,203,.72); color: #073e61; }
 .premium-nav-trigger:hover span, .premium-nav-trigger:focus-visible span, .premium-nav-trigger[aria-expanded='true'] span { color: #0877a8; }
 .premium-mega-shell { top: calc(84px + .75rem); }
 .site-header[data-scrolled='true'] .premium-mega-shell { top: calc(70px + .75rem); }
-.premium-mega-shell::before { background: rgba(226,232,237,.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-color: rgba(80,103,120,.3); box-shadow: 0 26px 70px rgba(3,35,52,.2), inset 0 1px 0 rgba(255,255,255,.7); }
+.premium-mega-shell::before { background: rgba(207,216,222,.91); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-color: rgba(80,103,120,.36); box-shadow: 0 26px 70px rgba(3,35,52,.22), inset 0 1px 0 rgba(255,255,255,.65); }
 .premium-mega-intro { border-right-color: rgba(7,62,97,.18); }
 .premium-mega-intro > span, .premium-mega-columns p { color: #476400; }
 .premium-mega-intro h2 { color: #073e61; }
