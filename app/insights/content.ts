@@ -16,7 +16,7 @@ export const insights: readonly Insight[] = [
     date: '31 August 2026',
     title: 'RAG Customer Support: Faster Answers From Existing Knowledge',
     summary: 'How retrieval-augmented generation turns existing support knowledge into faster, grounded answers while keeping a clear path to human help.',
-    image: '/campaign/hero/innovation-desktop-v2.webp',
+    image: '/insights/rag-customer-support.png',
     sections: [
       { title: 'The problem', body: "A customer submits a ticket, waits in a queue, and then waits again while an agent searches documentation or old tickets for an answer that may already exist. Customers want an accurate answer now—ideally without needing a human for every simple, repetitive question. That is the gap retrieval-augmented generation, or RAG, is built to close." },
       { title: 'What is RAG, in plain terms?', body: "RAG combines retrieval and generation. Retrieval searches your knowledge base—including documentation, past tickets, and FAQs—for the most relevant information. Generation gives those results to a large language model, which writes a natural, direct answer grounded in that context. Instead of guessing from general training data, the system consults your company's current product knowledge first." },
@@ -32,7 +32,7 @@ export const insights: readonly Insight[] = [
     date: '27 August 2026',
     title: 'AI Workplace Automation: Practical Uses for Indian Businesses',
     summary: 'A practical look at how our team uses AI to write cleaner code, improve documentation, analyze data, support customers, and spend more time solving meaningful problems.',
-    image: '/company/ai-cover-workplace.webp',
+    image: '/insights/ai-workplace-automation.png',
     sections: [
       { title: 'AI has become part of the team', body: 'Artificial intelligence is no longer just a buzzword. From writing code to answering customer emails, AI tools now support our day-to-day workflow and help us work faster, smarter, and with less friction.' },
       { title: '1. Faster, cleaner code', body: 'AI coding assistants reduce repetitive development work and leave our engineers with more time for the problems that need real judgment.', points: ['Generate starter code and boilerplate in seconds', 'Suggest fixes for bugs early', 'Review pull requests and flag potential issues', 'Explain unfamiliar codebases during onboarding'] },
@@ -50,7 +50,7 @@ export const insights: readonly Insight[] = [
     date: '23 August 2024',
     title: 'Biometric Attendance System Cost in India: Cloud Pricing Factors',
     summary: 'Understand the factors that shape biometric attendance system cost in India, including devices, locations, software scope, rollout, and support.',
-    image: '/campaign/hero/workforce-desktop-v2.webp',
+    image: '/insights/cloud-attendance.png',
     sourceUrl: 'https://indianinfotech.org/why-your-company-needs-easytime-the-benefits-of-rent-based-cloud-attendance-management/',
     sections: [
       { title: 'The problem with traditional attendance systems', body: 'Traditional attendance systems can require a large upfront investment in devices, servers, installation, maintenance, and upgrades. Manual records and disconnected spreadsheets also create missed punches, inaccurate timesheets, slow approvals, and avoidable payroll disputes.' },
@@ -69,7 +69,7 @@ export const insights: readonly Insight[] = [
     date: '23 August 2024',
     title: 'AI in Manufacturing: A Practical Guide for Production Teams',
     summary: 'An overview of how AI, workforce systems, and intelligent access can support more connected production environments.',
-    image: '/campaign/industries/manufacturing-desktop-v2.webp',
+    image: '/insights/ai-production-line.png',
     sourceUrl: 'https://indianinfotech.org/how-ai-technology-is-changing-the-game-in-production-lines/',
     sections: [
       { title: '1. What is AI and why does it matter?', body: 'Artificial intelligence enables software and machines to interpret information, identify patterns, and support decisions that would otherwise require constant manual review. On a production line, its value comes from making operational signals easier to act on—not from adding an impressive label to a device.' },
