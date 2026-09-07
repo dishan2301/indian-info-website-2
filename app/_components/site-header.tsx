@@ -73,12 +73,10 @@ function PremiumNav() {
   return (
     <nav className="desktop-nav premium-nav" aria-label="Main navigation" onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }} onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); (event.target as HTMLElement).closest('button')?.focus(); } }}>
       <div className="premium-nav-rail" data-open={Boolean(activeMenu)}>
-        <span className="premium-nav-kicker">Explore</span>
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
           return <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(isActive ? null : item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}<span aria-hidden="true">↗</span></button>;
         })}
-        <Link className="premium-nav-contact" href="/contact">Talk to an expert <span aria-hidden="true">→</span></Link>
       </div>
       <div className="premium-mega-shell" data-open={Boolean(activeMenu)}>
         {menuItems.map((item) => {
