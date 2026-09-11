@@ -2636,7 +2636,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 }
 
 /* Full-screen expanding cards: the cards are the hero, with no background layer. */
-.workforce-screen { background: #071923; min-height: calc(100svh - 84px); padding: 0; }
+.workforce-screen { position: relative; background: #071923; min-height: calc(100svh - 84px); padding: 0; }
 .workforce-screen-grid { display: flex; gap: .5rem; height: calc(100svh - 84px); width: 100%; }
 .workforce-screen-card { background: #0b1821; color: white; flex: 1 1 0; min-width: 0; overflow: hidden; position: relative; text-decoration: none; transition: flex-grow .55s cubic-bezier(.22,1,.36,1); }
 .workforce-screen-card[data-active='true'] { flex-grow: 5; }
@@ -2650,7 +2650,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .workforce-screen-card-copy b i { color: #bce858; font-size: 1rem; font-style: normal; }
 .workforce-screen-card[data-active='true'] .workforce-screen-card-copy em,.workforce-screen-card[data-active='true'] .workforce-screen-card-copy b,.workforce-screen-card:hover .workforce-screen-card-copy em,.workforce-screen-card:focus-visible .workforce-screen-card-copy em,.workforce-screen-card:hover .workforce-screen-card-copy b,.workforce-screen-card:focus-visible .workforce-screen-card-copy b { max-height: 8rem; opacity: 1; }
 .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy { align-items: center; bottom: 50%; transform: translateY(50%); }
-.workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy strong { font-size: clamp(.72rem,1vw,1rem); min-width: 0; writing-mode: vertical-rl; transform: rotate(180deg); }
+.workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy strong { font-family: var(--font-geist-sans), sans-serif; font-size: clamp(1.25rem,2vw,2rem); font-weight: 800; letter-spacing: .035em; line-height: 1.2; text-shadow: 0 2px 8px #071923, 0 0 24px #071923; min-width: 0; writing-mode: vertical-rl; transform: rotate(180deg); }
 .workforce-screen-card:focus-visible { box-shadow: inset 0 0 0 3px var(--teal-400); outline: none; }
 
 @media (max-width: 760px) {
@@ -2663,7 +2663,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
   .workforce-screen-card-copy strong { font-size: 1rem; min-width: 0; }
   .workforce-screen-card-copy em,.workforce-screen-card-copy b { font-size: .72rem; }
   .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy { align-items: start; bottom: 0; transform: none; }
-  .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy strong { font-size: .78rem; writing-mode: horizontal-tb; transform: none; }
+  .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy strong { font-size: 1rem; writing-mode: horizontal-tb; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2834,3 +2834,6 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
   .contact-card-form-section { border-left: 0; border-radius: 0 0 24px 24px; border-top: 1px solid rgba(19,172,244,.22); padding: 1.5rem 1.25rem; }
   .contact-card-info-grid { margin-top: 2.5rem; }
 }
+
+.workforce-rotation-toggle { position: absolute; top: 1rem; right: 1rem; z-index: 2; padding: .55rem .85rem; border: 1px solid rgba(255,255,255,.55); border-radius: 2rem; background: rgba(7,25,35,.85); color: white; font-size: .75rem; font-weight: 600; cursor: pointer; }
+.workforce-rotation-toggle:focus-visible { outline: 3px solid #bce858; outline-offset: 3px; }
