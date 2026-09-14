@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { clientQuotes, customerOrganizations } from '@/app/content';
 import { companyStats } from '@/lib/company-profile';
 
@@ -16,51 +16,6 @@ const industries = [
   { name: 'Food industries', slug: 'food', eyebrow: 'Hygienic operations', title: 'Clean entry. Accountable shifts. Confident output.', text: 'Support hygiene checkpoints, attendance, and controlled production access across food facilities.', image: '/generated/industries/food-industries-workplace-v1.webp', alt: 'Original 3D scene of hygienic workforce entry in a food processing facility' },
 ] as const;
 const news = [{ category: 'Customer support · Blog', title: 'RAG customer support: faster answers from existing knowledge', href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'AI workplace automation: practical uses for Indian businesses', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.webp' }, { category: 'Cloud attendance · Blog', title: 'Biometric attendance system cost in India: cloud pricing factors', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'AI in manufacturing: a practical guide for production teams', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
-
-const arrivalDirections = [[-1, -1], [1, 1], [0, -1], [-1, 1], [1, -1], [0, 1], [1, 0], [-1, 0]] as const;
-const verticalArrivalDirection = [[0, -1]] as const;
-const quoteArrivalDirections = [[-1, 0], [1, 1], [0, 1]] as const;
-
-function useScrollArrival(ref: RefObject<HTMLElement | null>, selector: string, directions: ReadonlyArray<readonly [number, number]> = arrivalDirections, together = false) {
-  useEffect(() => {
-    const container = ref.current;
-    const media = matchMedia('(prefers-reduced-motion: reduce)');
-    if (!container || media.matches) return;
-    const targets = Array.from(container.querySelectorAll<HTMLElement>(selector));
-    const animations = targets.map((target, index) => {
-      const [x, y] = directions[index % directions.length];
-      const animation = target.animate([
-        { filter: 'blur(5px)', opacity: 0, translate: `${x * Math.min(innerWidth * .72, 760)}px ${y * Math.min(innerHeight * .48, 430)}px`, rotate: `${index % 2 ? 20 : -20}deg`, scale: '.62' },
-        { filter: 'blur(0)', opacity: 1, offset: .24 },
-        { filter: 'blur(0)', opacity: 1, translate: '0 0', rotate: '0deg', scale: '1' },
-      ], { delay: 160 + index * 70, duration: 1000, endDelay: (targets.length - 1 - index) * 70, fill: 'both', easing: 'cubic-bezier(.16, 1, .3, 1)' });
-      animation.pause();
-      return animation;
-    });
-    const run = (animation: Animation, entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting) {
-        animation.playbackRate = 1;
-        animation.play();
-      } else if (entry.boundingClientRect.top > 0 && Number(animation.currentTime) > 0) {
-        animation.playbackRate = -1;
-        animation.play();
-      }
-    };
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (together) animations.forEach((animation) => run(animation, entry));
-      else {
-        const animation = animations[targets.indexOf(entry.target as HTMLElement)];
-        if (animation) run(animation, entry);
-      }
-    }), { rootMargin: '0px 0px -2% 0px', threshold: .04 });
-    if (together) observer.observe(container);
-    else targets.forEach((target) => observer.observe(target));
-    return () => {
-      observer.disconnect();
-      animations.forEach((animation) => animation.cancel());
-    };
-  }, [directions, ref, selector, together]);
-}
 
 function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -148,14 +103,14 @@ export function CompanyOverview() {
       <div className="home-company-waves" aria-hidden="true"><i /><i /><i /></div>
       <Reveal className="home-company-identity">
         <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
-        <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters</span></Link>
+        <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
         <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyStats.map((fact) => <div key={fact.id}><AnimatedCount value={fact.value} suffix={fact.suffix} label={fact.label} /><span>{fact.label}</span></div>)}</div>
       </Reveal>
       <div className="home-company-copy">
         <Reveal className="home-company-intro"><p>Why Indian Infotech</p><h2 id="why-indian-infotech">Practical technology. Dependable delivery.</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
         <Reveal className="home-company-directions">
-          <Link className="home-direction-card" href="/about-us#vision"><p>Our vision</p><h3>Customer-led innovation with global relevance.</h3><span>Scalable solutions that respond to evolving business needs.</span><b>Explore vision</b></Link>
-          <Link className="home-direction-card" href="/about-us#mission"><p>Our mission</p><h3>Efficient and secure everyday operations.</h3><span>Intuitive systems that strengthen productivity, security, and agility.</span><b>Explore mission</b></Link>
+          <Link className="home-direction-card" href="/about-us#vision"><p>Our vision</p><h3>Customer-led innovation with global relevance.</h3><span>Scalable solutions that respond to evolving business needs.</span><b>Explore vision →</b></Link>
+          <Link className="home-direction-card" href="/about-us#mission"><p>Our mission</p><h3>Efficient and secure everyday operations.</h3><span>Intuitive systems that strengthen productivity, security, and agility.</span><b>Explore mission →</b></Link>
         </Reveal>
       </div>
     </section>
@@ -165,22 +120,21 @@ export function CompanyOverview() {
 export function IndustriesAndClients() {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const industry = industries[activeIndustry];
-  const clientGrid = useRef<HTMLDivElement>(null);
-  useScrollArrival(clientGrid, ':scope > div', verticalArrivalDirection, true);
 
   return <section className="home-industry-client-page" aria-labelledby="home-industries-heading">
     <Reveal className="home-section-heading home-industry-heading"><p>Industries we serve</p><h2 id="home-industries-heading">Built for the way your industry moves.</h2><span>Explore how connected workforce, access, and workplace systems adapt to seven distinct operating realities.</span></Reveal>
     <div className="home-industry-experience">
-      <div className="home-industry-list" aria-label="Choose an industry">{industries.map((item, index) => <button type="button" aria-pressed={index === activeIndustry} onClick={() => setActiveIndustry(index)} onPointerEnter={() => setActiveIndustry(index)} onFocus={() => setActiveIndustry(index)} key={item.slug}><strong>{item.name}</strong></button>)}</div>
+      <div className="home-industry-list" aria-label="Choose an industry">{industries.map((item, index) => <button type="button" aria-pressed={index === activeIndustry} onClick={() => setActiveIndustry(index)} onPointerEnter={() => setActiveIndustry(index)} onFocus={() => setActiveIndustry(index)} key={item.slug}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item.name}</strong><i aria-hidden="true">↗</i></button>)}</div>
       <div className="home-industry-stage">
         <div className="home-industry-orbit" aria-hidden="true"><i /><i /><i /></div>
         <Image key={industry.image} src={industry.image} alt={industry.alt} fill sizes="(max-width: 980px) 100vw, 64vw" priority={activeIndustry === 0} />
         <div className="home-industry-shade" />
         <div className="home-industry-story" key={industry.slug}><span>{industry.eyebrow}</span><h3>{industry.title}</h3><p>{industry.text}</p><Link href={`/industries/${industry.slug}`}>Explore {industry.name.toLowerCase()} <b aria-hidden="true">↗</b></Link></div>
+        <span className="home-industry-count" aria-hidden="true">{String(activeIndustry + 1).padStart(2, '0')}<i />{String(industries.length).padStart(2, '0')}</span>
       </div>
     </div>
     <Reveal className="home-client-heading"><p>2,000+ clients served</p><h2>Trusted by organizations across industries and 7+ countries.</h2><span>The logos below are a selection from our 2,000+ client base.</span></Reveal>
-    <div ref={clientGrid} className="home-client-grid">{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</div>
+    <div className="home-client-grid">{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</div>
   </section>;
 }
 
@@ -191,23 +145,9 @@ export function QuotesAndNews() {
   const [quoteMotion, setQuoteMotion] = useState(true);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [quoteVisible, setQuoteVisible] = useState(false);
-  const [newsVisible, setNewsVisible] = useState(false);
-  const quoteArea = useRef<HTMLDivElement>(null);
-  const newsArea = useRef<HTMLDivElement>(null);
-  useScrollArrival(quoteArea, ':scope > *', quoteArrivalDirections, true);
   useEffect(() => { const media = matchMedia('(prefers-reduced-motion: reduce)'); const sync = () => setReducedMotion(media.matches); sync(); media.addEventListener('change', sync); return () => media.removeEventListener('change', sync); }, []);
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (entry.target === quoteArea.current) setQuoteVisible(entry.isIntersecting);
-      if (entry.target === newsArea.current) setNewsVisible(entry.isIntersecting);
-    }), { threshold: .3 });
-    if (quoteArea.current) observer.observe(quoteArea.current);
-    if (newsArea.current) observer.observe(newsArea.current);
-    return () => observer.disconnect();
-  }, []);
-  useEffect(() => { if (paused || reducedMotion || !newsVisible) return; const timer = window.setInterval(() => setActive((current) => current >= news.length - 1 ? news.length : current + 1), 5000); return () => clearInterval(timer); }, [newsVisible, paused, reducedMotion]);
-  useEffect(() => { if (reducedMotion || !quoteVisible) return; const timer = window.setInterval(() => setQuoteActive((current) => current >= clientQuotes.length - 1 ? clientQuotes.length : current + 1), 5000); return () => clearInterval(timer); }, [quoteVisible, reducedMotion]);
+  useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => current >= news.length - 1 ? news.length : current + 1), 5000); return () => clearInterval(timer); }, [paused, reducedMotion]);
+  useEffect(() => { if (reducedMotion) return; const timer = window.setInterval(() => setQuoteActive((current) => current >= clientQuotes.length - 1 ? clientQuotes.length : current + 1), 5000); return () => clearInterval(timer); }, [reducedMotion]);
   useEffect(() => { if (reducedMotion && active === news.length) setActive(0); }, [active, reducedMotion]);
   useEffect(() => { if (reducedMotion && quoteActive === clientQuotes.length) setQuoteActive(0); }, [quoteActive, reducedMotion]);
   const move = (direction: number) => setActive((current) => direction > 0 ? (current >= news.length - 1 ? news.length : current + 1) : (current <= 0 ? news.length - 1 : current - 1));
@@ -217,15 +157,13 @@ export function QuotesAndNews() {
   const shownNews = active % news.length;
   const shownQuote = quoteActive % clientQuotes.length;
   return <section className="home-quotes-news-page" aria-labelledby="client-quotes-heading">
-    <div ref={quoteArea} className="home-quote-reveal">
+    <Reveal className="home-quote-reveal">
     <div className="home-quote-heading-row"><div className="home-section-heading"><p>Client’s Quote</p><h2 id="client-quotes-heading">Feedback from teams we support.</h2></div><div className="home-quote-controls"><button type="button" onClick={() => moveQuote(-1)} aria-label="Previous client quote">←</button><button type="button" onClick={() => moveQuote(1)} aria-label="Next client quote">→</button></div></div>
     <div className="home-quote-viewport" role="region" aria-roledescription="carousel" aria-label="Client quotes"><div className="home-quote-track" onTransitionEnd={finishQuoteLoop} style={{ transform: `translate3d(-${quoteActive * 100}%,0,0)`, transition: quoteMotion ? undefined : 'none' }}>{[...clientQuotes, clientQuotes[0]].map((item, index) => <blockquote aria-hidden={index !== quoteActive} className="home-quote-slide" key={`${item.company}-${index}`}><div><span className="home-quote-logo-hover"><Image unoptimized className="home-quote-logo" src={item.logo} alt={`${item.company} logo`} width={120} height={42} /></span><b aria-hidden="true">“</b></div><p>{item.quote}</p><cite>— {item.company}</cite></blockquote>)}</div></div>
     <div className="home-quote-dots" aria-label="Choose client quote">{clientQuotes.map((item, index) => <button type="button" aria-label={`Show ${item.company} quote`} aria-current={index === shownQuote} onClick={() => setQuoteActive(index)} key={item.company} />)}</div>
-    </div>
-    <div ref={newsArea} className="home-news-reveal">
+    </Reveal>
     <div className="home-news-header-row"><div className="home-news-heading"><p>News &amp; blogs</p><h2>Practical thinking for modern workplaces.</h2></div><div className="home-news-controls"><button type="button" onClick={() => move(-1)} aria-label="Previous article">←</button><button type="button" onClick={() => move(1)} aria-label="Next article">→</button></div></div>
-    <div className="home-news-viewport" role="region" aria-roledescription="carousel" aria-label="News and blog articles" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}><div className="home-news-track" onTransitionEnd={finishNewsLoop} style={{ transform: `translate3d(-${active * 100}%,0,0)`, transition: newsMotion ? undefined : 'none' }}>{[...news, news[0]].map((item, index) => <Link href={item.href} aria-hidden={index !== active} tabIndex={index === active ? undefined : -1} key={`${item.title}-${index}`}><div><Image src={item.image} alt={`Illustration for ${item.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><span>{item.category}</span><h3>{item.title}</h3><b>Read article</b></Link>)}</div></div>
+    <div className="home-news-viewport" role="region" aria-roledescription="carousel" aria-label="News and blog articles" onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}><div className="home-news-track" onTransitionEnd={finishNewsLoop} style={{ transform: `translate3d(-${active * 100}%,0,0)`, transition: newsMotion ? undefined : 'none' }}>{[...news, news[0]].map((item, index) => <Link href={item.href} aria-hidden={index !== active} tabIndex={index === active ? undefined : -1} key={`${item.title}-${index}`}><div><Image src={item.image} alt={`Illustration for ${item.title}`} fill sizes="(max-width: 760px) 100vw, 50vw" /></div><span>{item.category}</span><h3>{item.title}</h3><b>Read more ↗</b></Link>)}</div></div>
     <div className="home-news-dots" aria-label="Choose article">{news.map((item, index) => <button type="button" aria-label={`Show ${item.title}`} aria-current={index === shownNews} onClick={() => setActive(index)} key={item.title} />)}</div>
-    </div>
   </section>;
 }

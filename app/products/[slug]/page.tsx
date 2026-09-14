@@ -65,7 +65,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         <div className="product-detail-copy">
           <p className="section-kicker">Selection overview</p>
-          <h2>Choose {product.name} for the right {product.application.toLowerCase()} workflow.</h2>
+          <h2>Choose this device in the context of the complete operating workflow.</h2>
           <p>{product.description} Indian Infotech can help assess the entry point, user flow, operating environment, and software requirements before final selection.</p>
           <dl className="product-summary-list">
             <div><dt>Product family</dt><dd>{product.family}</dd></div>
@@ -77,15 +77,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div><dt>Catalogue status</dt><dd>{product.status}</dd></div>
           </dl>
           <div className="hero-actions product-actions">
-            <Link className="button button-primary" href={`/contact?product=${product.slug}`}>Request an {product.name} quote <span aria-hidden="true">↗</span></Link>
+            <Link className="button button-primary" href={`/contact?product=${product.slug}`}>Request a quote <span aria-hidden="true">↗</span></Link>
             <Link className="button outline-button" href={`/compare?products=${product.slug}#product-comparison`}>Compare this product</Link>
-            <Link className="button outline-button" href={`/contact?product=${product.slug}`}>Discuss {product.name} with an engineer</Link>
+            <Link className="button outline-button" href="/contact">Talk to an engineer</Link>
           </div>
         </div>
       </section>
 
       <section className="section product-usage-section" aria-labelledby="product-usage-title">
-        <div className="section-heading split-heading"><div><p className="section-kicker">How to use this product</p><h2 id="product-usage-title">Deploy {product.name} from selection to daily operation.</h2></div><p>Use these {product.name} steps as a starting point. Final installation, enrollment, network, and software instructions depend on the supplied model and approved configuration.</p></div>
+        <div className="section-heading split-heading"><div><p className="section-kicker">How to use this product</p><h2 id="product-usage-title">A clear path from selection to daily operation.</h2></div><p>Use these steps as a starting point. Final installation, enrollment, network, and software instructions depend on the supplied model and approved configuration.</p></div>
         <div className="product-usage-grid"><ol>{usageSteps.map((step, index) => <li key={step}><span>0{index + 1}</span><p>{step}</p></li>)}</ol><aside><p>Need the full reference?</p><h3>Open the Indian Infotech guidance PDF.</h3><span>Use the brochure for product families, operating context, and solution questions. Request the model-specific manual or datasheet when your configuration is confirmed.</span><a className="button button-primary" href="/indian-infotech-company-brochure.pdf" target="_blank" rel="noreferrer">Open guidance PDF ↗</a></aside></div>
       </section>
 
@@ -101,7 +101,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </section>
 
       <section className="section product-resources-section">
-        <div className="section-heading split-heading"><div><p className="section-kicker">Downloads and support</p><h2>Request {product.name} material for your configuration.</h2></div><p>No generic or outdated file is offered as a current specification. Documents are released after the exact model and configuration are confirmed.</p></div>
+        <div className="section-heading split-heading"><div><p className="section-kicker">Downloads and support</p><h2>Request the approved material for this configuration.</h2></div><p>No generic or outdated file is offered as a current specification. Documents are released after the exact model and configuration are confirmed.</p></div>
         <div className="product-resource-grid">
           <article><span>01 / SPECIFICATION</span><h3>Published specification summary</h3><p>Download the current catalogue fields shown on this page, with configuration limits stated clearly.</p><a href={`/products/${product.slug}/specification`} download>Download summary ↓</a></article>
           <article><span>02 / GUIDANCE</span><h3>Product guidance PDF</h3><p>Review the product families and operating context before requesting a model-specific manual.</p><a href="/indian-infotech-company-brochure.pdf" target="_blank" rel="noreferrer">Open guidance PDF ↗</a></article>
@@ -112,7 +112,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       {related.length > 0 && (
         <section className="section related-products">
-          <div className="section-heading split-heading"><div><p className="section-kicker">Related products</p><h2>Compare related {product.family.toLowerCase()} options.</h2></div><Link className="outline-link" href={`/products#${product.family === 'Attendance' ? 'attendance' : product.family === 'Access control' ? 'access-control' : 'entrance-management'}`}>View {product.family.toLowerCase()} products</Link></div>
+          <div className="section-heading split-heading"><div><p className="section-kicker">Related products</p><h2>Continue comparing within the same family.</h2></div><Link className="outline-link" href="/products">View catalogue</Link></div>
           <div className="catalog-grid">
             {related.map((item) => (
               <Link className="catalog-card related-card" href={`/products/${item.slug}`} key={item.slug}>

@@ -51,11 +51,11 @@ const mobileMenuGroups = [
 ] as const;
 
 const menuItems = [
-  { title: 'Products', heading: 'Hardware for secure, accountable sites.', href: '/products', eyebrow: 'Indian Infotech hardware', groups: productGroups },
-  { title: 'Software', heading: 'Attendance, payroll, and workplace software.', href: '/software', eyebrow: 'Indian Infotech software', groups: softwareGroups },
-  { title: 'Solutions', heading: 'Connect your people and site operations.', href: '/solutions', eyebrow: 'Integrated operations', groups: solutionGroups },
-  { title: 'Industries', heading: 'Systems shaped by your operating environment.', href: '/industries', eyebrow: 'Industry operating contexts', groups: [{ title: 'Built for your environment', links: industryLinks }] },
-  { title: 'Company', heading: 'Local expertise. Long-term support.', href: '/about-us', eyebrow: 'Indian Infotech', groups: [{ title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Partners', href: '/partners' }, { label: 'Case studies', href: '/case-studies' }] }, { title: 'Insights & support', links: [{ label: 'Insights', href: '/insights' }, { label: 'Resources', href: '/resources' }, { label: 'Support center', href: '/support' }] }] },
+  { title: 'Products', href: '/products', eyebrow: 'Indian Infotech hardware', groups: productGroups },
+  { title: 'Software', href: '/software', eyebrow: 'Indian Infotech software', groups: softwareGroups },
+  { title: 'Solutions', href: '/solutions', eyebrow: 'Integrated operations', groups: solutionGroups },
+  { title: 'Industries', href: '/industries', eyebrow: 'Industry operating contexts', groups: [{ title: 'Built for your environment', links: industryLinks }] },
+  { title: 'Company', href: '/about-us', eyebrow: 'Indian Infotech', groups: [{ title: 'Company', links: [{ label: 'About us', href: '/about-us' }, { label: 'Partners', href: '/partners' }, { label: 'Case studies', href: '/case-studies' }] }, { title: 'Insights & support', links: [{ label: 'Insights', href: '/insights' }, { label: 'Resources', href: '/resources' }, { label: 'Support center', href: '/support' }] }] },
 ] as const;
 
 const homeNavLink = { label: 'Home', href: '/' } as const;
@@ -87,8 +87,8 @@ function PremiumNav() {
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
           return <section aria-hidden={!isActive} className={`premium-mega-panel${isActive ? ' is-active' : ''}`} id={`nav-panel-${item.title}`} inert={!isActive} key={item.title}>
-            <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.heading}</h2><Link href={item.href}>View all {item.title.toLowerCase()} <b aria-hidden="true">→</b></Link></div>
-            <div className="premium-mega-columns">{item.groups.map((group) => <div key={group.title}><p>{group.title}</p>{group.links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}</div>)}</div>
+            <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.title} that move with your operation.</h2><Link href={item.href}>View all {item.title.toLowerCase()} <b aria-hidden="true">→</b></Link></div>
+            <div className="premium-mega-columns">{item.groups.map((group) => <div key={group.title}><p>{group.title}</p>{group.links.map((link) => <Link href={link.href} key={link.label}>{link.label}<span aria-hidden="true">→</span></Link>)}</div>)}</div>
           </section>;
         })}
       </div>
@@ -150,7 +150,7 @@ export function SiteHeader() {
               {mobileMenuGroups.map((group) => (
                 <div key={group.title}>
                   <p className="mega-heading">{group.title}</p>
-                  {group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}</Link>)}
+                  {group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}<span aria-hidden="true">→</span></Link>)}
                 </div>
               ))}
             </div>
