@@ -41,9 +41,7 @@ test('approved public statistics have one provenance-aware source', () => {
 test('proof publication types require attribution, outcomes, and permission', () => {
   const proof = readFileSync('app/proof-content.ts', 'utf8');
   for (const field of ['person:', 'title:', 'company:', 'permissionReference:', "evidenceStatus: 'approved'", 'problem:', 'solution:', 'deployment:', 'outcome:']) assert.match(proof, new RegExp(field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  const testimonials = readFileSync('app/testimonials/page.tsx', 'utf8');
-  assert.match(testimonials, /clientQuotes\.map/);
-  assert.match(testimonials, /Client quotes/);
+  assert.match(readFileSync('app/testimonials/page.tsx', 'utf8'), /No permission-backed named testimonial/);
   assert.match(readFileSync('app/case-studies/page.tsx', 'utf8'), /No approved deployment stories/);
 });
 
@@ -114,10 +112,10 @@ test('knowledge center indexes current guidance without inventing API availabili
   assert.match(readFileSync('app/sitemap.ts', 'utf8'), /'\/knowledge'/);
 });
 
-test('integration reference avoids brochure claims and lists unavailable API details', () => {
+test('integration reference separates brochure facts from unavailable API details', () => {
   const reference = readFileSync('app/developers/integration-reference/page.tsx', 'utf8');
-  for (const item of ['Plan integrations with version-specific technical details', 'Authentication and authorization', 'Endpoint paths and methods', 'Version and change policy', 'Technical source required']) assert.match(reference, new RegExp(item));
-  assert.doesNotMatch(reference, /Published integration scope|brochure-backed|supplied company brochure/);
+  for (const item of ['Published integration scope', 'Authentication and authorization', 'Endpoint paths and methods', 'Version and change policy', 'Technical source required']) assert.match(reference, new RegExp(item));
+  assert.match(reference, /do not prove that a REST API, SDK, webhook/);
   const brief = readFileSync('app/developers/integration-brief/route.ts', 'utf8');
   assert.match(brief, /Do not include passwords, tokens, private keys/);
   assert.match(brief, /Content-Disposition/);
@@ -142,14 +140,16 @@ test('phase-five polish keeps navigation accessible and defers offscreen work', 
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
-test('software pages use module scope without brochure specification downloads', () => {
+test('brochure-backed software facts have one display and download source', () => {
   const content = readFileSync('app/content.ts', 'utf8');
-  assert.doesNotMatch(content, /publishedFacts|evidenceSource|Up to 3 metres|ERP, payroll, and SAP/);
+  for (const value of ['Up to 3 metres', 'Up to 10,000 templates', 'Less than one second', '60+ functional MIS reports', 'ERP, payroll, and SAP']) assert.match(content, new RegExp(value.replace(/[+]/g, '\\+')));
+  assert.match(content, /evidenceSource:/);
   const page = readFileSync('app/software/[slug]/page.tsx', 'utf8');
-  assert.match(page, /software\.modules/);
-  assert.doesNotMatch(page, /Published specification|Brochure-sourced facts|software\.publishedFacts/);
+  assert.match(page, /software\.publishedFacts\.map/);
   assert.match(page, /featureList:/);
-  assert.equal(existsSync('app/software/[slug]/specification/route.ts'), false);
+  const download = readFileSync('app/software/[slug]/specification/route.ts', 'utf8');
+  assert.match(download, /Content-Disposition/);
+  assert.match(download, /Confirm the exact software version/);
 });
 
 test('trust center publishes an evidence register without inventing certifications', () => {
