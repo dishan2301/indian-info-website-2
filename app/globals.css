@@ -1048,6 +1048,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 @keyframes home-copy-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 .home-reveal { opacity: 0; transform: translateY(30px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+.home-quote-reveal { transform: translateX(-64px); }
 .home-reveal[data-visible='true'] { opacity: 1; transform: none; }
 .company-destination-logo { filter: drop-shadow(0 12px 24px rgba(5,62,84,.12)); transform: scale(.92); transition: transform .8s cubic-bezier(.22,1,.36,1); }
 .home-company-identity[data-visible='true'] .company-destination-logo { transform: scale(1); }
