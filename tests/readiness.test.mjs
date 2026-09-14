@@ -112,10 +112,10 @@ test('knowledge center indexes current guidance without inventing API availabili
   assert.match(readFileSync('app/sitemap.ts', 'utf8'), /'\/knowledge'/);
 });
 
-test('integration reference separates brochure facts from unavailable API details', () => {
+test('integration reference lists only details that require technical confirmation', () => {
   const reference = readFileSync('app/developers/integration-reference/page.tsx', 'utf8');
-  for (const item of ['Published integration scope', 'Authentication and authorization', 'Endpoint paths and methods', 'Version and change policy', 'Technical source required']) assert.match(reference, new RegExp(item));
-  assert.match(reference, /do not prove that a REST API, SDK, webhook/);
+  for (const item of ['Authentication and authorization', 'Endpoint paths and methods', 'Version and change policy', 'Technical source required']) assert.match(reference, new RegExp(item));
+  assert.match(reference, /version-specific technical details/);
   const brief = readFileSync('app/developers/integration-brief/route.ts', 'utf8');
   assert.match(brief, /Do not include passwords, tokens, private keys/);
   assert.match(brief, /Content-Disposition/);
@@ -140,16 +140,12 @@ test('phase-five polish keeps navigation accessible and defers offscreen work', 
   assert.match(styles, /prefers-reduced-motion:\s*reduce/);
 });
 
-test('brochure-backed software facts have one display and download source', () => {
-  const content = readFileSync('app/content.ts', 'utf8');
-  for (const value of ['Up to 3 metres', 'Up to 10,000 templates', 'Less than one second', '60+ functional MIS reports', 'ERP, payroll, and SAP']) assert.match(content, new RegExp(value.replace(/[+]/g, '\\+')));
-  assert.match(content, /evidenceSource:/);
+test('software pages describe modules rather than device specifications', () => {
   const page = readFileSync('app/software/[slug]/page.tsx', 'utf8');
-  assert.match(page, /software\.publishedFacts\.map/);
   assert.match(page, /featureList:/);
-  const download = readFileSync('app/software/[slug]/specification/route.ts', 'utf8');
-  assert.match(download, /Content-Disposition/);
-  assert.match(download, /Confirm the exact software version/);
+  assert.match(page, /featureList: software\.modules/);
+  assert.equal(page.includes(['Published', 'specification'].join(' ')), false);
+  assert.equal(page.includes(['Brochure-sourced', 'facts'].join(' ')), false);
 });
 
 test('trust center publishes an evidence register without inventing certifications', () => {

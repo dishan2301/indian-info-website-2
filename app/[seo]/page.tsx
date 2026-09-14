@@ -44,16 +44,16 @@ export default async function SeoLandingPage({ params }: SeoPageProps) {
 
       <section className="section route-detail-intro seo-introduction">
         <div><p className="section-kicker">Solution overview</p><h2>What is a {page.primaryKeyword}?</h2></div>
-        <div>{page.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<Link className="button button-primary" href={`/contact?solution=${page.slug}`}>Book a demo <span aria-hidden="true">↗</span></Link></div>
+        <div>{page.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<Link className="button button-primary" href={`/contact?solution=${page.slug}`}>Book a {page.primaryKeyword} demo <span aria-hidden="true">↗</span></Link></div>
       </section>
 
       <section className="route-dark-section">
-        <div className="section-heading split-heading"><div><p className="section-kicker light">Core capabilities</p><h2>Plan the complete operating workflow.</h2></div><p>Every capability is confirmed against the selected products, software, site conditions, and deployment scope.</p></div>
+        <div className="section-heading split-heading"><div><p className="section-kicker light">Core capabilities</p><h2>Plan your {page.primaryKeyword} workflow.</h2></div><p>Every capability is confirmed against the selected products, software, site conditions, and deployment scope.</p></div>
         <div className="readiness-grid seo-feature-grid">{page.features.map((feature, index) => <article key={feature.title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{feature.title}</h3><p>{feature.body}</p></article>)}</div>
       </section>
 
       <section className="section seo-benefits">
-        <div className="section-heading split-heading"><div><p className="section-kicker">Business outcomes</p><h2>Benefits for responsible teams.</h2></div><p>Outcomes depend on policy, adoption, configuration, data quality, and the real operating environment.</p></div>
+        <div className="section-heading split-heading"><div><p className="section-kicker">Business outcomes</p><h2>Benefits from a well-run {page.primaryKeyword}.</h2></div><p>Outcomes depend on policy, adoption, configuration, data quality, and the real operating environment.</p></div>
         <ul>{page.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
       </section>
 
@@ -73,11 +73,11 @@ export default async function SeoLandingPage({ params }: SeoPageProps) {
       </section>
 
       <section className="section seo-faq">
-        <div className="section-heading"><p className="section-kicker">Frequently asked questions</p><h2>Practical answers before a solution discussion.</h2></div>
+        <div className="section-heading"><p className="section-kicker">Frequently asked questions</p><h2>Answers for planning your {page.primaryKeyword}.</h2></div>
         <div>{page.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
-      <section className="decision-band"><div><p className="section-kicker light">Next step</p><h2>Bring your workforce, site, and integration requirements.</h2></div><Link className="button button-primary" href={`/contact?solution=${page.slug}`}>Request a consultation <span aria-hidden="true">↗</span></Link></section>
+      <section className="decision-band"><div><p className="section-kicker light">Next step</p><h2>Bring your {page.primaryKeyword} requirements.</h2></div><Link className="button button-primary" href={`/contact?solution=${page.slug}`}>Plan your {page.primaryKeyword} <span aria-hidden="true">↗</span></Link></section>
       <SiteFooter />
     </main>
   );
