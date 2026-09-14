@@ -44,5 +44,8 @@ test('hero defaults to EasyTime, rotates every five seconds, loops and pauses on
   grid = render(); grid.props.onFocusCapture(); render(); assert.equal(tick, undefined);
   grid.props.onBlurCapture({ currentTarget: { contains: () => false }, relatedTarget: null });
   render(); assert.equal(typeof tick, 'function');
+  const styles = readFileSync(new URL('../app/globals.css', import.meta.url), 'utf8');
+  assert.doesNotMatch(styles, /Mobile home hero: five equally weighted, static stories/);
+  assert.doesNotMatch(styles, /\.workforce-screen-card,\s*\.workforce-screen-card\[data-active='true'\]\s*\{\s*flex:\s*none;\s*height:\s*250px/s);
   cleanup?.();
 });
