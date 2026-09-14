@@ -22,13 +22,21 @@ function Reveal({ children, className = '', repeat = false }: { children: ReactN
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+    let lastScrollY = window.scrollY;
+    let frame = 0;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) node.dataset.visible = 'true';
+      cancelAnimationFrame(frame);
+      const scrollY = window.scrollY;
+      if (entry.isIntersecting && repeat) {
+        node.dataset.direction = scrollY < lastScrollY ? 'up' : 'down';
+        frame = requestAnimationFrame(() => { node.dataset.visible = 'true'; });
+      } else if (entry.isIntersecting) node.dataset.visible = 'true';
       else if (repeat) delete node.dataset.visible;
       if (entry.isIntersecting && !repeat) observer.disconnect();
+      lastScrollY = scrollY;
     }, { threshold: .14 });
     observer.observe(node);
-    return () => observer.disconnect();
+    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
   }, [repeat]);
   return <div className={`home-reveal ${className}`.trim()} ref={ref}>{children}</div>;
 }
