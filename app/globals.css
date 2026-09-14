@@ -111,6 +111,11 @@
 .home-client-heading > span { color: #53675d; display: block; line-height: 1.65; margin-top: 1rem; }
 .home-client-grid { display: grid; gap: .6rem; grid-template-columns: repeat(7, 1fr); margin-top: 1.75rem; }
 .home-client-grid div { align-items: center; background: #fff; border: 1px solid #e2ebe6; border-radius: .7rem; display: flex; justify-content: center; min-height: 92px; padding: .85rem; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.home-client-grid.home-reveal { opacity: 1; transform: none; }
+.home-client-grid.home-reveal > div { opacity: 0; transform: translateY(28px); transition: border-color .25s ease, box-shadow .25s ease, opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1); }
+.home-client-grid.home-reveal[data-visible='true'] > div { opacity: 1; transform: none; }
+.home-client-grid.home-reveal[data-visible='true'] > div:nth-child(n+8):nth-child(-n+14) { transition-delay: .14s; }
+.home-client-grid.home-reveal[data-visible='true'] > div:nth-child(n+15) { transition-delay: .28s; }
 .home-client-grid img { height: auto; max-height: 54px; max-width: 100%; object-fit: contain; }
 .home-client-grid div:hover { border-color: var(--teal-400); box-shadow: 0 12px 28px rgba(19,172,244,.13); transform: translateY(-5px) rotate(-.5deg); }
 .home-quotes-news-page { background: linear-gradient(135deg,#edf8fc 0%,#f5fafb 50%,#eef6f8 100%); }
@@ -2209,6 +2214,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   .home-company-page > .home-company-copy { padding-top: 3rem; }
 }
 @media (prefers-reduced-motion: reduce) { .home-company-page::before, .home-company-identity[data-visible='true'] .home-fact-strip div, .home-reveal[data-visible='true'] > p:first-child { animation: none; } .home-fact-strip div { opacity: 1; transform: none; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .home-client-grid.home-reveal > div { opacity: 1; transform: none; transition: none; } }
 
 /* Shared command-deck navigation: one mounted panel means sibling hover is immediate. */
 .site-header { gap: clamp(.85rem,1.7vw,1.6rem); grid-template-columns: minmax(170px,210px) minmax(0,1fr) auto; padding-inline: clamp(1rem,2.2vw,2.5rem); }

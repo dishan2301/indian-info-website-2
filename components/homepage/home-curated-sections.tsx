@@ -17,15 +17,19 @@ const industries = [
 ] as const;
 const news = [{ category: 'Customer support · Blog', title: 'RAG customer support: faster answers from existing knowledge', href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'AI workplace automation: practical uses for Indian businesses', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.webp' }, { category: 'Cloud attendance · Blog', title: 'Biometric attendance system cost in India: cloud pricing factors', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'AI in manufacturing: a practical guide for production teams', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
 
-function Reveal({ children, className = '' }: { children: ReactNode; className?: string }) {
+function Reveal({ children, className = '', repeat = false }: { children: ReactNode; className?: string; repeat?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { node.dataset.visible = 'true'; observer.disconnect(); } }, { threshold: .14 });
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) node.dataset.visible = 'true';
+      else if (repeat) delete node.dataset.visible;
+      if (entry.isIntersecting && !repeat) observer.disconnect();
+    }, { threshold: .14 });
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [repeat]);
   return <div className={`home-reveal ${className}`.trim()} ref={ref}>{children}</div>;
 }
 
@@ -134,7 +138,7 @@ export function IndustriesAndClients() {
       </div>
     </div>
     <Reveal className="home-client-heading"><p>2,000+ clients served</p><h2>Trusted by organizations across industries and 7+ countries.</h2><span>The logos below are a selection from our 2,000+ client base.</span></Reveal>
-    <div className="home-client-grid">{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</div>
+    <Reveal className="home-client-grid" repeat>{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</Reveal>
   </section>;
 }
 
