@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const workforceScenes = [
   { title: 'EasyTime Online Attendance', eyebrow: 'Best-selling workforce system', text: 'Multi-company attendance, shifts, leave, reporting, and real-time data flow for distributed workforces.', image: '/campaign/core-systems/easytime-desktop-v2.webp', alt: 'Employees using a biometric attendance terminal at a workplace entrance', href: '/software/easytime-online', cta: 'Explore EasyTime' },
@@ -15,12 +15,25 @@ const workforceScenes = [
 export function HeroPoster() {
   const [activePanel, setActivePanel] = useState(0);
 
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (hovered || focused || paused) return;
+    const timer = window.setInterval(() => {
+      setActivePanel((current) => (current + 1) % workforceScenes.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [hovered, focused, paused]);
+
   return <section className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
-    <div className="workforce-screen-grid" aria-label="Explore workforce systems">
+    <div className="workforce-screen-grid" aria-label="Explore workforce systems" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
       {workforceScenes.map((scene, index) => <Link className="workforce-screen-card" data-active={activePanel === index} href={scene.href} onMouseEnter={() => setActivePanel(index)} onFocus={() => setActivePanel(index)} onClick={() => setActivePanel(index)} key={scene.title}>
         <Image src={scene.image} alt={scene.alt} fill sizes={activePanel === index ? '(max-width: 760px) 100vw, 68vw' : '(max-width: 760px) 100vw, 10vw'} quality={82} priority={index === 0} />
         <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><strong>{scene.title}</strong><em>{scene.text}</em><b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
       </Link>)}
     </div>
+    <button className="workforce-rotation-toggle" type="button" onClick={() => setPaused((current) => !current)} aria-pressed={paused}>{paused ? 'Resume slideshow' : 'Pause slideshow'}</button>
   </section>;
 }
