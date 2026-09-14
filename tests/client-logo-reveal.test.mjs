@@ -8,6 +8,7 @@ test('client logos use a reversible three-row scroll reveal', () => {
 
   assert.match(component, /else if \(repeat\) delete node\.dataset\.visible/);
   assert.match(component, /<Reveal className="home-client-grid" repeat>/);
-  assert.match(styles, /nth-child\(n\+8\):nth-child\(-n\+14\).*transition-delay: \.14s/);
-  assert.match(styles, /nth-child\(n\+15\).*transition-delay: \.28s/);
+  assert.match(styles, /translateY\(-72px\).*transform 1\.1s/);
+  assert.match(styles, /nth-child\(n\+8\):nth-child\(-n\+14\).*transition-delay: \.65s/);
+  assert.match(styles, /nth-child\(n\+15\).*transition-delay: 1\.3s/);
 });
