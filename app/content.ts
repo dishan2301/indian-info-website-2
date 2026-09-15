@@ -183,6 +183,7 @@ export type Product = {
   deployment: 'Site assessment recommended';
   softwareCompatibility: 'Verify during solution design';
   status: 'Published portfolio';
+  pdf?: string;
 };
 
 export const products: readonly Product[] = [
@@ -193,7 +194,7 @@ export const products: readonly Product[] = [
     description: 'Fingerprint access control device for streamlined, controlled workplace entry.',
     image: '/products/i-18.jpg',
     images: ['/products/i-18.jpg', '/posters/i-18.webp'],
-    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/i-18.pdf',
   },
   {
     slug: 'i-202',
@@ -211,7 +212,7 @@ export const products: readonly Product[] = [
     description: 'Fingerprint access control and time-attendance system designed for robust, high-efficiency workplace operation.',
     image: '/products/is-500/main.png',
     images: ['/products/is-500/main.png', '/products/is-500/alternate.png', '/posters/is-500.webp'],
-    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/is-500.pdf',
   },
   {
     slug: 'ai-60',
@@ -220,7 +221,7 @@ export const products: readonly Product[] = [
     description: 'Facial-recognition technology integrating access control and time-attendance applications.',
     image: '/products/ai-60/angle.png',
     images: ['/products/ai-60/angle.png', '/products/ai-60/detail.png', '/products/ai-60/front.png', '/posters/ai-60.webp'],
-    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/ai-60.pdf',
   },
   {
     slug: 'mini-ai-10',
@@ -238,7 +239,7 @@ export const products: readonly Product[] = [
     description: 'Face-recognition access and attendance device for efficient workplace authentication.',
     image: '/products/mini-ai-30/front.png',
     images: ['/products/mini-ai-30/front.png', '/products/mini-ai-30/angle.png', '/products/mini-ai-30/detail.png', '/posters/mini-ai-30.webp'],
-    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/mini-ai-30.pdf',
   },
   {
     slug: 'cmp-200',
@@ -274,7 +275,7 @@ export const products: readonly Product[] = [
     description: 'Full-height turnstile series engineered for controlled entry at sensitive access points.',
     image: '/products/fht2300/model-l.png',
     images: ['/products/fht2300/model-l.png', '/products/fht2300/front.png', '/products/fht2300/detail.png', '/posters/fht2300-series.webp'],
-    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/fht2300-series.pdf',
   },
   {
     slug: 'ts200-series',
@@ -294,6 +295,22 @@ export const products: readonly Product[] = [
     images: ['/products/d4330/front.png', '/products/d4330/angle.png', '/products/d4330/detail.png', '/products/d4330/application.png', '/posters/d4330-metal-detector.webp'],
     authentication: 'Screening', application: 'Security screening', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
   },
+  { slug: 'ai-35', name: 'AI-35', family: 'Attendance', description: 'Face-recognition terminal for attendance and controlled workplace access.', authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/ai-35.pdf' },
+  { slug: 'sf-1000', name: 'SF-1000', family: 'Access control', description: 'Fingerprint and card access-control terminal for secure workplace entry.', authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/sf-1000.pdf' },
+  { slug: 'ai-15l', name: 'AI-15L', family: 'Attendance', description: 'Face and fingerprint recognition terminal for attendance and access workflows.', authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/ai-15l.pdf' },
+  { slug: 'ai-70', name: 'AI-70', family: 'Attendance', description: 'AI biometric access-control and time-attendance terminal.', authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/ai-70.pdf' },
+  { slug: 'bio-70', name: 'Bio 70', family: 'Attendance', description: 'Biometric terminal for face, fingerprint, and card-based workforce records.', authentication: 'Biometric', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/bio-70.pdf' },
+  { slug: 'f-12-slave', name: 'F-12 Slave', family: 'Access control', description: 'RS485 fingerprint reader for connected biometric access systems.', authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/f-12-slave.pdf' },
+  { slug: '20k-fp', name: '20K FP', family: 'Attendance', description: 'Fingerprint workforce terminal for attendance and access operations.', authentication: 'Fingerprint', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/20k-fp.pdf' },
+  { slug: 'fp-padlock', name: 'FP Padlock', family: 'Access control', description: 'Fingerprint-enabled padlock for practical portable access control.', authentication: 'Fingerprint', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/fp-padlock.pdf' },
+  { slug: 'door-interlock-system', name: 'Door Interlock System', family: 'Access control', description: 'Door interlock system for controlled movement between secured areas.', authentication: 'Connected access system', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/door-interlock-system.pdf' },
+  { slug: 'door-interlock-card-mb01', name: 'Door Interlock Card MB01', family: 'Access control', description: '12V door-interlock control card for managed access installations.', authentication: 'Connected controller', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/door-interlock-card-mb01.pdf' },
+  { slug: 'em-lock-600lbs', name: 'EM Lock 600LBS', family: 'Access control', description: 'Electromagnetic lock for controlled door access.', authentication: 'Connected access system', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/em-lock-600lbs.pdf' },
+  { slug: 'ines33-exit-switch', name: 'INES33 Exit Switch', family: 'Access control', description: 'Door-release exit switch for controlled access points.', authentication: 'Connected access system', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/ines33-exit-switch.pdf' },
+  { slug: 'innte33-no-touch-switch', name: 'INNTE33 No Touch Switch', family: 'Access control', description: 'No-touch exit switch for hygienic door-release operation.', authentication: 'Connected access system', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/innte33-no-touch-switch.pdf' },
+  { slug: 'tripod-barrier-heavy', name: 'Tripod Barrier Heavy', family: 'Entrance management', description: 'Heavy-duty tripod barrier for orderly pedestrian entry.', authentication: 'Connected access system', application: 'Pedestrian entry', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/tripod-barrier-heavy.pdf' },
+  { slug: 'surface-bolt-lock', name: 'Surface Bolt Lock', family: 'Access control', description: 'Surface electric bolt lock for secure controlled doors.', authentication: 'Connected access system', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/surface-bolt-lock.pdf' },
+  { slug: 'face-ai-80-pro', name: 'Face AI-80 Pro', family: 'Attendance', description: 'High-capacity facial-recognition terminal for access and attendance.', authentication: 'Face', application: 'Attendance & access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/face-ai-80-pro.pdf' },
 ] as const;
 
 export type SolutionProfile = {

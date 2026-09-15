@@ -13,7 +13,7 @@ export default function ProductsPage() {
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow="Product portfolio" title="Purpose-built devices for identity, attendance, and entry." description="Explore Indian Infotech’s access-control, attendance, and entrance-management portfolio. Final selection should follow a site and workflow assessment." marker="II / 12+ PRODUCTS" />
+      <PageHero eyebrow="Product portfolio" title="Purpose-built devices for identity, attendance, and entry." description="Explore Indian Infotech’s access-control, attendance, and entrance-management portfolio. Final selection should follow a site and workflow assessment." marker="II / 28+ PRODUCTS" />
 
       <section className="section product-catalog">
         <div className="section-heading split-heading"><div><p className="section-kicker">Product discovery</p><h2>Filter by the operating requirement.</h2></div><p>Connectivity, exact software compatibility, capacity, and deployment fit remain configuration-dependent and must be confirmed before purchase.</p></div>
