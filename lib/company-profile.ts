@@ -1,6 +1,11 @@
 const salesMailbox = ['sales', 'indianinfotech.org'].join('@');
 const supportMailbox = ['support', 'indianinfotech.org'].join('@');
 const formRecipientMailbox = ['chaudharydishan90', 'gmail.com'].join('@');
+export const companyFoundedOn = new Date(2011, 7, 15);
+
+export function completedYearsSince(date: Date, from = companyFoundedOn) {
+  return date.getFullYear() - from.getFullYear() - Number(date.getMonth() < from.getMonth() || (date.getMonth() === from.getMonth() && date.getDate() < from.getDate()));
+}
 
 export const companyProfile = {
   name: 'Indian Infotech',
@@ -42,7 +47,7 @@ export type PublicClaim = {
  * Update the record here only after the underlying company record is approved.
  */
 export const companyStats: readonly PublicClaim[] = [
-  { id: 'years-experience', value: 14, suffix: '+', display: '14+', label: 'Years of experience', source: 'Indian Infotech company brochure', owner: 'Indian Infotech', status: 'approved-public-source', verifiedOn: '2026-09-02' },
+  { id: 'years-experience', value: completedYearsSince(new Date()), suffix: '+', display: `${completedYearsSince(new Date())}+`, label: 'Years of experience', source: 'Indian Infotech company brochure', owner: 'Indian Infotech', status: 'approved-public-source', verifiedOn: '2026-09-02' },
   { id: 'products', value: 12, suffix: '+', display: '12+', label: 'Products', source: 'Indian Infotech company brochure', owner: 'Indian Infotech', status: 'approved-public-source', verifiedOn: '2026-09-02' },
   { id: 'countries', value: 7, suffix: '+', display: '7+', label: 'Countries served', source: 'Indian Infotech company brochure', owner: 'Indian Infotech', status: 'approved-public-source', verifiedOn: '2026-09-02' },
   { id: 'clients', value: 2000, suffix: '+', display: '2,000+', label: 'Happy clients', source: 'Indian Infotech company brochure', owner: 'Indian Infotech', status: 'approved-public-source', verifiedOn: '2026-09-02' },

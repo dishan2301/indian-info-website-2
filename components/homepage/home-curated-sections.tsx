@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { clientQuotes, customerOrganizations } from '@/app/content';
-import { companyStats } from '@/lib/company-profile';
+import { companyStats, completedYearsSince } from '@/lib/company-profile';
 
 const industries = [
   { name: 'Pharma', slug: 'pharma', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v1.webp', alt: 'Original 3D scene of secure staff entry in a modern pharmaceutical facility' },
@@ -116,7 +116,7 @@ export function CompanyOverview() {
       <Reveal className="home-company-identity">
         <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
         <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
-        <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyStats.map((fact) => <div key={fact.id}><AnimatedCount value={fact.value} suffix={fact.suffix} label={fact.label} /><span>{fact.label}</span></div>)}</div>
+        <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyStats.map((fact) => <div key={fact.id}><AnimatedCount value={fact.id === 'years-experience' ? completedYearsSince(new Date()) : fact.value} suffix={fact.suffix} label={fact.label} /><span>{fact.label}</span></div>)}</div>
       </Reveal>
       <div className="home-company-copy">
         <Reveal className="home-company-intro"><p>Why Indian Infotech</p><h2 id="why-indian-infotech">Practical technology. Dependable delivery.</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
