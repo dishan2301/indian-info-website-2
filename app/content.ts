@@ -203,7 +203,7 @@ export const products: readonly Product[] = [
     description: 'Biometric access control and time-attendance device designed for secure entry and workforce records.',
     image: '/products/i-202/main.jpg',
     images: ['/products/i-202/main.jpg', '/posters/i-202.webp'],
-    authentication: 'Biometric', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio',
+    authentication: 'Biometric', application: 'Personnel access', connectivity: 'Confirm configuration', deployment: 'Site assessment recommended', softwareCompatibility: 'Verify during solution design', status: 'Published portfolio', pdf: '/product-pdfs/i-202.pdf',
   },
   {
     slug: 'is-500',
