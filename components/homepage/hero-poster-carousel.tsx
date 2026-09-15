@@ -17,15 +17,14 @@ export function HeroPoster() {
 
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (hovered || focused || paused) return;
+    if (hovered || focused) return;
     const timer = window.setInterval(() => {
       setActivePanel((current) => (current + 1) % workforceScenes.length);
     }, 5000);
     return () => window.clearInterval(timer);
-  }, [hovered, focused, paused]);
+  }, [hovered, focused]);
 
   return <section className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
     <div className="workforce-screen-grid" aria-label="Explore workforce systems" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
@@ -34,6 +33,5 @@ export function HeroPoster() {
         <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><strong>{scene.title}</strong><em>{scene.text}</em><b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
       </Link>)}
     </div>
-    <button className="workforce-rotation-toggle" type="button" onClick={() => setPaused((current) => !current)} aria-pressed={paused}>{paused ? 'Resume slideshow' : 'Pause slideshow'}</button>
   </section>;
 }
