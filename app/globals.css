@@ -2217,6 +2217,37 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 @media (prefers-reduced-motion: reduce) { .home-company-page::before, .home-company-identity[data-visible='true'] .home-fact-strip div, .home-reveal[data-visible='true'] > p:first-child { animation: none; } .home-fact-strip div { opacity: 1; transform: none; transition: none; } }
 @media (prefers-reduced-motion: reduce) { .home-client-grid.home-reveal > div { opacity: 1; transform: none; transition: none; } }
 
+/* Company road: a single visual thread from the founding focus to the visitor's next step. */
+.company-roadmap { background: #f5fbf8; overflow: hidden; padding: clamp(5rem,9vw,9rem) clamp(1.25rem,7vw,7.5rem); }
+.roadmap-track { margin: 0 auto; max-width: 1180px; position: relative; }
+.roadmap-line { background: rgba(7,62,97,.13); bottom: 4.4rem; left: 50%; position: absolute; top: 4.4rem; transform: translateX(-50%); width: 2px; }
+.roadmap-line::before { background: repeating-linear-gradient(to bottom, #0b92bf 0 13px, transparent 13px 25px); content: ''; inset: 0; position: absolute; }
+.roadmap-line i { animation: roadmap-travel 5.5s ease-in-out infinite; background: #9ecf09; border: 4px solid #f5fbf8; border-radius: 50%; box-shadow: 0 0 0 5px rgba(158,207,9,.18), 0 7px 18px rgba(5,60,82,.24); height: 16px; left: 50%; position: absolute; transform: translateX(-50%); width: 16px; }
+@keyframes roadmap-travel { 0%, 10% { top: 0; } 48%, 58% { top: calc(50% - 8px); } 90%, 100% { top: calc(100% - 16px); } }
+.roadmap-stops { display: grid; gap: 3rem; list-style: none; margin: 0; padding: 0; position: relative; }
+.roadmap-stops li { align-items: center; display: grid; gap: clamp(1.5rem,5vw,5rem); grid-template-columns: 1fr 100px 1fr; }
+.roadmap-stops li::before { background: white; border: 7px solid #0b92bf; border-radius: 50%; box-shadow: 0 0 0 7px #f5fbf8; content: ''; grid-column: 2; grid-row: 1; height: 18px; justify-self: center; width: 18px; }
+.roadmap-stops li > div { background: white; border: 1px solid rgba(7,62,97,.12); border-radius: 18px; box-shadow: 0 16px 34px rgba(5,60,82,.08); grid-column: 3; grid-row: 1; padding: clamp(1.5rem,3vw,2.25rem); position: relative; }
+.roadmap-stops li:nth-child(even) > div { grid-column: 1; }
+.roadmap-year { color: #0b92bf; font-family: var(--font-geist-mono), monospace; font-size: .72rem; font-weight: 800; grid-column: 1; grid-row: 1; justify-self: end; letter-spacing: .12em; text-transform: uppercase; }
+.roadmap-stops li:nth-child(even) .roadmap-year { grid-column: 3; justify-self: start; }
+.roadmap-stops p { color: #518000; font-family: var(--font-geist-mono), monospace; font-size: .68rem; font-weight: 800; letter-spacing: .1em; margin: 0 0 .65rem; text-transform: uppercase; }
+.roadmap-stops h3 { color: var(--navy-950); font-size: clamp(1.3rem,2.2vw,1.85rem); letter-spacing: -.04em; line-height: 1.1; margin: 0 0 .8rem; }
+.roadmap-stops li > div > span { color: var(--muted); display: block; line-height: 1.7; }
+.roadmap-destination::before { border-color: #9ecf09 !important; }
+.roadmap-link { color: #073e61; display: inline-flex; font-size: .75rem; font-weight: 800; gap: .55rem; letter-spacing: .08em; margin-top: 1.35rem; text-transform: uppercase; }
+.roadmap-link span { color: #518000; font-size: 1.1rem; }
+.roadmap-proof-note { color: var(--muted); font-size: .75rem; line-height: 1.65; margin: 3rem auto 0; max-width: 1180px; text-align: center; }
+@media (max-width: 700px) {
+  .roadmap-line { bottom: 3rem; left: 16px; top: 3rem; }
+  .roadmap-stops { gap: 2rem; }
+  .roadmap-stops li, .roadmap-stops li:nth-child(even) { align-items: start; display: grid; gap: 1rem; grid-template-columns: 34px 1fr; }
+  .roadmap-stops li::before { grid-column: 1; margin-top: 1.1rem; }
+  .roadmap-stops li > div, .roadmap-stops li:nth-child(even) > div { grid-column: 2; }
+  .roadmap-year, .roadmap-stops li:nth-child(even) .roadmap-year { grid-column: 2; grid-row: auto; justify-self: start; margin-bottom: -.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .roadmap-line i { animation: none; top: 50%; } }
+
 /* Shared command-deck navigation: one mounted panel means sibling hover is immediate. */
 .site-header { gap: clamp(.85rem,1.7vw,1.6rem); grid-template-columns: minmax(170px,210px) minmax(0,1fr) auto; padding-inline: clamp(1rem,2.2vw,2.5rem); }
 .premium-nav { align-items: center; align-self: stretch; display: flex; justify-self: center; max-width: 100%; position: relative; width: max-content; z-index: 30; }

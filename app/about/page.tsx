@@ -32,7 +32,18 @@ export default function AboutPage() {
 
     <section className="proof-strip internal-proof" aria-label="Company facts">{companyFacts.map((fact) => <div key={fact.label}><strong>{fact.value}</strong><span>{fact.label}</span></div>)}</section>
 
-    <section className="section" aria-labelledby="company-timeline-title"><div className="section-heading split-heading"><div><p className="section-kicker">Company timeline</p><h2 id="company-timeline-title">From time-office systems to connected workplaces.</h2></div><p>Only milestones supported by the supplied company material are shown. Leadership biographies, branch history, awards, and press mentions remain unpublished until approved sources are supplied.</p></div><div className="route-link-list"><div><strong>2011</strong> · Indian Infotech founded in Ahmedabad<span>HRMS, office automation, access control, and clean-room door-interlock focus</span></div><div><strong>Today</strong> · Connected workforce and workplace portfolio<span>Attendance, HRMS, payroll, access, entrance, visitor, canteen, media, and industrial AI systems</span></div></div></section>
+    <section className="company-roadmap" aria-labelledby="company-timeline-title">
+      <div className="section-heading split-heading"><div><p className="section-kicker">Company timeline</p><h2 id="company-timeline-title">From time-office systems to connected workplaces.</h2></div><p>Every workplace has a point where manual follow-ups, uncertain entry, and scattered data begin to slow people down. Our road began by solving that work—then grew with the needs around it.</p></div>
+      <div className="roadmap-track" aria-label="Indian Infotech's journey from 2011 to today's connected workplace systems">
+        <span className="roadmap-line" aria-hidden="true"><i /></span>
+        <ol className="roadmap-stops">
+          <li><span className="roadmap-year">2011</span><div><p>Built for the daily time-office challenge.</p><h3>Indian Infotech begins in Ahmedabad.</h3><span>Founded as a partnership, focused on HRMS, office automation, access control, and clean-room door-interlock systems.</span></div></li>
+          <li><span className="roadmap-year">Today</span><div><p>One connected view of work and access.</p><h3>Systems that help operations move with confidence.</h3><span>Attendance, HRMS, payroll, access, entrance, visitor, canteen, media, and industrial AI systems come together around your workflow.</span></div></li>
+          <li className="roadmap-destination"><span className="roadmap-year">Next</span><div><p>Your practical next step.</p><h3>Bring the operational friction you are facing.</h3><span>Share your people, locations, entry points, and process. We’ll help map a solution that makes the next day of work clearer.</span><Link href="/solution-builder" className="roadmap-link">Map your workplace <span aria-hidden="true">↗</span></Link></div></li>
+        </ol>
+      </div>
+      <p className="roadmap-proof-note">Built on verified company information: founded in 2011 · IT services and consulting · 51–200 employees · partnership firm.</p>
+    </section>
 
     <section className="about-why-section"><div><p className="section-kicker">Why Indian Infotech</p><h2>Technology blended with practicality.</h2><p>Our offerings are not just products but gateways to efficiency, security, and progress.</p></div><ul>{strengths.map((strength, index) => <li key={strength}><span>0{index + 1}</span>{strength}</li>)}</ul></section>
 
