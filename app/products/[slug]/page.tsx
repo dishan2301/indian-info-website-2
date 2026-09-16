@@ -27,7 +27,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
-  const images = product.images ?? [];
+  const images = product.image ? [product.image] : product.images ?? [];
   const related = products.filter((item) => item.family === product.family && item.slug !== product.slug).slice(0, 3);
   const usageSteps = product.family === 'Attendance'
     ? ['Confirm the workforce, shifts, locations, and attendance policy.', 'Install the device at an assessed entry point with approved power and network.', 'Enroll authorized users and test authentication, exceptions, and offline handling.', 'Connect approved attendance software and review records before payroll use.']
