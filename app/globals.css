@@ -717,9 +717,11 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .catalogue-toolbar { align-items: center; display: flex; gap: 1rem; justify-content: flex-end; padding: 1.2rem 0; }
 .catalogue-toolbar p { color: var(--muted); font-family: var(--font-geist-mono), monospace; font-size: .62rem; letter-spacing: .08em; margin: 0 auto 0 0; text-transform: uppercase; }
 .catalogue-toolbar button, .catalogue-toolbar a, .resource-empty button { background: transparent; border: 0; color: var(--teal-500, #0f8e86); cursor: pointer; font: inherit; font-size: .64rem; font-weight: 750; padding: .4rem; text-transform: uppercase; }
-.catalogue-results { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
-.catalogue-results .catalog-card { display: block; }
-.catalogue-results .catalog-card-copy { min-height: 330px; }
+.catalogue-results { display: grid; gap: 1.5rem; grid-template-columns: repeat(3, 1fr); }
+.catalogue-results .catalog-card { display: flex; flex-direction: column; }
+.catalogue-results .catalog-card > a { display: flex; flex: 1; flex-direction: column; }
+.catalogue-results .catalog-card-copy { flex: 1; min-height: 330px; padding: 1.5rem; }
+.catalogue-results .comparison-toggle { margin-top: 1rem; }
 .comparison-toggle { background: var(--navy-950); border: 0; color: white; cursor: pointer; font: inherit; font-size: .66rem; font-weight: 750; min-height: 46px; padding: .8rem 1rem; text-transform: uppercase; width: 100%; }
 .comparison-toggle[aria-pressed="true"] { background: var(--teal-500, #0f8e86); }
 .comparison-toggle:disabled { cursor: not-allowed; opacity: .5; }
