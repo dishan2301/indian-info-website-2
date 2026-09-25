@@ -84,8 +84,8 @@ export function CompanyOverview() {
       const targetTop = target.top + window.scrollY;
       // Start the hand-off as the destination section enters the viewport. The
       // travelling image is fixed, so its position must use viewport coordinates.
-      const start = Math.max(0, targetTop - window.innerHeight * .82);
-      const end = Math.max(start + 1, targetTop - window.innerHeight * .28);
+      const start = 0;
+      const end = Math.max(start + 1, targetTop - window.innerHeight * .15);
       const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
       const eased = progress * progress * (3 - 2 * progress);
       const moving = progress > 0 && progress < 1;

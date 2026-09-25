@@ -3,6 +3,7 @@ import { StructuredData } from '@/components/structured-data';
 import { Analytics } from '@/components/analytics';
 import { IS_INDEXABLE, SITE_URL } from '@/lib/site';
 import { companyProfile, postalAddressSchema } from '@/lib/company-profile';
+import { SiteSplash } from '@/components/site-splash';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -66,6 +67,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/geist-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body>
+        <SiteSplash />
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <StructuredData data={organizationSchema} />
         <div id="main-content" tabIndex={-1}>{children}</div>

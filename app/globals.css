@@ -17,6 +17,18 @@
 }
 
 .site-header { transition: background .3s ease, box-shadow .3s ease, height .3s ease, opacity .45s ease, transform .45s ease; }
+.site-splash { align-items: center; background: #fff; display: flex; inset: 0; justify-content: center; opacity: 1; position: fixed; transition: opacity .3s ease, visibility .3s ease; visibility: visible; z-index: 10000; }
+.site-splash img { animation: site-splash-logo-in .55s cubic-bezier(.22,1,.36,1) both; height: auto; max-width: min(46vw, 280px); transition: filter .35s ease, opacity .35s ease, transform .35s ease; width: 100%; }
+.site-splash-exiting img { animation: none; filter: blur(24px); opacity: 0; transform: scale(7); }
+.site-splash-exiting { opacity: 0; pointer-events: none; visibility: hidden; }
+body:has(.site-splash) { overflow-y: hidden; }
+
+@keyframes site-splash-logo-in {
+  from { filter: blur(8px); opacity: 0; transform: scale(.35); }
+  70% { filter: blur(0); opacity: 1; transform: scale(1.08); }
+  to { filter: blur(0); opacity: 1; transform: scale(1); }
+}
+
 :root {
   /* Extracted from the live Indian Infotech logo and production CSS. */
   --brand-primary: #13acf4;
@@ -2923,7 +2935,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .home-journey-intro h2 { color: #073e61; font-size: clamp(1.55rem,2.7vw,2.65rem); letter-spacing: -.06em; line-height: 1; margin: 0 auto; max-width: 24ch; }
 .home-journey-intro > p:last-child { color: #53675d; font-size: .92rem; line-height: 1.6; margin: 1rem auto 0; max-width: 58ch; }
 .home-journey-road { margin: clamp(1.5rem,3vw,2.75rem) auto 0; max-width: 1180px; min-height: 420px; position: relative; }
-.home-journey-road-map { height: 100%; inset: 0; overflow: visible; pointer-events: none; position: absolute; width: 100%; z-index: 0; }
+.home-journey-road-map { height: 100%; inset: 0; overflow: hidden; pointer-events: none; position: absolute; width: 100%; z-index: 0; }
 .home-journey-road-base { fill: none; stroke: #111820; stroke-linecap: round; stroke-linejoin: round; stroke-width: 34; }
 .home-journey-road-marking { fill: none; stroke: #d9e1d9; stroke-dasharray: 18 20; stroke-linecap: round; stroke-width: 3; }
 .home-journey-road ol { align-items: start; display: grid; gap: clamp(.75rem,2vw,2rem); grid-template-columns: repeat(4,1fr); height: 100%; list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
