@@ -32,7 +32,7 @@ export default function PrivacyPage() {
       </section>
 
       <section id="sharing" className="legal-section"><h2>3. Who may receive information</h2>
-        <p>Access is limited to Indian Infotech personnel who need the information to handle the enquiry or operate the website. The contact form sends the details you submit to <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noreferrer">FormSubmit</a>, which relays the enquiry to our team by email. Our email provider then handles the message as part of its service.</p>
+        <p>Access is limited to Indian Infotech personnel who need the information to handle the enquiry or operate the website. The contact form sends the details you submit through FormSubmit, a third-party form-delivery service (<a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noreferrer">privacy terms</a>), which relays the enquiry to our team by email. Our email provider then handles the message as part of its service.</p>
         <p>Google receives a request when the embedded map is loaded. Google Analytics, Google Tag Manager or Meta Pixel may receive browsing or interaction events only when a valid identifier for that service is configured for the deployment. These providers process information under their own policies. We may also disclose information to professional advisers, service providers acting on our instructions, or authorities when required by law or necessary to protect rights and safety.</p>
         <p>Service providers may process information on infrastructure outside your state or country. Where a cross-border transfer occurs, it remains subject to applicable law and the provider’s terms.</p>
       </section>
