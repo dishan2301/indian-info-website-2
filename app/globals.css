@@ -658,7 +658,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
   position: relative;
 }
 .page-hero-media { inset: 0; position: absolute; z-index: -3; }
-.page-hero-media img { object-fit: cover; }
+.page-hero-media img { object-fit: contain; object-position: center; }
 .page-hero-media-mobile { display: none; }
 .page-hero-overlay { background: linear-gradient(90deg, rgba(255,255,255,.97), rgba(255,255,255,.82) 40%, rgba(255,255,255,.08) 68%, transparent); inset: 0; position: absolute; z-index: -2; }
 .page-hero-copy-right .page-hero-overlay { background: linear-gradient(270deg, rgba(255,255,255,.97), rgba(255,255,255,.84) 38%, rgba(255,255,255,.12) 68%, transparent); }
