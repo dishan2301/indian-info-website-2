@@ -18,9 +18,10 @@
 
 .site-header { transition: background .3s ease, box-shadow .3s ease, height .3s ease, opacity .45s ease, transform .45s ease; }
 .site-splash { align-items: center; background: #fff; display: flex; inset: 0; justify-content: center; opacity: 1; position: fixed; transition: opacity .3s ease, visibility .3s ease; visibility: visible; z-index: 10000; }
-.site-splash img { animation: site-splash-logo-in .55s cubic-bezier(.22,1,.36,1) both; height: auto; max-width: min(46vw, 280px); transition: filter .35s ease, opacity .35s ease, transform .35s ease; width: 100%; }
-.site-splash-exiting img { animation: none; filter: blur(24px); opacity: 0; transform: scale(7); }
-.site-splash-exiting { opacity: 0; pointer-events: none; visibility: hidden; }
+.site-splash img { animation: site-splash-logo-in .55s cubic-bezier(.22,1,.36,1) both; height: auto; max-width: min(52vw, 340px); transition: filter .45s ease, opacity .45s ease, transform .45s ease; width: 100%; }
+.site-splash-exiting img { animation: none; filter: blur(20px); opacity: .7; transform: scale(12); }
+.site-splash-exiting { opacity: 1; visibility: visible; }
+.site-splash-revealing { opacity: 0; pointer-events: none; visibility: hidden; }
 body:has(.site-splash) { overflow-y: hidden; }
 
 @keyframes site-splash-logo-in {
