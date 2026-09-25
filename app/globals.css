@@ -1635,7 +1635,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .showcase-heading h2 { font-size: clamp(2rem, 4vw, 4.5rem); letter-spacing: -.06em; line-height: 1; margin: .75rem 0 1rem; max-width: 13ch; }
 .showcase-heading > p:not(.section-kicker) { color: var(--muted); line-height: 1.7; max-width: 55ch; }
 .home-technology-showcase .showcase-heading > p:not(.section-kicker) { color: #b9ced1; }
-.showcase-track { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scrollbar-color: var(--teal-400, #68d8ca) transparent; }
+.showcase-track { display: flex; gap: 1rem; overflow-x: auto; overscroll-behavior: contain; padding-bottom: 1rem; scroll-snap-type: x mandatory; scrollbar-color: var(--teal-400, #68d8ca) transparent; }
 .showcase-card { background: #fff; border: 1px solid var(--line); color: var(--navy-950); display: block; flex: 0 0 min(330px, 76vw); min-height: 360px; overflow: hidden; scroll-snap-align: start; transition: transform .25s ease, border-color .25s ease; }
 .showcase-card:hover, .showcase-card:focus-visible { border-color: var(--teal-500, #0f8e86); transform: translateY(-6px); }
 .showcase-card img { height: 185px; object-fit: cover; width: 100%; }

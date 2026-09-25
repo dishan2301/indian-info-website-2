@@ -23,15 +23,27 @@ export function CompanyShowcase() {
 function AutoTrack({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const track = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    let scrollingPage = false;
+    let resumeTimer = 0;
+    const handlePageScroll = () => {
+      scrollingPage = true;
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => { scrollingPage = false; }, 700);
+    };
+    window.addEventListener('scroll', handlePageScroll, { passive: true });
     const timer = window.setInterval(() => {
       const node = track.current;
-      if (!node || node.matches(':hover, :focus-within')) return;
+      if (!node || scrollingPage || node.matches(':hover, :focus-within')) return;
       const card = node.querySelector<HTMLElement>('.showcase-card');
       if (!card) return;
       const next = node.scrollLeft + card.offsetWidth + 16;
       node.scrollTo({ left: next >= node.scrollWidth - node.clientWidth - 4 ? 0 : next, behavior: 'smooth' });
     }, 4200);
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearInterval(timer);
+      window.clearTimeout(resumeTimer);
+      window.removeEventListener('scroll', handlePageScroll);
+    };
   }, []);
   return <div className={`showcase-track ${className}`} ref={track}>{children}</div>;
 }
