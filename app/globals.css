@@ -2926,7 +2926,6 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .home-journey-road-map { height: 100%; inset: 0; overflow: visible; pointer-events: none; position: absolute; width: 100%; z-index: 0; }
 .home-journey-road-base { fill: none; stroke: #111820; stroke-linecap: round; stroke-linejoin: round; stroke-width: 34; }
 .home-journey-road-marking { fill: none; stroke: #d9e1d9; stroke-dasharray: 18 20; stroke-linecap: round; stroke-width: 3; }
-.home-journey-road-car { font-size: 22px; text-anchor: middle; }
 .home-journey-road ol { align-items: start; display: grid; gap: clamp(.75rem,2vw,2rem); grid-template-columns: repeat(4,1fr); height: 100%; list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
 .home-journey-stop { align-self: start; min-width: 0; }
 .home-journey-stop-low { align-self: end; }

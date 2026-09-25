@@ -27,7 +27,6 @@ export default function Home() {
         <svg className="home-journey-road-map" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
           <path className="home-journey-road-base" d="M125 330 C180 330 245 390 375 330 S545 40 625 50 S760 100 875 50" />
           <path className="home-journey-road-marking" d="M125 330 C180 330 245 390 375 330 S545 40 625 50 S760 100 875 50" />
-          <text className="home-journey-road-car" aria-hidden="true">🚗<animateMotion dur="12s" repeatCount="indefinite" rotate="auto" path="M125 330 C180 330 245 390 375 330 S545 40 625 50 S760 100 875 50" /></text>
         </svg>
         <ol>
           <li className="home-journey-stop home-journey-stop-low">
