@@ -106,7 +106,7 @@ test('audit priorities stay visible and evidence-safe', async () => {
   assert.match(homepage, /useState\(value\)/);
   assert.match(homepage, /IntersectionObserver/);
   assert.match(homepage, /data-final-value/);
-  for (const value of ['14', '12', '7', '2000']) assert.match(profile, new RegExp(`value: ${value}`));
+  for (const value of ['14', '12', '7', '2500']) assert.match(profile, new RegExp(`value: ${value}`));
   assert.match(layout, /floating-whatsapp/);
   assert.match(contact, /FAQPage/);
   for (const topic of ['cost', 'implementation take', 'existing HR or payroll']) assert.match(contact, new RegExp(topic, 'i'));

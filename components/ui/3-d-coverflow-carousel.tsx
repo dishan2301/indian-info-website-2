@@ -138,7 +138,6 @@ export function CustomerCoverflow({ items, autoplayDelay = 4200 }: CustomerCover
 
       <div className="customer-proof-note">
         <span>21 organizations</span>
-        <p>Planning a multi-site workforce or workplace deployment?</p>
         <Link className="text-link light-link" href="/contact">Discuss your requirements <b aria-hidden="true">↗</b></Link>
       </div>
     </section>

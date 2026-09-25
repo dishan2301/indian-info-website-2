@@ -37,21 +37,41 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
     hospitality: { desktop: '/campaign/industries/hospitality-desktop-v2.webp', mobile: '/campaign/industries/hospitality-mobile-v2.webp', tone: 'light' },
   };
   const specificIndustryMedia = key.includes('pharmaceutical') ? industryMedia['pharmaceutical & research'] : key.includes('industr') ? industryMedia[title.toLowerCase()] : undefined;
-  const media = specificIndustryMedia || (key.includes('hrms')
-    ? { desktop: '/campaign/core-systems/hrms-payroll-desktop-v2.webp', mobile: '/campaign/core-systems/hrms-payroll-mobile-v2.webp', tone: 'light' }
-    : key.includes('software') || key.includes('developer') || key.includes('integration') || key.includes('platform')
-    ? { desktop: '/campaign/hero/security-desktop-v2.webp', mobile: '/campaign/hero/security-mobile-v2.webp', tone: 'light' }
-    : key.includes('industry') || key.includes('pharma') || key.includes('workforce')
-      ? { desktop: '/campaign/hero/workforce-desktop-v2.webp', mobile: '/campaign/hero/workforce-mobile-v2.webp', tone: 'dark' }
-      : key.includes('solution') || key.includes('access') || key.includes('entrance')
-        ? { desktop: '/campaign/hero/access-desktop-v2.webp', mobile: '/campaign/hero/access-mobile-v2.webp', tone: 'light' }
-        : key.includes('technology') || key.includes('support') || key.includes('resource') || key.includes('academy') || key.includes('trust') || key.includes('legal')
-          ? { desktop: '/campaign/hero/innovation-desktop-v2.webp', mobile: '/campaign/hero/innovation-mobile-v2.webp', tone: 'dark' }
-          : { desktop: '/campaign/hero/identity-desktop-v2.webp', mobile: '/campaign/hero/identity-mobile-v2.webp', tone: 'dark' });
+  const subject = `${key} ${title.toLowerCase()}`;
+  const campaignMedia = subject.includes('hrms') || subject.includes('payroll') || subject.includes('employee self')
+    ? { desktop: '/campaign/product-moments/hrms-payroll-v2.png', mobile: '/campaign/product-moments/hrms-payroll-v2.png', tone: 'light' as const, copySide: 'left' as const }
+    : subject.includes('visitor') || subject.includes('reception') || subject.includes('guest')
+      ? { desktop: '/campaign/product-moments/visitor-management-v2.png', mobile: '/campaign/product-moments/visitor-management-v2.png', tone: 'light' as const, copySide: 'left' as const }
+      : subject.includes('canteen') || subject.includes('meal')
+        ? { desktop: '/campaign/product-moments/canteen-management-v1.png', mobile: '/campaign/product-moments/canteen-management-v1.png', tone: 'light' as const }
+        : subject.includes('mediaa') || subject.includes('signage')
+          ? { desktop: '/campaign/product-moments/mediaa-wave-v1.png', mobile: '/campaign/product-moments/mediaa-wave-v1.png', tone: 'light' as const }
+          : subject.includes('entrance') || subject.includes('turnstile') || subject.includes('barrier')
+            ? { desktop: '/campaign/product-moments/entrance-control-v2.png', mobile: '/campaign/product-moments/entrance-control-v2.png', tone: 'light' as const }
+            : subject.includes('interlock') || subject.includes('access control') || subject.includes('door control') || subject.includes('clean-room')
+              ? { desktop: '/campaign/product-moments/door-interlock-v1.png', mobile: '/campaign/product-moments/door-interlock-v1.png', tone: 'light' as const }
+              : subject.includes('industrial ai') || subject.includes('computer vision') || subject.includes('engineering') || subject.includes('technology') || subject.includes('integration') || subject.includes('developer')
+                ? { desktop: '/campaign/product-moments/industrial-ai-v2.png', mobile: '/campaign/product-moments/industrial-ai-v2.png', tone: 'light' as const, copySide: 'left' as const }
+                : subject.includes('contract') || subject.includes('labor') || subject.includes('labour') || subject.includes('attendance') || subject.includes('workforce') || subject.includes('easytime')
+                  ? { desktop: '/campaign/product-moments/contract-workforce-v1.png', mobile: '/campaign/product-moments/contract-workforce-v1.png', tone: 'light' as const }
+                  : key.includes('support')
+                    ? { desktop: '/company/support-cta.webp', mobile: '/company/support-cta.webp', tone: 'light' as const }
+                    : key.includes('company') || key.includes('customer')
+                      ? { desktop: '/company/about-banner.webp', mobile: '/company/about-banner.webp', tone: 'light' as const }
+                      : key.includes('software') || key.includes('platform')
+                        ? { desktop: '/campaign/product-moments/mediaa-wave-v1.png', mobile: '/campaign/product-moments/mediaa-wave-v1.png', tone: 'light' as const }
+                        : key.includes('industry') || key.includes('pharma')
+                          ? { desktop: '/campaign/industries/pharma-desktop-v2.webp', mobile: '/campaign/industries/pharma-mobile-v2.webp', tone: 'light' as const }
+                          : key.includes('solution') || key.includes('product')
+                            ? { desktop: '/campaign/product-moments/entrance-control-v2.png', mobile: '/campaign/product-moments/entrance-control-v2.png', tone: 'light' as const }
+                            : key.includes('technology') || key.includes('resource') || key.includes('academy') || key.includes('trust')
+                              ? { desktop: '/campaign/product-moments/industrial-ai-v2.png', mobile: '/campaign/product-moments/industrial-ai-v2.png', tone: 'light' as const, copySide: 'left' as const }
+                              : { desktop: '/campaign/hero/identity-desktop-v2.webp', mobile: '/campaign/hero/identity-mobile-v2.webp', tone: 'light' as const };
+  const media = specificIndustryMedia || campaignMedia;
   return (
     <>
       {breadcrumbSchema ? <StructuredData data={breadcrumbSchema} /> : null}
-      <section className={`page-hero page-hero-${media.tone}`}>
+      <section className={`page-hero page-hero-${media.tone} ${'copySide' in media && media.copySide === 'right' ? 'page-hero-copy-right' : ''}`}>
         <div className="page-hero-media page-hero-media-desktop"><Image src={media.desktop} alt="" fill priority sizes="100vw" /></div>
         <div className="page-hero-media page-hero-media-mobile"><Image src={media.mobile} alt="" fill priority sizes="100vw" /></div>
         <div className="page-hero-overlay" aria-hidden="true" />

@@ -1,20 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import { StructuredData } from '@/components/structured-data';
 import { Analytics } from '@/components/analytics';
 import { IS_INDEXABLE, SITE_URL } from '@/lib/site';
 import { companyProfile, postalAddressSchema } from '@/lib/company-profile';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -72,11 +61,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/geist-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <StructuredData data={organizationSchema} />
         <div id="main-content" tabIndex={-1}>{children}</div>
-        <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">WhatsApp</a>
+        <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">
+          <img className="floating-whatsapp-logo" src="/whatsapp-logo.svg" alt="" width="28" height="28" />
+        </a>
         <Analytics />
       </body>
     </html>

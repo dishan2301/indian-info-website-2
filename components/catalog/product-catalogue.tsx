@@ -27,6 +27,17 @@ export function ProductCatalogue({ products, initialComparison = [], syncCompari
   const comparedProducts = products.filter((product) => comparison.includes(product.slug));
 
   useEffect(() => {
+    const applyFamilyHash = () => {
+      const slug = decodeURIComponent(window.location.hash.slice(1));
+      const match = familyOptions.find((option) => option !== 'All' && option.toLowerCase().replace(/\s+/g, '-') === slug);
+      if (match) setFamily(match);
+    };
+    applyFamilyHash();
+    window.addEventListener('hashchange', applyFamilyHash);
+    return () => window.removeEventListener('hashchange', applyFamilyHash);
+  }, []);
+
+  useEffect(() => {
     if (!syncComparisonUrl) return;
     const url = new URL(window.location.href);
     if (comparison.length > 0) url.searchParams.set('products', comparison.join(','));

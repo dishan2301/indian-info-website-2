@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Clock3, Mail, Phone } from 'lucide-react';
 import { EnquiryBrief } from '@/components/contact/enquiry-brief';
 import { StructuredData } from '@/components/structured-data';
 import { sanitizeQueryValue } from '@/lib/security.mjs';
@@ -50,12 +51,18 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <StructuredData data={faqSchema} />
       <PageHero eyebrow="Contact" title="Bring us the operating problem—not just a product name." description="Share your site, workforce, entry-point, attendance, or HRMS requirements. We’ll help shape a clearer starting scope." marker="II / AHMEDABAD" />
 
+      <section className="contact-details-section" aria-labelledby="contact-details-title">
+        <div className="contact-details-heading"><p className="section-kicker">Contact details</p><h2 id="contact-details-title">We are here to help you plan the right system.</h2><p>Talk to our sales team for a new requirement, or contact support when you need help with an existing Indian Infotech product or deployment.</p></div>
+        <div className="contact-details-grid">
+          <a className="contact-detail-card" href={`mailto:${companyProfile.email}`}><span className="contact-detail-icon"><Mail aria-hidden="true" /></span><span><b>Sales enquiries</b><strong>{companyProfile.email}</strong><small>Product selection, solution planning, and quotations</small></span></a>
+          <a className="contact-detail-card" href={`mailto:${companyProfile.supportEmail}`}><span className="contact-detail-icon"><Phone aria-hidden="true" /></span><span><b>Technical support</b><strong>{companyProfile.supportEmail}</strong><small>Product, software, and deployment assistance</small></span></a>
+          <div className="contact-detail-card"><span className="contact-detail-icon"><Clock3 aria-hidden="true" /></span><span><b>Working hours</b><strong>Monday to Saturday</strong><small>09:30 AM to 6:30 PM · Sunday closed</small></span></div>
+        </div>
+        <div className="contact-location-map-large"><iframe title="Indian Infotech at 429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Nilmani Society, Thaltej, Ahmedabad, Gujarat 380054" src="https://www.google.com/maps?q=Indian+Infotech,+429,+425,+403+Gala+Empire,+Opp.+Doordarshan+Kendra,+Nilmani+Society,+Thaltej,+Ahmedabad,+Gujarat+380054&z=17&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
+      </section>
+
       <section className="contact-card-section"><EnquiryBrief initialContext={context} /></section>
 
-      <section className="brief-section">
-        <div><p className="section-kicker">A useful first message</p><h2>Include these details for a faster response.</h2></div>
-        <ol><li><span>01</span>Number and type of sites</li><li><span>02</span>Approximate workforce size</li><li><span>03</span>Entry points and authentication needs</li><li><span>04</span>Attendance, HRMS, visitor, or entrance requirements</li></ol>
-      </section>
       <section className="section seo-faq" aria-labelledby="buyer-faq-title">
         <div className="section-heading"><p className="section-kicker">Buyer FAQ</p><h2 id="buyer-faq-title">Pricing, timing, and integration questions.</h2></div>
         <div>{buyerFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>

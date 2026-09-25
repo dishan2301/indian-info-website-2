@@ -30,7 +30,7 @@ test('legacy redirect contract is unique, permanent, relevant, and chain-free', 
 
 test('approved public statistics have one provenance-aware source', () => {
   const claims = readFileSync('lib/company-profile.ts', 'utf8');
-  for (const value of [14, 12, 7, 2000]) assert.match(claims, new RegExp(`value: ${value}`));
+  for (const value of [14, 12, 7, 2500]) assert.match(claims, new RegExp(`value: ${value}`));
   for (const field of ['source:', 'owner:', 'status:', 'verifiedOn:']) assert.match(claims, new RegExp(field));
   const homepage = readFileSync('components/homepage/home-curated-sections.tsx', 'utf8');
   assert.match(homepage, /companyStats\.map/);

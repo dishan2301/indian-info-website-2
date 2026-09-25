@@ -184,6 +184,7 @@ export type Product = {
   softwareCompatibility: 'Verify during solution design';
   status: 'Published portfolio';
   pdf?: string;
+  specifications?: readonly { label: string; value: string }[];
 };
 
 export const products: readonly Product[] = [

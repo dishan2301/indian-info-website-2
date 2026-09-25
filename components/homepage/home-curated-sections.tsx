@@ -4,18 +4,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { clientQuotes, customerOrganizations } from '@/app/content';
+import { insights } from '@/app/insights/content';
 import { companyStats, completedYearsSince } from '@/lib/company-profile';
 
 const industries = [
-  { name: 'Pharma', slug: 'pharma', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v1.webp', alt: 'Original 3D scene of secure staff entry in a modern pharmaceutical facility' },
-  { name: 'Chemical', slug: 'chemical', eyebrow: 'Safety-led operations', title: 'The right people, in the right operating areas.', text: 'Connect identity, attendance, contractor movement, and controlled access across complex processing environments.', image: '/generated/industries/chemical-workplace-v1.webp', alt: 'Original 3D scene of controlled workforce entry at a chemical processing plant' },
-  { name: 'Textiles', slug: 'textile', eyebrow: 'Coordinated production', title: 'Keep every shift and production line in sync.', text: 'Bring attendance, entry, and distributed workforce visibility into fast-moving textile operations.', image: '/generated/industries/textiles-workplace-v1.webp', alt: 'Original 3D scene of a connected modern textile production floor' },
-  { name: 'Manufacturing', slug: 'manufacturing', eyebrow: 'Connected shop floors', title: 'One clear path from the gate to the work zone.', text: 'Manage shifts, contractors, entrance lanes, and restricted areas without slowing production.', image: '/generated/industries/manufacturing-workplace-v1.webp', alt: 'Original 3D scene of secure entry into an advanced manufacturing floor' },
-  { name: 'Service provider', slug: 'service-provider', eyebrow: 'People-first workplaces', title: 'A smoother arrival for teams and visitors.', text: 'Unify attendance, visitor flow, workplace access, and support across service-led organizations.', image: '/generated/industries/service-provider-workplace-v1.webp', alt: 'Original 3D scene of a connected professional services workplace' },
-  { name: 'Engineering', slug: 'engineering', eyebrow: 'Protected project spaces', title: 'Secure the journey from design to delivery.', text: 'Shape access and workforce workflows around studios, prototype floors, tools, and project zones.', image: '/generated/industries/engineering-workplace-v1.webp', alt: 'Original 3D scene of controlled access in an engineering and prototyping center' },
-  { name: 'Food industries', slug: 'food', eyebrow: 'Hygienic operations', title: 'Clean entry. Accountable shifts. Confident output.', text: 'Support hygiene checkpoints, attendance, and controlled production access across food facilities.', image: '/generated/industries/food-industries-workplace-v1.webp', alt: 'Original 3D scene of hygienic workforce entry in a food processing facility' },
+  { name: 'Pharma', slug: 'pharma', icon: '/industries/icons/pharma.png', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v1.webp', alt: 'Original 3D scene of secure staff entry in a modern pharmaceutical facility' },
+  { name: 'Chemical', slug: 'chemical', icon: '/industries/icons/chemical.png', eyebrow: 'Safety-led operations', title: 'The right people, in the right operating areas.', text: 'Connect identity, attendance, contractor movement, and controlled access across complex processing environments.', image: '/generated/industries/chemical-workplace-v1.webp', alt: 'Original 3D scene of controlled workforce entry at a chemical processing plant' },
+  { name: 'Textiles', slug: 'textile', icon: '/industries/icons/textiles.png', eyebrow: 'Coordinated production', title: 'Keep every shift and production line in sync.', text: 'Bring attendance, entry, and distributed workforce visibility into fast-moving textile operations.', image: '/generated/industries/textiles-workplace-v1.webp', alt: 'Original 3D scene of a connected modern textile production floor' },
+  { name: 'Manufacturing', slug: 'manufacturing', icon: '/industries/icons/manufacturing.png', eyebrow: 'Connected shop floors', title: 'One clear path from the gate to the work zone.', text: 'Manage shifts, contractors, entrance lanes, and restricted areas without slowing production.', image: '/generated/industries/manufacturing-workplace-v1.webp', alt: 'Original 3D scene of secure entry into an advanced manufacturing floor' },
+  { name: 'Service provider', slug: 'service-provider', icon: '/industries/icons/service-provider.png', eyebrow: 'People-first workplaces', title: 'A smoother arrival for teams and visitors.', text: 'Unify attendance, visitor flow, workplace access, and support across service-led organizations.', image: '/generated/industries/service-provider-workplace-v1.webp', alt: 'Original 3D scene of a connected professional services workplace' },
+  { name: 'Engineering', slug: 'engineering', icon: '/industries/icons/engineering.png', eyebrow: 'Protected project spaces', title: 'Secure the journey from design to delivery.', text: 'Shape access and workforce workflows around studios, prototype floors, tools, and project zones.', image: '/generated/industries/engineering-workplace-v1.webp', alt: 'Original 3D scene of controlled access in an engineering and prototyping center' },
+  { name: 'Food industries', slug: 'food', icon: '/industries/icons/food-industries.png', eyebrow: 'Hygienic operations', title: 'Clean entry. Accountable shifts. Confident output.', text: 'Support hygiene checkpoints, attendance, and controlled production access across food facilities.', image: '/generated/industries/food-industries-workplace-v1.webp', alt: 'Original 3D scene of hygienic workforce entry in a food processing facility' },
 ] as const;
-const news = [{ category: 'Customer support · Blog', title: 'RAG customer support: faster answers from existing knowledge', href: '/insights/using-rag-to-solve-customer-problems-faster', image: '/campaign/hero/innovation-desktop-v2.webp' }, { category: 'AI at work · Blog', title: 'AI workplace automation: practical uses for Indian businesses', href: '/insights/how-ai-makes-daily-work-easier', image: '/company/ai-cover-workplace.webp' }, { category: 'Cloud attendance · Blog', title: 'Biometric attendance system cost in India: cloud pricing factors', href: '/insights/easytime-cloud-attendance-benefits', image: '/campaign/hero/workforce-desktop-v2.webp' }, { category: 'Production technology · Blog', title: 'AI in manufacturing: a practical guide for production teams', href: '/insights/ai-in-production-lines', image: '/campaign/industries/manufacturing-desktop-v2.webp' }] as const;
+const news = insights.slice(0, 5).map((article) => ({ category: article.category === 'Company update' ? 'Company update' : article.sourceUrl ? 'From the original blog' : 'Research blog · Blog', title: article.title, href: `/insights/${article.slug}`, image: article.image }));
 
 function Reveal({ children, className = '', repeat = false }: { children: ReactNode; className?: string; repeat?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,7 +82,7 @@ export function CompanyOverview() {
       const source = sourceLogo.getBoundingClientRect();
       const target = destination.getBoundingClientRect();
       const targetTop = target.top + window.scrollY;
-      const start = Math.max(56, targetTop - window.innerHeight * .94);
+      const start = 0;
       const end = Math.max(start + 1, targetTop - window.innerHeight * .1);
       const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
       const eased = progress * progress * (3 - 2 * progress);
@@ -110,16 +111,16 @@ export function CompanyOverview() {
   }, []);
 
   return <>
-    <Image ref={travellingLogo} className="company-travelling-logo" src="/indian-infotech-logo.png" alt="" width={520} height={188} aria-hidden="true" />
+    <Image ref={travellingLogo} className="company-travelling-logo" src="/indian-infotech-logo.png" alt="" width={520} height={86} aria-hidden="true" />
     <section className="home-company-page" aria-labelledby="why-indian-infotech">
       <div className="home-company-waves" aria-hidden="true"><i /><i /><i /></div>
       <Reveal className="home-company-identity">
-        <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={188} />
+        <Image ref={destinationLogo} className="company-destination-logo" src="/indian-infotech-logo.png" alt="Indian Infotech" width={520} height={86} />
         <Link className="home-certificate" href="/certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certification information" width={440} height={160} /><span>Quality management certification · Learn why it matters →</span></Link>
         <div className="home-fact-strip" aria-label="Indian Infotech company facts">{companyStats.map((fact) => <div key={fact.id}><AnimatedCount value={fact.id === 'years-experience' ? completedYearsSince(new Date()) : fact.value} suffix={fact.suffix} label={fact.label} /><span>{fact.label}</span></div>)}</div>
       </Reveal>
       <div className="home-company-copy">
-        <Reveal className="home-company-intro"><p>Why Indian Infotech</p><h2 id="why-indian-infotech">Practical technology. Dependable delivery.</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
+        <Reveal className="home-company-intro"><h2 id="why-indian-infotech">The Solution People</h2><span>Since 2011, Indian Infotech has shaped workforce, access, and workplace systems around real operating needs—helping teams work with greater efficiency and security.</span></Reveal>
         <Reveal className="home-company-directions">
           <Link className="home-direction-card" href="/about-us#vision"><p>Our vision</p><h3>Customer-led innovation with global relevance.</h3><span>Scalable solutions that respond to evolving business needs.</span><b>Explore vision →</b></Link>
           <Link className="home-direction-card" href="/about-us#mission"><p>Our mission</p><h3>Efficient and secure everyday operations.</h3><span>Intuitive systems that strengthen productivity, security, and agility.</span><b>Explore mission →</b></Link>
@@ -133,19 +134,23 @@ export function IndustriesAndClients() {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const industry = industries[activeIndustry];
 
+  useEffect(() => {
+    const timer = window.setInterval(() => setActiveIndustry((current) => (current + 1) % industries.length), 3000);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return <section className="home-industry-client-page" aria-labelledby="home-industries-heading">
     <Reveal className="home-section-heading home-industry-heading"><p>Industries we serve</p><h2 id="home-industries-heading">Built for the way your industry moves.</h2><span>Explore how connected workforce, access, and workplace systems adapt to seven distinct operating realities.</span></Reveal>
     <div className="home-industry-experience">
-      <div className="home-industry-list" aria-label="Choose an industry">{industries.map((item, index) => <button type="button" aria-pressed={index === activeIndustry} onClick={() => setActiveIndustry(index)} onPointerEnter={() => setActiveIndustry(index)} onFocus={() => setActiveIndustry(index)} key={item.slug}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item.name}</strong><i aria-hidden="true">↗</i></button>)}</div>
+      <div className="home-industry-list" aria-label="Choose an industry">{industries.map((item, index) => <button type="button" aria-pressed={index === activeIndustry} onClick={() => setActiveIndustry(index)} onPointerEnter={() => setActiveIndustry(index)} onFocus={() => setActiveIndustry(index)} key={item.slug}><span className="home-industry-icon"><Image src={item.icon} alt="" width={52} height={52} /></span><strong>{item.name}</strong><i aria-hidden="true">↗</i></button>)}</div>
       <div className="home-industry-stage">
-        <div className="home-industry-orbit" aria-hidden="true"><i /><i /><i /></div>
         <Image key={industry.image} src={industry.image} alt={industry.alt} fill sizes="(max-width: 980px) 100vw, 64vw" priority={activeIndustry === 0} />
         <div className="home-industry-shade" />
         <div className="home-industry-story" key={industry.slug}><span>{industry.eyebrow}</span><h3>{industry.title}</h3><p>{industry.text}</p><Link href={`/industries/${industry.slug}`}>Explore {industry.name.toLowerCase()} <b aria-hidden="true">↗</b></Link></div>
         <span className="home-industry-count" aria-hidden="true">{String(activeIndustry + 1).padStart(2, '0')}<i />{String(industries.length).padStart(2, '0')}</span>
       </div>
     </div>
-    <Reveal className="home-client-heading"><p>2,000+ clients served</p><h2>Trusted by organizations across industries and 7+ countries.</h2><span>The logos below are a selection from our 2,000+ client base.</span></Reveal>
+    <Reveal className="home-client-heading"><p>2,500+ clients served</p><h2>Trusted by organizations across industries and 7+ countries.</h2><span>The logos below are a selection from our 2,500+ client base.</span></Reveal>
     <Reveal className="home-client-grid" repeat>{customerOrganizations.map((customer) => <div key={customer.name}><Image src={customer.logo} alt={customer.name} width={131} height={60} /></div>)}</Reveal>
   </section>;
 }
@@ -158,8 +163,8 @@ export function QuotesAndNews() {
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => { const media = matchMedia('(prefers-reduced-motion: reduce)'); const sync = () => setReducedMotion(media.matches); sync(); media.addEventListener('change', sync); return () => media.removeEventListener('change', sync); }, []);
-  useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => current >= news.length - 1 ? news.length : current + 1), 5000); return () => clearInterval(timer); }, [paused, reducedMotion]);
-  useEffect(() => { if (reducedMotion) return; const timer = window.setInterval(() => setQuoteActive((current) => current >= clientQuotes.length - 1 ? clientQuotes.length : current + 1), 5000); return () => clearInterval(timer); }, [reducedMotion]);
+  useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => current >= news.length - 1 ? news.length : current + 1), 3000); return () => clearInterval(timer); }, [paused, reducedMotion]);
+  useEffect(() => { if (reducedMotion) return; const timer = window.setInterval(() => setQuoteActive((current) => current >= clientQuotes.length - 1 ? clientQuotes.length : current + 1), 3000); return () => clearInterval(timer); }, [reducedMotion]);
   useEffect(() => { if (reducedMotion && active === news.length) setActive(0); }, [active, reducedMotion]);
   useEffect(() => { if (reducedMotion && quoteActive === clientQuotes.length) setQuoteActive(0); }, [quoteActive, reducedMotion]);
   const move = (direction: number) => setActive((current) => direction > 0 ? (current >= news.length - 1 ? news.length : current + 1) : (current <= 0 ? news.length - 1 : current - 1));

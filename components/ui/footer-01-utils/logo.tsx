@@ -5,8 +5,8 @@ export default function Logo() {
     <Image
       src="/indian-infotech-logo.png"
       alt="Indian Infotech"
-      width={1030}
-      height={242}
+      width={1200}
+      height={199}
       className="footer-v2-logo"
     />
   )

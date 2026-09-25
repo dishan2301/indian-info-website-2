@@ -9,7 +9,7 @@ export async function Analytics() {
   const validTagManagerId = tagManagerId && /^GTM-[A-Z0-9]+$/.test(tagManagerId) ? tagManagerId : undefined;
   const validMetaPixelId = metaPixelId && /^\d{5,20}$/.test(metaPixelId) ? metaPixelId : undefined;
   if (!validMeasurementId && !validTagManagerId && !validMetaPixelId) return null;
-  const nonce = (await headers()).get('x-nonce') ?? undefined;
+  const nonce = process.env.NODE_ENV === 'production' ? (await headers()).get('x-nonce') ?? undefined : undefined;
   const analyticsId = validTagManagerId ?? validMeasurementId;
 
   return <>

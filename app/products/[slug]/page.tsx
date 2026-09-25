@@ -6,18 +6,23 @@ import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { ProductViewer } from '../../../components/catalog/product-viewer';
+import { ProductCatalogue } from '../../../components/catalog/product-catalogue';
 import { StructuredData } from '../../../components/structured-data';
 import { absoluteUrl, createPageMetadata } from '@/lib/site';
 import { products } from '../../content';
 
+const categorySlugs = [...new Set(products.map((product) => product.family))].map((family) => ({ family, slug: family.toLowerCase().replace(/\s+/g, '-') }));
+
 type ProductPageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return [...products.map((product) => ({ slug: product.slug })), ...categorySlugs.map(({ slug }) => ({ slug }))];
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
+  const category = categorySlugs.find((item) => item.slug === slug);
+  if (category) return createPageMetadata({ title: `${category.family} products`, description: `Explore Indian Infotech ${category.family.toLowerCase()} products and devices.`, path: `/products/${category.slug}` });
   const product = products.find((item) => item.slug === slug);
   if (!product) return {};
   return createPageMetadata({ title: `${product.name} ${product.family}`, description: product.description, path: `/products/${product.slug}`, image: product.image ?? null });
@@ -25,9 +30,15 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
+  const category = categorySlugs.find((item) => item.slug === slug);
+  if (category) {
+    const categoryProducts = products.filter((product) => product.family === category.family);
+    return <main><SiteHeader /><PageHero eyebrow="Product category" title={`${category.family} products`} description={`Explore the published Indian Infotech ${category.family.toLowerCase()} portfolio. Select a device for its full product detail page.`} marker="II / PRODUCT CATEGORY" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: category.family }]} path={`/products/${category.slug}`} /><section className="section product-catalog"><ProductCatalogue products={categoryProducts} /></section><SiteFooter /></main>;
+  }
   const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
   const images = product.image ? [product.image] : product.images ?? [];
+  const specifications = [{ label: 'Model', value: product.name }, { label: 'Product type', value: product.family }, { label: 'Authentication method', value: product.authentication }, { label: 'Application', value: product.application }, { label: 'Connectivity', value: product.connectivity }, { label: 'Software compatibility', value: product.softwareCompatibility }, { label: 'Deployment', value: product.deployment }, ...(product.specifications ?? [])].filter((specification, index, all) => specification.value.trim() && all.findIndex((item) => item.label === specification.label) === index);
   const related = products.filter((item) => item.family === product.family && item.slug !== product.slug).slice(0, 3);
   const usageSteps = product.family === 'Attendance'
     ? ['Confirm the workforce, shifts, locations, and attendance policy.', 'Install the device at an assessed entry point with approved power and network.', 'Enroll authorized users and test authentication, exceptions, and offline handling.', 'Connect approved attendance software and review records before payroll use.']
@@ -68,13 +79,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <h2>Choose this device in the context of the complete operating workflow.</h2>
           <p>{product.description} Indian Infotech can help assess the entry point, user flow, operating environment, and software requirements before final selection.</p>
           <dl className="product-summary-list">
-            <div><dt>Product family</dt><dd>{product.family}</dd></div>
-            <div><dt>Authentication</dt><dd>{product.authentication}</dd></div>
-            <div><dt>Primary application</dt><dd>{product.application}</dd></div>
-            <div><dt>Connectivity</dt><dd>{product.connectivity}</dd></div>
-            <div><dt>Compatible software</dt><dd>{product.softwareCompatibility}</dd></div>
-            <div><dt>Deployment environment</dt><dd>{product.deployment}</dd></div>
-            <div><dt>Catalogue status</dt><dd>{product.status}</dd></div>
+            {specifications.map((specification) => <div key={specification.label}><dt>{specification.label}</dt><dd>{specification.value}</dd></div>)}
           </dl>
           <div className="hero-actions product-actions">
             <Link className="button button-primary" href={`/contact?product=${product.slug}`}>Request a quote <span aria-hidden="true">↗</span></Link>

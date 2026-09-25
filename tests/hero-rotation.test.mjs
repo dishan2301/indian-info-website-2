@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 import ts from 'typescript';
 
-test('hero defaults to EasyTime, rotates every five seconds, loops and pauses on interaction', () => {
+test('hero defaults to EasyTime, rotates every three seconds, loops and pauses on interaction', () => {
   const states = [];
   let cursor, effect, previousDependencies, cleanup, tick, delay;
   const react = {
@@ -32,7 +32,7 @@ test('hero defaults to EasyTime, rotates every five seconds, loops and pauses on
   }
   render();
   assert.equal(states[0], 0);
-  assert.equal(delay, 5000);
+  assert.equal(delay, 3000);
   tick(); render(); assert.equal(states[0], 1);
   for (let i = 0; i < 4; i++) { tick(); render(); }
   assert.equal(states[0], 0);
