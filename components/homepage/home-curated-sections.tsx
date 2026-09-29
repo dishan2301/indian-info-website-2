@@ -135,18 +135,20 @@ export function CompanyOverview() {
 
 export function IndustriesAndClients() {
   const [activeIndustry, setActiveIndustry] = useState(0);
+  const [industryHovered, setIndustryHovered] = useState(false);
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
   const suppressSwipeClickUntil = useRef(0);
   const industry = industries[activeIndustry];
 
   useEffect(() => {
+    if (industryHovered) return;
     const timer = window.setInterval(() => setActiveIndustry((current) => (current + 1) % industries.length), 3000);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [industryHovered]);
 
   return <section className="home-industry-client-page" aria-labelledby="home-industries-heading">
     <Reveal className="home-section-heading home-industry-heading"><p>Industries we serve</p><h2 id="home-industries-heading">Built for the way your industry moves.</h2><span>Explore how connected workforce, access, and workplace systems adapt to seven distinct operating realities.</span></Reveal>
-    <div className="home-industry-experience">
+    <div className="home-industry-experience" onMouseEnter={() => setIndustryHovered(true)} onMouseLeave={() => setIndustryHovered(false)}>
       <div className="home-industry-list" aria-label="Choose an industry">{industries.map((item, index) => <button type="button" aria-pressed={index === activeIndustry} onClick={() => setActiveIndustry(index)} onPointerEnter={() => setActiveIndustry(index)} onFocus={() => setActiveIndustry(index)} key={item.slug}><span className="home-industry-icon"><Image src={item.icon} alt="" width={52} height={52} /></span><strong>{item.name}</strong><i aria-hidden="true">↗</i></button>)}</div>
       <div className="home-industry-stage" role="region" aria-label="Industries we serve" aria-roledescription="carousel" onPointerDown={(event) => { if (event.pointerType === 'mouse') return; swipeStart.current = { x: event.clientX, y: event.clientY }; event.currentTarget.setPointerCapture(event.pointerId); }} onPointerUp={(event) => { const start = swipeStart.current; swipeStart.current = null; if (!start) return; const dx = event.clientX - start.x; const dy = event.clientY - start.y; if (Math.abs(dx) < 45 || Math.abs(dx) <= Math.abs(dy)) return; setActiveIndustry((current) => (current + (dx < 0 ? 1 : -1) + industries.length) % industries.length); suppressSwipeClickUntil.current = Date.now() + 400; }} onPointerCancel={() => { swipeStart.current = null; }} onClickCapture={(event) => { if (Date.now() < suppressSwipeClickUntil.current) { event.preventDefault(); event.stopPropagation(); suppressSwipeClickUntil.current = 0; } }}>
         <Image key={industry.image} src={industry.image} alt={industry.alt} fill sizes="(max-width: 980px) 100vw, 64vw" priority={activeIndustry === 0} />
