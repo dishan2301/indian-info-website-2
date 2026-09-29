@@ -3411,7 +3411,7 @@ button, input, select, textarea { max-width: 100%; }
   .home-journey-road ol { gap: 1rem; }
   .home-journey-road ol { gap: .85rem; }
   .home-journey-road li { background: rgba(255,255,255,.76); border: 1px solid rgba(19,172,244,.2); border-radius: 1rem; box-shadow: 0 8px 24px rgba(7,62,97,.06); display: grid; gap: 0 1rem; grid-template-columns: 5.25rem minmax(0,1fr); overflow: hidden; padding: .75rem; }
-  .home-journey-road li::before { display: grid; place-items: center; background: #073e61; border: 3px solid #e2f3f5; border-radius: 50%; box-shadow: 0 0 0 1px rgba(7,62,97,.18); color: #fff; content: counter(list-item, decimal-leading-zero); font-size: .72rem; font-weight: 800; height: 2rem; left: .4rem; position: absolute; top: .4rem; width: 2rem; z-index: 2; }
+  .home-journey-road li::before { display: grid; place-items: center; background: #073e61; border: 3px solid #e2f3f5; border-radius: 50%; box-shadow: 0 0 0 1px rgba(7,62,97,.18); color: #fff; content: attr(data-step); font-size: .72rem; font-weight: 800; height: 2rem; left: .4rem; position: absolute; top: .4rem; width: 2rem; z-index: 2; }
   .home-journey-image { align-self: start; aspect-ratio: 1; grid-column: 1; grid-row: 1 / span 2; }
   .home-journey-image-certification img { padding: .5rem; }
   .home-journey-copy { align-self: center; background: transparent; border: 0; box-shadow: none; grid-column: 2; grid-row: 1 / span 2; margin: 0; min-width: 0; padding: .25rem; }
@@ -3419,6 +3419,15 @@ button, input, select, textarea { max-width: 100%; }
   .home-journey-road h3 { font-size: 1rem; line-height: 1.16; }
   .home-journey-road p { font-size: .78rem; line-height: 1.45; }
   .home-journey-road li a { font-size: .62rem; }
+  .home-company-page > .home-company-copy,
+  .home-company-page > .home-company-identity { min-width: 0; width: 100%; }
+  .home-company-intro { min-width: 0; width: 100%; }
+  .home-company-intro h2 { font-size: clamp(1.55rem, 7.2vw, 2.1rem); line-height: 1.12; max-width: 100%; overflow-wrap: anywhere; }
+  .home-company-intro > span { font-size: clamp(.98rem, 4.6vw, 1.12rem); line-height: 1.55; max-width: 100%; overflow-wrap: anywhere; }
+  .home-fact-strip { gap: .65rem; grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; width: 100%; }
+  .home-fact-strip div { min-height: 100px; overflow: visible; padding: .8rem; }
+  .home-fact-strip strong { font-size: clamp(1.4rem, 8vw, 2rem); letter-spacing: -.05em; max-width: 100%; white-space: nowrap; }
+  .home-fact-strip span { font-size: clamp(.58rem, 2.8vw, .68rem); letter-spacing: .035em; overflow-wrap: anywhere; }
   .footer-v2-main { align-items: start; display: grid; grid-template-columns: 1fr; gap: 2rem; }
   .footer-v2-main > .footer-v2-map,
   .footer-v2-main > .footer-v2-brand,
