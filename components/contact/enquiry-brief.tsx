@@ -1,7 +1,7 @@
 "use client"
 
 import { FormEvent, useState } from "react"
-import { Clock3, MailIcon } from "lucide-react"
+import { MailIcon, PhoneIcon } from "lucide-react"
 import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
@@ -72,7 +72,7 @@ export function EnquiryBrief({ initialContext = "" }: EnquiryBriefProps) {
       contactInfo={[
         { icon: MailIcon, label: "Sales enquiries", value: companyProfile.email, description: "Product selection, solution planning, and quotations", href: `mailto:${companyProfile.email}` },
         { icon: MailIcon, label: "Technical support", value: companyProfile.supportEmail, description: "Product, software, and deployment assistance", href: `mailto:${companyProfile.supportEmail}` },
-        { icon: Clock3, label: "Working hours", value: "Monday to Saturday", description: "09:30 AM to 6:30 PM · Sunday closed" },
+        { icon: PhoneIcon, label: "Mobile number", value: companyProfile.phoneDisplay, href: companyProfile.phoneHref },
       ]}
     >
       <form className="contact-form" onSubmit={submitBrief}>
