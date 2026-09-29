@@ -18,7 +18,8 @@ export function HeroPoster() {
   const [focused, setFocused] = useState(false);
 
   useEffect(() => {
-    if (hovered || focused || window.matchMedia('(max-width: 760px)').matches) return;
+    const mobile = window.matchMedia('(max-width: 760px)').matches;
+    if (focused || (!mobile && hovered) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = window.setInterval(() => {
       setActivePanel((current) => (current + 1) % workforceScenes.length);
     }, 3000);
