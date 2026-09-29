@@ -2524,9 +2524,10 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 
 /* Responsive guardrails: keep media, navigation, and long content inside the viewport. */
 html, body { max-width: 100%; overflow-x: clip; }
-img, video { max-width: 100%; }
+img, video, iframe, svg { max-width: 100%; }
 main, section, header, footer, nav, article, aside, form, fieldset { min-width: 0; }
 h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
+button, input, select, textarea { max-width: 100%; }
 
 @media (max-width: 1180px) {
   .site-header,
@@ -2759,6 +2760,14 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
     margin-inline: auto;
     text-align: center;
   }
+}
+
+@media (max-width: 1024px) and (min-width: 761px) {
+  .home-journey-road { min-height: 0; }
+  .home-journey-road ol { gap: 1.25rem; grid-template-columns: repeat(2, minmax(0, 1fr)); height: auto; }
+  .home-journey-stop, .home-journey-stop-low { align-self: start; }
+  .home-journey-stop:first-child, .home-journey-stop:last-child { transform: none; }
+  .footer-v2-lead { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 430px) {
