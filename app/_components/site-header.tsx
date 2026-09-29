@@ -35,7 +35,7 @@ const mobilePrimaryLinks = [
 const mobileIndustriesLink = { label: 'Industries', href: '/industries', icon: Factory } as const;
 
 const mobileUtilityLinks = [
-  { label: 'Support', href: '/support' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/insights' },
   { label: 'About Us', href: '/about-us' },
@@ -52,7 +52,7 @@ const menuItems = [
 ] as const;
 
 const homeNavLink = { label: 'Home', href: '/' } as const;
-const endingNavLinks = [{ label: 'Support', href: '/support' }, { label: 'Blog', href: '/insights' }, { label: 'About Us', href: '/about-us' }] as const;
+const endingNavLinks = [{ label: 'Careers', href: '/careers' }, { label: 'Blog', href: '/insights' }, { label: 'About Us', href: '/about-us' }] as const;
 
 function PremiumNav() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
