@@ -3340,6 +3340,7 @@ button, input, select, textarea { max-width: 100%; }
 .footer-grid { gap: 2.5rem; }
 
 @media (max-width: 760px) {
+  .contact-details-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-card-section { padding-inline: 1rem; }
   .contact-card { grid-template-columns: 1fr; }
   .contact-card-copy { border-radius: 24px 24px 0 0; grid-column: 1; padding: 2rem 1.25rem; }
