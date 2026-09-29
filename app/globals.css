@@ -2630,6 +2630,7 @@ button, input, select, textarea { max-width: 100%; }
     gap: .75rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .mobile-menu-industries { grid-template-columns: 1fr; }
   .mobile-menu-primary a {
     align-items: center;
     background: rgba(255,255,255,.76);

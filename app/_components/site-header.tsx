@@ -30,12 +30,13 @@ const industryLinks = [
 const mobilePrimaryLinks = [
   { label: 'Solutions', href: '/solutions', icon: UsersRound },
   { label: 'Products', href: '/products', icon: Boxes },
-  { label: 'Industries', href: '/industries', icon: Factory },
 ] as const;
+
+const mobileIndustriesLink = { label: 'Industries', href: '/industries', icon: Factory } as const;
 
 const mobileUtilityLinks = [
   { label: 'Support', href: '/support' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/insights' },
   { label: 'About Us', href: '/about-us' },
 ] as const;
@@ -126,7 +127,7 @@ export function SiteHeader() {
 
       <PremiumNav />
 
-      <div className="header-actions"><Link className="header-cta" href="/contact">Contact Us</Link></div>
+      <div className="header-actions"><Link className="header-cta" href="/contact">Contact</Link></div>
 
       <details
         className="mobile-menu"
@@ -159,6 +160,9 @@ export function SiteHeader() {
                   {group.title === 'Products' ? <>{productFamilies.map((family) => <details key={family}><summary>{family}</summary><div>{products.filter((product) => product.family === family).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}</Link>)}</div><Link href={`/products/${familySlug(family)}`}>View all {family.toLowerCase()}</Link></details>)}</> : group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}</Link>)}
                 </div>
               ))}
+            </div>
+            <div className="mobile-menu-primary mobile-menu-industries">
+              <Link href={mobileIndustriesLink.href} key={mobileIndustriesLink.label}><Factory aria-hidden="true" /><span>{mobileIndustriesLink.label}</span></Link>
             </div>
             <div className="mobile-menu-utility">
               {mobileUtilityLinks.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}
