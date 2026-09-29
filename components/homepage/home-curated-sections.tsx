@@ -71,6 +71,7 @@ export function CompanyOverview() {
   const travellingLogo = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(max-width: 760px)').matches) return;
     const sourceLogo = document.querySelector<HTMLElement>('.site-header .brand');
     const destination = destinationLogo.current;
     const traveller = travellingLogo.current;

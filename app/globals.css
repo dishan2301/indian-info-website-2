@@ -3387,3 +3387,38 @@ button, input, select, textarea { max-width: 100%; }
   .footer-v2-main > .footer-v2-contact { grid-column: 1 / -1; }
 }
 @media (max-width: 480px) { .footer-v2-main { grid-template-columns: 1fr; } .footer-v2-main > nav.footer-v2-nav:nth-of-type(1), .footer-v2-main > nav.footer-v2-nav:nth-of-type(2), .footer-v2-main > nav.footer-v2-nav:nth-of-type(3), .footer-v2-main > .footer-v2-contact { grid-column: 1; } }
+
+/* Mobile homepage cleanup: keep content readable and sections in normal document flow. */
+@media (max-width: 760px) {
+  .workforce-screen { min-height: auto; }
+  .workforce-screen-grid { height: auto; }
+  .workforce-screen-card { flex: 0 0 88px; min-height: 88px; }
+  .workforce-screen-card[data-active='true'] { flex: 0 0 340px; min-height: 340px; }
+  .workforce-screen-card[data-active='true'] .workforce-screen-card-copy { bottom: auto; top: 1rem; }
+  .workforce-screen-card-copy strong { line-height: 1.08; }
+  .company-travelling-logo { display: none !important; }
+  .home-company-page .company-destination-logo { opacity: 1 !important; transform: none; }
+  .home-journey-section { padding-block: 3rem; }
+  .home-journey-intro { text-align: left; }
+  .home-journey-intro h2 { font-size: clamp(1.75rem, 8vw, 2.4rem); line-height: 1.08; }
+  .home-journey-intro > p:last-child { font-size: .95rem; }
+  .home-journey-road { margin-top: 2rem; padding-left: 0; }
+  .home-journey-road ol { gap: 1rem; }
+  .home-journey-road ol::before, .home-journey-road li::before { display: none; }
+  .home-journey-image { aspect-ratio: 16 / 9; }
+  .home-journey-copy { padding: 1rem; }
+  .home-journey-year { font-size: .62rem; }
+  .home-journey-road h3 { font-size: 1.2rem; line-height: 1.15; }
+  .home-journey-road p { font-size: .86rem; line-height: 1.55; }
+  .home-journey-road li a { font-size: .65rem; }
+  .footer-v2-main { align-items: start; display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .footer-v2-main > .footer-v2-map,
+  .footer-v2-main > .footer-v2-brand,
+  .footer-v2-main > nav.footer-v2-nav:nth-of-type(1),
+  .footer-v2-main > nav.footer-v2-nav:nth-of-type(2),
+  .footer-v2-main > nav.footer-v2-nav:nth-of-type(3),
+  .footer-v2-main > .footer-v2-contact { grid-column: 1; grid-row: auto; }
+  .footer-v2-map, .footer-v2-map iframe { min-height: 240px; }
+  .footer-v2-bottom { align-items: flex-start; display: flex; flex-direction: column; gap: .7rem; }
+  .footer-v2-bottom nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+}
