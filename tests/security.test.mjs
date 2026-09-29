@@ -2,7 +2,14 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import test from 'node:test';
 import { extname, join } from 'node:path';
-import { contentSecurityPolicy, createEnquiryMailto, sanitizeQueryValue, serializeStructuredData, validateContactSubmission } from '../lib/security.mjs';
+import { contentSecurityPolicy, createEnquiryMailto, SECURITY_HEADERS, sanitizeQueryValue, serializeStructuredData, validateContactSubmission } from '../lib/security.mjs';
+
+test('browser isolation headers are present', () => {
+  assert.equal(SECURITY_HEADERS['Cross-Origin-Resource-Policy'], 'same-origin');
+  assert.equal(SECURITY_HEADERS['Origin-Agent-Cluster'], '?1');
+  assert.equal(SECURITY_HEADERS['X-DNS-Prefetch-Control'], 'off');
+  assert.equal(SECURITY_HEADERS['X-Permitted-Cross-Domain-Policies'], 'none');
+});
 
 test('CSP forbids framing, objects, inline handlers, and eval in production', () => {
   const policy = contentSecurityPolicy('known-nonce', true);
