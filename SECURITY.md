@@ -1,13 +1,13 @@
 # Frontend security controls
 
-This site intentionally has no application authentication, session storage, state-changing API, file upload, analytics, or server-submitted contact form. The enquiry form prepares a local `mailto:` message and does not transmit data to the site.
+This site intentionally has no application authentication, session storage, state-changing API, file upload, or analytics. The enquiry form validates in the browser and sends the submitted enquiry to FormSubmit for delivery to the configured business mailbox; it does not store submissions in this site.
 
 ## Implemented controls
 
 - `proxy.ts` redirects production HTTP requests to HTTPS and applies HSTS, nonce-based CSP, clickjacking protection, MIME-sniffing protection, referrer policy, browser-feature restrictions, and cross-origin opener isolation to every route.
 - CSP permits scripts only with a per-request nonce, blocks inline event handlers, framing, plugins, and third-party network requests. Inline styles remain allowed because existing React components use style attributes; scripts do not use `unsafe-inline` or production `unsafe-eval`.
 - JSON-LD uses one escaped `StructuredData` boundary. ESLint rejects other `dangerouslySetInnerHTML` use.
-- URL-prefilled contact context and enquiry fields are normalized, stripped of control and bidirectional-formatting characters, and size-limited before a `mailto:` URI is created. HTML rendering remains React-escaped.
+- URL-prefilled contact context and enquiry fields are normalized, stripped of control and bidirectional-formatting characters, and size-limited before FormSubmit receives the bounded JSON payload. HTML rendering remains React-escaped.
 - External navigation suppresses referrers. The embedded Google map and remote footer artwork were removed, leaving no third-party script, iframe, CDN asset, or mixed-content request.
 - Dependency versions are pinned and `package-lock.json` is committed. Production uses one `npm run build` path. Public production artifacts are checked for source maps, environment files, and workspace paths before release.
 
