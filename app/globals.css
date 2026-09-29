@@ -2896,7 +2896,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
 .workforce-screen-card[data-scene='workplace-software'] img { object-position: 0% center; }
 .workforce-screen-card::after { background: transparent; content: ''; inset: 0; position: absolute; }
 .workforce-screen-card-copy { bottom: auto; display: grid; gap: .65rem; left: 0; padding: clamp(1rem,3vw,3rem); position: absolute; right: 0; text-shadow: 0 1px 3px rgba(3,14,21,.72); top: clamp(5rem,14vh,9rem); z-index: 1; }
-.workforce-screen-card-copy small { color: #bce858; font-family: var(--font-geist-mono),monospace; font-size: .58rem; font-weight: 750; letter-spacing: .1em; opacity: .95; text-transform: uppercase; white-space: nowrap; }
+.workforce-screen-card-copy small { color: #fff; font-family: var(--font-geist-mono),monospace; font-size: .68rem; font-weight: 800; letter-spacing: .1em; opacity: 1; text-shadow: 0 1px 5px rgba(3,14,21,.9); text-transform: uppercase; white-space: nowrap; }
 .workforce-screen-card-copy strong { font-size: clamp(.95rem,2vw,2rem); line-height: 1.05; min-width: 14rem; text-wrap: balance; }
 .workforce-screen-card-copy em,.workforce-screen-card-copy b { color: rgba(255,255,255,.8); font-size: clamp(.72rem,1vw,.98rem); font-style: normal; line-height: 1.55; max-width: 44ch; opacity: 0; transform: translateY(.5rem); transition: opacity .25s ease,transform .25s ease; visibility: hidden; }
 .workforce-screen-card-copy b { color: white; font-size: .68rem; letter-spacing: .08em; margin-top: .15rem; text-transform: uppercase; }
@@ -2918,7 +2918,7 @@ h1, h2, h3, p, a, li, dt, dd, address { overflow-wrap: break-word; }
   .workforce-screen-card-copy { gap: .35rem; padding: 1rem 1.1rem; }
   .workforce-screen-card[data-scene='contract-labor'] .workforce-screen-card-copy { top: 1rem; }
   .workforce-screen-card[data-scene='contract-labor'] .workforce-screen-card-copy strong { font-size: clamp(1.1rem,4.6vw,1.5rem); line-height: 1.05; max-width: 19ch; }
-  .workforce-screen-card-copy small { font-size: .52rem; }
+  .workforce-screen-card-copy small { font-size: .6rem; }
   .workforce-screen-card-copy strong { font-size: 1rem; min-width: 0; }
   .workforce-screen-card-copy em,.workforce-screen-card-copy b { font-size: .72rem; }
   .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy { align-items: start; bottom: 0; top: auto; transform: none; }
