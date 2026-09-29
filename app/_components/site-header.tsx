@@ -52,7 +52,7 @@ const menuItems = [
 ] as const;
 
 const homeNavLink = { label: 'Home', href: '/' } as const;
-const endingNavLinks = [{ label: 'Blog', href: '/insights' }, { label: 'About Us', href: '/about-us' }] as const;
+const endingNavLinks = [{ label: 'Support', href: '/support' }, { label: 'Blog', href: '/insights' }, { label: 'About Us', href: '/about-us' }] as const;
 
 function PremiumNav() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
