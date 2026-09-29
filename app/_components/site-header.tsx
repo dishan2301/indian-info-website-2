@@ -78,7 +78,9 @@ function PremiumNav() {
         <Link className="premium-nav-link" href={homeNavLink.href} onClick={handleHomeClick}>{homeNavLink.label}</Link>
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
-          return <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(isActive ? null : item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
+          return item.title === 'Products'
+            ? <Link className="premium-nav-link" href={item.href} key={item.title} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }}>{item.title}</Link>
+            : <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(isActive ? null : item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
         })}
         {endingNavLinks.map((item) => <Link className="premium-nav-link" href={item.href} key={item.label}>{item.label}</Link>)}
       </div>
