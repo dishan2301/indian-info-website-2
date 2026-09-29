@@ -3283,8 +3283,19 @@ button, input, select, textarea { max-width: 100%; }
   }
 }
 .premium-nav::after { content: ''; height: .75rem; left: 0; pointer-events: auto; position: absolute; right: 0; top: 100%; }
-.premium-nav-link:hover, .premium-nav-link:focus-visible { background: rgba(183,195,203,.72); color: #073e61; }
-.premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: rgba(183,195,203,.72); color: #073e61; }
+.premium-nav-rail { background: linear-gradient(135deg,rgba(255,255,255,.98),rgba(232,248,255,.96)); border-color: rgba(19,172,244,.32); box-shadow: 0 9px 24px rgba(7,62,97,.12),inset 0 1px 0 #fff; }
+.premium-nav-link, .premium-nav-trigger { color: #075674; }
+.premium-nav-link:hover, .premium-nav-link:focus-visible { background: linear-gradient(135deg,rgba(19,172,244,.15),rgba(158,207,9,.14)); color: #064663; }
+.premium-nav-trigger:hover, .premium-nav-trigger:focus-visible, .premium-nav-trigger[aria-expanded='true'] { background: linear-gradient(135deg,rgba(19,172,244,.17),rgba(158,207,9,.17)); color: #064663; }
+.site-header[data-scrolled='true'] .premium-nav-rail { background: linear-gradient(135deg,rgba(255,255,255,.98),rgba(232,248,255,.97)); border-color: rgba(19,172,244,.34); box-shadow: 0 12px 30px rgba(7,62,97,.15),inset 0 1px 0 #fff; }
+.premium-mega-shell::before { background: linear-gradient(135deg,rgba(255,255,255,.98),rgba(238,249,255,.97) 58%,rgba(246,250,233,.96)); border-color: rgba(19,172,244,.28); box-shadow: 0 26px 70px rgba(7,62,97,.18),inset 0 1px 0 #fff; }
+.premium-mega-intro { border-right-color: rgba(7,62,97,.12); }
+.premium-mega-intro h2 { color: #075674; }
+.premium-mega-columns a { color: #315d70; }
+.premium-mega-columns a:hover, .premium-mega-columns a:focus-visible { background: rgba(19,172,244,.09); color: #064663; }
+.premium-product-bifurcation a { color: #315d70; }
+.premium-product-categories a.is-active, .premium-product-bifurcation a:hover, .premium-product-bifurcation a:focus-visible { background: linear-gradient(135deg,rgba(19,172,244,.11),rgba(158,207,9,.1)); color: #064663; }
+.mobile-menu summary { color: #075674; }
 .premium-mega-shell { top: calc(84px + .75rem); }
 .site-header[data-scrolled='true'] .premium-mega-shell { top: calc(70px + .75rem); }
 .premium-mega-shell::before { background: rgba(207,216,222,.91); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-color: rgba(80,103,120,.36); box-shadow: 0 26px 70px rgba(3,35,52,.22), inset 0 1px 0 rgba(255,255,255,.65); }
