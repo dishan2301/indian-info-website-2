@@ -50,7 +50,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <SiteHeader />
       <StructuredData data={localBusinessSchema} />
       <StructuredData data={faqSchema} />
-      <PageHero eyebrow="Contact" title="Bring us the operating problem—not just a product name." description="Share your site, workforce, entry-point, attendance, or HRMS requirements. We’ll help shape a clearer starting scope." marker="II / AHMEDABAD" />
+      <PageHero className="page-hero-contact" eyebrow="Contact" title="Bring us the operating problem—not just a product name." description="Share your site, workforce, entry-point, attendance, or HRMS requirements. We’ll help shape a clearer starting scope." marker="II / AHMEDABAD" />
 
       <section className="contact-details-section" aria-labelledby="contact-details-title">
         <div className="contact-details-heading"><p className="section-kicker">Contact details</p><h2 id="contact-details-title">We are here to help you plan the right system.</h2><p>Talk to our sales team for a new requirement, or contact support when you need help with an existing Indian Infotech product or deployment.</p></div>

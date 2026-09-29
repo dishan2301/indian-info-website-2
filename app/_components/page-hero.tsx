@@ -10,9 +10,10 @@ type PageHeroProps = {
   marker?: string;
   breadcrumbs?: readonly { label: string; href?: string }[];
   path?: string;
+  className?: string;
 };
 
-export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs, path }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs, path, className }: PageHeroProps) {
   const trail = breadcrumbs ?? [{ label: eyebrow }];
   const breadcrumbSchema = path ? {
     '@context': 'https://schema.org',
@@ -75,7 +76,7 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
   return (
     <>
       {breadcrumbSchema ? <StructuredData data={breadcrumbSchema} /> : null}
-      <section className={`page-hero page-hero-${media.tone} ${'copySide' in media && media.copySide === 'right' ? 'page-hero-copy-right' : ''}`}>
+      <section className={`page-hero page-hero-${media.tone} ${'copySide' in media && media.copySide === 'right' ? 'page-hero-copy-right' : ''} ${className ?? ''}`}>
         <div className="page-hero-media page-hero-media-desktop"><Image src={media.desktop} alt="" fill priority sizes="100vw" /></div>
         <div className="page-hero-media page-hero-media-mobile"><Image src={media.mobile} alt="" fill priority sizes="100vw" /></div>
         <div className="page-hero-overlay" aria-hidden="true" />
