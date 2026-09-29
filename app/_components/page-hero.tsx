@@ -38,7 +38,11 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
   };
   const specificIndustryMedia = key.includes('pharmaceutical') ? industryMedia['pharmaceutical & research'] : key.includes('industr') ? industryMedia[title.toLowerCase()] : undefined;
   const subject = `${key} ${title.toLowerCase()}`;
-  const campaignMedia = subject.includes('hrms') || subject.includes('payroll') || subject.includes('employee self')
+  const campaignMedia = key.includes('contact')
+    ? { desktop: '/campaign/company/contact-desktop-v1.png', mobile: '/campaign/company/contact-mobile-v1.png', tone: 'light' as const }
+    : key.includes('about')
+      ? { desktop: '/campaign/company/about-desktop-v1.png', mobile: '/campaign/company/about-mobile-v1.png', tone: 'light' as const }
+      : subject.includes('hrms') || subject.includes('payroll') || subject.includes('employee self')
     ? { desktop: '/campaign/product-moments/hrms-payroll-v2.png', mobile: '/campaign/product-moments/hrms-payroll-v2.png', tone: 'light' as const, copySide: 'left' as const }
     : subject.includes('visitor') || subject.includes('reception') || subject.includes('guest')
       ? { desktop: '/campaign/product-moments/visitor-management-v2.png', mobile: '/campaign/product-moments/visitor-management-v2.png', tone: 'light' as const, copySide: 'left' as const }
