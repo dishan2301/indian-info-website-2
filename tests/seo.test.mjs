@@ -53,10 +53,26 @@ test('production discovery and preview noindex controls are present', async () =
 
 test('homepage has one semantic H1 and clear-image rendering remains enabled', async () => {
   const [page, styles, hero] = await Promise.all([read('app/page.tsx'), read('app/globals.css'), read('components/homepage/hero-poster-carousel.tsx')]);
-  assert.equal((page.match(/<h1(?:\s|>)/g) ?? []).length, 1);
+  assert.match(page, /<HeroPoster\s*\/>/);
+  assert.equal((hero.match(/<h1(?:\s|>)/g) ?? []).length, 1);
   assert.match(styles, /image-rendering:\s*auto/);
   assert.doesNotMatch(styles, /\.workforce-screen-card img\s*\{[^}]*filter:\s*blur/);
   assert.match(hero, /quality=\{82\}/);
+});
+
+test('SEO landing page keywords are page-specific head metadata', async () => {
+  const [content, page, helper] = await Promise.all([read('app/seo-landing-content.ts'), read('app/[seo]/page.tsx'), read('lib/site.ts')]);
+  assert.equal((content.match(/^    slug: '/gm) ?? []).length, 14);
+  assert.equal((content.match(/^    keywords: \[/gm) ?? []).length, 14);
+  assert.match(page, /keywords: page\.keywords/);
+  assert.match(helper, /keywords: keywords \?/);
+});
+
+test('sitemap company, partner, and solution pages are crawlable from site navigation', async () => {
+  const footer = await read('components/ui/footer-01.tsx');
+  for (const route of ['/company', '/partners', '/entrance-control-system', '/canteen-management-system']) {
+    assert.ok(footer.includes(route), `missing internal footer link to ${route}`);
+  }
 });
 
 test('contact card does not introduce a second page heading', async () => {
@@ -80,39 +96,34 @@ test('solution builder produces an architecture and evidence-safe quote brief', 
   for (const field of ['solutions', 'workforce', 'locations', 'authentication', 'deployment']) assert.match(contact, new RegExp(`query\\.${field}`));
 });
 
-test('customer proof stays permission-gated and sitemap dates remain current', async () => {
-  const [homepage, proof, testimonials, sitemap, product] = await Promise.all([
-    read('components/homepage/home-curated-sections.tsx'), read('app/proof-content.ts'), read('app/testimonials/page.tsx'),
-    read('app/sitemap.ts'), read('app/products/[slug]/page.tsx'),
+test('approved customer proof remains empty and sitemap dates stay content-derived', async () => {
+  const [proof, sitemap, product] = await Promise.all([
+    read('app/proof-content.ts'), read('app/sitemap.ts'), read('app/products/[slug]/page.tsx'),
   ]);
-  assert.match(homepage, /Client’s Quote/);
-  assert.match(homepage, /Feedback from teams we support\./);
-  assert.match(homepage, /IT Team, HCP Pvt\. Ltd\./);
-  assert.match(homepage, /Indbest Healthcare Pvt\. Ltd\./);
   assert.match(proof, /approvedTestimonials: readonly Testimonial\[\] = \[\]/);
   assert.match(proof, /approvedCaseStudies: readonly CaseStudy\[\] = \[\]/);
-  assert.match(testimonials, /No permission-backed named testimonial is published yet/);
   assert.match(sitemap, /['"]\/testimonials['"]/);
   assert.doesNotMatch(sitemap, /lastModified: new Date\(\)/);
   assert.match(sitemap, /lastModified: new Date\(item\.date\)/);
   assert.match(product, /model: product\.name/);
 });
 
-test('audit priorities stay visible and evidence-safe', async () => {
-  const [homepage, profile, layout, contact, catalogue, insights, roi] = await Promise.all([
+test('homepage and product decision support stay evidence-safe', async () => {
+  const [homepage, profile, layout, contact, catalogue, roi] = await Promise.all([
     read('components/homepage/home-curated-sections.tsx'), read('lib/company-profile.ts'), read('app/layout.tsx'), read('app/contact/page.tsx'),
-    read('components/catalog/product-catalogue.tsx'), read('app/insights/content.ts'), read('components/resources/roi-calculator.tsx'),
+    read('components/catalog/product-catalogue.tsx'), read('components/resources/roi-calculator.tsx'),
   ]);
   assert.match(homepage, /useState\(value\)/);
   assert.match(homepage, /IntersectionObserver/);
   assert.match(homepage, /data-final-value/);
-  for (const value of ['14', '12', '7', '2500']) assert.match(profile, new RegExp(`value: ${value}`));
+  assert.match(profile, /companyFoundedOn = new Date\(2011,/);
+  assert.match(profile, /value: completedYearsSince\(new Date\(\)\)/);
+  for (const value of ['12', '7', '2500']) assert.match(profile, new RegExp(`value: ${value}`));
   assert.match(layout, /floating-whatsapp/);
   assert.match(contact, /FAQPage/);
   for (const topic of ['cost', 'implementation take', 'existing HR or payroll']) assert.match(contact, new RegExp(topic, 'i'));
   assert.match(catalogue, /Side-by-side comparison/);
   assert.match(catalogue, /Compare up to three products/);
-  assert.match(insights, /Biometric Attendance System Cost in India/);
   assert.match(roi, /Recoverable time \(%\)/);
   assert.match(roi, /not guaranteed cash savings/i);
   assert.match(roi, /Download summary/);

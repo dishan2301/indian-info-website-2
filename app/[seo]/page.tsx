@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: SeoPageProps): Promise<Metada
   const { seo } = await params;
   const page = seoLandingPages.find((item) => item.slug === seo);
   if (!page) return {};
-  return createPageMetadata({ title: page.title, description: page.description, path: `/${page.slug}`, image: page.image });
+  return createPageMetadata({ title: page.title, description: page.description, path: `/${page.slug}`, image: page.image, keywords: page.keywords });
 }
 
 export default async function SeoLandingPage({ params }: SeoPageProps) {

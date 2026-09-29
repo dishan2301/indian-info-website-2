@@ -12,6 +12,12 @@ const workforceScenes = [
   { title: 'More Workplace Software', eyebrow: 'Connected operations', text: 'Discover practical software for visitors, canteens, attendance, and everyday workforce operations.', image: '/campaign/product-moments/visitor-management-v2.png', alt: 'Visitor using QR check-in while a host approval workflow updates at a corporate reception', href: '/software', cta: 'Explore all software', more: ['EasyTime Online Attendance', 'Easy Visit Visitor Management', 'Canteen Management'] },
 ] as const;
 
+function ScreenTitle({ index, title }: { index: number; title: string }) {
+  return index === 0
+    ? <h1 className="workforce-screen-title">{title}</h1>
+    : <h2 className="workforce-screen-title">{title}</h2>;
+}
+
 export function HeroPoster() {
   const [activePanel, setActivePanel] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -30,7 +36,7 @@ export function HeroPoster() {
     <div className="workforce-screen-grid" aria-label="Explore workforce systems" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
       {workforceScenes.map((scene, index) => <Link className="workforce-screen-card" data-active={activePanel === index} data-more={index === 4} data-scene={['contract-labor', 'hrms-payroll', 'entrance-control', 'door-interlock', 'workplace-software'][index]} href={scene.href} onMouseEnter={() => setActivePanel(index)} onFocus={() => setActivePanel(index)} onClick={() => setActivePanel(index)} key={scene.title}>
         <Image src={scene.image} alt={scene.alt} fill sizes={activePanel === index ? '(max-width: 760px) 100vw, 68vw' : '(max-width: 760px) 100vw, 10vw'} quality={82} priority={index === 0} />
-        <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><strong>{scene.title}</strong><em>{scene.text}</em>{'more' in scene && <span className="workforce-screen-more-list">{scene.more.map((item) => <span key={item}>{item}</span>)}</span>}<b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
+        <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><ScreenTitle index={index} title={scene.title} /><em>{scene.text}</em>{'more' in scene && <span className="workforce-screen-more-list">{scene.more.map((item) => <span key={item}>{item}</span>)}</span>}<b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
       </Link>)}
     </div>
   </section>;

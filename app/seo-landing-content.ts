@@ -2,6 +2,7 @@ export type SeoLandingPage = {
   slug: string;
   title: string;
   primaryKeyword: string;
+  keywords: readonly string[];
   description: string;
   eyebrow: string;
   intro: readonly string[];
@@ -20,6 +21,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'biometric-attendance-system',
     title: 'Biometric Attendance System for Modern Workplaces',
     primaryKeyword: 'biometric attendance system',
+    keywords: ['biometric attendance system', 'employee attendance system', 'fingerprint attendance', 'face attendance system', 'attendance system India'],
     description: 'Plan biometric attendance with face or fingerprint authentication, centralized reporting, shift workflows, and HRMS integration for Indian workplaces.',
     eyebrow: 'Attendance solutions',
     intro: [
@@ -49,6 +51,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'face-recognition-attendance-system',
     title: 'Face Recognition Attendance System for Contactless Time Tracking',
     primaryKeyword: 'face recognition attendance system',
+    keywords: ['face recognition attendance system', 'facial recognition attendance', 'contactless attendance system', 'face attendance machine', 'workforce attendance India'],
     description: 'Explore contactless face recognition attendance systems with workplace devices, attendance software, reporting, and deployment guidance from Indian Infotech.',
     eyebrow: 'Face attendance',
     intro: [
@@ -78,6 +81,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'fingerprint-attendance-machine',
     title: 'Fingerprint Attendance Machine for Reliable Workforce Records',
     primaryKeyword: 'fingerprint attendance machine',
+    keywords: ['fingerprint attendance machine', 'biometric attendance device', 'fingerprint time clock', 'employee attendance machine', 'attendance hardware India'],
     description: 'Compare fingerprint attendance machines for workforce time tracking, access workflows, software synchronization, and multi-site reporting.',
     eyebrow: 'Fingerprint attendance',
     intro: [
@@ -107,6 +111,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'attendance-management-software',
     title: 'Attendance Management Software for Shifts, Leave and Reporting',
     primaryKeyword: 'attendance management software',
+    keywords: ['attendance management software', 'employee time tracking software', 'shift attendance software', 'workforce attendance reporting', 'attendance software India'],
     description: 'Centralize employee attendance, shifts, leave, exceptions, reporting, and approved payroll inputs with Indian Infotech workforce software.',
     eyebrow: 'Attendance software',
     intro: [
@@ -136,6 +141,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'cloud-attendance-system',
     title: 'Cloud Attendance System for Multi-Location Workforces',
     primaryKeyword: 'cloud attendance system',
+    keywords: ['cloud attendance system', 'cloud-based attendance software', 'multi-location attendance', 'online attendance management', 'remote workforce attendance'],
     description: 'Centralize attendance from multiple offices, branches, plants, or sites with cloud reporting, controlled access, and implementation support.',
     eyebrow: 'Cloud attendance',
     intro: [
@@ -165,6 +171,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'hrms-software',
     title: 'HRMS Software in India for Connected Employee Operations',
     primaryKeyword: 'HRMS software India',
+    keywords: ['HRMS software India', 'human resource management software', 'employee lifecycle software', 'HR and attendance system', 'workforce management platform'],
     description: 'Connect employee records, attendance, leave, payroll, self-service, recruitment, performance, and lifecycle workflows with Indian Infotech HRMS software.',
     eyebrow: 'Human resources software',
     intro: [
@@ -194,6 +201,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'payroll-software',
     title: 'Payroll Software in India Connected to Attendance and HRMS',
     primaryKeyword: 'payroll software India',
+    keywords: ['payroll software India', 'payroll and attendance software', 'HRMS payroll system', 'employee payroll workflow', 'payroll management software'],
     description: 'Plan payroll software around approved employee records, attendance inputs, review controls, reporting, and Indian Infotech HRMS workflows.',
     eyebrow: 'Payroll operations',
     intro: [
@@ -223,6 +231,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'workforce-management-software',
     title: 'Workforce Management Software for Connected Daily Operations',
     primaryKeyword: 'workforce management software',
+    keywords: ['workforce management software', 'employee workforce platform', 'time and attendance management', 'multi-site workforce system', 'workforce operations India'],
     description: 'Connect attendance, shifts, leave, employee records, HRMS, payroll, and multi-location reporting with Indian Infotech workforce software.',
     eyebrow: 'Workforce operations',
     intro: [
@@ -252,6 +261,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'access-control-system',
     title: 'Access Control System for Secure Workplace Entry',
     primaryKeyword: 'access control system',
+    keywords: ['access control system', 'biometric access control', 'workplace access management', 'door access control', 'commercial access control India'],
     description: 'Plan biometric access control systems with face or fingerprint terminals, doors, barriers, visitor workflows, and site-specific implementation support.',
     eyebrow: 'Workplace security',
     intro: [
@@ -281,6 +291,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'door-access-control-system',
     title: 'Door Access Control System for Offices and Controlled Areas',
     primaryKeyword: 'door access control system',
+    keywords: ['door access control system', 'biometric door access', 'door access controller', 'electronic access control', 'workplace door security'],
     description: 'Design biometric door access control with suitable terminals, permissions, locks, interlocks, event records, and deployment guidance.',
     eyebrow: 'Door security',
     intro: [
@@ -310,6 +321,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'visitor-management-system',
     title: 'Visitor Management System for Safer, Faster Check-In',
     primaryKeyword: 'visitor management system',
+    keywords: ['visitor management system', 'visitor registration software', 'digital visitor log', 'workplace visitor access', 'visitor management India'],
     description: 'Digitize visitor registration, host coordination, check-in records, visit status, and check-out with Indian Infotech visitor management software.',
     eyebrow: 'Visitor operations',
     intro: [
@@ -339,6 +351,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'entrance-control-system',
     title: 'Entrance Control System for People and Vehicle Movement',
     primaryKeyword: 'entrance control system',
+    keywords: ['entrance control system', 'turnstile access control', 'speed gate system', 'flap barrier access', 'workplace entrance management'],
     description: 'Plan flap barriers, turnstiles, boom barriers, screening, and connected access control around workplace entry flow and site conditions.',
     eyebrow: 'Entrance management',
     intro: [
@@ -368,6 +381,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'canteen-management-system',
     title: 'Canteen Management System for Employee Meal Operations',
     primaryKeyword: 'canteen management system',
+    keywords: ['canteen management system', 'employee cafeteria management', 'cashless canteen software', 'workplace meal management', 'canteen automation India'],
     description: 'Organize employee identification, meal entitlements, transactions, usage records, and canteen reporting with Indian Infotech software.',
     eyebrow: 'Workplace services',
     intro: [
@@ -397,6 +411,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
     slug: 'time-attendance-software',
     title: 'Time Attendance Software for Accurate Workforce Review',
     primaryKeyword: 'time attendance software',
+    keywords: ['time attendance software', 'time and attendance system', 'employee time tracking', 'workforce clock-in software', 'attendance payroll integration'],
     description: 'Connect time punches, shifts, leave, exceptions, overtime context, reporting, and approved payroll inputs with Indian Infotech software.',
     eyebrow: 'Time and attendance',
     intro: [

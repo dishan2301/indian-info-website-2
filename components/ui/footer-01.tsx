@@ -5,8 +5,8 @@ import { Separator } from "@/components/ui/separator"
 import { companyProfile } from "@/lib/company-profile"
 
 const footerSections = [
-  { title: "Explore", links: [["Platform", "/platform"], ["Products", "/products"], ["Compare products", "/compare"], ["Software", "/software"], ["HRMS & Payroll", "/hrms-payroll"], ["Solutions", "/solutions"], ["Industries", "/industries"], ["News & insights", "/insights"], ["About us", "/about-us"], ["Testimonials", "/testimonials"]] },
-  { title: "Popular solutions", links: [["Biometric attendance", "/platform#workforce"], ["HRMS software", "/software/hrms-payroll"], ["Access control", "/platform#security"], ["Visitor management", "/software/visitor-management"], ["Entrance control", "/products/entrance-management"], ["Canteen management", "/software/canteen-management"]] },
+  { title: "Explore", links: [["Platform", "/platform"], ["Products", "/products"], ["Compare products", "/compare"], ["Software", "/software"], ["HRMS & Payroll", "/hrms-payroll"], ["Solutions", "/solutions"], ["Industries", "/industries"], ["News & insights", "/insights"], ["About us", "/about-us"], ["Company", "/company"], ["Partners", "/partners"], ["Testimonials", "/testimonials"]] },
+  { title: "Popular solutions", links: [["Biometric attendance", "/platform#workforce"], ["HRMS software", "/software/hrms-payroll"], ["Access control", "/platform#security"], ["Visitor management", "/software/visitor-management"], ["Entrance control", "/entrance-control-system"], ["Canteen management", "/canteen-management-system"]] },
   { title: "Technical", links: [["Technologies", "/technologies"], ["Engineering", "/engineering"], ["Integrations", "/integrations"], ["Resources", "/resources"], ["Knowledge Center", "/knowledge"], ["Tender resources", "/resources/procurement"], ["Support", "/support"], ["Developer resources", "/developers"], ["Trust center", "/trust"], ["Security reporting", "/trust/responsible-disclosure"], ["Academy", "/academy"]] },
 ] as const
 

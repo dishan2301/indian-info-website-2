@@ -14,6 +14,7 @@ export function createPageMetadata({
   description,
   path,
   image = DEFAULT_OG_IMAGE,
+  keywords,
   type = 'website',
   noIndex = false,
 }: {
@@ -21,6 +22,7 @@ export function createPageMetadata({
   description: string;
   path: string;
   image?: string | null;
+  keywords?: readonly string[];
   type?: 'website' | 'article';
   noIndex?: boolean;
 }): Metadata {
@@ -33,6 +35,7 @@ export function createPageMetadata({
   return {
     title: { absolute: fullTitle },
     description,
+    keywords: keywords ? [...new Set(keywords.map((keyword) => keyword.trim()).filter(Boolean))] : undefined,
     alternates: { canonical: path },
     robots,
     openGraph: { title: fullTitle, description, url: path, siteName: SITE_NAME, locale: 'en_IN', type, images: socialImages },

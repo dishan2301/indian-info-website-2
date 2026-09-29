@@ -44,6 +44,12 @@ const organizationSchema = {
     {
       '@type': ['Organization', 'LocalBusiness'], '@id': `${SITE_URL}/#organization`, name: companyProfile.name, url: SITE_URL,
       logo: `${SITE_URL}/indian-infotech-logo.png`, image: `${SITE_URL}/og.png`, foundingDate: String(companyProfile.foundedYear), email: companyProfile.email, telephone: companyProfile.phoneSchema,
+      description: 'Indian Infotech provides workforce software, attendance, access control, entrance management, and connected workplace systems for organizations in India.',
+      knowsAbout: ['Workforce management', 'Biometric attendance', 'Access control', 'Visitor management', 'Entrance control', 'Canteen management', 'HRMS and payroll', 'Door interlocking', 'Workplace media', 'Industrial AI'],
+      contactPoint: [
+        { '@type': 'ContactPoint', contactType: 'sales', email: companyProfile.email, telephone: companyProfile.phoneSchema },
+        { '@type': 'ContactPoint', contactType: 'technical support', email: companyProfile.supportEmail, telephone: companyProfile.phoneSchema },
+      ],
       sameAs: [companyProfile.linkedInHref],
       address: postalAddressSchema,
       areaServed: { '@type': 'Country', name: 'India' },
