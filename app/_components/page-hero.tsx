@@ -53,7 +53,7 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
               : subject.includes('industrial ai') || subject.includes('computer vision') || subject.includes('engineering') || subject.includes('technology') || subject.includes('integration') || subject.includes('developer')
                 ? { desktop: '/campaign/product-moments/industrial-ai-v2.png', mobile: '/campaign/product-moments/industrial-ai-v2.png', tone: 'light' as const, copySide: 'left' as const }
                 : subject.includes('contract') || subject.includes('labor') || subject.includes('labour') || subject.includes('attendance') || subject.includes('workforce') || subject.includes('easytime')
-                  ? { desktop: '/campaign/product-moments/contract-workforce-v1.png', mobile: '/campaign/product-moments/contract-workforce-v1.png', tone: 'light' as const }
+                  ? { desktop: '/campaign/product-moments/contract-workforce-v3.png', mobile: '/campaign/product-moments/contract-workforce-v3.png', tone: 'light' as const }
                   : key.includes('support')
                     ? { desktop: '/company/support-cta.webp', mobile: '/company/support-cta.webp', tone: 'light' as const }
                     : key.includes('company') || key.includes('customer')
