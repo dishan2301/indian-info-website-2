@@ -2474,10 +2474,10 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .premium-mega-columns a { align-items: center; border-bottom: 1px solid rgba(7,62,97,.1); color: #456273; display: flex; font-size: .76rem; gap: .5rem; justify-content: space-between; line-height: 1.28; padding: .65rem 0; transition: color 140ms ease, padding 140ms ease; }
 .premium-mega-columns a:hover, .premium-mega-columns a:focus-visible { color: #073e61; padding-left: .3rem; }
 .premium-product-bifurcation { display: grid; gap: 1.75rem; grid-template-columns: minmax(210px,.72fr) minmax(280px,1.28fr); min-width: 0; }
-.premium-product-bifurcation p { border-bottom: 1px solid rgba(7,62,97,.13); color: #476400; font-family: var(--font-geist-mono),monospace; font-size: .58rem; font-weight: 800; letter-spacing: .11em; margin: 0; padding-bottom: .65rem; text-transform: uppercase; }
+.premium-product-bifurcation p { border-bottom: 1px solid rgba(7,62,97,.13); color: #476400; font-family: var(--font-geist-mono),monospace; font-size: .68rem; font-weight: 800; letter-spacing: .11em; margin: 0; padding-bottom: .65rem; text-transform: uppercase; }
 .premium-product-categories, .premium-product-items { display: grid; align-content: start; gap: .2rem; }
-.premium-product-bifurcation a { border-bottom: 1px solid rgba(7,62,97,.1); color: #456273; display: flex; flex-direction: column; font-size: .76rem; gap: .22rem; line-height: 1.28; padding: .65rem .55rem; transition: background 140ms ease, color 140ms ease, padding 140ms ease; }
-.premium-product-bifurcation a small { color: #819197; font-size: .62rem; }
+.premium-product-bifurcation a { border-bottom: 1px solid rgba(7,62,97,.1); color: #456273; display: flex; flex-direction: column; font-size: .84rem; gap: .22rem; line-height: 1.28; padding: .65rem .55rem; transition: background 140ms ease, color 140ms ease, padding 140ms ease; }
+.premium-product-bifurcation a small { color: #819197; font-size: .66rem; }
 .premium-product-categories a.is-active, .premium-product-bifurcation a:hover, .premium-product-bifurcation a:focus-visible { background: rgba(19,172,244,.09); color: #073e61; padding-left: .85rem; }
 .premium-product-categories a.is-active small, .premium-product-bifurcation a:hover small, .premium-product-bifurcation a:focus-visible small { color: #0877a8; }
 .premium-product-items { max-height: 300px; overflow-y: auto; padding-right: .35rem; }
