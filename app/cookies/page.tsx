@@ -5,7 +5,7 @@ import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 
-export const metadata: Metadata = createPageMetadata({ title: 'Cookie Policy', description: 'See how Indian Infotech’s website, embedded Google Maps and any configured analytics services use cookies and similar technologies.', path: '/cookies' });
+export const metadata: Metadata = createPageMetadata({ title: 'Cookie Policy', description: 'See how Indian Infotech’s website, embedded OpenStreetMap and any configured analytics services use cookies and similar technologies.', path: '/cookies' });
 
 const sections = [['use', 'How this site uses them'], ['providers', 'Third-party services'], ['choices', 'Your controls'], ['updates', 'Changes and contact']];
 
@@ -18,13 +18,14 @@ export default function CookiePolicyPage() {
 
       <section id="use" className="legal-section"><h2>1. How this site uses cookies and similar technologies</h2>
         <p>The public website does not use an account or sign-in cookie for visitors. The site’s source does not define a first-party cookie preference center. Hosting and security infrastructure may use technical identifiers or request logs needed to deliver and protect the site.</p>
-        <p>The contact page and site footer contain embedded Google Maps. When either map enters the page and your browser loads it, Google may receive technical information and use cookies or similar storage under Google’s own settings. You can prevent the map request by blocking third-party content in your browser.</p>
+        <p>The contact page and site footer embed OpenStreetMap. When either map enters the page and your browser loads it, OpenStreetMap may receive technical request information. The contact page also offers an optional Google Maps directions link; Google receives a request only if you choose that link.</p>
         <p>Google Analytics, Google Tag Manager and Meta Pixel are optional integrations in the site code. Their scripts are loaded only when a valid identifier for the relevant service is configured for a deployment. If enabled, Google Analytics or Tag Manager may receive page views, contact-link clicks and form-submit events; Meta Pixel currently receives page-view events. These services may use cookies or similar identifiers. The site does not currently provide an in-page preference center for these optional integrations; availability can vary by deployment.</p>
       </section>
 
       <section id="providers" className="legal-section"><h2>2. Third-party services</h2>
         <div className="legal-table-wrap"><table className="legal-table"><thead><tr><th scope="col">Service</th><th scope="col">When it is used</th><th scope="col">More information</th></tr></thead><tbody>
-          <tr><th scope="row">Google Maps</th><td>When the embedded map on the contact page or in the site footer is loaded. Google may process browser and request information and use its own cookies or storage.</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a> · <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noreferrer">Google cookies</a></td></tr>
+          <tr><th scope="row">OpenStreetMap</th><td>When the embedded map on the contact page or in the site footer is loaded. OpenStreetMap may receive technical request information.</td><td><a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noreferrer">OpenStreetMap Privacy Policy</a></td></tr>
+          <tr><th scope="row">Google Maps directions</th><td>Only if you choose the Google Maps directions link on the contact page or in the site footer. Google may then process browser and request information under its own policies.</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a> · <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noreferrer">Google cookies</a></td></tr>
           <tr><th scope="row">Google Analytics / Tag Manager</th><td>Only if a valid service identifier is configured for the deployment. Measurement may use a first-party identifier and send website events to Google.</td><td><a href="https://support.google.com/analytics/answer/11593727" target="_blank" rel="noreferrer">Google Analytics data collection</a></td></tr>
           <tr><th scope="row">Meta Pixel</th><td>Only if a valid Meta Pixel identifier is configured. It may send page-view and interaction events to Meta.</td><td><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a></td></tr>
           <tr><th scope="row">FormSubmit</th><td>When you submit the contact form. It receives form information to deliver the message and may use its own technical cookies.</td><td><a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noreferrer">FormSubmit privacy terms</a></td></tr>

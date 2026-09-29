@@ -58,7 +58,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <a className="contact-detail-card" href={`mailto:${companyProfile.supportEmail}`}><span className="contact-detail-icon"><Phone aria-hidden="true" /></span><span><b>Technical support</b><strong>{companyProfile.supportEmail}</strong><small>Product, software, and deployment assistance</small></span></a>
           <div className="contact-detail-card"><span className="contact-detail-icon"><Clock3 aria-hidden="true" /></span><span><b>Working hours</b><strong>Monday to Saturday</strong><small>09:30 AM to 6:30 PM · Sunday closed</small></span></div>
         </div>
-        <div className="contact-location-map-large"><iframe title="Indian Infotech at 429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Nilmani Society, Thaltej, Ahmedabad, Gujarat 380054" src="https://www.google.com/maps?q=Indian+Infotech,+429,+425,+403+Gala+Empire,+Opp.+Doordarshan+Kendra,+Nilmani+Society,+Thaltej,+Ahmedabad,+Gujarat+380054&z=17&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div>
+        <div className="contact-location-map-large"><iframe title="OpenStreetMap showing Indian Infotech at 429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Nilmani Society, Thaltej, Ahmedabad, Gujarat 380054" src={companyProfile.mapEmbedHref} loading="lazy" referrerPolicy="no-referrer" /><a className="map-directions-link" href={companyProfile.mapsHref} target="_blank" rel="noreferrer">Open Google Maps directions ↗</a></div>
       </section>
 
       <section className="contact-card-section"><EnquiryBrief initialContext={context} /></section>

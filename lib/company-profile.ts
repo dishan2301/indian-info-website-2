@@ -20,6 +20,7 @@ export const companyProfile = {
   whatsappHref: 'https://wa.me/917778066770',
   linkedInHref: 'https://in.linkedin.com/company/indian-infotech',
   mapsHref: 'https://www.google.com/maps/place/Indian+Infotech/@23.0804467,72.5355153,17z/data=!3m1!4b1!4m6!3m5!1s0x395e83471ce6df1b:0x70ea32c70dfc4f7e!8m2!3d23.0804467!4d72.5355153!16s%2Fg%2F1hc89_wjh?entry=tts',
+  mapEmbedHref: 'https://www.openstreetmap.org/export/embed.html?bbox=72.5255153%2C23.0704467%2C72.5455153%2C23.0904467&layer=mapnik&marker=23.0804467%2C72.5355153',
   address: {
     street: '429, 425, 403 Gala Empire, Opp. Doordarshan Kendra, Nilmani Society, Thaltej',
     locality: 'Ahmedabad',

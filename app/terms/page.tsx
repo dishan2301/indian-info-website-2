@@ -46,7 +46,7 @@ export default function TermsPage() {
       </section>
 
       <section id="third-party" className="legal-section"><h2>6. Third-party services and links</h2>
-        <p>The website may link to or embed services operated by others, including Google Maps and FormSubmit. Those services have their own terms, privacy practices, availability and content. Indian Infotech does not control third-party sites or services; review their terms before using them. A link or embed does not imply endorsement beyond its stated purpose.</p>
+        <p>The website may link to or embed services operated by others, including OpenStreetMap, Google Maps and FormSubmit. Those services have their own terms, privacy practices, availability and content. Indian Infotech does not control third-party sites or services; review their terms before using them. A link or embed does not imply endorsement beyond its stated purpose.</p>
       </section>
 
       <section id="availability" className="legal-section"><h2>7. Availability and liability</h2>
