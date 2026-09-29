@@ -34,6 +34,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     sanitizeQueryValue(query.deployment) && `Deployment: ${sanitizeQueryValue(query.deployment)}`,
     sanitizeQueryValue(query.industry) && `Industry: ${sanitizeQueryValue(query.industry)}`,
     sanitizeQueryValue(query.topic) && `Topic: ${sanitizeQueryValue(query.topic)}`,
+    sanitizeQueryValue(query.interest) && `Career interest: ${sanitizeQueryValue(query.interest)}`,
     sanitizeQueryValue(query.resource) && `Requested material: ${sanitizeQueryValue(query.resource)}`,
   ].filter(Boolean).join(' · ');
   const localBusinessSchema = {
