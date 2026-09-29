@@ -66,7 +66,6 @@ export default function CareersPage() {
     </section>
 
     <section className={styles.proof} aria-label="Indian Infotech at a glance">
-      <p className={styles.proofIntro}>A little about the work we do</p>
       <div className={styles.proofStats}>{facts.map((fact) => <div className={styles.proofStat} key={fact.id}><strong>{fact.display}</strong><span>{fact.label}</span></div>)}</div>
     </section>
 
