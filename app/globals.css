@@ -3387,30 +3387,3 @@ button, input, select, textarea { max-width: 100%; }
   .footer-v2-main > .footer-v2-contact { grid-column: 1 / -1; }
 }
 @media (max-width: 480px) { .footer-v2-main { grid-template-columns: 1fr; } .footer-v2-main > nav.footer-v2-nav:nth-of-type(1), .footer-v2-main > nav.footer-v2-nav:nth-of-type(2), .footer-v2-main > nav.footer-v2-nav:nth-of-type(3), .footer-v2-main > .footer-v2-contact { grid-column: 1; } }
-
-/* Premium catalogue controls: keep the existing filters, upgrade their visual hierarchy. */
-.catalogue-controls {
-  background: linear-gradient(135deg, #073e61 0%, #0a536f 58%, #0d6f79 100%);
-  border: 1px solid rgba(19,172,244,.35);
-  border-radius: 1.25rem;
-  box-shadow: 0 20px 45px rgba(3,35,52,.16), inset 0 1px 0 rgba(255,255,255,.14);
-  gap: 1rem;
-  padding: clamp(1.25rem, 2.5vw, 2rem);
-}
-.catalogue-controls label > span { color: #d9ff72; font-size: .68rem; font-weight: 800; letter-spacing: .11em; margin-bottom: .6rem; }
-.catalogue-controls input, .catalogue-controls select {
-  background: rgba(255,255,255,.97);
-  border: 1px solid rgba(255,255,255,.45);
-  border-radius: .7rem;
-  box-shadow: 0 8px 18px rgba(3,35,52,.12);
-  color: #073e61;
-  font-size: .88rem;
-  min-height: 52px;
-  padding: .8rem 1rem;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-.catalogue-controls input::placeholder { color: #71838a; }
-.catalogue-controls input:hover, .catalogue-controls select:hover { border-color: #9ecf09; }
-.catalogue-controls input:focus, .catalogue-controls select:focus { border-color: #9ecf09; box-shadow: 0 0 0 4px rgba(158,207,9,.22), 0 10px 22px rgba(3,35,52,.16); outline: 0; transform: translateY(-1px); }
-.catalogue-toolbar { padding-bottom: .25rem; }
-.catalogue-toolbar p { color: #53675d; font-size: .68rem; }
