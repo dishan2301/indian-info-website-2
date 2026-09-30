@@ -3470,3 +3470,10 @@ button, input, select, textarea { max-width: 100%; }
   .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy em,
   .workforce-screen-card:not([data-active='true']):not(:hover):not(:focus-visible) .workforce-screen-card-copy b { display: none; }
 }
+
+#home .home-journey-section,
+#home .home-company-page,
+#home .home-industry-client-page,
+#home .home-quotes-news-page { background: #fff; }
+#home .home-company-page::before,
+#home .home-company-page::after { animation: none; background: none; }
