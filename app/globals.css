@@ -2915,7 +2915,7 @@ button, input, select, textarea { max-width: 100%; }
 .workforce-screen-card::after { background: transparent; content: ''; inset: 0; position: absolute; }
 .workforce-screen-card-copy { bottom: auto; display: grid; gap: .65rem; left: 0; padding: clamp(1rem,3vw,3rem); position: absolute; right: 0; text-shadow: 0 1px 3px rgba(3,14,21,.72); top: clamp(5rem,14vh,9rem); z-index: 1; }
 .workforce-screen-card-copy small { color: #fff; font-family: var(--font-geist-mono),monospace; font-size: .68rem; font-weight: 800; letter-spacing: .1em; opacity: 1; text-shadow: 0 1px 5px rgba(3,14,21,.9); text-transform: uppercase; white-space: nowrap; }
-.workforce-screen-card-copy .workforce-screen-title { font-size: clamp(.95rem,2vw,2rem); font-weight: 800; line-height: 1.05; margin: 0; min-width: 14rem; text-wrap: balance; }
+.workforce-screen-card-copy .workforce-screen-title { color: #fff; font-size: clamp(.95rem,2vw,2rem); font-weight: 800; line-height: 1.05; margin: 0; min-width: 14rem; text-wrap: balance; }
 .workforce-screen-card-copy em,.workforce-screen-card-copy b { color: rgba(255,255,255,.8); font-size: clamp(.72rem,1vw,.98rem); font-style: normal; line-height: 1.55; max-width: 44ch; opacity: 0; transform: translateY(.5rem); transition: opacity .25s ease,transform .25s ease; visibility: hidden; }
 .workforce-screen-card-copy b { color: white; font-size: .68rem; letter-spacing: .08em; margin-top: .15rem; text-transform: uppercase; }
 .workforce-screen-card-copy b i { color: #bce858; font-size: 1rem; font-style: normal; }
