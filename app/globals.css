@@ -665,6 +665,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .page-hero-overlay { background: linear-gradient(90deg, rgba(255,255,255,.97), rgba(255,255,255,.82) 40%, rgba(255,255,255,.08) 68%, transparent); inset: 0; position: absolute; z-index: -2; }
 .page-hero-copy-right .page-hero-overlay { background: linear-gradient(270deg, rgba(255,255,255,.97), rgba(255,255,255,.84) 38%, rgba(255,255,255,.12) 68%, transparent); }
 .page-hero-light { color: white; }
+.page-hero-light h1 { color: white; }
 .page-hero-light .page-hero-overlay { background: linear-gradient(90deg, rgba(4,4,4,.9), rgba(4,4,4,.64) 42%, rgba(4,4,4,.08) 70%, transparent); }
 .page-hero-light.page-hero-copy-right .page-hero-overlay { background: linear-gradient(270deg, rgba(4,4,4,.9), rgba(4,4,4,.68) 42%, rgba(4,4,4,.08) 72%, transparent); }
 .page-hero-copy { position: relative; z-index: 1; }
