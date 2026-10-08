@@ -24,12 +24,22 @@ export function HeroPoster() {
   const [focused, setFocused] = useState(false);
 
   useEffect(() => {
-    const mobile = window.matchMedia('(max-width: 760px)').matches;
-    if (focused || (!mobile && hovered) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setInterval(() => {
-      setActivePanel((current) => (current + 1) % workforceScenes.length);
-    }, 3000);
-    return () => window.clearInterval(timer);
+    const mobile = window.matchMedia('(max-width: 760px)');
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let timer: number | undefined;
+    const sync = () => {
+      window.clearInterval(timer);
+      if (focused || (!mobile.matches && hovered) || motion.matches) return;
+      timer = window.setInterval(() => setActivePanel((current) => (current + 1) % workforceScenes.length), 3000);
+    };
+    sync();
+    motion.addEventListener('change', sync);
+    mobile.addEventListener('change', sync);
+    return () => {
+      window.clearInterval(timer);
+      motion.removeEventListener('change', sync);
+      mobile.removeEventListener('change', sync);
+    };
   }, [hovered, focused]);
 
   return <section className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">

@@ -18,6 +18,18 @@ const industries = [
 ] as const;
 const news = insights.slice(0, 5).map((article) => ({ category: article.category === 'Company update' ? 'Company update' : article.sourceUrl ? 'From the original blog' : 'Research blog · Blog', title: article.title, href: `/insights/${article.slug}`, image: article.image }));
 
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setReduced(media.matches);
+    sync();
+    media.addEventListener('change', sync);
+    return () => media.removeEventListener('change', sync);
+  }, []);
+  return reduced;
+}
+
 function Reveal({ children, className = '', repeat = false }: { children: ReactNode; className?: string; repeat?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -136,15 +148,16 @@ export function CompanyOverview() {
 export function IndustriesAndClients() {
   const [activeIndustry, setActiveIndustry] = useState(0);
   const [industryHovered, setIndustryHovered] = useState(false);
+  const reducedMotion = useReducedMotion();
   const swipeStart = useRef<{ x: number; y: number } | null>(null);
   const suppressSwipeClickUntil = useRef(0);
   const industry = industries[activeIndustry];
 
   useEffect(() => {
-    if (industryHovered) return;
+    if (industryHovered || reducedMotion) return;
     const timer = window.setInterval(() => setActiveIndustry((current) => (current + 1) % industries.length), 3000);
     return () => window.clearInterval(timer);
-  }, [industryHovered]);
+  }, [industryHovered, reducedMotion]);
 
   return <section className="home-industry-client-page" aria-labelledby="home-industries-heading">
     <Reveal className="home-section-heading home-industry-heading"><p>Industries we serve</p><h2 id="home-industries-heading">Built for the way your industry moves.</h2><span>Explore how connected workforce, access, and workplace systems adapt to seven distinct operating realities.</span></Reveal>
@@ -166,11 +179,12 @@ export function QuotesAndNews() {
   const [active, setActive] = useState(0);
   const [quoteActive, setQuoteActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const reducedMotion = useReducedMotion();
   const quoteSwipeStart = useRef<{ x: number; y: number } | null>(null);
   const newsSwipeStart = useRef<{ x: number; y: number } | null>(null);
   const suppressNewsClickUntil = useRef(0);
-  useEffect(() => { if (paused) return; const timer = window.setInterval(() => setActive((current) => (current + 1) % news.length), 3000); return () => clearInterval(timer); }, [paused]);
-  useEffect(() => { const timer = window.setInterval(() => setQuoteActive((current) => (current + 1) % clientQuotes.length), 3000); return () => clearInterval(timer); }, []);
+  useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setActive((current) => (current + 1) % news.length), 3000); return () => clearInterval(timer); }, [paused, reducedMotion]);
+  useEffect(() => { if (paused || reducedMotion) return; const timer = window.setInterval(() => setQuoteActive((current) => (current + 1) % clientQuotes.length), 3000); return () => clearInterval(timer); }, [paused, reducedMotion]);
   const move = (direction: number) => setActive((current) => (current + direction + news.length) % news.length);
   const moveQuote = (direction: number) => setQuoteActive((current) => (current + direction + clientQuotes.length) % clientQuotes.length);
   return <section className="home-quotes-news-page" aria-labelledby="client-quotes-heading">

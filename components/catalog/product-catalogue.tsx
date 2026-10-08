@@ -71,7 +71,8 @@ export function ProductCatalogue({ products, initialComparison = [], syncCompari
       ))}</div> : <div className="resource-empty"><h2>No products match these filters.</h2><p>Clear the filters or broaden the search.</p><button type="button" onClick={clearFilters}>Reset catalogue</button></div>}
       {comparedProducts.length > 0 && <section className="product-comparison" id="product-comparison" aria-labelledby="product-comparison-title">
         <div><p className="section-kicker">Side-by-side comparison</p><h2 id="product-comparison-title">Compare up to three products.</h2><Link className="comparison-enquiry" href={`/contact?topic=product-comparison&products=${encodeURIComponent(comparison.join(','))}`}>Review this shortlist ↗</Link><button type="button" onClick={() => setComparison([])}>Clear comparison</button></div>
-        <div className="comparison-scroll"><table><thead><tr><th scope="col">Specification</th>{comparedProducts.map((product) => <th scope="col" key={product.slug}><Link href={`/products/${product.slug}`}>{product.name} ↗</Link></th>)}</tr></thead><tbody>
+        <p className="comparison-scroll-hint">Scroll the table horizontally to review every selected product.</p>
+        <div className="comparison-scroll" tabIndex={0} role="region" aria-label="Selected product comparison"><table><thead><tr><th scope="col">Specification</th>{comparedProducts.map((product) => <th scope="col" key={product.slug}><Link href={`/products/${product.slug}`}>{product.name} ↗</Link></th>)}</tr></thead><tbody>
           <tr><th scope="row">Family</th>{comparedProducts.map((product) => <td key={product.slug}>{product.family}</td>)}</tr>
           <tr><th scope="row">Authentication</th>{comparedProducts.map((product) => <td key={product.slug}>{product.authentication}</td>)}</tr>
           <tr><th scope="row">Application</th>{comparedProducts.map((product) => <td key={product.slug}>{product.application}</td>)}</tr>

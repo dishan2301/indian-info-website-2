@@ -23,7 +23,7 @@ export default function CookiePolicyPage() {
       </section>
 
       <section id="providers" className="legal-section"><h2>2. Third-party services</h2>
-        <div className="legal-table-wrap"><table className="legal-table"><thead><tr><th scope="col">Service</th><th scope="col">When it is used</th><th scope="col">More information</th></tr></thead><tbody>
+        <div className="legal-table-wrap" tabIndex={0} role="region" aria-label="Cookie services table"><table className="legal-table"><thead><tr><th scope="col">Service</th><th scope="col">When it is used</th><th scope="col">More information</th></tr></thead><tbody>
           <tr><th scope="row">Google Maps</th><td>When the embedded map on the contact page or in the site footer is loaded. Google may process browser and request information and use its own cookies or storage.</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a> · <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noreferrer">Google cookies</a></td></tr>
           <tr><th scope="row">Google Analytics / Tag Manager</th><td>Only if a valid service identifier is configured for the deployment. Measurement may use a first-party identifier and send website events to Google.</td><td><a href="https://support.google.com/analytics/answer/11593727" target="_blank" rel="noreferrer">Google Analytics data collection</a></td></tr>
           <tr><th scope="row">Meta Pixel</th><td>Only if a valid Meta Pixel identifier is configured. It may send page-view and interaction events to Meta.</td><td><a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer">Meta Privacy Policy</a></td></tr>

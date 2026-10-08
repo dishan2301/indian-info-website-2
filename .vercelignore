@@ -6,3 +6,6 @@ dist
 .git
 .env*
 tsconfig.tsbuildinfo
+
+# Local responsiveness evidence
+/audits/

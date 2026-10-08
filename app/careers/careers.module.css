@@ -36,7 +36,7 @@
 .proofStats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); }
 .proofStat { border-left: 1px solid #dbe8e5; display: grid; gap: .2rem; padding: .1rem 1.25rem; }
 .proofStat strong { color: #08798a; font-size: clamp(1.5rem,2.4vw,2.15rem); letter-spacing: -.05em; line-height: 1.1; }
-.proofStat span { color: #66808b; font-size: .73rem; }
+.proofStat span { color: #536b76; font-size: .73rem; }
 
 .story { margin: 0 auto; max-width: 1320px; padding: clamp(4.5rem,9vw,8.5rem) clamp(1.25rem,4vw,3rem) clamp(4rem,7vw,6rem); }
 .sectionLabel { color: #168395; font-size: .67rem; }
@@ -45,14 +45,14 @@
 .storyGrid h2,.pathsHeading h2,.invite h2 { color: #103a4d; font-size: clamp(2.4rem,5.3vw,5rem); font-weight: 640; letter-spacing: -.065em; line-height: 1.04; margin: 0; max-width: 15ch; }
 .storyGrid h2 em,.pathsHeading h2 em,.invite h2 em { color: #09869a; font-style: normal; }
 .storyCopy { padding-bottom: .25rem; }
-.storyCopy p,.pathsHeading > p,.inviteCopy > p:last-child { color: #617983; font-size: .98rem; line-height: 1.8; margin: 0 0 1rem; }
+.storyCopy p,.pathsHeading > p,.inviteCopy > p:last-child { color: #536b76; font-size: .98rem; line-height: 1.8; margin: 0 0 1rem; }
 .storyCopy a { color: #08798a; font-size: .86rem; font-weight: 750; margin-top: .5rem; }
 .storyCopy a:hover,.pathCard a:hover { color: #064f65; transform: translateX(3px); }
 .principles { border-top: 1px solid #dae7e6; display: grid; gap: 1.5rem; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: clamp(3rem,6vw,5rem); }
 .principle { padding: 1.35rem .75rem 0 0; }
 .principle > span { align-items: center; background: #e9f5ee; border-radius: 50%; color: #08798a; display: inline-flex; font-size: .7rem; font-weight: 750; height: 2.2rem; justify-content: center; width: 2.2rem; }
 .principle h3 { color: #123d4d; font-size: 1.25rem; letter-spacing: -.035em; margin: 1.1rem 0 .5rem; }
-.principle p { color: #6a828b; font-size: .87rem; line-height: 1.7; margin: 0; max-width: 30ch; }
+.principle p { color: #536b76; font-size: .87rem; line-height: 1.7; margin: 0; max-width: 30ch; }
 
 .paths { background: linear-gradient(135deg,#edf8f4 0%,#f4f8e9 100%); border-radius: 1.7rem; margin: 0 auto; max-width: 1480px; padding: clamp(2.4rem,6vw,5.8rem) clamp(1.25rem,5vw,5rem); width: calc(100% - clamp(1rem,4vw,4rem)); }
 .pathsHeading { align-items: end; display: flex; gap: 2rem; justify-content: space-between; }
@@ -113,7 +113,7 @@
   .scrollCue { display: none; }
   .proof { align-items: start; display: block; padding: 1.45rem 1rem; }
   .proofIntro { margin-bottom: 1rem; }
-  .proofStats { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 1rem; }
+  .proofStats { grid-template-columns: repeat(auto-fit,minmax(min(100%,8rem),1fr)); row-gap: 1rem; }
   .proofStat { padding-left: .8rem; }
   .proofStat strong { font-size: 1.65rem; }
   .proofStat span { font-size: .68rem; }

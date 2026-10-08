@@ -39,10 +39,14 @@ const mobileUtilityLinks = [
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/insights' },
   { label: 'About Us', href: '/about-us' },
+  { label: 'Search', href: '/search' },
 ] as const;
 
 const mobileMenuGroups = [
   { title: 'Products', links: [{ label: 'All products', href: '/products' }] },
+  productGroups[1],
+  ...solutionGroups,
+  { title: 'Industry environments', links: industryLinks },
 ] as const;
 
 const menuItems = [
@@ -74,14 +78,14 @@ function PremiumNav() {
   useEffect(() => () => cancelClose(), []);
 
   return (
-    <nav className="desktop-nav premium-nav" aria-label="Main navigation" onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }} onKeyDown={(event) => { if (event.key === 'Escape') { closeMenu(0); (event.target as HTMLElement).closest('button')?.focus(); } }}>
+    <nav className="desktop-nav premium-nav" aria-label="Main navigation" onPointerLeave={(event) => { if (event.pointerType !== 'touch') closeMenu(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) closeMenu(0); }} onKeyDown={(event) => { if (event.key === 'Escape') { cancelClose(); event.currentTarget.querySelector<HTMLElement>(`[data-menu-title="${activeMenu}"]`)?.focus(); setActiveMenu(null); } }}>
       <div className="premium-nav-rail" data-open={Boolean(activeMenu)}>
         <Link className="premium-nav-link" href={homeNavLink.href} onClick={handleHomeClick}>{homeNavLink.label}</Link>
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
           return item.title === 'Products'
-            ? <Link className="premium-nav-link" href={item.href} key={item.title} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }}>{item.title}</Link>
-            : <button aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
+            ? <Link className="premium-nav-link" data-menu-title={item.title} href={item.href} key={item.title} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }}>{item.title}</Link>
+            : <button data-menu-title={item.title} aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
         })}
         {endingNavLinks.map((item) => <Link className="premium-nav-link" href={item.href} key={item.label}>{item.label}</Link>)}
       </div>
@@ -125,7 +129,7 @@ export function SiteHeader() {
       <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1200} height={199} priority /></Link>
       <Link className="brand-mark" href="/" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
-      <PremiumNav />
+      <PremiumNav key={pathname} />
 
       <div className="header-actions"><Link className="header-cta" href="/contact">Contact</Link></div>
 

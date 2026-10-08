@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
   const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
-  const images = product.image ? [product.image] : product.images ?? [];
+  const images = [...new Set([...(product.image ? [product.image] : []), ...(product.images ?? [])])];
   const specifications = [{ label: 'Model', value: product.name }, { label: 'Product type', value: product.family }, { label: 'Authentication method', value: product.authentication }, { label: 'Application', value: product.application }, { label: 'Connectivity', value: product.connectivity }, { label: 'Software compatibility', value: product.softwareCompatibility }, { label: 'Deployment', value: product.deployment }, ...(product.specifications ?? [])].filter((specification, index, all) => specification.value.trim() && all.findIndex((item) => item.label === specification.label) === index);
   const related = products.filter((item) => item.family === product.family && item.slug !== product.slug).slice(0, 3);
   const usageSteps = product.family === 'Attendance'

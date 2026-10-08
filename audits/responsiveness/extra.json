@@ -1,0 +1,242 @@
+[
+  {
+    "name": "product viewer controls, swipe and thumbnails 320",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 320",
+    "status": "PASS"
+  },
+  {
+    "name": "product viewer controls, swipe and thumbnails 375",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 375",
+    "status": "PASS"
+  },
+  {
+    "name": "product viewer controls, swipe and thumbnails 768",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 768",
+    "status": "PASS"
+  },
+  {
+    "name": "product viewer controls, swipe and thumbnails 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "product viewer controls, swipe and thumbnails 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "product viewer controls, swipe and thumbnails 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "FAQ open and keyboard access 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement / 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement / 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement / 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /contact 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /contact 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /contact 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /products 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /products 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /products 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /about-us 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /about-us 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /about-us 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /careers 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /careers 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /careers 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /resources 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /resources 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /resources 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /solution-builder 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /solution-builder 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /solution-builder 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /hrms-payroll 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /hrms-payroll 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /hrms-payroll 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /privacy 320",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /privacy 640",
+    "status": "PASS"
+  },
+  {
+    "name": "200% text enlargement /privacy 1280",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x568",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x568",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x568",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x667",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x667",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x667",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x768",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x768",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x768",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x800",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x800",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x800",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x900",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x900",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x900",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 320x1080",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 768x1080",
+    "status": "PASS"
+  },
+  {
+    "name": "independent height 1366x1080",
+    "status": "PASS"
+  },
+  {
+    "name": "DPR 1",
+    "status": "PASS"
+  },
+  {
+    "name": "DPR 2",
+    "status": "PASS"
+  },
+  {
+    "name": "DPR 3",
+    "status": "PASS"
+  }
+]

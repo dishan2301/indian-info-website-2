@@ -7,9 +7,12 @@ export function SiteSplash() {
   const [phase, setPhase] = useState<'visible' | 'exiting' | 'revealing' | 'hidden'>('visible');
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const timer = window.setTimeout(() => setPhase('hidden'), 0);
+      return () => window.clearTimeout(timer);
+    }
 
     const exitTimer = window.setTimeout(() => setPhase('exiting'), 1200);
     const revealTimer = window.setTimeout(() => setPhase('revealing'), 1650);
@@ -19,7 +22,6 @@ export function SiteSplash() {
       window.clearTimeout(exitTimer);
       window.clearTimeout(revealTimer);
       window.clearTimeout(removeTimer);
-      document.body.style.overflow = previousOverflow;
     };
   }, []);
 
