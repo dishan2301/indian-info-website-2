@@ -1,0 +1,1298 @@
+[
+  {
+    "route": "/platform",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "images": 39,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 40,
+    "status": "PASS"
+  },
+  {
+    "route": "/compare",
+    "images": 39,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 40,
+    "status": "PASS"
+  },
+  {
+    "route": "/software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/technologies",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/engineering",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/integrations",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/developers",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/developers/integration-reference",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/resources",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/resources/procurement",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/support",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies/contribute",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/testimonials",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/partners",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/academy",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/certification",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/trust",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/trust/security",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/trust/responsible-disclosure",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/trust/quality-policy",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/company",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/privacy",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/cookies",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/terms",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/biometric-attendance-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/face-recognition-attendance-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/fingerprint-attendance-machine",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/attendance-management-software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/cloud-attendance-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/payroll-software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/workforce-management-software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/access-control-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/door-access-control-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/entrance-control-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/canteen-management-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/time-attendance-software",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/i-18",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/i-202",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/is-500",
+    "images": 13,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 14,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ai-60",
+    "images": 14,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 15,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/mini-ai-10",
+    "images": 13,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 14,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/mini-ai-30",
+    "images": 14,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 15,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/cmp-200",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/fbl-200",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/fbl-300",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/fht2300-series",
+    "images": 14,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 15,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ts200-series",
+    "images": 12,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 13,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/d4330-metal-detector",
+    "images": 15,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 16,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ai-35",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/sf-1000",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ai-15l",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ai-70",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/bio-70",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/f-12-slave",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/20k-fp",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/fp-padlock",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/door-interlock-system",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/door-interlock-card-mb01",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/em-lock-600lbs",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ines33-exit-switch",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/innte33-no-touch-switch",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/tripod-barrier-heavy",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/surface-bolt-lock",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/face-ai-80-pro",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/f1000-series-flap-barrier",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/flp-600lbs-feedback-lock",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/flp-gs03",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/gs03-go-stop-push-button",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/ind-300sb",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/stc-100",
+    "images": 11,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 12,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/easytime-online",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/hrms-payroll",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/canteen-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/hexin-mediaa-wave",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/core-hr-payroll",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/claim-reimbursement",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/document-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/employee-asset",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/hris-payroll",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/leave-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/time-attendance",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/employee-self-service",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/performance-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/training-induction",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/fixed-asset",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/employee-onboarding",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/exit-process",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/recruitment",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/attendance-automation",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/multi-location-attendance",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/physical-access-control",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "images": 57,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 57,
+    "status": "PASS"
+  },
+  {
+    "route": "/knowledge",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights",
+    "images": 10,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 11,
+    "status": "PASS"
+  },
+  {
+    "route": "/visitor-management-system",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/visitor-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/visitor-security",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/entrance-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/canteen-operations",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/manufacturing",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/chemical",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/textile",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/engineering",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/food",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/service-provider",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/corporate",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/pharma",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/healthcare",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/education",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/construction",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/government",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/banking",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/logistics",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/retail",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/hospitality",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/contract-workforce-management-auditable-model",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/biometric-access-control-door-interlock-design",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/indian-infotech-publishes-product-planning-guides",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/easytime-cloud-attendance-benefits",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/ai-in-production-lines",
+    "images": 6,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 7,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 5,
+    "status": "PASS"
+  },
+  {
+    "route": "/search",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/about",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/contract-labour-management",
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 6,
+    "status": "PASS"
+  },
+  {
+    "route": "/not-a-real-route",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/not-a-valid-product",
+    "images": 0,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/software/not-a-valid-software",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/hrms-payroll/not-a-valid-module",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/industries/not-a-valid-industry",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/solutions/not-a-valid-solution",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/insights/not-a-valid-post",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/access-control",
+    "images": 21,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 22,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/attendance",
+    "images": 14,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 15,
+    "status": "PASS"
+  },
+  {
+    "route": "/products/entrance-management",
+    "images": 14,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 15,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies/not-a-valid-story",
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "broken": [],
+    "decoded": 4,
+    "status": "PASS"
+  }
+]

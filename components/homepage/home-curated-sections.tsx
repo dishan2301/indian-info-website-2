@@ -83,15 +83,21 @@ export function CompanyOverview() {
   const travellingLogo = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (window.matchMedia('(max-width: 760px)').matches) return;
     const sourceLogo = document.querySelector<HTMLElement>('.site-header .brand');
     const destination = destinationLogo.current;
     const traveller = travellingLogo.current;
-    if (!sourceLogo || !destination || !traveller || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!sourceLogo || !destination || !traveller) return;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     let frame = 0;
     const update = () => {
       frame = 0;
+      if (window.innerWidth <= 760 || motion.matches) {
+        sourceLogo.removeAttribute('data-logo-travelling');
+        destination.style.opacity = '';
+        traveller.style.opacity = '0';
+        return;
+      }
       const source = sourceLogo.getBoundingClientRect();
       const target = destination.getBoundingClientRect();
       const targetTop = target.top + window.scrollY;
@@ -116,10 +122,16 @@ export function CompanyOverview() {
     update();
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
+    motion.addEventListener('change', schedule);
+    const observer = new ResizeObserver(schedule);
+    observer.observe(sourceLogo);
+    observer.observe(destination);
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(frame);
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', schedule);
+      motion.removeEventListener('change', schedule);
       sourceLogo.removeAttribute('data-logo-travelling');
       destination.style.opacity = '';
     };

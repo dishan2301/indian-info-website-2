@@ -1,0 +1,386 @@
+[
+  {
+    "route": "/",
+    "factor": 1,
+    "images": 57,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 1,
+    "images": 39,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 1,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "factor": 1.25,
+    "images": 57,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 1.25,
+    "images": 39,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 1.25,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "factor": 1.5,
+    "images": 57,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 1.5,
+    "images": 39,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 1.5,
+    "images": 5,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "factor": 1.75,
+    "images": 56,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 1.75,
+    "images": 38,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 1.75,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "factor": 2,
+    "images": 56,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 2,
+    "images": 38,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 2,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/",
+    "factor": 3,
+    "images": 55,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/products",
+    "factor": 3,
+    "images": 38,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/about-us",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/contact",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/careers",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/platform",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/solution-builder",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  },
+  {
+    "route": "/case-studies",
+    "factor": 3,
+    "images": 4,
+    "issues": [],
+    "overflow": 0,
+    "status": "PASS"
+  }
+]

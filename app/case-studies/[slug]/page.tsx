@@ -8,6 +8,8 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { approvedCaseStudies } from '../../proof-content';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() { return approvedCaseStudies.map(({ slug }) => ({ slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

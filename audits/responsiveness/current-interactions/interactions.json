@@ -1,0 +1,194 @@
+[
+  {
+    "name": "menu 320x568",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 320",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 320",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 320",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 320",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 320",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 320",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 320",
+    "status": "PASS"
+  },
+  {
+    "name": "menu 736x360",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 736",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 736",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 736",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 736",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 736",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 736",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 736",
+    "status": "PASS"
+  },
+  {
+    "name": "menu 768x800",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 768",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 768",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 768",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 768",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 768",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 768",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 768",
+    "status": "PASS"
+  },
+  {
+    "name": "menu 1024x768",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 1024",
+    "status": "PASS"
+  },
+  {
+    "name": "menu 1366x768",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 1366",
+    "status": "PASS"
+  },
+  {
+    "name": "menu 1920x1080",
+    "status": "PASS"
+  },
+  {
+    "name": "catalogue empty, filters, comparison 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "search results and empty 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "contact validation, mocked error and success 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "builder selection 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "resources empty, filter and ROI 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "support empty and filters 1920",
+    "status": "PASS"
+  },
+  {
+    "name": "homepage carousel controls and reduced motion 1920",
+    "status": "PASS"
+  }
+]

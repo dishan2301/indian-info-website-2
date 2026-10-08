@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const workforceScenes = [
   { title: 'Contract Labour Management System', eyebrow: 'Workforce operations', text: 'Coordinate contractor teams, attendance, shifts, and workforce visibility across your sites.', image: '/campaign/product-moments/contract-workforce-v3.png', alt: 'A supervisor coordinating contractors beside Indian Infotech branded entrance control devices at a manufacturing campus', href: '/contract-labour-management', cta: 'Explore contract labour management' },
@@ -19,12 +19,43 @@ function ScreenTitle({ index, title }: { index: number; title: string }) {
 }
 
 export function HeroPoster() {
+  const hero = useRef<HTMLElement>(null);
   const [activePanel, setActivePanel] = useState(0);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
 
   useEffect(() => {
-    const mobile = window.matchMedia('(max-width: 760px)');
+    const node = hero.current;
+    if (!node) return;
+    let frame = 0;
+    let disposed = false;
+    const measure = () => {
+      frame = 0;
+      const copy = node.querySelector<HTMLElement>('[data-active="true"] .workforce-screen-card-copy');
+      if (!copy) return;
+      const top = parseFloat(getComputedStyle(copy).top) || 0;
+      const verticalTitles = [...node.querySelectorAll<HTMLElement>('.workforce-screen-title')].filter((title) => getComputedStyle(title).writingMode === 'vertical-rl');
+      const height = `${Math.ceil(Math.max(top + copy.scrollHeight + 32, ...verticalTitles.map((title) => title.scrollHeight + 32)))}px`;
+      if (node.style.getPropertyValue('--hero-content-height') !== height) node.style.setProperty('--hero-content-height', height);
+    };
+    const schedule = () => { if (!disposed && !frame) frame = requestAnimationFrame(measure); };
+    const observer = new ResizeObserver(schedule);
+    node.querySelectorAll('.workforce-screen-grid, .workforce-screen-card-copy').forEach((element) => observer.observe(element));
+    window.addEventListener('resize', schedule);
+    window.visualViewport?.addEventListener('resize', schedule);
+    document.fonts.ready.then(schedule);
+    schedule();
+    return () => {
+      disposed = true;
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', schedule);
+      window.visualViewport?.removeEventListener('resize', schedule);
+    };
+  }, []);
+
+  useEffect(() => {
+    const mobile = window.matchMedia('(max-width: 760px) and (hover: none) and (pointer: coarse)');
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer: number | undefined;
     const sync = () => {
@@ -42,7 +73,7 @@ export function HeroPoster() {
     };
   }, [hovered, focused]);
 
-  return <section className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
+  return <section ref={hero} className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
     <div className="workforce-screen-grid" aria-label="Explore workforce systems" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
       {workforceScenes.map((scene, index) => <Link className="workforce-screen-card" data-active={activePanel === index} data-more={index === 4} data-scene={['contract-labor', 'hrms-payroll', 'entrance-control', 'door-interlock', 'workplace-software'][index]} href={scene.href} onMouseEnter={() => setActivePanel(index)} onFocus={() => setActivePanel(index)} onClick={() => setActivePanel(index)} key={scene.title}>
         <Image src={scene.image} alt={scene.alt} fill sizes={activePanel === index ? '(max-width: 760px) 100vw, 68vw' : '(max-width: 760px) 100vw, 10vw'} quality={82} priority={index === 0} />

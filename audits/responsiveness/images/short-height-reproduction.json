@@ -1,0 +1,8 @@
+{
+  "viewport": {
+    "width": 512,
+    "height": 300
+  },
+  "deviceScaleFactor": 2,
+  "note": "The before image recreates the measured pre-fix 292px hero height. The after image uses the final responsive height calculation. These are layout diagnostic screenshots, not native browser zoom screenshots."
+}
