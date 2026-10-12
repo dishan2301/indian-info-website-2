@@ -6,15 +6,15 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
+    "dev": "next dev -p 3001",
+    "build": "next build",
     "build:vercel": "next build",
     "check:seo": "node --test tests/seo.test.mjs",
     "audit:seo": "node tests/rendered-seo-audit.mjs",
     "check:security": "node --test tests/security.test.mjs",
     "check:readiness": "node --test tests/readiness.test.mjs tests/roi.test.mjs tests/product-comparison.test.mjs",
-    "start": "vinext start",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
+    "start": "next start -p 3001",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.15",
@@ -28,23 +28,12 @@
     "source-map-js": "^1.2.2"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.62.0",
-    "@cloudflare/workers-types": "5.20260825.1",
-    "@openai/sites-vite-plugin": "0.2.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.2",
-    "@vitejs/plugin-rsc": "0.5.34",
-    "eslint": "9.39.4",
-    "eslint-config-next": "16.3.2",
-    "react-server-dom-webpack": "19.2.8",
     "tailwindcss": "4.2.1",
-    "typescript": "5.9.3",
-    "vinext": "1.0.0-beta.8",
-    "vite": "8.2.2",
-    "wrangler": "4.125.0"
+    "typescript": "5.9.3"
   },
   "type": "module"
 }

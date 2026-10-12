@@ -67,6 +67,18 @@ test('frontend source has no silent network-transmission sink', () => {
   assert.match(readFileSync('app/privacy/page.tsx', 'utf8'), /through FormSubmit, a third-party form-delivery service/u);
 });
 
+test('raw HTML injection is limited to the escaped structured-data component', () => {
+  const files = ['app', 'components', 'lib'].flatMap(filesWithin).filter((path) => ['.js', '.mjs', '.ts', '.tsx'].includes(extname(path)));
+  for (const path of files) {
+    const source = readFileSync(path, 'utf8');
+    if (path === 'components/structured-data.tsx') {
+      assert.match(source, /dangerouslySetInnerHTML=\{\{ __html: serializeStructuredData\(data\) \}\}/u);
+      continue;
+    }
+    assert.doesNotMatch(source, /dangerouslySetInnerHTML|\binnerHTML\s*=|\bouterHTML\s*=/u, `${path} introduced a raw HTML injection sink`);
+  }
+});
+
 test('public build contains no source maps, environment files, or workspace paths', { skip: !existsSync('dist/client') }, () => {
   const files = filesWithin('dist/client');
   assert.equal(files.some((path) => path.endsWith('.map') || /(^|\/)\.env(?:\.|$)|(^|\/)\.git(?:\/|$)/u.test(path)), false);
