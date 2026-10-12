@@ -41,6 +41,8 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
   const subject = `${key} ${title.toLowerCase()}`;
   const campaignMedia = key.includes('contact')
     ? { desktop: '/campaign/company/contact-desktop-v1.png', mobile: '/campaign/company/contact-mobile-v1.png', tone: 'light' as const }
+    : key.includes('insights') || key.includes('news')
+      ? { desktop: '/campaign/hero/insights-desktop-v1.png', mobile: '/campaign/hero/insights-mobile-v1.png', tone: 'light' as const }
     : key.includes('about')
       ? { desktop: '/campaign/company/about-desktop-v1.png', mobile: '/campaign/company/about-mobile-v1.png', tone: 'light' as const }
       : subject.includes('hrms') || subject.includes('payroll') || subject.includes('employee self')
