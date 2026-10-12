@@ -2906,8 +2906,9 @@ button, input, select, textarea { max-width: 100%; }
 .workforce-screen-card[data-scene='hrms-payroll'] img { object-position: 34% center; }
 .workforce-screen-card[data-scene='entrance-control'] img { object-position: 50% center; }
 .workforce-screen-card[data-scene='door-interlock'] img { object-position: 52% center; }
-.workforce-screen-card[data-scene='workplace-software'] img { object-position: 0% center; }
+.workforce-screen-card[data-scene='workplace-software'] img { object-position: 50% center; }
 .workforce-screen-card::after { background: transparent; content: ''; inset: 0; position: absolute; }
+.workforce-screen-card[data-scene='workplace-software']::after { background: linear-gradient(180deg, rgba(3,14,25,.82), rgba(3,14,25,.5) 45%, transparent 75%); }
 .workforce-screen-card-copy { bottom: auto; display: grid; gap: .65rem; left: 0; padding: clamp(1rem,2vw,2rem); position: absolute; right: 0; text-shadow: 0 1px 3px rgba(3,14,21,.72); top: var(--hero-copy-top); z-index: 1; }
 .workforce-screen-card-copy small { color: #fff; font-family: var(--font-geist-mono),monospace; font-size: .68rem; font-weight: 800; letter-spacing: .1em; opacity: 1; text-shadow: 0 1px 5px rgba(3,14,21,.9); text-transform: uppercase; }
 .workforce-screen-card-copy .workforce-screen-title { color: #fff !important; font-size: clamp(.95rem,2vw,2rem); font-weight: 800; line-height: 1.05; margin: 0; max-width: 24ch; min-width: 0; text-wrap: balance; }

@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: Indian Infotech homepage fifth carousel banner, wide landscape 16:9.
+Primary request: Create a masterfully composed Picasso-inspired Cubist painting of connected workplace technology, expressive and sophisticated yet immediately understandable as biometric attendance, visitor management and employee canteen management.
+Scene/backdrop: One coherent modern Indian corporate campus interior, with three connected operating moments flowing through architectural planes: an employee presenting their face to a wall-mounted biometric attendance terminal, a guest scanning a QR code on a reception kiosk, and a canteen cashier serving an employee holding a food tray beside a card reader.
+Style/medium: Contemporary fine-art Cubism inspired by Picasso: confident angular forms, intersecting planes, expressive hand-painted textures and restrained geometric human figures. Elegant commercial editorial artwork, readable technology objects, artful rather than cartoonish.
+Composition/framing: Cinematic landscape; main people and devices in upper and middle two-thirds; quieter dark lower third for existing website text overlay. Cohesive scene, no panel borders, no infographic, no floating software windows.
+Color palette: Deep midnight navy, cobalt blue, teal, warm ivory, restrained burnt-orange accents.
+Lighting/mood: Optimistic, premium, thoughtfully human, rhythmic architectural light.
+Constraints: No text, letters, numerals, logos or watermark. Devices must be recognizable, clean and physically plausible. No facial distortion that feels frightening. No generic office meeting or unrelated laptop scene.
+
+Generation mode: built-in image_gen.
+Asset: public/campaign/product-moments/connected-workplace-cubist-v1.png
