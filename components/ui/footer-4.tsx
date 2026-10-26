@@ -6,7 +6,7 @@ import { companyProfile } from "@/lib/company-profile"
 
 const columns = [
   { title: "Products", links: [["All products", "/products"], ["Attendance devices", "/products/attendance"], ["Access control devices", "/products/access-control"], ["Entrance management", "/products/entrance-management"], ["Compare products", "/compare"]] },
-  { title: "Solutions", links: [["All solutions", "/solutions"], ["Attendance automation", "/platform#workforce"], ["Access control", "/platform#security"], ["Visitor operations", "/software/visitor-management"], ["Canteen operations", "/software/canteen-management"]] },
+  { title: "Solutions", links: [["All solutions", "/solutions"], ["Attendance automation", "/solutions/attendance-automation"], ["Access control", "/solutions/physical-access-control"], ["Visitor operations", "/solutions/visitor-security"], ["Canteen operations", "/solutions/canteen-operations"]] },
   { title: "Software", links: [["All software", "/software"], ["Easytime Online", "/software/easytime-online"], ["HRMS & Payroll", "/software/hrms-payroll"], ["Visitor Management", "/software/visitor-management"], ["Canteen Management", "/software/canteen-management"]] },
   { title: "Company", links: [["About us", "/about-us"], ["Partners", "/partners"], ["Case studies", "/case-studies"], ["Testimonials", "/testimonials"], ["Insights", "/insights"]] },
   { title: "Resources", links: [["Support", "/support"], ["Resources", "/resources"], ["Knowledge Center", "/knowledge"], ["Engineering", "/engineering"], ["Contact Us", "/contact"]] },

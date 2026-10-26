@@ -13,7 +13,7 @@ const strengths = ['Comprehensive HRMS Solutions', 'Robust Access Control System
 export default function AboutPage() {
   return <main>
     <SiteHeader />
-    <PageHero eyebrow="About us" title="Inventing Tomorrow’s Infotech Today" description="Founded in 2011, Indian Infotech has established itself as a prominent leader in Human Resource Management Systems and access control technologies." marker="II / SINCE 2011" />
+    <PageHero eyebrow="About us" title="Inventing Tomorrow’s Indian Infotech Today" description="Founded in 2011, Indian Infotech has established itself as a prominent leader in Human Resource Management Systems and access control technologies." marker="II / SINCE 2011" />
 
     <section className="about-story about-origin">
       <div><p className="section-kicker">Indian Infotech</p><h2>Advanced, secure, and intuitive workplace technology.</h2></div>

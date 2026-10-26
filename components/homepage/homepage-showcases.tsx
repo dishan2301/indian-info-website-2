@@ -26,13 +26,13 @@ function AutoTrack({ children, className = '' }: { children: React.ReactNode; cl
 
 type TechnologyItem = { title: string; text: string; image: string; href: string; status?: string };
 const technologyItems: readonly TechnologyItem[] = [
-  { title: 'Face recognition', text: 'Published across AI-series attendance and access-control products.', image: '/products/ai-60/detail.png', href: '/technologies#identity' },
-  { title: 'Fingerprint recognition', text: 'Published across access-control and attendance device offerings.', image: '/products/i-18.jpg', href: '/technologies#identity' },
-  { title: 'RFID / card authentication', text: 'Review credential and access requirements during solution design.', image: '/products/is-500/main.png', href: '/technologies#identity' },
-  { title: '3D structured-light facial recognition', text: 'Technology topic for technical review; product availability must be confirmed.', image: '/technology/ai-structured-light.webp', href: '/technologies#identity', status: 'Review topic' },
-  { title: 'Finger vein recognition', text: 'Technology topic for technical review; not presented as a published product claim.', image: '/products/ai-60/source-detail.png', href: '/technologies#identity', status: 'Review topic' },
-  { title: 'Controlled entrance technology', text: 'Flap barriers, turnstiles, boom barriers, and screening equipment.', image: '/products/fbl-300/main.png', href: '/technologies#connected-systems' },
-  { title: 'Attendance workflow technology', text: 'Device capture, software review, shifts, leave, and operational records.', image: '/products/mini-ai-10/front.png', href: '/technologies#workflow' },
+  { title: 'Face recognition', text: 'Published across AI-series attendance and access-control products.', image: '/products/ai-60/detail.png', href: '/technologies' },
+  { title: 'Fingerprint recognition', text: 'Published across access-control and attendance device offerings.', image: '/products/i-18.jpg', href: '/technologies' },
+  { title: 'RFID / card authentication', text: 'Review credential and access requirements during solution design.', image: '/products/is-500/main.png', href: '/technologies' },
+  { title: '3D structured-light facial recognition', text: 'Technology topic for technical review; product availability must be confirmed.', image: '/technology/ai-structured-light.webp', href: '/technologies', status: 'Review topic' },
+  { title: 'Finger vein recognition', text: 'Technology topic for technical review; not presented as a published product claim.', image: '/products/ai-60/source-detail.png', href: '/technologies', status: 'Review topic' },
+  { title: 'Controlled entrance technology', text: 'Flap barriers, turnstiles, boom barriers, and screening equipment.', image: '/products/fbl-300/main.png', href: '/technologies' },
+  { title: 'Attendance workflow technology', text: 'Device capture, software review, shifts, leave, and operational records.', image: '/products/mini-ai-10/front.png', href: '/technologies' },
 ];
 
 export function TechnologyShowcase() { return <section className="home-showcase home-technology-showcase" aria-labelledby="home-technology-title"><div className="showcase-heading"><p className="section-kicker">Technology</p><h2 id="home-technology-title">Identity and entry technology, shown with evidence status.</h2><p>Explore published capability and clearly marked technical review topics.</p><Link className="outline-link" href="/technologies">Explore technologies ↗</Link></div><AutoTrack>{technologyItems.map((item) => <Link className="showcase-card" href={item.href} key={item.title}><Image src={item.image} alt={`${item.title} technology illustration`} width={420} height={300} /><div><span>{item.status ?? 'Published portfolio'}</span><h3>{item.title}</h3><p>{item.text}</p><b>View technology ↗</b></div></Link>)}</AutoTrack></section>; }

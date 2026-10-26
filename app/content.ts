@@ -383,7 +383,7 @@ export const industries: readonly Industry[] = [
   {
     name: 'Manufacturing',
     description: 'Shift attendance, gate operations, contractor movement, and access.',
-    href: '/platform#industries',
+    href: '/industries/manufacturing',
   },
   {
     name: 'Chemical',
@@ -398,7 +398,7 @@ export const industries: readonly Industry[] = [
   {
     name: 'Corporate offices',
     description: 'Visitor, access, attendance, and employee operations.',
-    href: '/platform#industries',
+    href: '/industries/corporate',
   },
   {
     name: 'Food industries',

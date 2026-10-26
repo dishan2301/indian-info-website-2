@@ -19,7 +19,7 @@ export function proxy(request: NextRequest) {
   }
 
   const legacyDestination = legacyRedirectMap.get(request.nextUrl.pathname);
-  if (legacyDestination) return secure(NextResponse.redirect(new URL(legacyDestination, request.url), 301), policy);
+  if (legacyDestination) return secure(NextResponse.redirect(new URL(`${legacyDestination}${request.nextUrl.search}`, request.url), 301), policy);
 
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('Content-Security-Policy', policy);

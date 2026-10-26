@@ -7,7 +7,7 @@ type SupportItem = { title: string; description: string; category: 'Products' | 
 
 const supportItems: readonly SupportItem[] = [
   { title: 'Product manuals', description: 'Request the approved installation or user manual for the exact product and configuration.', category: 'Products', type: 'Manual', href: '/contact?topic=support&resource=manual' },
-  { title: 'Product datasheets', description: 'Request the current datasheet for the selected model or product family.', category: 'Products', type: 'Guide', href: '/resources' },
+  { title: 'Product datasheets', description: 'Request the current datasheet for the selected model or product family.', category: 'Products', type: 'Guide', href: '/contact?topic=support&resource=datasheet' },
   { title: 'Drivers and firmware', description: 'Availability and version must be checked against the installed device before release.', category: 'Products', type: 'Driver', href: '/contact?topic=support&resource=driver' },
   { title: 'Firmware requests', description: 'Firmware is supplied only after model, version, and support ownership are confirmed.', category: 'Products', type: 'Firmware', href: '/contact?topic=support&resource=firmware' },
   { title: 'Software setup guidance', description: 'Start with the software workflow, device context, and rollout requirements.', category: 'Software', type: 'Guide', href: '/software' },

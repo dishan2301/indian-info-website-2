@@ -13,9 +13,9 @@ const familySlug = (family: string) => family.toLowerCase().replace(/\s+/g, '-')
 const productGroups = [{ title: 'Product categories', links: productFamilies.map((family) => ({ label: family, href: `/products/${familySlug(family)}` })) }, { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Compare products', href: '/compare' }, { label: 'Product guidance', href: '/resources' }] }] as const;
 
 const solutionGroups = [
-  { title: 'Workforce operations', links: [{ label: 'Attendance automation', href: '/platform#workforce' }, { label: 'HR & payroll workflows', href: '/software/hrms-payroll' }] },
-  { title: 'Physical access', links: [{ label: 'Access control', href: '/platform#security' }, { label: 'Entrance management', href: '/products#entrance-management' }, { label: 'Visitor security', href: '/software/visitor-management' }] },
-  { title: 'Workplace services', links: [{ label: 'Visitor operations', href: '/software/visitor-management' }, { label: 'Canteen operations', href: '/software/canteen-management' }, { label: 'Solution consultation', href: '/contact' }] },
+  { title: 'Workforce operations', links: [{ label: 'Attendance automation', href: '/solutions/attendance-automation' }, { label: 'HR & payroll workflows', href: '/software/hrms-payroll' }] },
+  { title: 'Physical access', links: [{ label: 'Access control', href: '/solutions/physical-access-control' }, { label: 'Entrance management', href: '/solutions/entrance-management' }, { label: 'Visitor security', href: '/solutions/visitor-security' }] },
+  { title: 'Workplace services', links: [{ label: 'Visitor operations', href: '/software/visitor-management' }, { label: 'Canteen operations', href: '/solutions/canteen-operations' }, { label: 'Solution consultation', href: '/contact' }] },
 ] as const;
 
 const industryLinks = [

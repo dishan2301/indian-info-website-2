@@ -28,8 +28,8 @@ const resources: readonly ResourceItem[] = [
   { title: 'Software platform overview', description: 'Explore Easytime Online, HRMS and Payroll, visitor, and canteen workflows.', type: 'Overview', area: 'Software', href: '/software' },
   { title: 'EasyTime Online published specification', description: 'Download the brochure-sourced limits, verification methods, connectivity, architecture, reporting, and integration scope with configuration caveats.', type: 'Guide', area: 'Software', href: '/software/easytime-online/specification', download: true },
   { title: 'Pharmaceutical workplace systems', description: 'Explore attendance, controlled-entry, visitor, and workforce considerations for pharmaceutical facilities.', type: 'Industry', area: 'Industry', href: '/industries/pharma' },
-  { title: 'AI technology in production lines', description: 'Legacy article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Company', requestHref: '/contact?resource=ai-technology-production-lines' },
-  { title: 'Rent-based cloud attendance management', description: 'Legacy Easytime article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Software', requestHref: '/contact?resource=rent-based-cloud-attendance' },
+  { title: 'AI technology in production lines', description: 'Legacy article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Company', href: '/insights/ai-in-production-lines' },
+  { title: 'Rent-based cloud attendance management', description: 'Legacy Easytime article listing dated 23 August 2024. The original record currently contains no article body and is under editorial review.', type: 'Archived topic', area: 'Software', href: '/insights/easytime-cloud-attendance-benefits' },
 ] as const;
 
 const types = ['All', 'Brochure', 'Case study', 'Whitepaper', 'Guide', 'Tender resource', 'Overview', 'Industry', 'Archived topic'] as const;

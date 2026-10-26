@@ -19,33 +19,33 @@ export default function Home() {
     <HeroPoster />
     <section className="home-journey-section" aria-labelledby="home-primary-heading">
       <div className="home-journey-intro">
-        <p className="section-kicker">Our road so far</p>
-        <h2 id="home-primary-heading">A practical journey from time-office systems to connected workplaces.</h2>
-        <p>Indian Infotech keeps building around the real movement of people, places, and work—from the first entry point to the next operational decision.</p>
+        <p className="section-kicker">Your journey with Indian Infotech</p>
+        <h2 id="home-primary-heading">It starts at your gate. It helps your whole company.</h2>
+        <p>Imagine a growing company with several gates, shifts, employees, contractors, and visitors. Here is how one everyday arrival becomes useful information for the people running it.</p>
       </div>
-      <div className="home-journey-road" aria-label="Indian Infotech company journey">
-        <svg className="home-journey-road-map" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
-          <path className="home-journey-road-base" d="M125 330 C180 330 245 390 375 330 S545 40 625 50 S760 100 875 50" />
-          <path className="home-journey-road-marking" d="M125 330 C180 330 245 390 375 330 S545 40 625 50 S760 100 875 50" />
-        </svg>
+      <div className="home-journey-road" aria-label="Customer journey from devices to workplace operations">
         <ol>
-          <li data-step="01" className="home-journey-stop home-journey-stop-low">
-            <div className="home-journey-image"><Image src="/company/about-banner.webp" alt="Indian Infotech workplace systems" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">2011 · Ahmedabad</span><h3>We started with a simple hope.</h3><p>To help workplaces become safer, more secure, and easier for people to run every day.</p></div>
+          <li data-step="01" className="home-journey-stop">
+            <div className="home-journey-image"><Image src="/products/face-ai-80-pro/product-render-v1.png" alt="Biometric attendance and access device" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-copy"><span className="home-journey-year">First, we listen</span><h3>“We need to know who is coming in.”</h3><p>You tell us about your gates, people, shifts, and current challenges. Together, we choose the devices that fit each entry point.</p><Link href="/products">See the devices <span aria-hidden="true">↗</span></Link></div>
           </li>
-          <li data-step="02" className="home-journey-stop home-journey-stop-low">
-            <div className="home-journey-image"><Image src="/campaign/core-systems/easy-visit-desktop-v2.webp" alt="Visitor management at a modern workplace entrance" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">The next turn · Connected workplaces</span><h3>One useful system became many connected solutions.</h3><p>Attendance, visitors, access, entrance management, and workplace services began working together.</p></div>
+          <li data-step="02" className="home-journey-stop">
+            <div className="home-journey-image"><Image src="/campaign/core-systems/entrance-control-desktop-v2.webp" alt="Workplace entrance with controlled access" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-copy"><span className="home-journey-year">Then, at your site</span><h3>The devices go where work begins.</h3><p>We place attendance and access devices at the gates and doors people actually use, with entry rules planned for your site.</p><Link href="/solutions/entrance-management">See entrance systems <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="03" className="home-journey-stop">
-            <div className="home-journey-image home-journey-image-certification"><Image src="/iso-9001-certified.webp" alt="ISO 9001 certified" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">A mark of trust · ISO 9001</span><h3>We put quality into the way we deliver.</h3><p>Certification gave our customers another reason to trust the process behind the promise.</p><Link href="/certification">See what it means <span aria-hidden="true">↗</span></Link></div>
+            <div className="home-journey-image"><Image src="/campaign/solutions/attendance-desktop-v2.webp" alt="Employee using attendance at a workplace" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-copy"><span className="home-journey-year">Every working day</span><h3>People arrive. The record starts.</h3><p>An employee clocks in for a shift. A contractor enters an approved area. Visitors follow their own check-in path.</p><Link href="/solutions/attendance-automation">See attendance flow <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="04" className="home-journey-stop">
-            <div className="home-journey-image"><Image src="/campaign/hero/workforce-desktop-v2.webp" alt="Connected workforce operations for growing organizations" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">Today · 2,500+ clients · 7+ countries</span><h3>Now, the road is shared by growing organizations.</h3><p>What began with one belief now supports teams across industries and countries—and we are still moving forward.</p><Link href="/contact">Start your next step <span aria-hidden="true">↗</span></Link></div>
+            <div className="home-journey-image"><Image src="/campaign/core-systems/easytime-desktop-v2.webp" alt="Workforce attendance software" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-copy"><span className="home-journey-year">In one place</span><h3>Your team can see what happened.</h3><p>Easytime Online gathers attendance across locations. Managers review shifts, leave, missed punches, and reports before using the records further.</p><Link href="/software/easytime-online">Explore Easytime <span aria-hidden="true">↗</span></Link></div>
           </li>
         </ol>
+      </div>
+      <div className="home-journey-outcomes">
+        <div><span className="home-journey-year">After review</span><h3>One source of information. The right view for each team.</h3><p>Approved records can support the next part of your operation, according to the modules and integrations your company uses.</p></div>
+        <div className="home-journey-outcome-links"><Link href="/hrms-payroll"><strong>HR &amp; payroll</strong><span>People records, attendance, and payroll inputs ↗</span></Link><Link href="/contract-labour-management"><strong>Contract labour</strong><span>Rosters, site attendance, and approvals ↗</span></Link><Link href="/solutions/entrance-management"><strong>Entrance management</strong><span>Controlled movement at gates and doors ↗</span></Link></div>
       </div>
     </section>
     <CompanyOverview />

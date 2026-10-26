@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: careers page hero image, wide 16:9 landscape for a modern technology company.
+Primary request: Create a warm, premium editorial illustration of a diverse Indian technology team building real workplace systems together: one engineer testing a biometric attendance terminal, one software developer reviewing a workforce dashboard on a large monitor, and one field engineer examining an access control reader prototype. The scene should clearly communicate purposeful careers at Indian Infotech.
+Scene/backdrop: Bright Indian product engineering studio with a subtle glimpse of a factory or office entrance through glass; worktables, prototypes, cables, sketches and a few plants.
+Style/medium: Sophisticated contemporary painterly illustration with subtle Cubist geometry, tactile brush texture, clean professional art direction, human and optimistic; not stock photography, not generic corporate meeting.
+Composition/framing: Wide banner; people and devices concentrated on the right half and center; leave darker, calm negative space on the left for white headline text. Natural depth and believable scale.
+Lighting/mood: Morning light, energetic collaboration, craft, curiosity, trust.
+Color palette: Indian Infotech deep navy and teal with warm ivory, cobalt blue and restrained lime accents.
+Constraints: No readable text, logos, letters, numbers, watermark, floating UI panels, or unrelated office clichés. Show recognizable biometric/access devices and practical engineering work.
+
+Generation mode: built-in image_gen.
+Asset: public/campaign/hero/careers-workplace-v1.png

@@ -57,7 +57,7 @@ export default function CareersPage() {
         <div className={styles.heroNote}><span className={styles.noteDot} /> Ahmedabad roots <i aria-hidden="true">·</i> Ideas with reach</div>
       </div>
       <div className={styles.heroVisual}>
-        <Image src="/campaign/hero/workforce-desktop-v2.webp" alt="Colleagues arriving at a modern workplace with connected access technology" fill priority sizes="(max-width: 760px) 100vw, 52vw" />
+        <Image src="/campaign/hero/careers-interview-v5.png" alt="Job candidate in a black suit and tie with a portfolio being welcomed at an office reception" fill priority sizes="(max-width: 760px) 100vw, 52vw" />
         <div className={styles.imageFade} aria-hidden="true" />
         <div className={styles.imageCaption}><span className={styles.captionIcon}><Lightbulb aria-hidden="true" size={19} /></span><span><b>Real challenges.</b><small>Room to make a difference.</small></span><ArrowUpRight aria-hidden="true" size={17} /></div>
         <span className={styles.imageOrb} aria-hidden="true" />
