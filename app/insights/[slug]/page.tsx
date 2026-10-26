@@ -7,10 +7,12 @@ import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { insights } from '../content';
-import { getPublishedInsight } from '@/lib/sanity/content';
 import { ArticleBody } from '@/components/article-body';
 import { ArticlePortableText } from '@/components/article-portable-text';
-import { canonicalSlug, getAllInsights } from '@/lib/insights';
+import { articlePath, canonicalSlug, getPublishedArticles, getPublishedArticleBySlug } from '@/lib/insights';
+
+export const dynamicParams = true;
+export const revalidate = 60;
 
 export function generateStaticParams() { return insights.map((article) => ({ slug: article.slug })); }
 
@@ -18,23 +20,23 @@ export function generateStaticParams() { return insights.map((article) => ({ slu
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug: routeSlug } = await params;
   const slug = canonicalSlug(routeSlug);
-  const cmsArticle = insights.some((item) => item.slug === slug) ? null : await getPublishedInsight(slug);
-  if (cmsArticle) return createPageMetadata({ title: cmsArticle.seo?.title || cmsArticle.title, description: cmsArticle.seo?.description || cmsArticle.summary, path: `/insights/${slug}`, image: cmsArticle.mainImage?.asset?.url || null, type: 'article', noIndex: cmsArticle.seo?.noIndex === true });
-  const article = insights.find((item) => item.slug === slug);
-  return article ? createPageMetadata({ title: article.title, description: article.summary, path: `/insights/${article.slug}`, image: article.image, type: 'article' }) : {};
+  const article = await getPublishedArticleBySlug(slug);
+  return article ? createPageMetadata({title: article.seo?.title || article.title, description: article.seo?.description || article.summary, path: articlePath(article.slug), image: article.image || null, type: 'article', noIndex: article.seo?.noIndex === true}) : {};
 }
 
 export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug: routeSlug } = await params;
   const slug = canonicalSlug(routeSlug);
-  const cmsArticle = insights.some((item) => item.slug === slug) ? null : await getPublishedInsight(slug);
-  const allArticles = await getAllInsights();
+  const publishedArticle = await getPublishedArticleBySlug(slug);
+  if (!publishedArticle) notFound();
+  const cmsArticle = publishedArticle.source === 'sanity' ? publishedArticle : null;
+  const allArticles = await getPublishedArticles();
   const related = allArticles.filter((item) => item.slug !== slug).slice(0, 3);
   if (cmsArticle) {
-    const image = cmsArticle.mainImage?.asset?.url;
-    return <main><SiteHeader /><StructuredData data={{'@context': 'https://schema.org', '@type': cmsArticle._type === 'companyNews' ? 'NewsArticle' : 'BlogPosting', headline: cmsArticle.title, description: cmsArticle.summary, datePublished: cmsArticle.publishedAt, mainEntityOfPage: absoluteUrl(`/insights/${slug}`), ...(image ? {image} : {}), author: {'@type': 'Organization', name: cmsArticle.author?.name || 'Indian Infotech Editorial Team'}, publisher: {'@type': 'Organization', name: 'Indian Infotech'} }} /><PageHero eyebrow={`${cmsArticle._type === 'companyNews' ? 'Company update' : cmsArticle._type === 'researchArticle' ? 'Research article' : 'Blog'} · ${new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}`} title={cmsArticle.title} description={cmsArticle.summary} marker="II / ARTICLE" breadcrumbs={[{label: 'News & insights', href: '/insights'}, {label: cmsArticle.title}]} path={`/insights/${slug}`} /><ArticleBody image={image ? {src: image, alt: cmsArticle.mainImage?.alt || ''} : undefined}><p className="insight-byline">By {cmsArticle.author?.name || 'Indian Infotech Editorial Team'} · Published {new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}</p>{cmsArticle.body?.length ? <ArticlePortableText value={cmsArticle.body} /> : <p>This article has been published without body content yet.</p>}<section aria-labelledby="related-insights-title"><h2 id="related-insights-title">Related insights</h2><div className="route-link-list">{related.map((item) => <Link href={`/insights/${item.slug}`} key={item.slug}>{item.title}<span aria-hidden="true">↗</span></Link>)}</div></section><Link className="text-link" href="/insights">← All news & insights</Link></ArticleBody><SiteFooter /></main>;
+    const image = cmsArticle.image;
+    return <main><SiteHeader /><StructuredData data={{'@context': 'https://schema.org', '@type': cmsArticle.category === 'Company update' ? 'NewsArticle' : 'BlogPosting', headline: cmsArticle.title, description: cmsArticle.summary, datePublished: cmsArticle.publishedAt, mainEntityOfPage: absoluteUrl(`/insights/${slug}`), ...(image ? {image} : {}), author: {'@type': 'Organization', name: cmsArticle.author?.name || 'Indian Infotech Editorial Team'}, publisher: {'@type': 'Organization', name: 'Indian Infotech'} }} /><PageHero eyebrow={`${cmsArticle.category === 'Company update' ? 'Company update' : cmsArticle.category === 'Research article' ? 'Research article' : 'Blog'} · ${cmsArticle.date}`} title={cmsArticle.title} description={cmsArticle.summary} marker="II / ARTICLE" breadcrumbs={[{label: 'News & insights', href: '/insights'}, {label: cmsArticle.title}]} path={`/insights/${slug}`} /><ArticleBody image={image ? {src: image, alt: cmsArticle.imageAlt} : undefined}><p className="insight-byline">By {cmsArticle.author?.name || 'Indian Infotech Editorial Team'} · Published {cmsArticle.date}</p>{cmsArticle.body?.length ? <ArticlePortableText value={cmsArticle.body} /> : <p>This article has been published without body content yet.</p>}<section aria-labelledby="related-insights-title"><h2 id="related-insights-title">Related insights</h2><div className="route-link-list">{related.map((item) => <Link href={`/insights/${item.slug}`} key={item.slug}>{item.title}<span aria-hidden="true">↗</span></Link>)}</div></section><Link className="text-link" href="/insights">← All news & insights</Link></ArticleBody><SiteFooter /></main>;
   }
-  const article = insights.find((item) => item.slug === slug);
+  const article = publishedArticle.staticArticle;
   if (!article) notFound();
   const datePublished = new Date(article.date).toISOString().slice(0, 10);
   const articleSchema = { '@context': 'https://schema.org', '@type': article.category === 'Company update' ? 'NewsArticle' : 'BlogPosting', articleSection: article.category, headline: article.title, description: article.summary, image: absoluteUrl(article.image), datePublished, dateModified: datePublished, mainEntityOfPage: absoluteUrl(`/insights/${article.slug}`), author: { '@type': 'Organization', name: 'Indian Infotech Editorial Team', url: absoluteUrl('/about-us') }, publisher: { '@type': 'Organization', name: 'Indian Infotech', logo: { '@type': 'ImageObject', url: absoluteUrl('/indian-infotech-logo.png') } } };

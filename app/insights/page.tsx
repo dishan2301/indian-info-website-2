@@ -5,12 +5,12 @@ import { createPageMetadata } from '@/lib/site';
 import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
-import { getAllInsights } from '@/lib/insights';
+import { getPublishedArticles } from '@/lib/insights';
 
 export const metadata: Metadata = createPageMetadata({ title: 'Workforce Technology News & Insights', description: 'Indian Infotech updates and practical guidance on attendance, HRMS, access control, visitors, and workplace technology.', path: '/insights' });
 
 export default async function InsightsPage() {
-  const articles = await getAllInsights();
+  const articles = await getPublishedArticles();
   return <main>
     <SiteHeader />
     <PageHero eyebrow="News & insights" title="Ideas for safer, clearer workplace operations." description="Company updates, product thinking, and practical articles about attendance, access, workforce systems, and connected facilities." marker="II / INSIGHTS" />

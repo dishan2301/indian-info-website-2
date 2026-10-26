@@ -65,7 +65,7 @@ test('new CMS articles render through ArticleBody without regenerating static ro
     '@/components/structured-data': {StructuredData: empty}, '@/lib/site': {absoluteUrl:x=>x,createPageMetadata:x=>x},
     '../../_components/page-hero': {PageHero:empty}, '../../_components/site-header': {SiteHeader:empty}, '../../_components/site-footer': {SiteFooter:empty},
     '../content': {insights}, '@/lib/sanity/content': {getPublishedInsight:async()=>published},
-    '@/lib/insights': {canonicalSlug:x=>x,getAllInsights:async()=>insights},
+    '@/lib/insights': {canonicalSlug:x=>x,articlePath:x=>`/insights/${x}`,getPublishedArticles:async()=>insights,getPublishedArticleBySlug:async()=>published ? {...published,source:'sanity',category:'Blog',date:'1 January 2026',imageAlt:''} : null},
     '@/components/article-body': {ArticleBody}, '@/components/article-portable-text': {ArticlePortableText},
   });
   const props={params:Promise.resolve({slug:'future-published-article'})};

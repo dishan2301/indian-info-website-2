@@ -1,4 +1,4 @@
-import { getAllInsights } from '@/lib/insights';
+import { getLatestArticles } from '@/lib/insights';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export const metadata: Metadata = createPageMetadata({
 export const revalidate = 60;
 
 export default async function Home() {
-  const articles = await getAllInsights();
+  const articles = await getLatestArticles(5);
   return <main id="home">
     <SiteHeader />
     <HeroPoster />
@@ -54,7 +54,7 @@ export default async function Home() {
     </section>
     <CompanyOverview />
     <IndustriesAndClients />
-    <QuotesAndNews articles={articles.slice(0, 5)} />
+    <QuotesAndNews articles={articles} />
     <SiteFooter />
   </main>;
 }

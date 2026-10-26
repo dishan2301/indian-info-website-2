@@ -41,3 +41,7 @@ next-env.d.ts
 
 # Local responsiveness evidence
 /audits/
+
+/studio/node_modules/
+/studio/dist/
+/studio/.sanity/

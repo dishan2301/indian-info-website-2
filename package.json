@@ -16,7 +16,8 @@
     "start": "next start -p 3001",
     "lint": "tsc --noEmit",
     "check:articles": "node --test tests/article-typography.test.mjs tests/insights-integration.test.mjs",
-    "audit:articles": "node tests/article-typography-browser.mjs"
+    "audit:articles": "node tests/article-typography-browser.mjs",
+    "check:publishing": "node --test tests/editorial-publishing.test.mjs tests/article-typography.test.mjs tests/insights-integration.test.mjs"
   },
   "dependencies": {
     "@portabletext/react": "7.0.1",
@@ -25,6 +26,7 @@
     "@radix-ui/react-slot": "^1.3.3",
     "@sanity/client": "^8.11.0",
     "@sanity/image-url": "^2.1.1",
+    "@sanity/webhook": "4.0.4",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "1.34.0",
     "next": "16.4.3",

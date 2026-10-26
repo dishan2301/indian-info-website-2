@@ -1,0 +1,17 @@
+{
+  "type": "document",
+  "name": "Indian Infotech Preview editorial cache",
+  "description": "Preview-only cache invalidation; does not deploy or modify content.",
+  "url": "https://demo-website-git-codex-vercel-cms-preview-dish1.vercel.app/api/sanity/revalidate",
+  "dataset": "production",
+  "httpMethod": "POST",
+  "apiVersion": "v2026-02-01",
+  "includeDrafts": false,
+  "includeAllVersions": false,
+  "isDisabledByUser": false,
+  "rule": {
+    "on": ["create", "update", "delete"],
+    "filter": "coalesce(after()._type, before()._type) in [\"blogPost\", \"companyNews\", \"researchArticle\", \"author\", \"category\"] && !(coalesce(after()._id, before()._id) in path(\"drafts.**\")) && !(coalesce(after()._id, before()._id) in path(\"versions.**\"))",
+    "projection": "{\"projectId\": \"rmgfsayz\", \"dataset\": \"production\", \"_id\": coalesce(after()._id, before()._id), \"_type\": coalesce(after()._type, before()._type), \"operation\": delta::operation(), \"beforeSlug\": before().slug.current, \"afterSlug\": after().slug.current}"
+  }
+}

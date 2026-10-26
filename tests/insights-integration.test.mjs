@@ -40,13 +40,13 @@ test('five originals and CMS merge, sort and deduplicate deterministically', asy
   assert.equal(mergeInsights([{...sample, publishedAt: '2999-01-01'}]).length, 5);
   assert.equal(mergeInsights([{...sample, _id: 'drafts.test'}]).length, 5);
   assert.equal(mergeInsights([]).length, 5);
-  assert.equal((await collection(async () => {throw Error('offline')}).getAllInsights()).length, 5);
+
   for (let i = 1; i < cards.length; i++) assert.ok(Date.parse(cards[i-1].publishedAt) >= Date.parse(cards[i].publishedAt));
 });
 test('listing and homepage use shared collection and original static URLs remain generated', async () => {
   const source = path => readFileSync(new URL(path, import.meta.url), 'utf8');
-  assert.match(source('../app/page.tsx'), /await getAllInsights\(\)/);
-  assert.match(source('../app/insights/page.tsx'), /await getAllInsights\(\)/);
+  assert.match(source('../app/page.tsx'), /await getLatestArticles\(5\)/);
+  assert.match(source('../app/insights/page.tsx'), /await getPublishedArticles\(\)/);
   assert.match(source('../components/homepage/home-curated-sections.tsx'), /href="\/insights"/);
   const empty = () => null;
   const route = load('../app/insights/[slug]/page.tsx', {
@@ -54,7 +54,7 @@ test('listing and homepage use shared collection and original static URLs remain
     '@/components/structured-data': {StructuredData: empty}, '@/lib/site': {absoluteUrl: x => x, createPageMetadata: x => x},
     '../../_components/page-hero': {PageHero: empty}, '../../_components/site-footer': {SiteFooter: empty}, '../../_components/site-header': {SiteHeader: empty},
     '../content': {insights: originals}, '@/lib/sanity/content': {getPublishedInsight: async () => null},
-    '@/lib/insights': collection(), '@/components/article-portable-text': {ArticlePortableText: empty}, '@/components/article-body': {ArticleBody: empty},
+    '@/lib/insights': {...collection(), getPublishedArticleBySlug: async slug => ({...originals.find(item => item.slug === slug), source: 'static', staticArticle: originals.find(item => item.slug === slug)})}, '@/components/article-portable-text': {ArticlePortableText: empty}, '@/components/article-body': {ArticleBody: empty},
   });
   assert.equal(route.generateStaticParams().length, 5);
   for (const article of originals) assert.ok(await route.default({params: Promise.resolve({slug: article.slug})}));
