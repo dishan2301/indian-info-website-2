@@ -54,7 +54,7 @@ test('listing and homepage use shared collection and original static URLs remain
     '@/components/structured-data': {StructuredData: empty}, '@/lib/site': {absoluteUrl: x => x, createPageMetadata: x => x},
     '../../_components/page-hero': {PageHero: empty}, '../../_components/site-footer': {SiteFooter: empty}, '../../_components/site-header': {SiteHeader: empty},
     '../content': {insights: originals}, '@/lib/sanity/content': {getPublishedInsight: async () => null},
-    '@/lib/insights': collection(), '@/components/article-portable-text': {ArticlePortableText: empty},
+    '@/lib/insights': collection(), '@/components/article-portable-text': {ArticlePortableText: empty}, '@/components/article-body': {ArticleBody: empty},
   });
   assert.equal(route.generateStaticParams().length, 5);
   for (const article of originals) assert.ok(await route.default({params: Promise.resolve({slug: article.slug})}));
@@ -67,6 +67,6 @@ test('Portable Text explicitly renders article headings, paragraphs and lists in
   assert.equal(articleComponents.list.number({children:'x'}).type, 'ol');
   assert.equal(articleComponents.listItem.bullet({children:'x'}).type, 'li');
   const tree = ArticlePortableText({value:[{_type:'block', style:'h2'}, {_type:'block', style:'normal'}]});
-  assert.equal(tree.props.className, 'article-portable-text');
+  assert.equal(tree.props.className, undefined);
   assert.equal(tree.props.children[0].type, 'section');
 });

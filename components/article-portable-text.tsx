@@ -18,6 +18,8 @@ export const articleComponents: PortableTextComponents = {
     number: ({children}) => <li>{children}</li>,
   },
   marks: {
+    strong: ({children}) => <strong>{children}</strong>,
+    em: ({children}) => <em>{children}</em>,
     link: ({children, value}) => {
       const href = value?.href;
       if (typeof href !== 'string' || !/^(https?:\/\/|mailto:|\/(?!\/)|#)/i.test(href)) return <>{children}</>;
@@ -37,5 +39,5 @@ export function ArticlePortableText({value}: {value: unknown[]}) {
     if (!sections.length || style === 'h2') sections.push([]);
     sections[sections.length - 1].push(block);
   }
-  return <div className="article-portable-text">{sections.map((blocks, index) => <section key={index}><PortableText value={blocks as PortableTextBlock[]} components={articleComponents} /></section>)}</div>;
+  return <>{sections.map((blocks, index) => <section key={index}><PortableText value={blocks as PortableTextBlock[]} components={articleComponents} /></section>)}</>;
 }

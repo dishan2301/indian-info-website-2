@@ -14,7 +14,9 @@
     "check:security": "node --test tests/security.test.mjs",
     "check:readiness": "node --test tests/readiness.test.mjs tests/roi.test.mjs tests/product-comparison.test.mjs",
     "start": "next start -p 3001",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "check:articles": "node --test tests/article-typography.test.mjs tests/insights-integration.test.mjs",
+    "audit:articles": "node tests/article-typography-browser.mjs"
   },
   "dependencies": {
     "@portabletext/react": "7.0.1",

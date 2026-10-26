@@ -2164,12 +2164,18 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .insight-article { background: #fff; padding: clamp(4rem, 8vw, 8rem) max(6vw, calc((100vw - 1120px) / 2)); }
 .insight-article-image { aspect-ratio: 16 / 8; margin-bottom: clamp(3rem, 6vw, 6rem); overflow: hidden; position: relative; }
 .insight-article-image img { object-fit: cover; }
-.insight-article-body { margin: 0 auto; max-width: 760px; }
+.insight-article-body { font-family: var(--font-geist-sans), Arial, sans-serif; margin: 0 auto; max-width: 760px; }
 .insight-article-body section { border-top: 1px solid var(--line); padding: 2.5rem 0; }
 .insight-article-body h2 { font-size: clamp(1.75rem, 2.8vw, 2.8rem); letter-spacing: -.045em; line-height: 1.08; margin: 0 0 1rem; }
 .insight-article-body section p { color: var(--muted); font-size: 1.02rem; line-height: 1.85; margin: 0; }
 .insight-article-body section ul,
 .insight-article-body section ol { color: var(--muted); line-height: 1.75; margin: 1.25rem 0 0; padding-left: 1.25rem; }
+/* Semantic body elements share one rule set for static and CMS articles. */
+.insight-article-body section > p + p { margin-top: 1.25rem; }
+.insight-article-body h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.2; margin: 1.5rem 0 1rem; }
+.insight-article-body section a:not(.text-link):not(.route-link-list a) { border-bottom: 1px solid var(--brand-primary); color: var(--navy-950); font-weight: 700; text-decoration: none; }
+.insight-article-body blockquote { border-left: 3px solid var(--brand-primary); color: var(--muted); line-height: 1.85; margin: 1.25rem 0; padding-left: 1.25rem; }
+.insight-article-body .insight-article-image { margin: 2.5rem 0; }
 .insight-article-body aside { background: var(--ice); display: grid; justify-items: start; margin: 2rem 0 3rem; padding: 1.5rem; }
 .insight-article-body aside span { color: var(--muted); line-height: 1.65; }
 .insight-article-body aside a { border-bottom: 1px solid #13acf4; font-size: .78rem; font-weight: 750; margin-top: 1rem; padding-bottom: .35rem; }
@@ -2178,7 +2184,6 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 .insight-article-body .insight-takeaways ul { margin-top: 0; }
 .insight-article-body .insight-references ol { display: grid; gap: 1rem; }
 .insight-article-body .insight-references li { padding-left: .2rem; }
-.insight-article-body .insight-references li a { border-bottom: 1px solid #13acf4; color: var(--navy-950); font-weight: 700; text-decoration: none; }
 .insight-article-body .insight-references li span { color: var(--muted); display: block; font-size: .86rem; margin-top: .25rem; }
 .insight-article-body .insight-product-cta { margin-top: 2rem; }
 .insight-article-body .route-link-list a { border-color: var(--line); color: var(--navy-950); }
@@ -3471,10 +3476,3 @@ button, input, select, textarea { max-width: 100%; }
   .floating-whatsapp { position: static; margin: 1rem max(1rem, env(safe-area-inset-right)) 1rem auto; }
 }
 body:has(.mobile-menu[open]) .floating-whatsapp { position: static; margin: 1rem 1rem 1rem auto; }
-
-/* Match CMS body blocks to the existing article sections without changing site typography. */
-.article-portable-text section > p + p { margin-top: 1.25rem; }
-.article-portable-text h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.2; margin: 1.5rem 0 1rem; }
-.article-portable-text a { border-bottom: 1px solid #13acf4; color: var(--navy-950); }
-.article-portable-text blockquote { border-left: 3px solid #13acf4; color: var(--muted); line-height: 1.85; margin: 1.25rem 0; padding-left: 1.25rem; }
-.article-portable-text .insight-article-image { margin: 2.5rem 0; }
