@@ -9,28 +9,33 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { insights } from '../content';
 import { getPublishedInsight } from '@/lib/sanity/content';
-import { PortableText } from '@portabletext/react';
+import { ArticlePortableText } from '@/components/article-portable-text';
+import { canonicalSlug, getAllInsights } from '@/lib/insights';
 
 export function generateStaticParams() { return insights.map((article) => ({ slug: article.slug })); }
 
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const cmsArticle = await getPublishedInsight(slug);
+  const { slug: routeSlug } = await params;
+  const slug = canonicalSlug(routeSlug);
+  const cmsArticle = insights.some((item) => item.slug === slug) ? null : await getPublishedInsight(slug);
   if (cmsArticle) return createPageMetadata({ title: cmsArticle.seo?.title || cmsArticle.title, description: cmsArticle.seo?.description || cmsArticle.summary, path: `/insights/${slug}`, image: cmsArticle.mainImage?.asset?.url || null, type: 'article', noIndex: cmsArticle.seo?.noIndex === true });
   const article = insights.find((item) => item.slug === slug);
   return article ? createPageMetadata({ title: article.title, description: article.summary, path: `/insights/${article.slug}`, image: article.image, type: 'article' }) : {};
 }
 
 export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const cmsArticle = await getPublishedInsight(slug);
+  const { slug: routeSlug } = await params;
+  const slug = canonicalSlug(routeSlug);
+  const cmsArticle = insights.some((item) => item.slug === slug) ? null : await getPublishedInsight(slug);
+  const allArticles = await getAllInsights();
+  const related = allArticles.filter((item) => item.slug !== slug).slice(0, 3);
   if (cmsArticle) {
     const image = cmsArticle.mainImage?.asset?.url;
-    return <main><SiteHeader /><PageHero eyebrow={`${cmsArticle._type === 'companyNews' ? 'Company update' : cmsArticle._type === 'researchArticle' ? 'Research article' : 'Blog'} · ${new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}`} title={cmsArticle.title} description={cmsArticle.summary} marker="II / ARTICLE" breadcrumbs={[{label: 'News & insights', href: '/insights'}, {label: cmsArticle.title}]} path={`/insights/${slug}`} /><article className="insight-article">{image ? <div className="insight-article-image"><Image src={image} alt={cmsArticle.mainImage?.alt || cmsArticle.title} fill priority sizes="(max-width: 900px) 100vw, 72vw" /></div> : null}<div className="insight-article-body"><p className="insight-byline">By {cmsArticle.author?.name || 'Indian Infotech Editorial Team'} · Published {new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}</p>{cmsArticle.body?.length ? <PortableText value={cmsArticle.body as never} /> : <p>This article has been published without body content yet.</p>}<Link className="text-link" href="/insights">← All news & insights</Link></div></article><SiteFooter /></main>;
+    return <main><SiteHeader /><StructuredData data={{'@context': 'https://schema.org', '@type': cmsArticle._type === 'companyNews' ? 'NewsArticle' : 'BlogPosting', headline: cmsArticle.title, description: cmsArticle.summary, datePublished: cmsArticle.publishedAt, mainEntityOfPage: absoluteUrl(`/insights/${slug}`), ...(image ? {image} : {}), author: {'@type': 'Organization', name: cmsArticle.author?.name || 'Indian Infotech Editorial Team'}, publisher: {'@type': 'Organization', name: 'Indian Infotech'} }} /><PageHero eyebrow={`${cmsArticle._type === 'companyNews' ? 'Company update' : cmsArticle._type === 'researchArticle' ? 'Research article' : 'Blog'} · ${new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}`} title={cmsArticle.title} description={cmsArticle.summary} marker="II / ARTICLE" breadcrumbs={[{label: 'News & insights', href: '/insights'}, {label: cmsArticle.title}]} path={`/insights/${slug}`} /><article className="insight-article">{image ? <div className="insight-article-image"><Image src={image} alt={cmsArticle.mainImage?.alt || cmsArticle.title} fill priority sizes="(max-width: 900px) 100vw, 72vw" /></div> : null}<div className="insight-article-body"><p className="insight-byline">By {cmsArticle.author?.name || 'Indian Infotech Editorial Team'} · Published {new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}</p>{cmsArticle.body?.length ? <ArticlePortableText value={cmsArticle.body} /> : <p>This article has been published without body content yet.</p>}<section aria-labelledby="related-insights-title"><h2 id="related-insights-title">Related insights</h2><div className="route-link-list">{related.map((item) => <Link href={`/insights/${item.slug}`} key={item.slug}>{item.title}<span aria-hidden="true">↗</span></Link>)}</div></section><Link className="text-link" href="/insights">← All news & insights</Link></div></article><SiteFooter /></main>;
   }
   const article = insights.find((item) => item.slug === slug);
   if (!article) notFound();
-  const related = insights.filter((item) => item.slug !== article.slug).slice(0, 3);
   const datePublished = new Date(article.date).toISOString().slice(0, 10);
   const articleSchema = { '@context': 'https://schema.org', '@type': article.category === 'Company update' ? 'NewsArticle' : 'BlogPosting', articleSection: article.category, headline: article.title, description: article.summary, image: absoluteUrl(article.image), datePublished, dateModified: datePublished, mainEntityOfPage: absoluteUrl(`/insights/${article.slug}`), author: { '@type': 'Organization', name: 'Indian Infotech Editorial Team', url: absoluteUrl('/about-us') }, publisher: { '@type': 'Organization', name: 'Indian Infotech', logo: { '@type': 'ImageObject', url: absoluteUrl('/indian-infotech-logo.png') } } };
   return <main>

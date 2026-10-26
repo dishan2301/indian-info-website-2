@@ -3458,3 +3458,13 @@ button, input, select, textarea { max-width: 100%; }
   .floating-whatsapp { position: static; margin: 1rem max(1rem, env(safe-area-inset-right)) 1rem auto; }
 }
 body:has(.mobile-menu[open]) .floating-whatsapp { position: static; margin: 1rem 1rem 1rem auto; }
+
+/* Match CMS body blocks to the existing article sections without changing site typography. */
+.article-portable-text section > p + p { margin-top: 1.25rem; }
+.article-portable-text h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.2; margin: 1.5rem 0 1rem; }
+.article-portable-text a { border-bottom: 1px solid #13acf4; color: var(--navy-950); }
+.article-portable-text blockquote { border-left: 3px solid #13acf4; color: var(--muted); line-height: 1.85; margin: 1.25rem 0; padding-left: 1.25rem; }
+.article-portable-text .insight-article-image { margin: 2.5rem 0; }
+.not-found .eyebrow, .not-found .route-link-list a { color: var(--navy-950); }
+.not-found .route-link-list a { border-color: var(--line); }
+.not-found .outline-button { color: var(--navy-950); border-color: var(--navy-950); }
