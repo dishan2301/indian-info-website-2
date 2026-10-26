@@ -8,17 +8,26 @@ import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { insights } from '../content';
+import { getPublishedInsight } from '@/lib/sanity/content';
+import { PortableText } from '@portabletext/react';
 
 export function generateStaticParams() { return insights.map((article) => ({ slug: article.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const cmsArticle = await getPublishedInsight(slug);
+  if (cmsArticle) return createPageMetadata({ title: cmsArticle.seo?.title || cmsArticle.title, description: cmsArticle.seo?.description || cmsArticle.summary, path: `/insights/${slug}`, image: cmsArticle.mainImage?.asset?.url || null, type: 'article', noIndex: cmsArticle.seo?.noIndex === true });
   const article = insights.find((item) => item.slug === slug);
   return article ? createPageMetadata({ title: article.title, description: article.summary, path: `/insights/${article.slug}`, image: article.image, type: 'article' }) : {};
 }
 
 export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const cmsArticle = await getPublishedInsight(slug);
+  if (cmsArticle) {
+    const image = cmsArticle.mainImage?.asset?.url;
+    return <main><SiteHeader /><PageHero eyebrow={`${cmsArticle._type === 'companyNews' ? 'Company update' : cmsArticle._type === 'researchArticle' ? 'Research article' : 'Blog'} · ${new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}`} title={cmsArticle.title} description={cmsArticle.summary} marker="II / ARTICLE" breadcrumbs={[{label: 'News & insights', href: '/insights'}, {label: cmsArticle.title}]} path={`/insights/${slug}`} /><article className="insight-article">{image ? <div className="insight-article-image"><Image src={image} alt={cmsArticle.mainImage?.alt || cmsArticle.title} fill priority sizes="(max-width: 900px) 100vw, 72vw" /></div> : null}<div className="insight-article-body"><p className="insight-byline">By {cmsArticle.author?.name || 'Indian Infotech Editorial Team'} · Published {new Date(cmsArticle.publishedAt).toLocaleDateString('en-IN')}</p>{cmsArticle.body?.length ? <PortableText value={cmsArticle.body as never} /> : <p>This article has been published without body content yet.</p>}<Link className="text-link" href="/insights">← All news & insights</Link></div></article><SiteFooter /></main>;
+  }
   const article = insights.find((item) => item.slug === slug);
   if (!article) notFound();
   const related = insights.filter((item) => item.slug !== article.slug).slice(0, 3);
