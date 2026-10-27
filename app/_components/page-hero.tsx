@@ -11,9 +11,10 @@ type PageHeroProps = {
   breadcrumbs?: readonly { label: string; href?: string }[];
   path?: string;
   className?: string;
+  media?: { desktop: string; mobile?: string };
 };
 
-export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs, path, className }: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS', breadcrumbs, path, className, media: pageMedia }: PageHeroProps) {
   const trail = breadcrumbs ?? [{ label: eyebrow }];
   const breadcrumbSchema = path ? {
     '@context': 'https://schema.org',
@@ -74,7 +75,9 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
                             : key.includes('technology') || key.includes('resource') || key.includes('academy') || key.includes('trust')
                               ? { desktop: '/campaign/product-moments/industrial-ai-v2.png', mobile: '/campaign/product-moments/industrial-ai-v2.png', tone: 'light' as const, copySide: 'left' as const }
                               : { desktop: '/campaign/hero/identity-desktop-v2.webp', mobile: '/campaign/hero/identity-mobile-v2.webp', tone: 'light' as const };
-  const media = specificIndustryMedia || campaignMedia;
+  const media = pageMedia
+    ? { desktop: pageMedia.desktop, mobile: pageMedia.mobile ?? pageMedia.desktop, tone: 'light' as const }
+    : specificIndustryMedia || campaignMedia;
   return (
     <>
       {breadcrumbSchema ? <StructuredData data={breadcrumbSchema} /> : null}

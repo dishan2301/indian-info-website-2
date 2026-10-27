@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { StructuredData } from '@/components/structured-data';
@@ -7,6 +8,9 @@ import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { softwarePlatforms } from '../../content';
+import { MotionReveal } from '../../_components/motion-reveal';
+import { softwareMedia } from '../../route-media';
+import styles from '../../discovery-pages.module.css';
 
 type SoftwarePageProps = { params: Promise<{ slug: string }> };
 
@@ -25,6 +29,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   const { slug } = await params;
   const software = softwarePlatforms.find((item) => item.slug === slug);
   if (!software) notFound();
+  const media = softwareMedia[software.slug];
   const softwareSchema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: software.name, description: software.summary, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', featureList: software.publishedFacts?.map((fact) => `${fact.label}: ${fact.value}`), url: absoluteUrl(`/software/${software.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
   const softwareFaqs = [
     { question: `What does ${software.name} help manage?`, answer: `${software.summary} The published module scope includes ${software.modules.slice(0, 4).join(', ')}.` },
@@ -35,7 +40,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: softwareFaqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
 
   return (
-    <main>
+    <main className={styles.page}>
       <SiteHeader />
       <StructuredData data={softwareSchema} />
       <StructuredData data={faqSchema} />
@@ -43,8 +48,10 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
 
       <section className="software-detail section">
         <div className="software-interface-pending">
-          <div className="software-window large" aria-hidden="true"><div><i /><i /><i /></div><span>Current production interface required</span><ol>{software.modules.map((module, index) => <li key={module}><b>{String(index + 1).padStart(2, '0')}</b>{module}</li>)}</ol></div>
-          <p>Interface area reserved for approved screenshots from the current product. A generic dashboard would misrepresent the software.</p>
+          <div className="software-illustration">
+            <Image src={media.image} alt={media.alt} fill sizes="(max-width: 760px) 100vw, 48vw" />
+          </div>
+          <p className="software-illustration-caption">Illustrative workplace scene, not a screenshot of the software.</p>
         </div>
         <div className="software-detail-copy"><p className="section-kicker">Platform scope</p><h2>Build around the people and decisions inside the workflow.</h2><p>{software.summary}</p><ul>{software.modules.map((module) => <li key={module}>{module}</li>)}</ul><Link className="button button-primary" href={`/contact?software=${software.slug}`}>Request a demo <span aria-hidden="true">↗</span></Link></div>
       </section>
@@ -53,7 +60,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
 
       <section className="software-workflow">
         <div><p className="section-kicker light">Operating flow</p><h2>A clear sequence from input to reviewed record.</h2></div>
-        <ol>{software.workflow.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong><p>Configuration and responsibilities are confirmed during solution design.</p></li>)}</ol>
+        <MotionReveal><ol>{software.workflow.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong><p>Configuration and responsibilities are confirmed during solution design.</p></li>)}</ol></MotionReveal>
       </section>
 
       <section className="section software-readiness">

@@ -2,8 +2,13 @@ import type { NextConfig } from 'next';
 import { SECURITY_HEADERS } from './lib/security.mjs';
 
 const nextConfig: NextConfig = {
+  experimental: {
+    agentUpgrade: 'security',
+  },
   async redirects() {
     return [
+      { source: '/hrms-payroll/on-boarding', destination: '/hrms-payroll/onboarding', permanent: true },
+      { source: '/hrms-payroll/time-sheet', destination: '/hrms-payroll/timesheet', permanent: true },
       { source: '/hrms-payroll/core-hr-payroll', destination: '/hrms-payroll/core-hris-payroll', permanent: true },
       { source: '/hrms-payroll/claim-reimbursement', destination: '/hrms-payroll/expense', permanent: true },
       { source: '/hrms-payroll/document-management', destination: '/hrms-payroll/core-hris-payroll', permanent: true },
@@ -14,7 +19,7 @@ const nextConfig: NextConfig = {
       { source: '/hrms-payroll/employee-self-service', destination: '/hrms-payroll/ess', permanent: true },
       { source: '/hrms-payroll/performance-management', destination: '/hrms-payroll/pms', permanent: true },
       { source: '/hrms-payroll/fixed-asset', destination: '/hrms-payroll/core-hris-payroll', permanent: true },
-      { source: '/hrms-payroll/employee-onboarding', destination: '/hrms-payroll/on-boarding', permanent: true },
+      { source: '/hrms-payroll/employee-onboarding', destination: '/hrms-payroll/onboarding', permanent: true },
       { source: '/hrms-payroll/exit-process', destination: '/hrms-payroll/off-boarding', permanent: true },
     ];
   },
@@ -24,7 +29,6 @@ const nextConfig: NextConfig = {
   async headers() {
     const securityHeaders = Object.entries(SECURITY_HEADERS).map(([key, value]) => ({ key, value }));
     return [
-      { source: '/_next/static/:path*', headers: [...securityHeaders, { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/:path*', headers: securityHeaders },
     ];
   },

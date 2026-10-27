@@ -10,6 +10,7 @@ import { ProductCatalogue } from '../../../components/catalog/product-catalogue'
 import { StructuredData } from '../../../components/structured-data';
 import { absoluteUrl, createPageMetadata } from '@/lib/site';
 import { products } from '../../content';
+import styles from '../../discovery-pages.module.css';
 
 const categorySlugs = [...new Set(products.map((product) => product.family))].map((family) => ({ family, slug: family.toLowerCase().replace(/\s+/g, '-') }));
 
@@ -65,7 +66,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: productFaqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) };
 
   return (
-    <main>
+    <main className={styles.page}>
       <SiteHeader />
       <StructuredData data={productSchema} />
       <StructuredData data={faqSchema} />

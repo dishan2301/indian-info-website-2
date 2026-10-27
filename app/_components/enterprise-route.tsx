@@ -7,6 +7,7 @@ export type RouteCard = {
   description: string;
   href: string;
   image?: string;
+  imageAlt?: string;
 };
 
 export function RouteCardGrid({ cards }: { cards: readonly RouteCard[] }) {
@@ -15,9 +16,9 @@ export function RouteCardGrid({ cards }: { cards: readonly RouteCard[] }) {
       {cards.map((card, index) => (
         <Link className="route-card" href={card.href} key={`${card.href}-${card.title}`}>
           {card.image ? (
-            <span className="route-card-media"><Image src={card.image} alt={`${card.title} illustration`} width={720} height={480} /></span>
+            <span className="route-card-media"><Image src={card.image} alt={card.imageAlt ?? ''} width={720} height={480} /></span>
           ) : null}
-          <span className="route-card-index">0{index + 1}</span>
+          <span className="route-card-index">{String(index + 1).padStart(2, '0')}</span>
           {card.eyebrow ? <span className="route-card-eyebrow">{card.eyebrow}</span> : null}
           <h2>{card.title}</h2>
           <p>{card.description}</p>
@@ -31,7 +32,7 @@ export function RouteCardGrid({ cards }: { cards: readonly RouteCard[] }) {
 export function WorkflowBand({ steps }: { steps: readonly string[] }) {
   return (
     <ol className="route-workflow">
-      {steps.map((step, index) => <li key={step}><span>0{index + 1}</span><strong>{step}</strong></li>)}
+      {steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></li>)}
     </ol>
   );
 }
