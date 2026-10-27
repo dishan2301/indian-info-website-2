@@ -144,3 +144,12 @@ test('Studio schemas validate required fields, cross-type slugs, reserved URLs a
     assert.equal(await fields.slug.options.isUnique('unique-slug',context),true);
   }
 });
+
+test('signed testimonial create, edit, reorder, unpublish and delete invalidate both public routes', async () => {
+  for (const operation of ['create', 'update', 'unpublish', 'delete']) {
+    const h = webhookHarness();
+    assert.equal((await h.send(event({_type: 'testimonial', operation, beforeSlug: null, afterSlug: null}))).status, 200);
+    for (const path of ['/', '/testimonials']) assert.ok(h.calls.some((call) => call[0] === 'path' && call[1] === path));
+    assert.ok(h.calls.some((call) => call[0] === 'tag' && call[1] === 'sanity:testimonials' && call[2].expire === 0));
+  }
+});

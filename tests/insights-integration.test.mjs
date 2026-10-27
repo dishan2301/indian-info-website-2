@@ -45,7 +45,7 @@ test('five originals and CMS merge, sort and deduplicate deterministically', asy
 });
 test('listing and homepage use shared collection and original static URLs remain generated', async () => {
   const source = path => readFileSync(new URL(path, import.meta.url), 'utf8');
-  assert.match(source('../app/page.tsx'), /await getLatestArticles\(5\)/);
+  assert.match(source('../app/page.tsx'), /getLatestArticles\(5\)/);
   assert.match(source('../app/insights/page.tsx'), /await getPublishedArticles\(\)/);
   assert.match(source('../components/homepage/home-curated-sections.tsx'), /href="\/insights"/);
   const empty = () => null;

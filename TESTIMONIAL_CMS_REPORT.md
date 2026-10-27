@@ -1,26 +1,34 @@
-# Preview testimonial CMS implementation
+# Testimonial CMS release report
 
-## Audit
+## Targets and release state
 
-The homepage carousel and `/testimonials` page used the seven `clientQuotes` in `app/content.ts` without publication permission checks. Their exact wording and logos were removed from those consumers; no customer quote or identity was copied to Sanity. The older `approvedTestimonials` array in `app/proof-content.ts` remains empty and is retained as historical evidence of the previous publication gate. No verified permission records or evidence files were supplied. Existing case-study evidence and records were untouched.
+- Preview: https://demo-website-kz7ba5yxm-dish1.vercel.app/ (provided deployment URL); branch webhook alias: https://demo-website-git-codex-vercel-cms-preview-dish1.vercel.app/
+- Production: https://indian-info-website-2.vercel.app/
+- Both website configurations point to Sanity project `rmgfsayz`, dataset `production`. Published testimonials are queried from that single dataset.
+- Phase 1–3 only. Production merge, deployment, webhook creation, and live dual-site verification require the requested explicit approval.
 
-## Publication contract
+## Approval and display
 
-A published Sanity `testimonial` is only a candidate. The server sends its opaque `permissionReference` and SHA-256 digest of exact quote, displayed identity, photo URL, and logo URL to the configured external permission register. The register must return `{verified:true,status:"verified",reference,digest,scope,verifiedAt,expiresAt?,revokedAt?}` over HTTPS. Scope must contain `website`, `quote`, `customerName`, `companyName`, and `designation`; optional `photo` and `logo` are displayed only with their own scopes. Missing, pending, expired, revoked, changed, malformed, and unavailable decisions fail closed. The register must issue decisions from retained written evidence, independent of Sanity editor labels. Private references and evidence never enter public response objects. The register should keep an audit trail and revoke the old digest when text, identity, or media changes.
+The previous seven hardcoded client quotes were removed from homepage and `/testimonials`; no existing quote, identity, image, logo, or permission evidence was imported. The older `approvedTestimonials` array remains empty. The new schema contains exact text, identity, optional media, display order, publication state, permission reference/scope/dates, and an approval snapshot. Private evidence stays in the internal customer approval process.
 
-Required Preview server variables: `TESTIMONIAL_PERMISSION_URL` and `TESTIMONIAL_PERMISSION_TOKEN`. The URL must be HTTPS. Restrict the token to read-only permission checks and keep it server-only. This external register is a configuration blocker: until it exists and is populated with verified records, the website intentionally displays no testimonial. Do not put permission evidence, customer photos, logos, or old quotes in Sanity without explicit customer authorization.
+Only Sanity project members with Editor, Administrator, or Developer roles see the **Confirm customer approval** action. Assign draft-only contributors the Contributor role and reserve publishing/editor roles for authorized approvers. The approver must check the retained internal written record before confirming. The action records their Sanity user ID, time, reference, selected scope, and SHA-256 digest of the exact quote, identity, and media assets. The website recomputes the digest and requires a published document, public display enabled, verified status, matching reference and scope, and no revocation or expiry. A changed quote, identity, or media asset disappears until reconfirmed. Display order and featured status can change without reconfirming customer wording. Media outside the approved scope is hidden. No approval reference or snapshot is returned in public testimonial objects.
 
-## Editor workflow
+Studio actions are workflow controls; Sanity project roles are the access boundary. Review API tokens and member roles before real customer publication. On plans without custom document roles, the built-in Editor role can edit and publish other content too. Do not give Editor access to staff who are not authorized to approve customer publication.
 
-1. Collect the exact quote, identity, media, allowed website scope, permission date, expiry, and withdrawal contact in the existing controlled evidence process. A reviewer verifies the written evidence in the external permission register and issues an opaque reference and matching digest.
-2. In Studio, create a Testimonial draft with the exact approved fields. Add only approved media, the opaque reference, related product/service, display order, and featured status. Leave `publicDisplay` off and status `pending` while approval is requested.
-3. After the reviewer confirms the register decision, set publication date, status `published`, and `publicDisplay` on, then publish the Sanity document. Website retrieval still independently checks the live register.
-4. Reorder by changing `displayOrder`; lower numbers appear first. Featured and product/service filters are supported by the shared server service.
-5. For text, identity, or media edits, request a new matching register approval before publishing. The old digest will fail and the quote will disappear until fresh approval exists.
-6. To unpublish, turn off `publicDisplay`, set status `unpublished`, or unpublish the Sanity document. To revoke, revoke the register decision first, then set `revoked` and record the revocation date in Studio. Verify `/` and `/testimonials` no longer show it.
+## Editor steps
 
-The signed Sanity webhook now includes testimonial documents and invalidates `/` and `/testimonials`. Configure its existing Preview webhook with the updated filter; this repository change alone does not update a deployed Sanity webhook. The permission register must call the same signed endpoint with a testimonial event on external approval or revocation so active client routes refresh promptly. Both testimonial pages render dynamically and recheck the register with `no-store` on each request, independent of webhook delivery. Product/service pages currently contain no testimonial sections; future sections can call the service with `productService` and must be added to webhook invalidation.
+1. Obtain and retain the customer's exact written permission using the existing internal process. Verify website, quote, identity, optional photo/logo, date, expiry, and withdrawal terms.
+2. Create a Testimonial draft. Add only authorized content and assets, the opaque internal permission reference, permission date, and the corresponding scope items. Leave public display off and status pending while awaiting approval.
+3. An authorized Editor checks the evidence and chooses **Confirm customer approval**. Set publication date, status `published`, public display on, then publish the document. The server checks the saved approval snapshot before display.
+4. Edit wording, attribution, photo, or logo only after fresh approval; confirm again. Adjust `displayOrder` (smallest first), featured status, or product/service grouping as needed.
+5. Unpublish or delete in Studio to remove a quote. For withdrawal, immediately set permission status `revoked` or enter a revocation date and publish that change; then unpublish/delete if desired. Confirm the quote has disappeared on both routes.
 
-## Verification and limits
+## Cache and webhook setup
 
-`npm run lint`, website `npm run build`, and Studio `npm run build` passed in an isolated copy of `codex/vercel-cms-preview`. `tests/testimonials.test.mjs` covers authorized publication, missing/pending/revoked/expired permission, changed quote, media scope, unpublished content, no static fallback, live fetching, invalidation, and existing responsive CSS. Existing regression tests have unrelated baseline failures in this branch, including hardcoded historical stats and expectations about old static quotes. No external register, Sanity publication, Vercel deployment, or live revocation integration was exercised.
+The shared service uses a 60-second Sanity fetch revalidation and both pages have a 60-second page fallback. A signed Sanity document webhook for create/update/delete of testimonial documents invalidates `sanity:testimonials`, `/`, and `/testimonials`. Sanity unpublish fires a delete event. Use separate webhook deliveries with separate secrets: `studio/webhook.preview.json` targets the protected stable Preview branch alias, and `studio/webhook.production.json` targets Production. Set each delivery's signing secret to that environment's server-only `SANITY_REVALIDATE_SECRET`. Keep the existing Preview protection bypass header on its webhook; do not turn off Preview protection. Production webhook configuration belongs to phase 5. Webhook delivery and live Vercel environment values must be verified before declaring same-minute removal; if delivery fails, the 60-second fallback applies on the next request.
+
+## Tests and blockers
+
+Website TypeScript, website production build, Studio TypeScript, Studio build, and all 12 regression test files pass locally. Tests cover authorized display, changed content, media scope, publish/unpublish/revocation/delete gates, order changes, responsive styles, and signed testimonial webhook invalidation. Three stale regression assertions were updated to match the existing dynamic year value, logo reveal timings, and shared article loading; no related UI styles changed.
+
+No real customer testimonial was published for testing. The Preview deployment URL may be protected, and a deployed Studio with the new action, Preview webhook delivery, Vercel environment secret, and real cross-site publication have not yet been independently confirmed. **NO-GO for Production until Preview deployment, webhook, roles/tokens, and live approval workflow are verified.**

@@ -8,7 +8,7 @@ import { getPublicTestimonials } from '@/lib/sanity/testimonials';
 
 export const metadata: Metadata = createPageMetadata({ title: 'Customer Testimonials', description: 'Client quotes about Indian Infotech workforce, access, and workplace systems.', path: '/testimonials' });
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function TestimonialsPage() {
   const clientQuotes = await getPublicTestimonials();

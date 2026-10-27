@@ -1,0 +1,1 @@
+export function approvalPayload(item: {quote?: unknown; customerName?: unknown; companyName?: unknown; designation?: unknown; photo?: {asset?: {_ref?: string}}; logo?: {asset?: {_ref?: string}}; photoRef?: string | null; logoRef?: string | null}): string;

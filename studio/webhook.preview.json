@@ -1,7 +1,7 @@
 {
   "type": "document",
-  "name": "Indian Infotech Preview editorial cache",
-  "description": "Preview-only cache invalidation; does not deploy or modify content.",
+  "name": "Indian Infotech Preview testimonial and editorial cache",
+  "description": "Signed Preview delivery. Configure a Preview-only secret in Sanity and SANITY_REVALIDATE_SECRET in Vercel Preview.",
   "url": "https://demo-website-git-codex-vercel-cms-preview-dish1.vercel.app/api/sanity/revalidate",
   "dataset": "production",
   "httpMethod": "POST",

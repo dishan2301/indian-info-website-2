@@ -57,6 +57,7 @@ export async function POST(request: Request) {
     // Fetches use the live API, so a lagging CDN cannot refill the expired cache.
     await delay(3000);
     revalidateTag(EDITORIAL_TAG, {expire: 0});
+    if (payload._type === 'testimonial') revalidateTag('sanity:testimonials', {expire: 0});
     for (const slug of slugs) revalidateTag(editorialSlugTag(slug), {expire: 0});
     revalidatePath('/');
     if (payload._type === 'testimonial') revalidatePath('/testimonials');

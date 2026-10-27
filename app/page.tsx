@@ -15,7 +15,7 @@ export const metadata: Metadata = createPageMetadata({
   path: '/',
 });
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
 export default async function Home() {
   const [articles, testimonials] = await Promise.all([getLatestArticles(5), getPublicTestimonials()]);
