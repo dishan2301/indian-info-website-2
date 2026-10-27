@@ -5,7 +5,7 @@ import {articlePath, canonicalSlug, isArticleSlug} from '@/lib/insights';
 import {EDITORIAL_TAG, editorialSlugTag} from '@/lib/sanity/cache';
 
 export const runtime = 'nodejs';
-const allowedTypes = new Set(['blogPost', 'companyNews', 'researchArticle', 'author', 'category']);
+const allowedTypes = new Set(['blogPost', 'companyNews', 'researchArticle', 'author', 'category', 'testimonial']);
 const allowedOperations = new Set(['create', 'update', 'delete', 'publish', 'unpublish']);
 const maxBytes = 16_384;
 function json(body: object, status = 200) {
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
   if (payload._id.startsWith('drafts.') || payload._id.startsWith('versions.')) return json({ignored: true});
 
   const slugs = new Set<string>();
-  if (!['author', 'category'].includes(payload._type)) {
+  if (!['author', 'category', 'testimonial'].includes(payload._type)) {
     for (const value of [payload.beforeSlug, payload.afterSlug]) {
       if (value === null || value === undefined) continue;
       if (typeof value !== 'string' || !isArticleSlug(canonicalSlug(value))) return json({error: 'Invalid slug'}, 400);
@@ -59,6 +59,7 @@ export async function POST(request: Request) {
     revalidateTag(EDITORIAL_TAG, {expire: 0});
     for (const slug of slugs) revalidateTag(editorialSlugTag(slug), {expire: 0});
     revalidatePath('/');
+    if (payload._type === 'testimonial') revalidatePath('/testimonials');
     revalidatePath('/insights');
     // Includes related articles, author edits, category edits, and cached 404s.
     revalidatePath('/insights/[slug]', 'page');

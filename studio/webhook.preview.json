@@ -10,8 +10,12 @@
   "includeAllVersions": false,
   "isDisabledByUser": false,
   "rule": {
-    "on": ["create", "update", "delete"],
-    "filter": "coalesce(after()._type, before()._type) in [\"blogPost\", \"companyNews\", \"researchArticle\", \"author\", \"category\"] && !(coalesce(after()._id, before()._id) in path(\"drafts.**\")) && !(coalesce(after()._id, before()._id) in path(\"versions.**\"))",
+    "on": [
+      "create",
+      "update",
+      "delete"
+    ],
+    "filter": "coalesce(after()._type, before()._type) in [\"blogPost\", \"companyNews\", \"researchArticle\", \"author\", \"category\", \"testimonial\"] && !(coalesce(after()._id, before()._id) in path(\"drafts.**\")) && !(coalesce(after()._id, before()._id) in path(\"versions.**\"))",
     "projection": "{\"projectId\": \"rmgfsayz\", \"dataset\": \"production\", \"_id\": coalesce(after()._id, before()._id), \"_type\": coalesce(after()._type, before()._type), \"operation\": delta::operation(), \"beforeSlug\": before().slug.current, \"afterSlug\": after().slug.current}"
   }
 }

@@ -1,4 +1,5 @@
 import { getLatestArticles } from '@/lib/insights';
+import { getPublicTestimonials } from '@/lib/sanity/testimonials';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,10 +15,10 @@ export const metadata: Metadata = createPageMetadata({
   path: '/',
 });
 
-export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const articles = await getLatestArticles(5);
+  const [articles, testimonials] = await Promise.all([getLatestArticles(5), getPublicTestimonials()]);
   return <main id="home">
     <SiteHeader />
     <HeroPoster />
@@ -54,7 +55,7 @@ export default async function Home() {
     </section>
     <CompanyOverview />
     <IndustriesAndClients />
-    <QuotesAndNews articles={articles} />
+    <QuotesAndNews articles={articles} testimonials={testimonials} />
     <SiteFooter />
   </main>;
 }
