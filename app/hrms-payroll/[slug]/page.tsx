@@ -1,26 +1,141 @@
 import type { Metadata } from 'next';
+import styles from './highlights.module.css';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createPageMetadata } from '@/lib/site';
-import { PageHero } from '../../_components/page-hero';
 import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
-import { WorkflowBand } from '../../_components/enterprise-route';
 import { hrmsModules } from '../../content';
+import { hrmsDetails } from '../content';
+import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
 
-export function generateStaticParams() { return hrmsModules.map((item) => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = hrmsModules.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} HRMS Module`, description: item.summary, path: `/hrms-payroll/${item.slug}`, image: null }) : {}; }
+export function generateStaticParams() {
+  return hrmsModules.map((item) => ({ slug: item.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const item = hrmsModules.find((candidate) => candidate.slug === slug);
+  if (!item) return {};
+  const detail = hrmsDetails[item.slug];
+  return createPageMetadata({ title: `${item.name} | HRMS & Payroll`, description: detail.introduction, path: `/hrms-payroll/${item.slug}`, image: null });
+}
 
 export default async function HrmsModulePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = hrmsModules.find((candidate) => candidate.slug === slug);
   if (!item) notFound();
-  return <main>
-    <SiteHeader />
-    <PageHero eyebrow="HRMS & Payroll" title={item.name} description={item.summary} marker="II / HRMS MODULE" breadcrumbs={[{ label: 'HRMS & Payroll', href: '/hrms-payroll' }, { label: item.name }]} path={`/hrms-payroll/${item.slug}`} />
-    <section className="software-detail section"><div className="software-interface-pending"><div className="software-window large" aria-hidden="true"><div><i /><i /><i /></div><span>Approved production interface required</span><ol><li><b>01</b>Records and roles</li><li><b>02</b>Workflow configuration</li><li><b>03</b>Review and reporting</li></ol></div><p>Current screenshots and module-specific documentation will be added when approved source media is supplied.</p></div><div className="software-detail-copy"><p className="section-kicker">Module scope</p><h2>Map the decisions, records, and owners inside the workflow.</h2><p>{item.summary}</p><ul><li>Define roles, permissions, and approval ownership</li><li>Confirm related attendance and HRMS inputs</li><li>Document reporting, integration, and support requirements</li><li>Validate the production module before rollout</li></ul><Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Discuss this module <span aria-hidden="true">↗</span></Link></div></section>
-    <section className="route-dark-section"><div className="section-heading split-heading"><div><p className="section-kicker light">Lifecycle context</p><h2>Connect the module to the next decision.</h2></div><p>HRMS modules are most useful when the employee, manager, HR, payroll, and support handoffs are explicit.</p></div><WorkflowBand steps={['Identify the people and records in scope', 'Define the approved workflow and responsibilities', 'Confirm attendance, payroll, or lifecycle connections', 'Review the production module and support path']} /></section>
-    <section className="section"><div className="section-heading split-heading"><div><p className="section-kicker">Related platform</p><h2>Continue with HRMS & Payroll.</h2></div><Link className="outline-link" href="/hrms-payroll">View all modules ↗</Link></div></section>
-    <SiteFooter />
-  </main>;
+  const detail = hrmsDetails[item.slug];
+
+  const related = detail.related
+    .map((relatedSlug) => hrmsModules.find((module) => module.slug === relatedSlug))
+    .filter((module): module is (typeof hrmsModules)[number] => Boolean(module));
+  const visualStages = detail.visual[1].split('|');
+
+  return (
+    <main className={`hrms-page ${styles.page}`}>
+      <SiteHeader />
+      <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+        <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/hrms-payroll">HRMS & Payroll</Link><span aria-hidden="true">/</span><span aria-current="page">{item.name}</span>
+      </nav>
+      <section className="hrms-detail-hero">
+        <div className="hrms-detail-copy">
+          <p className="section-kicker"><span className={styles.statusDot} /> THE CONNECTED HR SUITE</p>
+          <h1>{item.name}</h1>
+          <h2>{detail.headline}</h2>
+          <p>{detail.introduction}</p>
+          <div className={styles.heroTags}><span><Layers3 size={14} aria-hidden="true" />{detail.features.length} capabilities</span><span>One connected employee journey</span></div>
+          <div className="hrms-hero-actions">
+            <Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Discuss this feature <span aria-hidden="true">↗</span></Link>
+            <Link className="outline-link" href="/hrms-payroll">All {hrmsModules.length} HRMS features</Link>
+          </div>
+        </div>
+        <div className="hrms-detail-image">
+          <Image src={item.image} alt={item.imageAlt} fill sizes="(max-width: 800px) 100vw, 50vw" priority />
+          <div className="hrms-detail-image-caption"><span>{detail.visual[0]}</span><strong>{detail.visual[2]}</strong></div>
+        </div>
+      </section>
+
+      <nav className={styles.sectionNav} aria-label="On this page"><span>Explore this module</span><a href="#capabilities">Capabilities <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#workflow">How it works <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#questions">FAQs <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#connected">Connected modules <ArrowUpRight size={14} aria-hidden="true" /></a></nav>
+
+      <section className="section hrms-capabilities" id="capabilities" aria-labelledby="hrms-capabilities-heading">
+        <div className="section-heading split-heading">
+          <div><p className="section-kicker">01 / Inside the module</p><h2 id="hrms-capabilities-heading">Every detail.<br /><em>A clearer way to work.</em></h2></div>
+          <p>Explore what {item.name.toLowerCase()} brings to your team, from everyday tasks to the decisions and handoffs around them.</p>
+        </div>
+        <div className="hrms-capability-grid">
+          {detail.features.map(([name, description], index) => (
+            <article key={name}>
+              <span className={styles.capabilityCheck}><Check size={18} strokeWidth={1.8} aria-hidden="true" /></span>
+              <div><span className={styles.cardLabel}>CAPABILITY {String(index + 1).padStart(2, '0')}</span><h3>{name}</h3><p>{description}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={`section hrms-detail-workflow ${styles.workflow}`} id="workflow" aria-labelledby="hrms-workflow-heading">
+        <div className="hrms-detail-aside">
+          <p className="section-kicker">02 / From action to outcome</p>
+          <h2 id="hrms-workflow-heading">A workflow your<br /><em>team can follow.</em></h2>
+          <p>See how the information moves, who takes the next step, and where this module connects with the wider HR process.</p>
+          <aside className={styles.scenario}><span>IN PRACTICE</span><h3>{detail.scenario[0]}</h3><p>{detail.scenario[1]}</p></aside>
+        </div>
+        <div className="hrms-feature-preview">
+          <span>{detail.visual[0]}</span>
+          <h3>Three steps.<br />One shared process.</h3>
+          <ol>{visualStages.map((stage, index) => <li key={stage}><span>{String(index + 1).padStart(2, '0')}</span><div><h4>{stage}</h4><p>{detail.workflow[index]}</p></div></li>)}</ol>
+          <div className={styles.workflowFoot}><Check size={15} aria-hidden="true" /> Connected to your wider HR workflow</div>
+        </div>
+      </section>
+
+      <section className={`hrms-highlights ${styles.highlights}`}>
+        <div className="hrms-highlights-heading">
+          <p className="section-kicker">03 / Why it matters</p>
+          <h2>Good for your process.<br /><em>Better for your people.</em></h2>
+        </div>
+        <div className="hrms-highlights-grid">
+          {detail.highlights.map(([heading, description], index) => (
+            <article key={heading}><span>0{index + 1}</span><h3>{heading}</h3><p>{description}</p></article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section hrms-faq" id="questions" aria-labelledby="hrms-faq-heading">
+        <div className="section-heading split-heading">
+          <div><p className="section-kicker">Common questions</p><h2 id="hrms-faq-heading">A few things teams often ask.</h2></div>
+          <p>Every rollout depends on your policies, integrations, and requirements. Our team can help you map the right fit.</p>
+        </div>
+        <div className="hrms-faq-list">
+          {detail.faqs.map(([question, answer]) => (
+            <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
+          ))}
+        </div>
+      </section>
+
+      <section className="hrms-related section" id="connected">
+        <div className="section-heading split-heading">
+          <div><p className="section-kicker">Connected features</p><h2>Continue the employee journey.</h2></div>
+          <Link className="outline-link" href="/hrms-payroll">View all {hrmsModules.length} features <span aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="hrms-related-grid">
+          {related.map((module) => (
+            <Link key={module.slug} href={`/hrms-payroll/${module.slug}`}>
+              <span>CONNECTED MODULE</span><h3>{module.name}</h3><p>{module.summary}</p><b>Explore feature <ArrowRight size={16} aria-hidden="true" /></b>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <nav className="section hrms-module-nav" aria-label="HRMS module navigation">
+        {(() => { const index = hrmsModules.indexOf(item); const previous = hrmsModules[(index - 1 + hrmsModules.length) % hrmsModules.length]; const next = hrmsModules[(index + 1) % hrmsModules.length]; return <><Link href={`/hrms-payroll/${previous.slug}`}><small>Previous module</small><strong>← {previous.name}</strong></Link><Link href={`/hrms-payroll/${next.slug}`}><small>Next module</small><strong>{next.name} →</strong></Link></>; })()}
+      </nav>
+
+      <section className="route-feature-band">
+        <div><p className="section-kicker light">Plan your HRMS workflow</p><h2>See how this feature could fit your team.</h2><p>Share your current process and requirements with our team.</p></div>
+        <Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Talk to our team <span aria-hidden="true">↗</span></Link>
+      </section>
+      <SiteFooter />
+    </main>
+  );
 }

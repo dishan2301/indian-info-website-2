@@ -5,17 +5,33 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Boxes, Factory, UsersRound } from 'lucide-react';
-import { products } from '../content';
+import { hrmsModules, products } from '../content';
 
 const productFamilies = [...new Set(products.map((product) => product.family))];
 const familySlug = (family: string) => family.toLowerCase().replace(/\s+/g, '-');
 
 const productGroups = [{ title: 'Product categories', links: productFamilies.map((family) => ({ label: family, href: `/products/${familySlug(family)}` })) }, { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Compare products', href: '/compare' }, { label: 'Product guidance', href: '/resources' }] }] as const;
 
-const solutionGroups = [
-  { title: 'Workforce operations', links: [{ label: 'Attendance automation', href: '/solutions/attendance-automation' }, { label: 'HR & payroll workflows', href: '/software/hrms-payroll' }] },
+const hrmsFeatureGroups = [
+  { title: 'Hire & develop', slugs: ['recruitment', 'on-boarding', 'training-induction', 'pms', 'off-boarding'] },
+  { title: 'Time & pay', slugs: ['attendance', 'leave', 'core-hris-payroll', 'performance-linked-benefits', 'expense', 'time-sheet'] },
+  { title: 'Employee experience', slugs: ['ess', 'hr-help-desk', 'visitors'] },
+].map(({ title, slugs }) => ({ title, links: hrmsModules.filter((module) => slugs.includes(module.slug)).map((module) => ({ label: module.name, href: `/hrms-payroll/${module.slug}` })) }));
+
+const workforceProducts = [
+  { id: 'attendance-automation', label: 'Attendance Automation', href: '/solutions/attendance-automation', summary: 'Connect time capture, shift review, and attendance workflows.' },
+  { id: 'hrms-payroll', label: 'HRMS & Payroll', href: '/hrms-payroll', summary: 'Coordinate the employee lifecycle across 14 people-operation features.' },
+] as const;
+
+const otherSolutionGroups = [
   { title: 'Physical access', links: [{ label: 'Access control', href: '/solutions/physical-access-control' }, { label: 'Entrance management', href: '/solutions/entrance-management' }, { label: 'Visitor security', href: '/solutions/visitor-security' }] },
   { title: 'Workplace services', links: [{ label: 'Visitor operations', href: '/software/visitor-management' }, { label: 'Canteen operations', href: '/solutions/canteen-operations' }, { label: 'Solution consultation', href: '/contact' }] },
+] as const;
+
+const solutionGroups = [
+  { title: 'Workforce operations', links: workforceProducts.map(({ label, href }) => ({ label, href })) },
+  ...hrmsFeatureGroups,
+  ...otherSolutionGroups,
 ] as const;
 
 const industryLinks = [
@@ -45,7 +61,9 @@ const mobileUtilityLinks = [
 const mobileMenuGroups = [
   { title: 'Products', links: [{ label: 'All products', href: '/products' }] },
   productGroups[1],
-  ...solutionGroups,
+  { title: 'Workforce solutions', links: workforceProducts.map(({ label, href }) => ({ label, href })) },
+  ...hrmsFeatureGroups,
+  ...otherSolutionGroups,
   { title: 'Industry environments', links: industryLinks },
 ] as const;
 
@@ -61,6 +79,7 @@ const endingNavLinks = [{ label: 'Careers', href: '/careers' }, { label: 'Blog',
 function PremiumNav() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeProductFamily, setActiveProductFamily] = useState(productFamilies[0] ?? '');
+  const [activeWorkforceProduct, setActiveWorkforceProduct] = useState<(typeof workforceProducts)[number]['id'] | null>(null);
   const closeTimer = useRef<number | undefined>(undefined);
   const pathname = usePathname();
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -69,7 +88,11 @@ function PremiumNav() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   const cancelClose = () => window.clearTimeout(closeTimer.current);
-  const openMenu = (title: string) => { cancelClose(); setActiveMenu(title); };
+  const openMenu = (title: string) => {
+    cancelClose();
+    if (title === 'Solutions') setActiveWorkforceProduct(null);
+    setActiveMenu(title);
+  };
   const closeMenu = (delay = 140) => {
     cancelClose();
     closeTimer.current = window.setTimeout(() => setActiveMenu(null), delay);
@@ -85,7 +108,7 @@ function PremiumNav() {
           const isActive = activeMenu === item.title;
           return item.title === 'Products'
             ? <Link className="premium-nav-link" data-menu-title={item.title} href={item.href} key={item.title} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }}>{item.title}</Link>
-            : <button data-menu-title={item.title} aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => setActiveMenu(item.title)} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
+            : <button data-menu-title={item.title} aria-controls={`nav-panel-${item.title}`} aria-expanded={isActive} className="premium-nav-trigger" key={item.title} onClick={() => { if (item.title === 'Solutions') setActiveWorkforceProduct(null); setActiveMenu(item.title); }} onFocus={() => openMenu(item.title)} onPointerEnter={(event) => { if (event.pointerType !== 'touch') openMenu(item.title); }} type="button">{item.title}</button>;
         })}
         {endingNavLinks.map((item) => <Link className="premium-nav-link" href={item.href} key={item.label}>{item.label}</Link>)}
       </div>
@@ -94,7 +117,36 @@ function PremiumNav() {
           const isActive = activeMenu === item.title;
           return <section aria-hidden={!isActive} className={`premium-mega-panel${isActive ? ' is-active' : ''}`} id={`nav-panel-${item.title}`} inert={!isActive} key={item.title}>
             <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.title} that move with your operation.</h2><Link href={item.href}>View all {item.title.toLowerCase()}</Link></div>
-            {item.title === 'Products' ? <div className="premium-product-bifurcation"><div className="premium-product-categories"><p>Product categories</p>{productFamilies.map((family) => <Link className={activeProductFamily === family ? 'is-active' : ''} href={`/products/${familySlug(family)}`} onFocus={() => setActiveProductFamily(family)} onPointerEnter={() => setActiveProductFamily(family)} key={family}>{family}<small>{products.filter((product) => product.family === family).length} products</small></Link>)}</div><div className="premium-product-items"><p>{activeProductFamily} products</p>{products.filter((product) => product.family === activeProductFamily).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}<small>{product.authentication} · {product.application}</small></Link>)}</div></div> : <div className="premium-mega-columns">{item.groups.map((group) => <div key={group.title}><p>{group.title}</p>{group.links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}</div>)}</div>}
+            {item.title === 'Products' ? <div className="premium-product-bifurcation"><div className="premium-product-categories"><p>Product categories</p>{productFamilies.map((family) => <Link className={activeProductFamily === family ? 'is-active' : ''} href={`/products/${familySlug(family)}`} onFocus={() => setActiveProductFamily(family)} onPointerEnter={() => setActiveProductFamily(family)} key={family}>{family}<small>{products.filter((product) => product.family === family).length} products</small></Link>)}</div><div className="premium-product-items"><p>{activeProductFamily} products</p>{products.filter((product) => product.family === activeProductFamily).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}<small>{product.authentication} · {product.application}</small></Link>)}</div></div> : item.title === 'Solutions' && isActive ? <div className="premium-solutions-content">
+              <div className="premium-workforce-picker">
+                <p>Workforce solutions</p>
+                {workforceProducts.map((product) => (
+                  <Link
+                    className={activeWorkforceProduct === product.id ? 'is-active' : ''}
+                    href={product.href}
+                    key={product.id}
+                    onFocus={() => setActiveWorkforceProduct(product.id)}
+                    onPointerEnter={(event) => { if (event.pointerType !== 'touch') setActiveWorkforceProduct(product.id); }}
+                  >
+                    <strong>{product.label}</strong><small>{product.summary}</small><span aria-hidden="true">↗</span>
+                  </Link>
+                ))}
+              </div>
+              <div className="premium-workforce-detail">
+                {activeWorkforceProduct === 'hrms-payroll' ? <>
+                  <p>HRMS & Payroll features</p>
+                  <div className="premium-workforce-features">
+                    {hrmsFeatureGroups.flatMap((group) => group.links).map((feature) => <Link href={feature.href} key={feature.href}>{feature.label}<span aria-hidden="true">↗</span></Link>)}
+                  </div>
+                </> : activeWorkforceProduct === 'attendance-automation' ? <>
+                  <p>Attendance Automation</p>
+                  <div className="premium-workforce-callout"><strong>Make time capture easier to manage.</strong><span>Connect biometric and web attendance with the shift and exception review your teams need.</span><Link href="/solutions/attendance-automation">Explore Attendance Automation <b aria-hidden="true">↗</b></Link></div>
+                </> : <>
+                  <p>Explore workforce solutions</p>
+                  <div className="premium-workforce-callout"><strong>Choose a product to get started.</strong><span>Explore attendance operations or open the full HRMS & Payroll feature set.</span></div>
+                </>}
+              </div>
+            </div> : <div className="premium-mega-columns">{item.groups.map((group) => <div key={group.title}><p>{group.title}</p>{group.links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}</div>)}</div>}
           </section>;
         })}
       </div>
