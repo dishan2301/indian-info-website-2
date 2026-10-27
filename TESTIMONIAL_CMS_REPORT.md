@@ -5,6 +5,7 @@
 - Preview: https://demo-website-kz7ba5yxm-dish1.vercel.app/ (provided deployment URL); branch webhook alias: https://demo-website-git-codex-vercel-cms-preview-dish1.vercel.app/
 - Production: https://indian-info-website-2.vercel.app/
 - Both website configurations point to Sanity project `rmgfsayz`, dataset `production`. Published testimonials are queried from that single dataset.
+- Shared Studio: https://indian-infotech-cms-rmgfsayz.sanity.studio/ (deployed to project `rmgfsayz`, dataset `production`).
 - Phase 1–3 only. Production merge, deployment, webhook creation, and live dual-site verification require the requested explicit approval.
 
 ## Approval and display
@@ -31,4 +32,4 @@ The shared service uses a 60-second Sanity fetch revalidation and both pages hav
 
 Website TypeScript, website production build, Studio TypeScript, Studio build, and all 12 regression test files pass locally. Tests cover authorized display, changed content, media scope, publish/unpublish/revocation/delete gates, order changes, responsive styles, and signed testimonial webhook invalidation. Three stale regression assertions were updated to match the existing dynamic year value, logo reveal timings, and shared article loading; no related UI styles changed.
 
-No real customer testimonial was published for testing. The Preview deployment URL may be protected, and a deployed Studio with the new action, Preview webhook delivery, Vercel environment secret, and real cross-site publication have not yet been independently confirmed. **NO-GO for Production until Preview deployment, webhook, roles/tokens, and live approval workflow are verified.**
+No real customer testimonial was published for testing. The shared Studio was deployed and its schema registered; no testimonial documents exist. The Preview branch alias remains protected and a signed synthetic testimonial invalidation returned HTTP 200 with `revalidated:true`. The existing Preview webhook was updated to include testimonials while retaining its secret and protection bypass header. Production currently still renders a legacy hardcoded quote. No customer testimonial was published for a live add/edit/unpublish/delete test, and staff roles/API tokens have not been audited. Production has not been changed. **NO-GO for Production until authorized staff review the role assignments, validate the approval workflow with an approved customer record, and explicitly approve the main-branch release.**
