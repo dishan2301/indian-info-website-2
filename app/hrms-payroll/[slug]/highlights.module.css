@@ -210,3 +210,17 @@
   .page :global(.hrms-capability-grid[data-entered='true'] article) { animation: none; }
   .page :global(.hrms-capability-grid article:hover), .page :global(.hrms-capability-grid article:hover) .capabilityCheck { transform: none; }
 }
+
+.moduleHighlights { background: #fff; }
+.moduleHighlights > h2 { color: #153f39; text-align: center; font-size: clamp(2rem, 3.5vw, 3.3rem); letter-spacing: -.045em; margin: 0 0 clamp(2.5rem, 5vw, 4rem); }
+.highlightRow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); max-width: 1100px; margin-inline: auto; }
+.highlightRow + .highlightRow { margin-top: clamp(4rem, 7vw, 6rem); }
+.highlightReverse > :first-child { order: 2; }
+.highlightCopy h3 { color: #153f39; font-size: clamp(1.6rem, 2.6vw, 2.4rem); line-height: 1.15; letter-spacing: -.04em; margin: 0 0 1rem; }
+.highlightCopy > p { color: #536e62; line-height: 1.75; margin: 0 0 1.4rem; }
+.highlightCopy ul { padding-left: 1.2rem; margin: 0; color: #425e58; line-height: 1.7; }
+.highlightCopy li + li { margin-top: .75rem; }
+.highlightCopy li::marker { color: #168a78; }
+.highlightCopy strong { color: #153f39; }
+.highlightAction { text-align: center; margin-top: clamp(3rem, 6vw, 5rem); }
+@media (max-width: 800px) { .highlightRow { grid-template-columns: minmax(0, 1fr); } .highlightReverse > :first-child { order: 0; } }
