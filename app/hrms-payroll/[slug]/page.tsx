@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import styles from './highlights.module.css';
+import timesheetStyles from './timesheet-workflow.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -96,9 +97,10 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
           <p>See how the information moves, who takes the next step, and where this module connects with the wider HR process.</p>
           <aside className={styles.scenario}><span>IN PRACTICE</span><h3>{detail.scenario[0]}</h3><p>{detail.scenario[1]}</p></aside>
         </div>
-        <div className="hrms-feature-preview">
+        <div className={`hrms-feature-preview ${item.slug === 'timesheet' ? timesheetStyles.preview : ''}`}>
           <span>{detail.visual[0]}</span>
-          <h3>Three steps.<br />One shared process.</h3>
+          <h3>{item.slug === 'timesheet' ? <>From project work<br />to approved hours.</> : <>Three steps.<br />One shared process.</>}</h3>
+          {item.slug === 'timesheet' && <><p className={timesheetStyles.intro}>Follow time from a project and task to an employee’s entry and a manager’s review.</p><div className={timesheetStyles.visual}><AnimatedFeatureScene module="timesheet" stages={visualStages} /></div></>}
           <ol>{visualStages.map((stage, index) => <li key={stage}><span>{String(index + 1).padStart(2, '0')}</span><div><h4>{stage}</h4><p>{detail.workflow[index]}</p></div></li>)}</ol>
           <div className={styles.workflowFoot}><Check size={15} aria-hidden="true" /> Connected to your wider HR workflow</div>
         </div>
