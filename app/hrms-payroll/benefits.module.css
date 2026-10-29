@@ -1,17 +1,97 @@
 .benefits {
-  background: radial-gradient(circle at 90% 10%, #13acf416, transparent 35%), radial-gradient(circle at 5% 90%, #9ecf0914, transparent 40%), #f7fbfd !important;
-  color: #17191c;
+  position: relative;
+  background:
+    radial-gradient(circle at 90% 10%, rgb(19 172 244 / 8%), transparent 32%),
+    radial-gradient(circle at 5% 90%, rgb(158 207 9 / 8%), transparent 38%),
+    var(--mist);
+  color: var(--ink);
 }
-.benefits::before { display: none; }
-.benefits h2 { color: #040404 !important; }
-.benefits :global(.section-kicker) { color: #518000 !important; }
-.benefits :global(.section-heading) > p { color: #62666b !important; }
-.benefits :global(.hrms-benefit-grid) { display: grid; gap: 1rem; grid-template-columns: repeat(3,minmax(0,1fr)); }
-.benefits :global(.hrms-benefit-grid) article { background: #fff !important; border: 1px solid #dce8e8 !important; box-shadow: 0 8px 24px #073e6108; }
-.benefits :global(.hrms-benefit-grid) article:hover { background: #fff !important; border-color: #13acf470 !important; box-shadow: 0 14px 30px #13acf41a; }
-.benefits :global(.hrms-benefit-grid) h3 { color: #17191c !important; }
-.benefits :global(.hrms-benefit-grid) p { color: #62666b !important; }
-.benefits :global(.hrms-benefit-grid) :global(.hrms-benefit-icon) { color: #0897da; background: #e8f8ff; border-color: #13acf42b; }
-.benefits :global(.hrms-benefit-top) > span:last-child { color: #7c8b90; }
-.benefits :global(.hrms-benefit-line) { background: #9ecf09; }
-@media (max-width: 760px) { .benefits :global(.hrms-benefit-grid) { grid-template-columns: minmax(0,1fr); } }
+
+.benefits h2 {
+  max-width: 17ch;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.benefits :global(.section-kicker) {
+  color: var(--brand-primary);
+}
+
+.benefits :global(.section-heading) > p {
+  color: var(--muted);
+}
+
+.benefits :global(.hrms-benefit-grid) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.benefits :global(.hrms-benefit-grid) article {
+  position: relative;
+  min-height: 235px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  background: white;
+  box-shadow: 0 8px 24px rgb(23 25 28 / 4%);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.benefits :global(.hrms-benefit-grid) article:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-primary);
+  box-shadow: 0 15px 32px rgb(23 25 28 / 8%);
+}
+
+.benefits :global(.hrms-benefit-grid) h3 {
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.benefits :global(.hrms-benefit-grid) p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.benefits :global(.hrms-benefit-grid) :global(.hrms-benefit-icon) {
+  border: 1px solid rgb(19 172 244 / 22%);
+  background: var(--brand-primary-light);
+  color: var(--brand-primary);
+}
+
+.benefits :global(.hrms-benefit-top) > span:last-child {
+  color: var(--muted);
+}
+
+.benefits :global(.hrms-benefit-line) {
+  background: var(--brand-accent-secondary);
+}
+
+@media (max-width: 800px) {
+  .benefits :global(.hrms-benefit-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .benefits :global(.hrms-benefit-grid) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .benefits :global(.hrms-benefit-grid) article {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefits :global(.hrms-benefit-grid) article {
+    transition: none;
+  }
+
+  .benefits :global(.hrms-benefit-grid) article:hover {
+    transform: none;
+  }
+}

@@ -1,89 +1,334 @@
-.overview :global(.hrms-proof-grid) { display:grid; gap:1px; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:2.5rem; }
-.overview :global(.hrms-proof-grid) article { background:#fff; border:1px solid rgba(7,62,97,.1); color:var(--navy-950); padding:1.5rem; text-decoration:none; }
-.overview :global(.hrms-proof-grid) strong { color:#138b92; display:block; font-size:clamp(2.5rem,5vw,4rem); letter-spacing:-.06em; }
-.overview :global(.hrms-proof-grid) span { color:#61747a; font-size:.85rem; line-height:1.6; }
-.overview :global(.hrms-overview-layout) { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(1.5rem, 5vw, 5rem); }
-.overview :global(.hrms-overview-layout) h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.1; letter-spacing: -.045em; margin: .75rem 0 1rem; color: var(--navy-950); }
-.overview :global(.hrms-overview-lead) { color: #16858d; font-size: 1.15rem; line-height: 1.65; max-width: 30ch; }
-.overview :global(.hrms-overview-copy) p { color: #536a72; font-size: 1rem; line-height: 1.8; margin: 0 0 1rem; }
-.overview :global(.hrms-overview-copy) p:last-child { margin-bottom: 0; }
-.overview :global(.hrms-proof-grid) { gap: 1rem; margin-top: 2rem; }
-.overview :global(.hrms-proof-grid) article { border-radius: .75rem; background: #f4f9fa; }
-.overview :global(.hrms-proof-grid) span { display: block; margin-top: .6rem; }
-.overview :global(.hrms-overview-layout) { grid-template-columns: 1fr; gap: 1rem; }
-.overview :global(.hrms-proof-grid) { grid-template-columns: 1fr; }
-.overview { background: radial-gradient(ellipse at 0 65%, #ddf4ee, transparent 60%), #f7fbfc; }
-.overview :global(.hrms-overview-layout) { grid-template-columns: 1fr 1fr; align-items: center; }
-.overview :global(.hrms-overview-copy) { border-left: 1px solid #bedcdd; padding-left: clamp(1.25rem,3vw,2.5rem); }
-.overview :global(.hrms-editorial-label) { display: block; color: #15848c; font: 600 .64rem var(--font-geist-mono),monospace; letter-spacing: .12em; margin: 1.6rem 0 .7rem; }
-.overview :global(.hrms-editorial-label):first-child { margin-top: 0; }
-.overview :global(.hrms-overview-copy) p { font-size: .94rem; }
-.overview :global(.hrms-record-visual) { isolation: isolate; position: relative; margin-top: 2rem; height: 345px; border: 1px solid #b4d8d8; border-radius: 1.2rem; background: radial-gradient(ellipse at center,#bfece3,transparent 65%),linear-gradient(135deg,#edf9f6,#e0f0f5); overflow: hidden; box-shadow: inset 0 1px 0 white,0 20px 45px -35px #07566b; }
-.overview :global(.hrms-record-visual)::before { content: ''; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(#2c7b8610 1px,transparent 1px),linear-gradient(90deg,#2c7b8610 1px,transparent 1px); background-size: 24px 24px; }
-.overview :global(.hrms-record-topline) { display: flex; justify-content: space-between; gap: .5rem; padding: 1rem; color: #357783; font: 600 .5rem var(--font-geist-mono),monospace; letter-spacing: .08em; }
-.overview :global(.hrms-record-topline) i, .overview :global(.hrms-record-node) i { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #10a78c; margin-right: .3rem; }
-.overview :global(.hrms-record-orbit) { position: absolute; inset: 65px 15px 35px; display: grid; place-items: center; z-index: -1; }
-.overview :global(.hrms-record-orbit) div { position: absolute; width: 95%; height: 70%; border: 1px dashed #52a6a777; border-radius: 50%; transform: rotate(-18deg); }
-.overview :global(.hrms-record-orbit) div:last-child { transform: rotate(18deg); }
-.overview :global(.hrms-record-core) { position: absolute; top: 70px; left: 50%; margin-left: -92px; width: 184px; padding: 1rem; background: #ffffffed; border: 1px solid white; border-radius: .9rem; box-shadow: 0 16px 35px #1b65792b; text-align: center; }
-.overview :global(.hrms-record-avatar) { display: grid; place-items: center; margin: 0 auto .5rem; background: #064e60; color: #a7eac9; border-radius: 12px; width: 36px; height: 36px; font-size: 1.7rem; }
-.overview :global(.hrms-record-core) strong { color: #123f4e; display: block; font-size: .85rem; }
-.overview :global(.hrms-record-core) small { color: #63828a; font-size: .58rem; }
-.overview :global(.hrms-record-fields) { display: grid; gap: .4rem; margin-top: .8rem; text-align: left; }
-.overview :global(.hrms-record-fields) span { background: #edf5f6; border-left: 2px solid #46b6a4; padding: .35rem .45rem; color: #496a73; font-size: .58rem; }
-.overview :global(.hrms-record-core) b { display: block; margin-top: .75rem; font-size: .52rem; color: #148474; }
-.overview :global(.hrms-record-node) { position: absolute; display: flex; align-items: center; gap: .4rem; padding: .65rem .7rem; background: #fff; box-shadow: 0 6px 15px #12506512; border: 1px solid #d1e8e9; border-radius: .6rem; color: #28515c; font-size: .62rem; font-weight: 600; }
-.overview :global(.hrms-record-node) > span { color: #119490; font-size: .95rem; }
-.overview :global(.hrms-record-node) i { margin: 0; width: 4px; height: 4px; }
-.overview :global(.hrms-record-node-0) { top: 50px; left: 12px; }
-.overview :global(.hrms-record-node-1) { top: 50px; right: 12px; }
-.overview :global(.hrms-record-node-2) { bottom: 42px; left: 16px; }
-.overview :global(.hrms-record-node-3) { bottom: 42px; right: 12px; }
-.overview :global(.hrms-record-bottom) { position: absolute; bottom: 6px; width: 100%; text-align: center; color: #39747e; font: 500 .52rem var(--font-geist-mono),monospace; letter-spacing: .08em; }
-.overview :global(.hrms-record-bottom) span { padding-inline: .4rem; color: #12a095; }
-.overview :global(.hrms-proof-grid) article { background: transparent; border: 0; border-top: 1px solid #c3dcdd; border-radius: 0; padding: 1.4rem 0 0; }
-.overview :global(.hrms-proof-grid) strong { font-size: clamp(2.2rem,4vw,3.5rem); letter-spacing: -.06em; }
-.overview { background: #f4f9f8; }
-.overview :global(.hrms-overview-banner) { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #c9dddd; margin-bottom: 2rem; }
-.overview :global(.hrms-overview-banner) :global(.section-kicker) { text-align: left; }
-.overview :global(.hrms-overview-banner) h2 { color: #103e48; font-size: clamp(2.4rem,4.3vw,4.3rem); line-height: 1.07; letter-spacing: -.055em; margin: 1rem 0 0; }
-.overview :global(.hrms-overview-banner) h2 em { font-style: normal; color: #158d91; }
-.overview :global(.hrms-overview-banner) > p { color: #24515c; font-size: 1.1rem; line-height: 1.65; margin: 0; max-width: 40ch; justify-self: end; }
-.overview :global(.hrms-overview-banner) > p span { display: block; color: #627b81; font-size: .94rem; margin-top: .75rem; }
-.overview :global(.hrms-overview-layout) { gap: 2rem; align-items: start; grid-template-columns: 1fr 1.1fr; }
-.overview :global(.hrms-overview-heading) { background: #0a4350; border-radius: 1.3rem; padding: 1rem; overflow: hidden; }
-.overview :global(.hrms-overview-heading) :global(.hrms-record-visual) { margin-top: 0; height: 370px; }
-.overview :global(.hrms-overview-caption) { display: flex; align-items: center; gap: 1.25rem; padding: .75rem .5rem 0; color: #d7eeee; }
-.overview :global(.hrms-overview-caption) > span { font: 500 .65rem var(--font-geist-mono),monospace; color: #b6dc89; border: 1px solid #ffffff2a; padding: .65rem; border-radius: 50%; }
-.overview :global(.hrms-overview-caption) p { font-size: .8rem; line-height: 1.7; }
-.overview :global(.hrms-overview-copy) { border: 0; padding: 0; display: grid; gap: .85rem; }
-.overview :global(.hrms-story-card) { background: #fff; border: 1px solid #d8e7e4; border-radius: .85rem; padding: 1.25rem 1.5rem; box-shadow: 0 5px 15px #1a515305; }
-.overview :global(.hrms-story-card) :global(.hrms-editorial-label) { margin: 0 0 .65rem; }
-.overview :global(.hrms-story-card) p { font-size: .88rem; line-height: 1.75; margin: 0; }
-.overview :global(.hrms-proof-grid) { padding: 1.5rem; background: #e6f0ed; border-radius: 1rem; gap: 2rem; }
-.overview :global(.hrms-proof-grid) { position: relative; isolation: isolate; overflow: hidden; padding: clamp(1.35rem, 3vw, 2rem); background: #0a4350; box-shadow: 0 24px 60px rgba(10,67,80,.14); }
-.overview :global(.hrms-proof-grid)::before { content: 'THE PLATFORM IN NUMBERS'; position: absolute; top: 1.2rem; right: 1.5rem; color: #b6dc895c; font: 600 .58rem var(--font-geist-mono),monospace; letter-spacing: .13em; }
-.overview :global(.hrms-proof-grid)::after { content: ''; position: absolute; width: 20rem; height: 20rem; right: -9rem; bottom: -13rem; border: 1px solid #b6dc891f; border-radius: 50%; box-shadow: 0 0 0 3rem #b6dc890b, 0 0 0 6rem #b6dc8908; pointer-events: none; }
-.overview :global(.hrms-proof-grid) article { border-top: 0; padding: 2.3rem 1rem .5rem; position: relative; z-index: 1; }
-.overview :global(.hrms-proof-grid) article + article { border-left: 1px solid #ffffff26; padding-left: 2rem; }
-.overview :global(.hrms-proof-grid) strong { color: #e1f5be; display: block; font-size: clamp(3rem, 6vw, 5rem); line-height: .9; }
-.overview :global(.hrms-proof-grid) span { color: #d3e7e5; display: block; font-size: .88rem; line-height: 1.65; margin-top: .9rem; max-width: 26ch; }
-.overview :global(.hrms-proof-grid) article::before { color: #a9dc82; content: '0' counter(proof); counter-increment: proof; font: 600 .58rem var(--font-geist-mono),monospace; left: 1rem; position: absolute; top: .4rem; }
-.overview :global(.hrms-proof-grid) { counter-reset: proof; }
-.overview :global(.hrms-record-visual) { height: auto; min-height: 0; padding: 1.1rem; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
-.overview :global(.hrms-record-topline) { grid-column: 1 / -1; padding: 0; flex-wrap: wrap; gap: .5rem; line-height: 1.6; }
-.overview :global(.hrms-record-core) { position: relative; top: auto; left: auto; width: 100%; max-width: 260px; margin: .5rem auto; grid-column: 1 / -1; padding: 1.25rem; }
-.overview :global(.hrms-record-node) { position: relative; inset: auto; justify-content: center; padding: .8rem .5rem; font-size: .72rem; min-width: 0; }
-.overview :global(.hrms-record-bottom) { position: relative; inset: auto; grid-column: 1 / -1; margin: .5rem 0 0; font-size: .55rem; line-height: 1.8; }
-.overview :global(.hrms-record-orbit) { inset: 60px 15px 130px; }
-.overview :global(.hrms-overview-caption) { gap: 1rem; }
-.overview :global(.hrms-overview-copy) { min-width: 0; }
-@media (max-width: 800px) {
- .overview :global(.hrms-overview-banner), .overview :global(.hrms-overview-layout) { grid-template-columns: minmax(0,1fr); }
- .overview :global(.hrms-overview-banner) { gap: 1rem; }
- .overview :global(.hrms-overview-banner) > p { justify-self: start; }
- .overview :global(.hrms-proof-grid) { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
- .overview :global(.hrms-proof-grid) article + article { border-left: 0; border-top: 1px solid #ffffff26; padding-left: 1rem; padding-top: 1.5rem; }
- .overview :global(.hrms-proof-grid)::before { position: static; display: block; margin: 0 0 .25rem; }
+.page {
+  --hrms-surface: var(--mist);
 }
-.overview :global(.hrms-overview-heading) :global(.hrms-record-visual) { height: auto; min-height: 0; max-width: none; overflow: visible; }
+
+.page :global(.hrms-hero) {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(1rem, 3vw, 3rem);
+  min-height: 640px;
+  overflow: hidden;
+  padding: 7.25rem clamp(1.25rem, 7vw, 7.5rem) 3rem;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgb(19 172 244 / 13%), transparent 38%),
+    radial-gradient(ellipse at 0% 100%, rgb(158 207 9 / 9%), transparent 34%),
+    var(--brand-primary-light);
+}
+
+.page :global(.hrms-hero)::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 43%;
+  background-image:
+    linear-gradient(rgb(19 172 244 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(19 172 244 / 7%) 1px, transparent 1px);
+  background-size: 38px 38px;
+  content: '';
+  mask-image: linear-gradient(to right, black, transparent);
+  pointer-events: none;
+}
+
+.page :global(.hrms-hero-copy) {
+  align-self: center;
+  width: min(100%, 680px);
+  padding: 0;
+  text-align: left;
+}
+
+.page :global(.hrms-hero-copy .section-kicker) {
+  color: #638200;
+}
+
+.page :global(.hrms-hero-copy h1) {
+  max-width: 12ch;
+  margin: 1.2rem 0;
+  color: var(--ink);
+  font-size: clamp(2.7rem, 5.2vw, 5rem);
+  letter-spacing: -.06em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.page :global(.hrms-hero-copy > p:not(.section-kicker)) {
+  max-width: 54ch;
+  margin-inline: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.page :global(.hrms-hero-actions) {
+  justify-content: flex-start;
+  margin-top: 1.6rem;
+}
+
+.page :global(.hrms-hero-actions .button-primary) {
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  color: var(--navy-950);
+}
+
+.page :global(.hrms-hero-actions .button-primary:hover) {
+  background: var(--brand-accent-secondary);
+}
+
+.page :global(.hrms-hero-actions .outline-link) {
+  color: var(--ink);
+}
+
+.page :global(.hrms-hero-note) {
+  justify-content: flex-start;
+  margin-top: 2rem;
+  border-color: rgb(23 25 28 / 16%);
+}
+
+.page :global(.hrms-hero-note span) {
+  color: var(--muted);
+}
+
+.page :global(.hrms-benefits) {
+  background: var(--mist);
+}
+
+.workflows {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7rem);
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 7vw, 7.5rem);
+  background: white;
+}
+
+.workflowRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 1440px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.workflowCopy h2 {
+  max-width: 18ch;
+  margin: .8rem 0 1rem;
+  color: var(--ink);
+  font-size: clamp(2rem, 3.8vw, 3.8rem);
+  letter-spacing: -.055em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.workflowCopy > p:not(.section-kicker) {
+  max-width: 55ch;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.8;
+}
+
+.workflowCopy ul {
+  display: grid;
+  gap: .75rem;
+  margin: 1.35rem 0;
+  padding-left: 1.2rem;
+  color: var(--ink);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.workflowCopy li::marker {
+  color: var(--brand-primary);
+}
+
+.workflowCopy > a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: .55rem;
+  color: var(--ink);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration-color: var(--brand-primary);
+  text-underline-offset: .25em;
+}
+
+.workflowCopy > a:hover {
+  color: #0877a8;
+}
+
+.page .questions {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(2rem, 6vw, 6rem);
+  background: white;
+}
+
+.questionsHeading h2 {
+  max-width: 15ch;
+  margin: .9rem 0 1rem;
+  color: var(--ink);
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+  letter-spacing: -.055em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.questionsHeading > p:not(.section-kicker) {
+  max-width: 38ch;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.75;
+}
+
+.questionsHeading > a {
+  min-height: 46px;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  color: var(--navy-950);
+}
+
+.questions :global(.hrms-faq-list) {
+  display: grid;
+  width: 100%;
+  gap: .75rem;
+  margin: 0;
+  border: 0;
+}
+
+.questions :global(.hrms-faq-list details) {
+  padding: 0 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background: var(--mist);
+}
+
+.questions :global(.hrms-faq-list details[open]) {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary-light);
+}
+
+.questions :global(.hrms-faq-list summary) {
+  min-height: 64px;
+  gap: 1rem;
+  padding: .8rem 0;
+}
+
+.questions :global(.hrms-faq-list summary small) {
+  color: var(--brand-primary);
+}
+
+.questions :global(.hrms-faq-list summary strong) {
+  color: var(--ink);
+}
+
+.questions :global(.hrms-faq-list summary > span) {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: transform .2s ease;
+}
+
+.questions :global(.hrms-faq-list details[open] summary > span) {
+  transform: rotate(45deg);
+}
+
+.questions :global(.hrms-faq-list details > p) {
+  margin: 0 2.8rem 1.25rem;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.75;
+}
+
+.page a:focus-visible,
+.page summary:focus-visible {
+  outline: 3px solid var(--brand-primary);
+  outline-offset: 4px;
+}
+
+.page :global(.route-feature-band) {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgb(19 172 244 / 15%), transparent 48%),
+    radial-gradient(ellipse at 0% 100%, rgb(158 207 9 / 12%), transparent 42%),
+    var(--brand-primary-light);
+  color: var(--ink);
+}
+
+.page :global(.route-feature-band .section-kicker) {
+  color: #638200;
+}
+
+.page :global(.route-feature-band h2) {
+  color: var(--ink);
+}
+
+.page :global(.route-feature-band p:last-child) {
+  color: var(--muted);
+}
+
+.page :global(.route-feature-band .button-primary) {
+  min-height: 48px;
+  border-radius: 999px;
+  background: var(--brand-primary);
+  color: var(--navy-950);
+}
+
+@media (max-width: 800px) {
+  .page :global(.hrms-hero) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .page :global(.hrms-hero)::before {
+    width: 100%;
+  }
+
+  .page :global(.hrms-hero-copy) {
+    width: min(100%, 760px);
+    margin-inline: auto;
+  }
+
+  .page :global(.hrms-hero-copy h1) {
+    max-width: 17ch;
+  }
+
+  .page .questions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .workflowRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+}
+
+@media (max-width: 520px) {
+  .page :global(.hrms-hero) {
+    padding-inline: 1rem;
+    padding-top: 5.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .questions :global(.hrms-faq-list details) {
+    padding-inline: 1rem;
+  }
+
+  .questions :global(.hrms-faq-list details > p) {
+    margin-inline: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .questions :global(.hrms-faq-list summary > span) {
+    transition: none;
+  }
+}

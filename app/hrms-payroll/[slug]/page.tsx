@@ -54,8 +54,8 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
           <p>{detail.introduction}</p>
           <div className={styles.heroTags}><span><Layers3 size={14} aria-hidden="true" />{detail.features.length} capabilities</span><span>One connected employee journey</span></div>
           <div className="hrms-hero-actions">
-            <Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Discuss this feature <span aria-hidden="true">↗</span></Link>
-            <Link className="outline-link" href="/hrms-payroll">All {hrmsModules.length} HRMS features</Link>
+            <Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Discuss this module <span aria-hidden="true">↗</span></Link>
+            <Link className="outline-link" href="/hrms-payroll">All {hrmsModules.length} HRMS modules</Link>
           </div>
         </div>
         <div className="hrms-detail-image">
@@ -129,13 +129,13 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
 
       <section className="hrms-related section" id="connected">
         <div className="section-heading split-heading">
-          <div><p className="section-kicker">Connected features</p><h2>Continue the employee journey.</h2></div>
-          <Link className="outline-link" href="/hrms-payroll">View all {hrmsModules.length} features <span aria-hidden="true">↗</span></Link>
+          <div><p className="section-kicker">Connected modules</p><h2>Continue the employee journey.</h2></div>
+          <Link className="outline-link" href="/hrms-payroll">View all {hrmsModules.length} modules <span aria-hidden="true">↗</span></Link>
         </div>
         <div className="hrms-related-grid">
           {related.map((module) => (
             <Link key={module.slug} href={`/hrms-payroll/${module.slug}`}>
-              <span>CONNECTED MODULE</span><h3>{module.name}</h3><p>{module.summary}</p><b>Explore feature <ArrowRight size={16} aria-hidden="true" /></b>
+              <span>CONNECTED MODULE</span><h3>{module.name}</h3><p>{module.summary}</p><b>Explore module <ArrowRight size={16} aria-hidden="true" /></b>
             </Link>
           ))}
         </div>

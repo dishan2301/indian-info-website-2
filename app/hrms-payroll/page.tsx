@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import styles from './faq.module.css';
+import styles from './overview.module.css';
 import benefitStyles from './benefits.module.css';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/site';
@@ -7,6 +7,7 @@ import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { hrmsModules } from '../content';
 import { HrmsVisual, HrmsReveal } from './visual';
+import { AnimatedFeatureScene, FeatureReveal } from './animated-feature-scene';
 import ModuleExplorer from './module-explorer';
 import { Database, Layers3, Network, Route, UserRound, Headset } from 'lucide-react';
 
@@ -20,45 +21,67 @@ const benefitIcons = [Database, Layers3, Network, Route, UserRound, Headset];
 
 export default function HrmsPayrollPage() {
   return (
-    <main className="hrms-page">
+    <main className={`hrms-page ${styles.page}`}>
       <SiteHeader />
       <section className="hrms-hero">
         <div className="hrms-hero-copy">
           <p className="section-kicker">Workforce software / HRMS & Payroll</p>
-          <h1>One HR suite. Every stage of working life.</h1>
-          <p>An integrated HRMS and HCM platform built in India, connecting your people, payroll, and everyday HR operations.</p>
+          <h1>Every part of people operations, in view.</h1>
+          <p>Explore HR and payroll workflows for hiring, joining, day-to-day employee support, and the work that keeps your organisation moving.</p>
           <div className="hrms-hero-actions">
-            <Link className="button button-primary" href="/contact?solution=hrms-payroll">Book a Demo <span aria-hidden="true">↗</span></Link>
-            <Link className="outline-link" href="#modules">Explore Modules <span aria-hidden="true">↓</span></Link>
+            <Link className="button button-primary" href="/contact?solution=hrms-payroll">Request a Demo <span aria-hidden="true">↗</span></Link>
+            <Link className="outline-link" href="#modules">Explore the modules <span aria-hidden="true">↓</span></Link>
           </div>
           <div className="hrms-hero-note">
-            <span>{hrmsModules.length} connected features</span>
-            <span>Hire to retire</span>
-            <span>Built around your workflows</span>
+            <span>{hrmsModules.length} connected modules</span>
+            <span>One employee journey</span>
+            <span>Scope confirmed for your setup</span>
           </div>
         </div>
         <HrmsVisual />
       </section>
 
+      <section className={styles.workflows} aria-label="HRMS workflow highlights">
+        <FeatureReveal className={styles.workflowRow}>
+          <div className={styles.workflowCopy}>
+            <p className="section-kicker">CORE HR & PAYROLL</p>
+            <h2>Keep the everyday people workflow connected.</h2>
+            <p>Bring employee information, payroll preparation, and employee services into a clearer operating picture.</p>
+            <ul>{['Employee information and records', 'Payroll inputs and review', 'Employee requests and services'].map((item) => <li key={item}>{item}</li>)}</ul>
+            <Link href="/hrms-payroll/core-hris-payroll">Explore Core HRIS & Payroll <span aria-hidden="true">↗</span></Link>
+          </div>
+          <AnimatedFeatureScene module="core-hris-payroll" stages={['Employee records', 'Payroll review', 'Employee services']} />
+        </FeatureReveal>
+        <FeatureReveal className={`${styles.workflowRow} ${styles.reverse}`}>
+          <AnimatedFeatureScene module="onboarding" stages={['Joining details', 'Welcome checklist', 'Team handoff']} variant={1} />
+          <div className={styles.workflowCopy}>
+            <p className="section-kicker">FROM HIRE TO JOINING</p>
+            <h2>Give each new joiner a more considered start.</h2>
+            <p>See how recruitment and onboarding pages connect the steps from candidate selection to joining preparation.</p>
+            <ul>{['Hiring and interview stages', 'Joining information and checklists', 'A handoff into employee workflows'].map((item) => <li key={item}>{item}</li>)}</ul>
+            <Link href="/hrms-payroll/onboarding">Explore Recruitment & On-Boarding <span aria-hidden="true">↗</span></Link>
+          </div>
+        </FeatureReveal>
+      </section>
+
       <section className={`section hrms-benefits ${benefitStyles.benefits}`} aria-labelledby="hrms-benefits-heading">
-        <div className="section-heading split-heading"><div><p className="section-kicker">Connected by design</p><h2 id="hrms-benefits-heading">Why Our HR Suite?</h2></div><p>Less reconciliation. Clearer responsibilities. A platform that grows with your people.</p></div>
+        <div className="section-heading split-heading"><div><p className="section-kicker">One connected HR suite</p><h2 id="hrms-benefits-heading">A clearer way to manage the employee journey.</h2></div><p>Bring people processes into one conversation—from the first hiring step through day-to-day work and employee transitions.</p></div>
         <div className="hrms-benefit-grid">{[
-          ['One reliable employee database', 'Keep profiles, compensation, and statutory identifiers together so HR, attendance, and payroll work from consistent records.'],
-          ['Modular, scalable rollout', 'Start with the modules you need and extend the same core as your organisation grows, without re-platforming.'],
-          ['Vendor-independent integration', 'Connect existing finance systems and third-party HR tools without committing to a single ecosystem.'],
-          ['Complete lifecycle coverage', 'Manage recruitment, onboarding, daily administration, performance, and offboarding in one connected suite.'],
-          ['Employee self-service', 'Give people access to payslips, leave requests, and everyday HR information through a shared workflow.'],
-          ['Implementation support', 'Plan configuration, integrations, training, and rollout around your policies and operating requirements.'],
+          ['A connected employee record', 'Keep key employee information available to the HR workflows that need it.'],
+          ['Modules for each stage', 'Explore recruitment, joining, everyday HR, payroll, development, and exit workflows.'],
+          ['Payroll alongside HR', 'Bring employee and payroll processes into a shared operating picture.'],
+          ['Clearer process handoffs', 'Give teams a common view of requests, decisions, and the next step in a workflow.'],
+          ['Employee-facing workflows', 'Explore self-service options for common employee information and requests.'],
+          ['A rollout shaped around you', 'Confirm capabilities, integrations, and implementation scope with our team.'],
         ].map(([title, description], index) => { const Icon = benefitIcons[index]; return <HrmsReveal key={title} className="hrms-benefit-reveal" delay={(index % 3) * .09}><article><div className="hrms-benefit-top"><span className="hrms-benefit-icon"><Icon size={25} strokeWidth={1.5} aria-hidden="true" /></span><span>0{index + 1} /</span></div><h3>{title}</h3><p>{description}</p><span className="hrms-benefit-line" aria-hidden="true" /></article></HrmsReveal>; })}</div>
       </section>
 
       <ModuleExplorer />
 
-      <section className="section hrms-compliance" aria-labelledby="hrms-compliance-heading"><div className="section-heading split-heading"><div><p className="section-kicker">Capabilities to confirm</p><h2 id="hrms-compliance-heading">Bring your requirements to the conversation.</h2></div><p>Exact statutory, device, workflow, and integration support depends on configuration and should be confirmed for your deployment.</p></div><div className="hrms-check-table">{['PF / ESIC / PT payroll workflows','Shift and roster management','Biometric attendance integration','Mobile employee self-service','Multilevel workflow','Maker-checker controls','Payslip designer','Visitor management','Recruitment and performance workflows'].map((row) => <div key={row}><span>{row}</span><b>Confirm in demo</b></div>)}</div></section>
-
-      <section className="section hrms-integrations"><div className="section-heading split-heading"><div><p className="section-kicker">Connected operations</p><h2>Meet the systems around your people.</h2></div><p>Discuss biometric devices, accounting tools, and Attendance Automation as part of a practical rollout plan.</p></div><div className="hrms-integration-grid"><article><h3>Biometric devices</h3><p>Bring approved attendance events into the workforce workflow.</p></article><article><h3>Accounting tools</h3><p>Map payroll and finance handoffs to the tools your team already uses.</p></article><Link href="/solutions/attendance-automation"><h3>Attendance Automation ↗</h3><p>Connect time capture, review, and attendance operations.</p></Link></div></section>
-
-      <section className={`section hrms-faq ${styles.faq}`} aria-labelledby="hrms-main-faq-heading"><div className="hrms-faq-intro"><p className="section-kicker">Questions teams ask</p><h2 id="hrms-main-faq-heading">A little clarity.<br /><em>A better next step.</em></h2><p>Start with the process you want to improve. Here’s what to know before bringing your people workflows together.</p><div className="hrms-faq-contact"><span className="hrms-faq-contact-icon" aria-hidden="true">?</span><strong>Have a question of your own?</strong><p>Let’s talk through your team, policies, and priorities.</p><Link href="/contact?solution=hrms-payroll">Talk to our team <span aria-hidden="true">↗</span></Link></div></div><div className="hrms-faq-list">{[['Is this suitable for a small business?','The right starting point depends on your people processes and rollout scope. A demo can help identify a practical first phase.'],['How does it improve HR work?','Connected records and approvals reduce repeated handoffs and make current information easier to review.'],['How is pricing decided?','Pricing depends on the modules, users, configuration, and support scope. Request a quote for your requirements.'],['How do we get started?','Share your current workflow, locations, and priorities. The team can map the next step with you.'],['Can payroll and HR work in one system?','The suite is designed to connect employee records, workforce inputs, and payroll workflows. Exact scope should be confirmed for your setup.'],['Can it connect to our attendance setup?','Biometric and attendance integration options depend on the devices and configuration in scope.']].map(([question, answer], index) => <details key={question} name="hrms-faq"><summary><small>{String(index + 1).padStart(2, '0')}</small><strong>{question}</strong><span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+      <section className={`section ${styles.questions}`} aria-labelledby="hrms-main-faq-heading">
+        <div className={styles.questionsHeading}><p className="section-kicker">Questions teams ask</p><h2 id="hrms-main-faq-heading">A few things to know before you get started.</h2><p>Every organisation has its own policies, systems, and priorities. We’ll help you explore the right fit.</p><Link className="button button-primary" href="/contact?solution=hrms-payroll">Talk to our team <span aria-hidden="true">↗</span></Link></div>
+        <div className="hrms-faq-list">{[['What does the HRMS suite include?','Explore 14 modules covering recruitment, onboarding, core HR and payroll, attendance, employee services, and other workforce workflows. Available scope depends on your setup.'],['Can we start with selected modules?','Discuss the processes you want to address first. Our team can help confirm available modules and a rollout approach for your requirements.'],['Can it connect with our existing systems?','Integration options depend on the systems, devices, and configuration involved. Share your requirements so they can be reviewed with our team.'],['How is pricing determined?','Pricing depends on the modules, user scope, configuration, and support requirements. Contact our team for a quote based on your needs.'],['How can I see the workflows?','Request a demo and tell us which processes matter most. We can focus the discussion on the relevant workflows and confirm product scope.']].map(([question, answer], index) => <details key={question} name="hrms-faq"><summary><small>{String(index + 1).padStart(2, '0')}</small><strong>{question}</strong><span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
+      </section>
 
       <section className="route-feature-band">
         <div><p className="section-kicker light">Plan around your operation</p><h2>Start with the people workflow that matters most.</h2><p>Tell us about your team, current process, and rollout goals. We’ll help map a practical next step.</p></div>
