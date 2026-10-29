@@ -3707,8 +3707,8 @@ body:has(.mobile-menu[open]) .floating-whatsapp { position: static; margin: 1rem
 .hrms-page .hrms-benefits { background: #073d4a; color: white; position: relative; overflow: hidden; }
 .hrms-page .hrms-benefits::before { content: ''; position: absolute; width: 550px; height: 550px; border: 1px solid #64b4b127; border-radius: 50%; right: -260px; top: -260px; box-shadow: 0 0 0 60px #64b4b108,0 0 0 120px #64b4b108; pointer-events: none; }
 .hrms-page .hrms-benefits h2 { color: white; }
-.hrms-page .hrms-benefits #hrms-benefits-heading { color: #a9dc82; }
-.hrms-page .hrms-benefits .section-kicker { color: #a9dc82; }
+.hrms-page .hrms-benefits #hrms-benefits-heading { color: #fff; }
+.hrms-page .hrms-benefits .section-kicker { color: #b4cfd4; }
 .hrms-page .hrms-benefits .section-heading > p { color: #b4cfd4; }
 .hrms-benefit-reveal { display: flex; min-width: 0; }
 .hrms-page .hrms-benefit-grid article { width: 100%; position: relative; overflow: hidden; padding: 1.65rem; background: linear-gradient(140deg,#ffffff0e,#ffffff03); border: 1px solid #82c4c32f; border-radius: 1rem; transition: transform .3s,background .3s,border-color .3s; }
