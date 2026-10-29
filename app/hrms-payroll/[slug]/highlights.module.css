@@ -161,27 +161,19 @@
   .page :global(.hrms-capability-grid) { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* A topic-specific scene and outcome replace the repeated benefit cards. */
-.page .highlights {
-  background: #123b38;
-  color: #fff;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
-  align-items: center;
-  gap: clamp(2rem, 6vw, 6rem);
-}
-.benefitVisual { position: relative; min-height: 420px; border-radius: 1.25rem; overflow: hidden; background: #dce9d3; }
-.benefitVisual img { object-fit: cover; animation: benefitScene 12s ease-in-out infinite alternate; }
-.benefitVisualLabel { position: absolute; left: 1.25rem; bottom: 1.25rem; padding: .65rem 1rem; border-radius: 2rem; background: #fff; color: #174b40; font-size: .75rem; font-weight: 700; box-shadow: 0 5px 25px #123b3826; }
-.page .highlights :global(.section-kicker) { color: #b9e2ad; }
-.page .highlights h2 { color: #fff; max-width: 16ch; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.08; margin: 1.25rem 0; }
-.benefitLead { color: #d5e8de; font-size: 1.05rem; line-height: 1.8; max-width: 44ch; }
-.benefitList { margin-top: 2rem; border-top: 1px solid #ffffff38; }
-.benefitList > div { display: flex; gap: 1rem; padding-top: 1.5rem; }
-.benefitList > div > span { display: grid; place-items: center; flex: 0 0 2.5rem; height: 2.5rem; border-radius: 50%; background: #cce8b6; color: #174b40; font-size: 1.25rem; }
-.benefitList h3 { color: #fff; font-size: 1.2rem; margin: 0 0 .45rem; }
-.benefitList p { color: #c0d8cf; line-height: 1.7; margin: 0; }
-@keyframes benefitScene { from { transform: scale(1); } to { transform: scale(1.07); } }
-@media (max-width: 900px) { .page .highlights { grid-template-columns: 1fr; } .benefitVisual { min-height: 340px; } }
-@media (max-width: 600px) { .benefitVisual { min-height: 260px; } }
-@media (prefers-reduced-motion: reduce) { .benefitVisual img { animation: none; } }
+/* Module FAQ */
+.page :global(.hrms-faq) { background: #edf6ef; gap: clamp(2rem, 6vw, 6rem); }
+.page :global(.hrms-faq .section-heading h2) { max-width: 15ch; }
+.page :global(.hrms-faq .section-heading h2 em) { color: #187b6c; }
+.faqContact { margin-top: 2rem; padding: 1.5rem; border-radius: 1rem; background: #173f3a; color: #fff; max-width: 25rem; }
+.faqContact strong { font-size: 1.05rem; }
+.faqContact p { color: #c6ded1; font-size: .9rem; line-height: 1.6; margin: .5rem 0 1.2rem; }
+.faqContact a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid #ffffff40; padding-top: 1rem; color: #c5e8b0; font-size: .85rem; font-weight: 700; }
+.page :global(.hrms-faq-list details) { background: #fff; border: 1px solid #d3e5d8; border-radius: .9rem; padding: 0 1.4rem; margin: 0; }
+.page :global(.hrms-faq-list details[open]) { background: #f8fcf6; border-color: #92c5a5; box-shadow: 0 8px 24px #174b400d; }
+.page :global(.hrms-faq-list summary) { padding: 1.35rem 0; }
+.page :global(.hrms-faq-list summary small) { color: #438775; }
+.page :global(.hrms-faq-list summary strong) { color: #153f39; }
+.page :global(.hrms-faq-list summary > span) { color: #187b6c; background: #edf6ee; border-color: #c8e4d1; }
+.page :global(.hrms-faq-list details > p) { padding: 0 2.5rem 1.5rem 2rem; color: #536e62; line-height: 1.8; }
+@media (max-width: 600px) { .page :global(.hrms-faq-list details > p) { padding-left: 0; padding-right: 0; } }

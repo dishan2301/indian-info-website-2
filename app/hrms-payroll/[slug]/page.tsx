@@ -36,10 +36,9 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
   const visualStages = detail.visual[1].split('|');
   const faqs = [
     ...detail.faqs,
-    [`How can we assess ${item.name} for our team?`, 'Share your current process, the people involved, and the outcomes you need. Our team can discuss the available scope and demonstrate the relevant workflow.'],
-    ['What should we prepare for a demonstration?', 'Bring examples of your current process, approval steps, and any systems you need to connect. This helps the team focus the discussion on your requirements.'],
-    ['How is the implementation scope decided?', 'The scope depends on your requirements, existing systems, and the capabilities available for your setup. Confirm these with our team before planning a rollout.'],
-  ].slice(0, 5);
+    [`How does ${item.name} work in practice?`, detail.scenario[1]],
+    [`What steps are involved in ${item.name}?`, detail.workflow.join(' ')],
+  ];
 
   return (
     <main className={`hrms-page ${styles.page}`}>
@@ -105,31 +104,15 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      <section className={`hrms-highlights ${styles.highlights}`} aria-labelledby="benefits-heading">
-        <div className={styles.benefitVisual}>
-          <Image src={item.image} alt="" fill sizes="(max-width: 900px) 100vw, 50vw" />
-          <span className={styles.benefitVisualLabel}>{item.name} in action</span>
-        </div>
-        <div className={styles.benefitContent}>
-          <p className="section-kicker">03 / Why it matters</p>
-          <h2 id="benefits-heading">{detail.highlights[0][0]}</h2>
-          <p className={styles.benefitLead}>{detail.highlights[0][1]}</p>
-          <div className={styles.benefitList}>
-            {detail.highlights.slice(1).map(([heading, description]) => (
-              <div key={heading}><span aria-hidden="true">↗</span><div><h3>{heading}</h3><p>{description}</p></div></div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section hrms-faq" id="questions" aria-labelledby="hrms-faq-heading">
         <div className="section-heading split-heading">
-          <div><p className="section-kicker">Common questions</p><h2 id="hrms-faq-heading">A few things teams often ask.</h2></div>
-          <p>Every rollout depends on your policies, integrations, and requirements. Our team can help you map the right fit.</p>
+          <div><p className="section-kicker">03 / Common questions</p><h2 id="hrms-faq-heading">Questions about <em>{item.name}?</em></h2></div>
+          <p>Explore how this workflow can fit your team, from everyday tasks to setup and review.</p>
+          <div className={styles.faqContact}><strong>Need a closer look?</strong><p>Talk through your process with our team.</p><Link href={`/contact?hrms=${item.slug}`}>Discuss {item.name} <ArrowRight size={16} aria-hidden="true" /></Link></div>
         </div>
         <div className="hrms-faq-list">
-          {faqs.map(([question, answer]) => (
-            <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
+          {faqs.map(([question, answer], index) => (
+            <details key={question}><summary><small>{String(index + 1).padStart(2, '0')}</small><strong>{question}</strong><span aria-hidden="true">+</span></summary><p>{answer}</p></details>
           ))}
         </div>
       </section>
