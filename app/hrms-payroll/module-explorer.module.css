@@ -1,0 +1,25 @@
+.explorer { background: var(--mist); }
+.heading { max-width: 760px; margin: 0 auto 2.5rem; text-align: center; }
+.heading h2 { color: var(--ink); font-size: clamp(2.2rem, 4vw, 4rem); letter-spacing: -.05em; line-height: 1.1; margin: .8rem 0; }
+.heading > p:last-child { color: var(--muted); line-height: 1.7; }
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin-bottom: 1.5rem; }
+.stages button { min-height: 84px; display: grid; grid-template-columns: auto 1fr; align-content: center; gap: .3rem .8rem; text-align: left; border: 1px solid var(--line); border-radius: .75rem; padding: 1rem; background: white; color: var(--ink); cursor: pointer; transition: border-color .2s, background .2s; }
+.stages button[aria-pressed='true'] { background: var(--brand-primary-light); border-color: var(--brand-primary); }
+.stages button > span { grid-row: span 2; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--ink); color: white; font-size: .7rem; }
+.stages button strong { font-size: .85rem; }
+.stages button small { color: var(--muted); font-size: .7rem; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.card { display: flex; flex-direction: column; min-width: 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: .9rem; background: white; transition: transform .2s, border-color .2s; }
+.card:hover { transform: translateY(-3px); border-color: var(--brand-primary); }
+.cardTop { display: flex; justify-content: space-between; align-items: center; color: var(--ink); }
+.cardTop span { font: 600 .65rem var(--font-geist-mono), monospace; letter-spacing: .08em; }
+.card h3 { color: var(--ink); font-size: 1.4rem; line-height: 1.2; margin: 1.3rem 0 .7rem; }
+.card p { color: var(--muted); line-height: 1.65; font-size: .9rem; margin: 0; }
+.card ul { display: grid; gap: .65rem; list-style: none; padding: 1.2rem 0; margin: 1.1rem 0; border-top: 1px solid var(--line); }
+.card li { display: flex; gap: .55rem; align-items: flex-start; color: var(--ink); font-size: .84rem; line-height: 1.45; }
+.card li svg { flex: none; margin-top: .15rem; }
+.card a { display: inline-flex; align-items: center; gap: .45rem; align-self: flex-start; margin-top: auto; color: var(--ink); font-size: .8rem; font-weight: 700; text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+@media (max-width: 800px) { .stages, .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .stages { gap: .5rem; } .stages button { padding: .75rem; } .cards { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .card, .stages button { transition: none; } .card:hover { transform: none; } }

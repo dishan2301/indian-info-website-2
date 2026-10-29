@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import styles from './faq.module.css';
-import overviewStyles from './overview.module.css';
 import benefitStyles from './benefits.module.css';
-import Image from 'next/image';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/site';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { hrmsModules } from '../content';
 import { HrmsVisual, HrmsReveal } from './visual';
-import EmployeeRecordVisual from './employee-record-visual';
+import ModuleExplorer from './module-explorer';
 import { Database, Layers3, Network, Route, UserRound, Headset } from 'lucide-react';
 
 export const metadata: Metadata = createPageMetadata({
@@ -19,8 +17,6 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const benefitIcons = [Database, Layers3, Network, Route, UserRound, Headset];
-
-const moduleMarks = ['↗', '◷', '◎', '◇', '＋', '◉', '↗', '▤', '₹', '↗', '↘', '▦', '◌', '⌁'] as const;
 
 export default function HrmsPayrollPage() {
   return (
@@ -44,39 +40,6 @@ export default function HrmsPayrollPage() {
         <HrmsVisual />
       </section>
 
-      <section className={`section hrms-about ${overviewStyles.overview}`} aria-labelledby="hrms-about-heading">
-        <div className="hrms-overview-banner"><div><p className="section-kicker">One connected people system</p><h2 id="hrms-about-heading">Your people.<br /><em>One connected story.</em></h2></div><p>Complete HR. From hire to retire.<br /><span>One employee database. Every team working from the same information.</span></p></div>
-        <div className="hrms-overview-layout">
-          <div className="hrms-overview-heading"><EmployeeRecordVisual /><div className="hrms-overview-caption"><span>01 — 14</span><p>Every module connected.<br /><strong>Every employee accounted for.</strong></p></div></div>
-          <HrmsReveal className="hrms-overview-copy">
-            <article className="hrms-story-card"><span className="hrms-editorial-label">01 / THE PLATFORM</span><p>Our HR Suite is an integrated HRMS and HCM software platform built in India that manages the complete hire-to-retire employee lifecycle — recruitment, onboarding, core HRIS, payroll, attendance, leave, performance, and offboarding — from a single system.</p></article>
-            <article className="hrms-story-card"><span className="hrms-editorial-label">02 / A FLEXIBLE START</span><p>Explore the modules that match your team’s priorities, from employee records and attendance to payroll and performance. Discuss the right scope for your organisation with our team.</p></article>
-            <article className="hrms-story-card"><span className="hrms-editorial-label">03 / ONE SHARED RECORD</span><p>The suite operates as an employee system of record, keeping worker profiles, compensation structures, and statutory identifiers together. Recruitment, payroll, attendance, and performance use the same connected dataset, giving your teams one consistent version of employee information.</p></article>
-          </HrmsReveal>
-        </div>
-      </section>
-
-      <section className="section hrms-modules" id="modules" aria-labelledby="hrms-modules-heading">
-        <div className="section-heading split-heading">
-          <div><p className="section-kicker">The employee lifecycle</p><h2 id="hrms-modules-heading">Integrated Modules</h2></div>
-          <p>Choose a feature to understand its role in the employee journey, see the key workflows, and discuss your requirements.</p>
-        </div>
-        <div className="hrms-module-grid">
-          {hrmsModules.map((module, index) => (
-            <Link href={`/hrms-payroll/${module.slug}`} key={module.slug} className="hrms-module-card">
-              <span className="hrms-module-image">
-                <Image src={module.image} alt={module.imageAlt} width={600} height={360} />
-              </span>
-              <span className="hrms-module-number">{String(index + 1).padStart(2, '0')} / HRMS</span>
-              <span className="hrms-module-mark" aria-hidden="true">{moduleMarks[index]}</span>
-              <h3>{module.name}</h3>
-              <p>{module.summary}</p>
-              <span className="hrms-module-link">Explore feature <b aria-hidden="true">↗</b></span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className={`section hrms-benefits ${benefitStyles.benefits}`} aria-labelledby="hrms-benefits-heading">
         <div className="section-heading split-heading"><div><p className="section-kicker">Connected by design</p><h2 id="hrms-benefits-heading">Why Our HR Suite?</h2></div><p>Less reconciliation. Clearer responsibilities. A platform that grows with your people.</p></div>
         <div className="hrms-benefit-grid">{[
@@ -88,6 +51,8 @@ export default function HrmsPayrollPage() {
           ['Implementation support', 'Plan configuration, integrations, training, and rollout around your policies and operating requirements.'],
         ].map(([title, description], index) => { const Icon = benefitIcons[index]; return <HrmsReveal key={title} className="hrms-benefit-reveal" delay={(index % 3) * .09}><article><div className="hrms-benefit-top"><span className="hrms-benefit-icon"><Icon size={25} strokeWidth={1.5} aria-hidden="true" /></span><span>0{index + 1} /</span></div><h3>{title}</h3><p>{description}</p><span className="hrms-benefit-line" aria-hidden="true" /></article></HrmsReveal>; })}</div>
       </section>
+
+      <ModuleExplorer />
 
       <section className="section hrms-compliance" aria-labelledby="hrms-compliance-heading"><div className="section-heading split-heading"><div><p className="section-kicker">Capabilities to confirm</p><h2 id="hrms-compliance-heading">Bring your requirements to the conversation.</h2></div><p>Exact statutory, device, workflow, and integration support depends on configuration and should be confirmed for your deployment.</p></div><div className="hrms-check-table">{['PF / ESIC / PT payroll workflows','Shift and roster management','Biometric attendance integration','Mobile employee self-service','Multilevel workflow','Maker-checker controls','Payslip designer','Visitor management','Recruitment and performance workflows'].map((row) => <div key={row}><span>{row}</span><b>Confirm in demo</b></div>)}</div></section>
 
