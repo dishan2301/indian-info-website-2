@@ -177,3 +177,24 @@
 .page :global(.hrms-faq-list summary > span) { color: #187b6c; background: #edf6ee; border-color: #c8e4d1; }
 .page :global(.hrms-faq-list details > p) { padding: 0 2.5rem 1.5rem 2rem; color: #536e62; line-height: 1.8; }
 @media (max-width: 600px) { .page :global(.hrms-faq-list details > p) { padding-left: 0; padding-right: 0; } }
+
+/* Capability cards */
+.page :global(.hrms-capabilities) { background: radial-gradient(circle at 95% 5%, #d8f3ed, transparent 35%), #f4faf8; }
+.page :global(.hrms-capabilities .section-kicker), .page :global(.hrms-capabilities h2 em) { color: #087d70; }
+.page :global(.hrms-capability-grid article) { position: relative; overflow: hidden; border-color: #cce6de; background: linear-gradient(135deg, #fff, #f4fbf7); box-shadow: 0 8px 25px #174b400b; transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.page :global(.hrms-capability-grid[data-entered='true'] article) { animation: capability-enter .55s ease both; }
+.page :global(.hrms-capability-grid[data-entered='true'] article:nth-child(3n + 2)) { animation-delay: .09s; }
+.page :global(.hrms-capability-grid[data-entered='true'] article:nth-child(3n)) { animation-delay: .18s; }
+@keyframes capability-enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.page :global(.hrms-capability-grid article)::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 4px; background: #1ca891; }
+.page :global(.hrms-capability-grid article:nth-child(3n + 2))::before { background: #39a8cf; }
+.page :global(.hrms-capability-grid article:nth-child(3n))::before { background: #a5c958; }
+.page :global(.hrms-capability-grid article:hover) { transform: translateY(-5px); border-color: #83c7b4; box-shadow: 0 16px 35px #174b4018; }
+.page .capabilityCheck { color: #087d70; background: #d9f2e9; transition: transform .3s ease, background .3s ease; }
+.page :global(.hrms-capability-grid article:hover) .capabilityCheck { transform: rotate(-8deg) scale(1.08); background: #bce9d9; }
+.page .cardLabel { color: #338878; }
+@media (prefers-reduced-motion: reduce) {
+  .page :global(.hrms-capability-grid article), .page .capabilityCheck { transition: none; }
+  .page :global(.hrms-capability-grid[data-entered='true'] article) { animation: none; }
+  .page :global(.hrms-capability-grid article:hover), .page :global(.hrms-capability-grid article:hover) .capabilityCheck { transform: none; }
+}

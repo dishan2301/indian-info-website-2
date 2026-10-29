@@ -79,7 +79,7 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
           <div><p className="section-kicker">01 / Inside the module</p><h2 id="hrms-capabilities-heading">Every detail.<br /><em>A clearer way to work.</em></h2></div>
           <p>Explore what {item.name.toLowerCase()} brings to your team, from everyday tasks to the decisions and handoffs around them.</p>
         </div>
-        <div className="hrms-capability-grid">
+        <FeatureReveal className="hrms-capability-grid">
           {detail.features.map(([name, description], index) => {
             const Icon = capabilityIcons[item.slug]?.[index] ?? Check;
             return <article key={name}>
@@ -87,7 +87,7 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
               <div><span className={styles.cardLabel}>CAPABILITY {String(index + 1).padStart(2, '0')}</span><h3>{name}</h3><p>{description}</p></div>
             </article>;
           })}
-        </div>
+        </FeatureReveal>
       </section>
 
       <section className={`section hrms-detail-workflow ${styles.workflow}`} id="workflow" aria-labelledby="hrms-workflow-heading">
