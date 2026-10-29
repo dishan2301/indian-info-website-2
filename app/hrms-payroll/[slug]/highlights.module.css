@@ -131,7 +131,7 @@
 .processRow + .processRow { margin-top: clamp(4rem, 8vw, 7rem); }
 .processRow.reverse > :first-child { order: 2; }
 .processCopy h2 { color: var(--hr-ink); font-size: clamp(2rem, 3.5vw, 3.4rem); letter-spacing: -.055em; line-height: 1.12; margin: 1rem 0; }
-.processCopy > p:not(:global(.section-kicker)), .processCopy li { color: var(--hr-muted); font-size: .94rem; line-height: 1.8; }
+.processCopy > p:not(:global(.section-kicker)), .processCopy li { color: var(--hr-ink); font-size: clamp(1.05rem, 1.2vw, 1.15rem); line-height: 1.75; }
 .processCopy ul { padding-left: 1.2rem; margin: 1.5rem 0 0; }
 .processCopy li + li { margin-top: .75rem; }
 .processCopy li::marker { color: var(--hr-teal); }
