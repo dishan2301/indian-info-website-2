@@ -8,6 +8,8 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { hrmsModules } from '../../content';
 import { hrmsDetails } from '../content';
+import { AnimatedFeatureScene } from '../animated-feature-scene';
+import { HrmsReveal } from '../visual';
 import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -58,6 +60,17 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
       </section>
 
       <nav className={styles.sectionNav} aria-label="On this page"><span>Explore this module</span><a href="#capabilities">Capabilities <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#workflow">How it works <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#questions">FAQs <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#connected">Connected modules <ArrowUpRight size={14} aria-hidden="true" /></a></nav>
+
+      <section className={styles.processSections} aria-label={`${item.name} process`}>
+        <HrmsReveal className={styles.processRow}>
+          <div className={styles.processCopy}><p className="section-kicker">A CONNECTED PROCESS</p><h2>{detail.headline}</h2><p>{detail.introduction}</p><ul>{detail.workflow.map((step) => <li key={step}>{step}</li>)}</ul></div>
+          <AnimatedFeatureScene module={item.slug} stages={visualStages} />
+        </HrmsReveal>
+        <HrmsReveal className={`${styles.processRow} ${styles.reverse}`}>
+          <div className={styles.processCopy}><p className="section-kicker">IN PRACTICE</p><h2>{detail.scenario[0]}</h2><p>{detail.scenario[1]}</p><ul>{detail.features.slice(0, 3).map(([name, description]) => <li key={name}><strong>{name}.</strong> {description}</li>)}</ul></div>
+          <AnimatedFeatureScene module={item.slug} stages={detail.features.slice(0, 3).map(([name]) => name)} variant={1} />
+        </HrmsReveal>
+      </section>
 
       <section className="section hrms-capabilities" id="capabilities" aria-labelledby="hrms-capabilities-heading">
         <div className="section-heading split-heading">

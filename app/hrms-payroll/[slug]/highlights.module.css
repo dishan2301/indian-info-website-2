@@ -126,3 +126,18 @@
 @media (prefers-reduced-motion: reduce) {
   .page :global(.hrms-capability-grid article), .page :global(.hrms-related-grid a) { transition: none; }
 }
+.processSections { padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 7vw, 7.5rem); background: #fff; }
+.processRow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); }
+.processRow + .processRow { margin-top: clamp(4rem, 8vw, 7rem); }
+.processRow.reverse > :first-child { order: 2; }
+.processCopy h2 { color: var(--hr-ink); font-size: clamp(2rem, 3.5vw, 3.4rem); letter-spacing: -.055em; line-height: 1.12; margin: 1rem 0; }
+.processCopy > p:not(:global(.section-kicker)), .processCopy li { color: var(--hr-muted); font-size: .94rem; line-height: 1.8; }
+.processCopy ul { padding-left: 1.2rem; margin: 1.5rem 0 0; }
+.processCopy li + li { margin-top: .75rem; }
+.processCopy li::marker { color: var(--hr-teal); }
+.processCopy strong { color: var(--hr-ink); }
+@media (max-width: 800px) { .processRow { grid-template-columns: minmax(0, 1fr); } .processRow.reverse > :first-child { order: 0; } }
+.sectionNav > span { color: #526a66; }
+.page :global(.hrms-module-nav small) { color: #176b65; }
+.page :global(.footer-v2-nav a) { display: inline-flex; align-items: center; min-height: 24px; }
+.page :global(.footer-v2-contact a) { display: inline-flex; align-items: center; min-height: 24px; }
