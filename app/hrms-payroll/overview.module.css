@@ -61,7 +61,15 @@
 .overview :global(.hrms-story-card) :global(.hrms-editorial-label) { margin: 0 0 .65rem; }
 .overview :global(.hrms-story-card) p { font-size: .88rem; line-height: 1.75; margin: 0; }
 .overview :global(.hrms-proof-grid) { padding: 1.5rem; background: #e6f0ed; border-radius: 1rem; gap: 2rem; }
-.overview :global(.hrms-proof-grid) article { border-top: 0; padding: 0; }
+.overview :global(.hrms-proof-grid) { position: relative; isolation: isolate; overflow: hidden; padding: clamp(1.35rem, 3vw, 2rem); background: #0a4350; box-shadow: 0 24px 60px rgba(10,67,80,.14); }
+.overview :global(.hrms-proof-grid)::before { content: 'THE PLATFORM IN NUMBERS'; position: absolute; top: 1.2rem; right: 1.5rem; color: #b6dc895c; font: 600 .58rem var(--font-geist-mono),monospace; letter-spacing: .13em; }
+.overview :global(.hrms-proof-grid)::after { content: ''; position: absolute; width: 20rem; height: 20rem; right: -9rem; bottom: -13rem; border: 1px solid #b6dc891f; border-radius: 50%; box-shadow: 0 0 0 3rem #b6dc890b, 0 0 0 6rem #b6dc8908; pointer-events: none; }
+.overview :global(.hrms-proof-grid) article { border-top: 0; padding: 2.3rem 1rem .5rem; position: relative; z-index: 1; }
+.overview :global(.hrms-proof-grid) article + article { border-left: 1px solid #ffffff26; padding-left: 2rem; }
+.overview :global(.hrms-proof-grid) strong { color: #e1f5be; display: block; font-size: clamp(3rem, 6vw, 5rem); line-height: .9; }
+.overview :global(.hrms-proof-grid) span { color: #d3e7e5; display: block; font-size: .88rem; line-height: 1.65; margin-top: .9rem; max-width: 26ch; }
+.overview :global(.hrms-proof-grid) article::before { color: #a9dc82; content: '0' counter(proof); counter-increment: proof; font: 600 .58rem var(--font-geist-mono),monospace; left: 1rem; position: absolute; top: .4rem; }
+.overview :global(.hrms-proof-grid) { counter-reset: proof; }
 .overview :global(.hrms-record-visual) { height: auto; min-height: 0; padding: 1.1rem; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
 .overview :global(.hrms-record-topline) { grid-column: 1 / -1; padding: 0; flex-wrap: wrap; gap: .5rem; line-height: 1.6; }
 .overview :global(.hrms-record-core) { position: relative; top: auto; left: auto; width: 100%; max-width: 260px; margin: .5rem auto; grid-column: 1 / -1; padding: 1.25rem; }
@@ -75,6 +83,7 @@
  .overview :global(.hrms-overview-banner) { gap: 1rem; }
  .overview :global(.hrms-overview-banner) > p { justify-self: start; }
  .overview :global(.hrms-proof-grid) { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
- .overview :global(.hrms-proof-grid) article + article { border-top: 1px solid #c5dbd5; padding-top: 1.25rem; }
+ .overview :global(.hrms-proof-grid) article + article { border-left: 0; border-top: 1px solid #ffffff26; padding-left: 1rem; padding-top: 1.5rem; }
+ .overview :global(.hrms-proof-grid)::before { position: static; display: block; margin: 0 0 .25rem; }
 }
 .overview :global(.hrms-overview-heading) :global(.hrms-record-visual) { height: auto; min-height: 0; max-width: none; overflow: visible; }
