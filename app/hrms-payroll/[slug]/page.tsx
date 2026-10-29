@@ -8,6 +8,7 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { hrmsModules } from '../../content';
 import { hrmsDetails } from '../content';
+import { capabilityIcons } from '../capability-icons';
 import { AnimatedFeatureScene, FeatureReveal } from '../animated-feature-scene';
 import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
 
@@ -79,12 +80,13 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
           <p>Explore what {item.name.toLowerCase()} brings to your team, from everyday tasks to the decisions and handoffs around them.</p>
         </div>
         <div className="hrms-capability-grid">
-          {detail.features.map(([name, description], index) => (
-            <article key={name}>
-              <span className={styles.capabilityCheck}><Check size={18} strokeWidth={1.8} aria-hidden="true" /></span>
+          {detail.features.map(([name, description], index) => {
+            const Icon = capabilityIcons[item.slug]?.[index] ?? Check;
+            return <article key={name}>
+              <span className={styles.capabilityCheck}><Icon size={18} strokeWidth={1.8} aria-hidden="true" /></span>
               <div><span className={styles.cardLabel}>CAPABILITY {String(index + 1).padStart(2, '0')}</span><h3>{name}</h3><p>{description}</p></div>
-            </article>
-          ))}
+            </article>;
+          })}
         </div>
       </section>
 
