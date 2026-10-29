@@ -10,7 +10,7 @@ import { hrmsModules } from '../../content';
 import { hrmsDetails } from '../content';
 import { capabilityIcons } from '../capability-icons';
 import { AnimatedFeatureScene, FeatureReveal } from '../animated-feature-scene';
-import { ArrowUpRight, Check, Layers3, ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
 
 export function generateStaticParams() {
   return hrmsModules.map((item) => ({ slug: item.slug }));
@@ -105,16 +105,20 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
         </div>
       </section>
 
-      <section className={`hrms-highlights ${styles.highlights}`}>
-        <div className="hrms-highlights-heading">
-          <p className="section-kicker">03 / Why it matters</p>
-          <h2>Better work starts<br /><em>with the details.</em></h2>
-          <p className={styles.highlightsIntro}>See what {item.name} can bring to your people and your everyday work.</p>
+      <section className={`hrms-highlights ${styles.highlights}`} aria-labelledby="benefits-heading">
+        <div className={styles.benefitVisual}>
+          <Image src={item.image} alt="" fill sizes="(max-width: 900px) 100vw, 50vw" />
+          <span className={styles.benefitVisualLabel}>{item.name} in action</span>
         </div>
-        <div className="hrms-highlights-grid">
-          {detail.highlights.map(([heading, description], index) => (
-            <article key={heading}><div className={styles.benefitTop}><span className={styles.benefitIcon}>{index === 0 ? <Sparkles size={22} aria-hidden="true" /> : <TrendingUp size={22} aria-hidden="true" />}</span><span className={styles.benefitNumber}>0{index + 1} / 0{detail.highlights.length}</span></div><h3>{heading}</h3><p>{description}</p><span className={styles.benefitArrow} aria-hidden="true">↗</span></article>
-          ))}
+        <div className={styles.benefitContent}>
+          <p className="section-kicker">03 / Why it matters</p>
+          <h2 id="benefits-heading">{detail.highlights[0][0]}</h2>
+          <p className={styles.benefitLead}>{detail.highlights[0][1]}</p>
+          <div className={styles.benefitList}>
+            {detail.highlights.slice(1).map(([heading, description]) => (
+              <div key={heading}><span aria-hidden="true">↗</span><div><h3>{heading}</h3><p>{description}</p></div></div>
+            ))}
+          </div>
         </div>
       </section>
 
