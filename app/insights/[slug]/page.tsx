@@ -11,6 +11,8 @@ import { insights } from '../content';
 import { getPublishedInsight } from '@/lib/sanity/content';
 import { PortableText } from 'next-sanity';
 
+export const dynamicParams = true;
+
 export function generateStaticParams() { return insights.map((article) => ({ slug: article.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

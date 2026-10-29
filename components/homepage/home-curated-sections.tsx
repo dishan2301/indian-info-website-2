@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { clientQuotes, customerOrganizations } from '@/app/content';
 import { insights } from '@/app/insights/content';
 import { companyStats, completedYearsSince } from '@/lib/company-profile';
+import type { SanityInsight } from '@/lib/sanity/content';
 
 const industries = [
   { name: 'Pharma', slug: 'pharma', icon: '/industries/icons/pharma.png', eyebrow: 'Controlled environments', title: 'Clean movement through every critical zone.', text: 'Coordinate shifts, visitors, clean-room access, and workforce records around the discipline of regulated facilities.', image: '/generated/industries/pharma-workplace-v2.png', alt: 'Pharmaceutical technician using an access reader beside a stainless cleanroom interlock door' },
@@ -16,7 +17,11 @@ const industries = [
   { name: 'Engineering', slug: 'engineering', icon: '/industries/icons/engineering.png', eyebrow: 'Protected project spaces', title: 'Secure the journey from design to delivery.', text: 'Shape access and workforce workflows around studios, prototype floors, tools, and project zones.', image: '/generated/industries/engineering-workplace-v1.webp', alt: 'Original 3D scene of controlled access in an engineering and prototyping center' },
   { name: 'Food industries', slug: 'food', icon: '/industries/icons/food-industries.png', eyebrow: 'Hygienic operations', title: 'Clean entry. Accountable shifts. Confident output.', text: 'Support hygiene checkpoints, attendance, and controlled production access across food facilities.', image: '/generated/industries/food-industries-workplace-v1.webp', alt: 'Original 3D scene of hygienic workforce entry in a food processing facility' },
 ] as const;
-const news = insights.slice(0, 5).map((article) => ({ category: article.category === 'Company update' ? 'Company update' : article.sourceUrl ? 'From the original blog' : 'Research blog · Blog', title: article.title, href: `/insights/${article.slug}`, image: article.image }));
+function getNews(cmsInsights: readonly SanityInsight[]) {
+  const cmsNews = cmsInsights.map((article) => ({ category: article._type === 'companyNews' ? 'Company update' : article._type === 'researchArticle' ? 'Research article' : 'Blog', title: article.title, href: `/insights/${article.slug}`, image: article.mainImage?.asset?.url || '/og.png', slug: article.slug }));
+  const localNews = insights.map((article) => ({ category: article.category === 'Company update' ? 'Company update' : article.sourceUrl ? 'From the original blog' : 'Research blog · Blog', title: article.title, href: `/insights/${article.slug}`, image: article.image, slug: article.slug }));
+  return [...cmsNews, ...localNews].filter((article, index, all) => all.findIndex((candidate) => candidate.slug === article.slug) === index).slice(0, 5);
+}
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -187,7 +192,8 @@ export function IndustriesAndClients() {
   </section>;
 }
 
-export function QuotesAndNews() {
+export function QuotesAndNews({ cmsInsights = [] }: { cmsInsights?: readonly SanityInsight[] }) {
+  const news = getNews(cmsInsights);
   const [active, setActive] = useState(0);
   const [quoteActive, setQuoteActive] = useState(0);
   const [paused, setPaused] = useState(false);

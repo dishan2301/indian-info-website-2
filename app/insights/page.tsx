@@ -12,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({ title: 'Workforce Technol
 
 export default async function InsightsPage() {
   const cmsInsights = await getPublishedInsights();
-  const articles = cmsInsights.length ? cmsInsights.map((item) => ({slug: item.slug, title: item.title, summary: item.summary, category: item._type === 'companyNews' ? 'Company update' : item._type === 'researchArticle' ? 'Research article' : 'Blog', date: new Date(item.publishedAt).toLocaleDateString('en-IN', {day: 'numeric', month: 'long', year: 'numeric'}), image: item.mainImage?.asset?.url || '/og.png'})) : insights;
+  const articles = [...cmsInsights.map((item) => ({slug: item.slug, title: item.title, summary: item.summary || '', category: item._type === 'companyNews' ? 'Company update' : item._type === 'researchArticle' ? 'Research article' : 'Blog', date: new Date(item.publishedAt).toLocaleDateString('en-IN', {day: 'numeric', month: 'long', year: 'numeric'}), image: item.mainImage?.asset?.url || '/og.png'})), ...insights.map(({slug, title, summary, category, date, image}) => ({slug, title, summary, category, date, image}))].filter((article, index, all) => all.findIndex((candidate) => candidate.slug === article.slug) === index);
   return <main>
     <SiteHeader />
     <PageHero eyebrow="News & insights" title="Ideas for safer, clearer workplace operations." description="Company updates, product thinking, and practical articles about attendance, access, workforce systems, and connected facilities." marker="II / INSIGHTS" />

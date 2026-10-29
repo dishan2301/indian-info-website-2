@@ -6,6 +6,7 @@ import { CompanyOverview, IndustriesAndClients, QuotesAndNews } from '@/componen
 import { createPageMetadata } from '@/lib/site';
 import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
+import { getPublishedInsights } from '@/lib/sanity/content';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Access Control & Attendance Products | Indian Infotech',
@@ -13,7 +14,8 @@ export const metadata: Metadata = createPageMetadata({
   path: '/',
 });
 
-export default function Home() {
+export default async function Home() {
+  const cmsInsights = await getPublishedInsights();
   return <main id="home">
     <SiteHeader />
     <HeroPoster />
@@ -50,7 +52,7 @@ export default function Home() {
     </section>
     <CompanyOverview />
     <IndustriesAndClients />
-    <QuotesAndNews />
+    <QuotesAndNews cmsInsights={cmsInsights} />
     <SiteFooter />
   </main>;
 }

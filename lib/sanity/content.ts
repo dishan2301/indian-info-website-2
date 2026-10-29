@@ -5,10 +5,10 @@ export type SanityInsight = { _id: string; _type: string; title: string; slug: s
 
 export async function getPublishedInsights(): Promise<SanityInsight[]> {
   if (!sanityConfigured) return []
-  try { return await sanityClient.fetch<SanityInsight[]>(publishedInsightsQuery, {}, {next: {revalidate: 60, tags: ['sanity:editorial']}}) } catch (error) { console.error('Sanity editorial listing failed', error); return [] }
+  try { return await sanityClient.fetch<SanityInsight[]>(publishedInsightsQuery, {}, {cache: 'no-store'}) } catch (error) { console.error('Sanity editorial listing failed', error); return [] }
 }
 
 export async function getPublishedInsight(slug: string): Promise<SanityInsight | null> {
   if (!sanityConfigured) return null
-  try { return await sanityClient.fetch<SanityInsight | null>(publishedInsightQuery, {slug}, {next: {revalidate: 60, tags: [`sanity:editorial:${slug}`]}}) } catch (error) { console.error('Sanity editorial detail failed', error); return null }
+  try { return await sanityClient.fetch<SanityInsight | null>(publishedInsightQuery, {slug}, {cache: 'no-store'}) } catch (error) { console.error('Sanity editorial detail failed', error); return null }
 }
