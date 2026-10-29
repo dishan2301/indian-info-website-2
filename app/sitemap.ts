@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
+import { moduleWorkflows } from './hrms-payroll/module-workflows';
 import { hrmsModules, industryProfiles, products, softwarePlatforms, solutionProfiles } from './content';
 import { insights } from './insights/content';
 import { seoLandingPages } from './seo-landing-content';
 import { approvedCaseStudies } from './proof-content';
 
-const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/developers', '/developers/integration-reference', '/knowledge', '/resources', '/resources/procurement', '/insights', '/support', '/case-studies', '/case-studies/contribute', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/security', '/trust/responsible-disclosure', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
+  const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/developers', '/developers/integration-reference', '/knowledge', '/resources', '/resources/procurement', '/insights', '/support', '/case-studies', '/case-studies/contribute', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/security', '/trust/responsible-disclosure', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms', '/hrms-payroll/onboarding'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
@@ -23,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  const hrmsRoutes = hrmsModules.map((module) => ({
-    url: `${SITE_URL}/hrms-payroll/${module.slug}`,
+  const hrmsRoutes = Array.from(new Set([...hrmsModules.map((module) => module.slug), ...Object.keys(moduleWorkflows)])).map((slug) => ({
+    url: `${SITE_URL}/hrms-payroll/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }));

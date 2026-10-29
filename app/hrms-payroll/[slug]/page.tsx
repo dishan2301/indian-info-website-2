@@ -7,13 +7,22 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { WorkflowBand } from '../../_components/enterprise-route';
 import { hrmsModules } from '../../content';
+import { ModuleExperience } from '../module-experience';
+import { moduleWorkflows } from '../module-workflows';
 
-export function generateStaticParams() { return hrmsModules.map((item) => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = hrmsModules.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} HRMS Module`, description: item.summary, path: `/hrms-payroll/${item.slug}`, image: null }) : {}; }
+export function generateStaticParams() { return [...Array.from(new Set([...hrmsModules.map((item) => item.slug), ...Object.keys(moduleWorkflows), 'onboarding'])).map((slug) => ({ slug }))]; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; if (slug === 'onboarding') return createPageMetadata({ title: 'Employee On-Boarding', description: 'Explore employee joining workflows for onboarding information, ownership, task progress, and a more coordinated start.', path: '/hrms-payroll/onboarding' }); const workflow = Object.hasOwn(moduleWorkflows, slug) ? moduleWorkflows[slug as keyof typeof moduleWorkflows] : undefined; if (workflow) return createPageMetadata({ title: workflow.name, description: workflow.summary, path: `/hrms-payroll/${slug}` }); const item = hrmsModules.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} HRMS Module`, description: item.summary, path: `/hrms-payroll/${item.slug}`, image: null }) : {}; }
 
 export default async function HrmsModulePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = hrmsModules.find((candidate) => candidate.slug === slug);
+  const experience = slug === 'recruitment' ? 'recruitment' : slug === 'onboarding' || slug === 'employee-onboarding' ? 'onboarding' : null;
+  if (experience) {
+    const isOnboarding = experience === 'onboarding';
+    return <main><SiteHeader /><PageHero className="hrms-module-hero" eyebrow={isOnboarding ? 'Employee On-Boarding' : 'Recruitment'} title={isOnboarding ? 'Make every new joiner ready for a thoughtful first day.' : 'Hire with clarity, from vacancy to selection.'} description={isOnboarding ? 'Coordinate pre-joining information, responsibilities and joining progress around your organization’s process.' : 'Bring vacancy requests, candidate information, interviews and hiring handoffs into a process your team can follow.'} marker={isOnboarding ? 'II / ONBOARDING' : 'II / RECRUITMENT'} breadcrumbs={[{ label: 'HRMS & Payroll', href: '/hrms-payroll' }, { label: isOnboarding ? 'On-Boarding' : 'Recruitment' }]} path={`/hrms-payroll/${isOnboarding ? 'onboarding' : 'recruitment'}`} /><ModuleExperience kind={experience} /><SiteFooter /></main>;
+  }
+  const workflow = Object.hasOwn(moduleWorkflows, slug) ? moduleWorkflows[slug as keyof typeof moduleWorkflows] : undefined;
+  if (workflow) return <main><SiteHeader /><PageHero className="hrms-module-hero" eyebrow={workflow.name} title={workflow.title} description={workflow.summary} marker="II / HRMS" breadcrumbs={[{ label: 'HRMS & Payroll', href: '/hrms-payroll' }, { label: workflow.name }]} path={`/hrms-payroll/${slug}`} /><ModuleExperience kind={slug} /><SiteFooter /></main>;
   if (!item) notFound();
   return <main>
     <SiteHeader />
