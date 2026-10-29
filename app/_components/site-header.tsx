@@ -12,9 +12,26 @@ const familySlug = (family: string) => family.toLowerCase().replace(/\s+/g, '-')
 
 const productGroups = [{ title: 'Product categories', links: productFamilies.map((family) => ({ label: family, href: `/products/${familySlug(family)}` })) }, { title: 'Product tools', links: [{ label: 'All products', href: '/products' }, { label: 'Compare products', href: '/compare' }, { label: 'Product guidance', href: '/resources' }] }] as const;
 
+const hrmsFeatureDescriptions = [
+  ['recruitment', 'Advanced interview & hiring process'],
+  ['onboarding', 'Seamless digital employee experience'],
+  ['core-hris-payroll', 'Centralized data for accurate payroll'],
+  ['ess', 'Employee-driven access with dashboards'],
+  ['leave', 'Leave planner for efficient leave planning'],
+  ['attendance', 'Effortless capture via biometric/web login'],
+  ['expense', 'Apply the expenditure from anywhere, anytime'],
+  ['timesheet', 'Project master to gather all the project details'],
+  ['pms', 'Align, track & elevate employee performance'],
+  ['hr-help-desk', 'One-way communication hub for employee requests'],
+  ['off-boarding', 'Simplify clearance process & exit interviews'],
+  ['visitors', 'Ensures secure entry through OTP-based authentication.'],
+  ['performance-linked-benefits', 'Track production and piece-rate wages'],
+  ['training-induction', 'Assess, train, and onboard employees'],
+] as const;
+
 const hrmsFeatureGroups = [{
   title: 'HRMS & payroll features',
-  links: hrmsModules.map((module) => ({ label: module.name, href: `/hrms-payroll/${module.slug}` })),
+  links: hrmsFeatureDescriptions.map(([slug, description]) => ({ label: hrmsModules.find((module) => module.slug === slug)!.name, href: `/hrms-payroll/${slug}`, description })),
 }];
 
 const workforceProducts = [
@@ -144,7 +161,7 @@ function PremiumNav() {
                 {activeWorkforceProduct === '/hrms-payroll' ? <>
                   <p>HR & payroll workflow features</p>
                   <div className="premium-workforce-features">
-                    {hrmsFeatureGroups.flatMap((group) => group.links).map((feature) => <Link href={feature.href} key={feature.href}>{feature.label}<span aria-hidden="true">↗</span></Link>)}
+                    {hrmsFeatureGroups.flatMap((group) => group.links).map((feature) => <Link href={feature.href} key={feature.href}><span className="premium-feature-copy"><strong>{feature.label}</strong><small>{feature.description}</small></span><span aria-hidden="true">↗</span></Link>)}
                   </div>
                 </> : <>
                   <p>{activeSolution ? `Explore ${activeSolution.label}` : 'Explore solutions'}</p>
@@ -222,7 +239,7 @@ export function SiteHeader() {
               {mobileMenuGroups.map((group) => (
                 <div key={group.title}>
                   <p className="mega-heading">{group.title}</p>
-                  {group.title === 'Products' ? <>{productFamilies.map((family) => <details key={family}><summary>{family}</summary><div>{products.filter((product) => product.family === family).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}</Link>)}</div><Link href={`/products/${familySlug(family)}`}>View all {family.toLowerCase()}</Link></details>)}</> : group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}</Link>)}
+                  {group.title === 'Products' ? <>{productFamilies.map((family) => <details key={family}><summary>{family}</summary><div>{products.filter((product) => product.family === family).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}</Link>)}</div><Link href={`/products/${familySlug(family)}`}>View all {family.toLowerCase()}</Link></details>)}</> : group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}{'description' in link && <small className="mobile-feature-description">{link.description}</small>}</Link>)}
                 </div>
               ))}
             </div>

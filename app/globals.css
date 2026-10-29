@@ -3765,3 +3765,7 @@ body:has(.mobile-menu[open]) .floating-whatsapp { position: static; margin: 1rem
 @media (max-width: 800px) { .hrms-overview-banner,.hrms-page .hrms-overview-layout,.hrms-page .hrms-faq { grid-template-columns: 1fr; } .hrms-overview-banner { gap: 1rem; } .hrms-overview-banner > p { justify-self: start; } .hrms-overview-heading .hrms-record-visual { max-width: none; } .hrms-page .hrms-proof-grid { gap: 1.5rem; } .hrms-page .hrms-proof-grid article + article { border-top: 1px solid #c5dbd5; padding-top: 1.25rem; } .hrms-faq-contact { margin-top: 1.25rem; } }
 @media (max-width: 400px) { .hrms-overview-heading { padding: .65rem; } .hrms-record-topline { padding-inline: .65rem; font-size: .44rem; } .hrms-record-node-0 { left: 6px; } .hrms-record-node-1 { right: 6px; } .hrms-record-node-2 { left: 6px; } .hrms-record-node-3 { right: 6px; } .hrms-story-card { padding: 1.15rem; } .hrms-page .hrms-faq-list details { padding-inline: 1rem; } .hrms-page .hrms-faq-list details > p { margin-inline: 0; } }
 @media (prefers-reduced-motion: reduce) { .hrms-page .hrms-faq-list details,.hrms-page .hrms-faq-list summary > span { transition: none; } }
+
+.premium-workforce-features .premium-feature-copy { color: inherit; display: grid; gap: .2rem; }
+.premium-workforce-features .premium-feature-copy small, .mobile-feature-description { color: #536e7c; display: block; font-size: .72rem; font-weight: 400; line-height: 1.35; }
+.mobile-feature-description { margin-top: .25rem; }

@@ -54,108 +54,8 @@
   background: #edf5f2;
 }
 
-.artwork {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 48%, white 0 18%, transparent 18.5%),
-    radial-gradient(circle at 14% 20%, rgb(255 255 255 / 70%) 0 2px, transparent 3px),
-    radial-gradient(circle at 84% 78%, rgb(255 255 255 / 75%) 0 3px, transparent 4px),
-    var(--module-tint);
-}
-
-.artwork::before,
-.artwork::after {
-  position: absolute;
-  content: '';
-  border: 1px solid rgb(255 255 255 / 75%);
-  border-radius: 50%;
-}
-
-.artwork::before {
-  width: 9rem;
-  height: 9rem;
-  left: -3rem;
-  top: -5rem;
-}
-
-.artwork::after {
-  width: 7rem;
-  height: 7rem;
-  right: -2rem;
-  bottom: -4rem;
-}
-
-.connector {
-  position: absolute;
-  top: 61%;
-  left: 24%;
-  width: 52%;
-  border-top: 3px dashed color-mix(in srgb, var(--module-accent) 35%, white);
-}
-
-.symbol {
-  position: absolute;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  border: 3px solid white;
-  border-radius: 1.15rem;
-  box-shadow: 0 8px 18px rgb(34 53 63 / 12%);
-}
-
-.symbol svg {
-  width: 58%;
-  height: 58%;
-  stroke-width: 2.2;
-}
-
-.mainSymbol {
-  top: 50%;
-  left: 50%;
-  width: 5.2rem;
-  height: 5.2rem;
-  color: white;
-  background: var(--module-accent);
-  transform: translate(-50%, -50%);
-  transition: transform .2s ease;
-}
-
-.supportSymbol {
-  top: 61%;
-  left: 23%;
-  width: 3.2rem;
-  height: 3.2rem;
-  color: var(--module-accent);
-  background: white;
-  transform: translate(-50%, -50%);
-}
-
-.supportSymbol svg {
-  width: 55%;
-  height: 55%;
-}
-
-.rightSymbol {
-  left: 77%;
-  color: #fff;
-  background: var(--module-secondary);
-}
-
-.artworkDot {
-  position: absolute;
-  top: 22%;
-  right: 23%;
-  width: .75rem;
-  height: .75rem;
-  border: 2px solid white;
-  border-radius: 50%;
-  background: var(--module-secondary);
-}
-
-.card:hover .mainSymbol {
-  transform: translate(-50%, -50%) scale(1.06);
+.image img {
+  object-fit: cover;
 }
 
 .image > span {
@@ -273,8 +173,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .mainSymbol {
+  .card {
     transition: none;
   }
 
