@@ -126,6 +126,18 @@
 @media (prefers-reduced-motion: reduce) {
   .page :global(.hrms-capability-grid article), .page :global(.hrms-related-grid a) { transition: none; }
 }
+
+/* A lighter, content-led workflow panel for every module. */
+.page :global(.hrms-feature-preview) { background: radial-gradient(circle at 100% 0, #d4f2e8, transparent 55%), #f7fcfa; border: 1px solid #cbe5db; color: #153f39; box-shadow: 0 16px 40px #174b400b; }
+.page :global(.hrms-feature-preview) > span { color: #087d70; }
+.page :global(.hrms-feature-preview h3) { color: #153f39; }
+.page :global(.hrms-feature-preview li) { border-color: #cfe5dc; }
+.page :global(.hrms-feature-preview li) > span { background: #dbf2e7; border-color: #addbc8; color: #087d70; }
+.page :global(.hrms-feature-preview li:nth-child(2)) > span { background: #e0f2fa; border-color: #b8dfea; color: #16738e; }
+.page :global(.hrms-feature-preview li:nth-child(3)) > span { background: #eef5d9; border-color: #d1e4a4; color: #607b19; }
+.page :global(.hrms-feature-preview h4) { color: #153f39; }
+.page :global(.hrms-feature-preview li p) { color: #536e62; }
+.workflowFoot { border-color: #cfe5dc; color: #187b6c; }
 .processSections { padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 7vw, 7.5rem); background: #fff; }
 .processRow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 6vw, 6rem); }
 .processRow + .processRow { margin-top: clamp(4rem, 8vw, 7rem); }
@@ -152,7 +164,7 @@
 .page .capabilityCheck { background: var(--brand-primary-light); color: var(--ink); }
 .page .workflow, .page :global(.hrms-faq) { background: var(--mist); }
 .page .highlights :global(.hrms-highlights-grid article) { background: var(--brand-primary-light); }
-.page :global(.route-feature-band), .page :global(.hrms-feature-preview) { background: var(--navy-900); }
+.page :global(.route-feature-band) { background: var(--navy-900); }
 .page a:focus-visible, .page summary:focus-visible { outline-color: var(--brand-accent-secondary); }
 @media (min-width: 601px) and (max-width: 800px) {
   .page :global(.hrms-capability-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }

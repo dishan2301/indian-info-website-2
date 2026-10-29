@@ -16,7 +16,7 @@ const icons: Record<string, [LucideIcon, LucideIcon, LucideIcon]> = {
 
 function StageDetail({ module, stage }: { module: string; stage: number }) {
   const patterns: Record<string, string[]> = {
-    'core-hris-payroll': ['profile', 'report', 'payment'], ess: ['profile', 'checklist', 'document'],
+    recruitment: ['profile', 'checklist', 'document'], 'core-hris-payroll': ['profile', 'report', 'payment'], ess: ['profile', 'checklist', 'document'],
     leave: ['calendar', 'checklist', 'calendar'], attendance: ['clock', 'checklist', 'payment'],
     expense: ['document', 'checklist', 'payment'], timesheet: ['folder', 'clock', 'checklist'],
     pms: ['report', 'message', 'report'], 'performance-linked-benefits': ['report', 'checklist', 'payment'],
