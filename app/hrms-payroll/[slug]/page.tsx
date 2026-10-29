@@ -8,8 +8,7 @@ import { SiteFooter } from '../../_components/site-footer';
 import { SiteHeader } from '../../_components/site-header';
 import { hrmsModules } from '../../content';
 import { hrmsDetails } from '../content';
-import { AnimatedFeatureScene } from '../animated-feature-scene';
-import { HrmsReveal } from '../visual';
+import { AnimatedFeatureScene, FeatureReveal } from '../animated-feature-scene';
 import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
 
 export function generateStaticParams() {
@@ -34,6 +33,12 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
     .map((relatedSlug) => hrmsModules.find((module) => module.slug === relatedSlug))
     .filter((module): module is (typeof hrmsModules)[number] => Boolean(module));
   const visualStages = detail.visual[1].split('|');
+  const faqs = [
+    ...detail.faqs,
+    [`How can we assess ${item.name} for our team?`, 'Share your current process, the people involved, and the outcomes you need. Our team can discuss the available scope and demonstrate the relevant workflow.'],
+    ['What should we prepare for a demonstration?', 'Bring examples of your current process, approval steps, and any systems you need to connect. This helps the team focus the discussion on your requirements.'],
+    ['How is the implementation scope decided?', 'The scope depends on your requirements, existing systems, and the capabilities available for your setup. Confirm these with our team before planning a rollout.'],
+  ].slice(0, 5);
 
   return (
     <main className={`hrms-page ${styles.page}`}>
@@ -62,14 +67,10 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
       <nav className={styles.sectionNav} aria-label="On this page"><span>Explore this module</span><a href="#capabilities">Capabilities <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#workflow">How it works <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#questions">FAQs <ArrowUpRight size={14} aria-hidden="true" /></a><a href="#connected">Connected modules <ArrowUpRight size={14} aria-hidden="true" /></a></nav>
 
       <section className={styles.processSections} aria-label={`${item.name} process`}>
-        <HrmsReveal className={styles.processRow}>
+        <FeatureReveal className={styles.processRow}>
           <div className={styles.processCopy}><p className="section-kicker">A CONNECTED PROCESS</p><h2>{detail.headline}</h2><p>{detail.introduction}</p><ul>{detail.workflow.map((step) => <li key={step}>{step}</li>)}</ul></div>
           <AnimatedFeatureScene module={item.slug} stages={visualStages} />
-        </HrmsReveal>
-        <HrmsReveal className={`${styles.processRow} ${styles.reverse}`}>
-          <div className={styles.processCopy}><p className="section-kicker">IN PRACTICE</p><h2>{detail.scenario[0]}</h2><p>{detail.scenario[1]}</p><ul>{detail.features.slice(0, 3).map(([name, description]) => <li key={name}><strong>{name}.</strong> {description}</li>)}</ul></div>
-          <AnimatedFeatureScene module={item.slug} stages={detail.features.slice(0, 3).map(([name]) => name)} variant={1} />
-        </HrmsReveal>
+        </FeatureReveal>
       </section>
 
       <section className="section hrms-capabilities" id="capabilities" aria-labelledby="hrms-capabilities-heading">
@@ -120,7 +121,7 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
           <p>Every rollout depends on your policies, integrations, and requirements. Our team can help you map the right fit.</p>
         </div>
         <div className="hrms-faq-list">
-          {detail.faqs.map(([question, answer]) => (
+          {faqs.map(([question, answer]) => (
             <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>
           ))}
         </div>

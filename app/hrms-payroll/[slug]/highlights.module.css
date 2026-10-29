@@ -141,3 +141,22 @@
 .page :global(.hrms-module-nav small) { color: #176b65; }
 .page :global(.footer-v2-nav a) { display: inline-flex; align-items: center; min-height: 24px; }
 .page :global(.footer-v2-contact a) { display: inline-flex; align-items: center; min-height: 24px; }
+
+/* Keep the module template aligned with the shared site palette. */
+.page { --hr-ink: var(--ink); --hr-teal: var(--ink); --hr-muted: var(--muted); }
+.page :global(.hrms-detail-hero) { background: var(--mist); }
+.page :global(.button-primary), .page :global(.route-feature-band .button-primary) { background: var(--brand-primary); color: var(--brand-primary-dark); }
+.page :global(.button-primary:hover) { background: var(--brand-accent-secondary); }
+.page :global(.hrms-capability-grid article) { background: white; border-color: var(--line); }
+.page :global(.hrms-capability-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.page .capabilityCheck { background: var(--brand-primary-light); color: var(--ink); }
+.page .workflow, .page :global(.hrms-faq) { background: var(--mist); }
+.page .highlights :global(.hrms-highlights-grid article) { background: var(--brand-primary-light); }
+.page :global(.route-feature-band), .page :global(.hrms-feature-preview) { background: var(--navy-900); }
+.page a:focus-visible, .page summary:focus-visible { outline-color: var(--brand-accent-secondary); }
+@media (min-width: 601px) and (max-width: 800px) {
+  .page :global(.hrms-capability-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .page :global(.hrms-capability-grid) { grid-template-columns: minmax(0, 1fr); }
+}

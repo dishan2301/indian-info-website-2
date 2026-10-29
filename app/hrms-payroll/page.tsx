@@ -50,11 +50,10 @@ export default function HrmsPayrollPage() {
           <div className="hrms-overview-heading"><EmployeeRecordVisual /><div className="hrms-overview-caption"><span>01 — 14</span><p>Every module connected.<br /><strong>Every employee accounted for.</strong></p></div></div>
           <HrmsReveal className="hrms-overview-copy">
             <article className="hrms-story-card"><span className="hrms-editorial-label">01 / THE PLATFORM</span><p>Our HR Suite is an integrated HRMS and HCM software platform built in India that manages the complete hire-to-retire employee lifecycle — recruitment, onboarding, core HRIS, payroll, attendance, leave, performance, and offboarding — from a single system.</p></article>
-            <article className="hrms-story-card"><span className="hrms-editorial-label">02 / BUILT TO SCALE</span><p>Fully modular and vendor-independent, it scales from MSMEs to enterprises of 10,000+ employees across 30+ industries. Replace fragmented spreadsheets and disconnected tools with one authoritative employee database, eliminating manual reconciliation between HR, payroll, and attendance records.</p></article>
+            <article className="hrms-story-card"><span className="hrms-editorial-label">02 / A FLEXIBLE START</span><p>Explore the modules that match your team’s priorities, from employee records and attendance to payroll and performance. Discuss the right scope for your organisation with our team.</p></article>
             <article className="hrms-story-card"><span className="hrms-editorial-label">03 / ONE SHARED RECORD</span><p>The suite operates as an employee system of record, keeping worker profiles, compensation structures, and statutory identifiers together. Recruitment, payroll, attendance, and performance use the same connected dataset, giving your teams one consistent version of employee information.</p></article>
           </HrmsReveal>
         </div>
-        <HrmsReveal className="hrms-proof-grid"><article><strong>30+</strong><span>industries, from manufacturing and BFSI to hospitality and education</span></article><article><strong>10,000+</strong><span>employees supported, with a modular core that grows with your organisation</span></article><article><strong>One</strong><span>employee record connecting your HR, payroll, and attendance workflows</span></article></HrmsReveal>
       </section>
 
       <section className="section hrms-modules" id="modules" aria-labelledby="hrms-modules-heading">

@@ -43,6 +43,20 @@ function StageDetail({ module, stage }: { module: string; stage: number }) {
   </svg>;
 }
 
+export function FeatureReveal({ children, className }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { node.dataset.entered = 'true'; observer.disconnect(); }
+    }, { threshold: 0.1 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+  return <div ref={ref} className={`${className || ''} ${styles.reveal}`}>{children}</div>;
+}
+
 export function AnimatedFeatureScene({ module, stages, variant = 0 }: { module: string; stages: string[]; variant?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
