@@ -46,6 +46,8 @@ export function PageHero({ eyebrow, title, description, marker = 'II / SYSTEMS',
       ? { desktop: '/campaign/hero/insights-desktop-v1.png', mobile: '/campaign/hero/insights-mobile-v1.png', tone: 'light' as const }
     : key.includes('about')
       ? { desktop: '/campaign/company/about-desktop-v1.png', mobile: '/campaign/company/about-mobile-v1.png', tone: 'light' as const }
+      : key.includes('testimonial')
+        ? { desktop: '/campaign/company/about-desktop-v1.png', mobile: '/campaign/company/about-mobile-v1.png', tone: 'light' as const }
       : subject.includes('hrms') || subject.includes('payroll') || subject.includes('employee self')
     ? { desktop: '/campaign/product-moments/hrms-payroll-v2.png', mobile: '/campaign/product-moments/hrms-payroll-v2.png', tone: 'light' as const, copySide: 'left' as const }
     : subject.includes('visitor') || subject.includes('reception') || subject.includes('guest')

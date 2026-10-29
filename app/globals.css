@@ -654,6 +654,7 @@ h1 em { color: var(--teal-300); font-style: normal; font-weight: 500; }
 }
 .page-hero-media { inset: 0; position: absolute; z-index: -3; }
 .page-hero-media img { object-fit: contain; object-position: center; }
+.page-hero-media img { width: 100%; height: 100%; }
 .page-hero-contact { min-height: 100svh; }
 .page-hero-contact .page-hero-media img { object-fit: cover; }
 .page-hero-media-mobile { display: none; }
