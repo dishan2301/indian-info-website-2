@@ -10,7 +10,7 @@ import { hrmsModules } from '../../content';
 import { hrmsDetails } from '../content';
 import { capabilityIcons } from '../capability-icons';
 import { AnimatedFeatureScene, FeatureReveal } from '../animated-feature-scene';
-import { ArrowUpRight, Check, Layers3, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Check, Layers3, ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
 
 export function generateStaticParams() {
   return hrmsModules.map((item) => ({ slug: item.slug }));
@@ -108,11 +108,12 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
       <section className={`hrms-highlights ${styles.highlights}`}>
         <div className="hrms-highlights-heading">
           <p className="section-kicker">03 / Why it matters</p>
-          <h2>Good for your process.<br /><em>Better for your people.</em></h2>
+          <h2>Better work starts<br /><em>with the details.</em></h2>
+          <p className={styles.highlightsIntro}>See what {item.name} can bring to your people and your everyday work.</p>
         </div>
         <div className="hrms-highlights-grid">
           {detail.highlights.map(([heading, description], index) => (
-            <article key={heading}><span>0{index + 1}</span><h3>{heading}</h3><p>{description}</p></article>
+            <article key={heading}><div className={styles.benefitTop}><span className={styles.benefitIcon}>{index === 0 ? <Sparkles size={22} aria-hidden="true" /> : <TrendingUp size={22} aria-hidden="true" />}</span><span className={styles.benefitNumber}>0{index + 1} / 0{detail.highlights.length}</span></div><h3>{heading}</h3><p>{description}</p><span className={styles.benefitArrow} aria-hidden="true">↗</span></article>
           ))}
         </div>
       </section>

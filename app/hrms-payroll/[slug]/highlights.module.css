@@ -160,3 +160,43 @@
 @media (max-width: 600px) {
   .page :global(.hrms-capability-grid) { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Benefit cards give this section its own visual rhythm. */
+.page .highlights {
+  background: #123b38;
+  background-image: radial-gradient(circle at 10% 0%, #28645a 0, transparent 38%);
+  color: #fff;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.page .highlights :global(.section-kicker) { color: #b9e2ad; }
+.page .highlights h2 { color: #fff; max-width: 14ch; }
+.page .highlights h2 em { color: #bce6a8; }
+.highlightsIntro { color: #c0d8cf; line-height: 1.8; max-width: 36ch; margin: 1.5rem 0 0; }
+.page .highlights :global(.hrms-highlights-grid) { gap: 1rem; }
+.page .highlights :global(.hrms-highlights-grid article) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: #d9edc5;
+  border: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.page .highlights :global(.hrms-highlights-grid article:nth-child(2)) { background: #f4f5eb; }
+.benefitTop { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.benefitIcon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: .85rem; background: #174b40; color: #d9edc5; }
+.benefitNumber { color: #507263; font-size: .68rem; font-weight: 700; letter-spacing: .08em; }
+.page .highlights :global(.hrms-highlights-grid h3) { color: #153e36; font-size: clamp(1.25rem, 1.6vw, 1.6rem); line-height: 1.2; margin: 2rem 0 .7rem; max-width: 19ch; }
+.page .highlights :global(.hrms-highlights-grid p) { color: #49665b; font-size: .91rem; line-height: 1.7; max-width: 34ch; padding-right: 1rem; }
+.benefitArrow { position: absolute; right: 1.5rem; bottom: 1.2rem; color: #3c765f; font-size: 1.5rem; }
+@media (max-width: 900px) {
+  .page .highlights { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .page .highlights :global(.hrms-highlights-grid) { grid-template-columns: 1fr; }
+  .page .highlights :global(.hrms-highlights-grid article) { min-height: 220px; }
+}
