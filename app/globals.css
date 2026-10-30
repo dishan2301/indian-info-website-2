@@ -3329,6 +3329,21 @@ button, input, select, textarea { max-width: 100%; }
   padding-block: clamp(3rem, 6vw, 5.5rem);
 }
 
+/* Keep the access-control journey connected instead of creating large
+   page-break gaps between every information block. */
+.seo-access-control-system > .seo-introduction,
+.seo-access-control-system > .route-dark-section,
+.seo-access-control-system > .section.seo-benefits,
+.seo-access-control-system > .section.seo-industries,
+.seo-access-control-system > .section.seo-related,
+.seo-access-control-system > .section.seo-faq {
+  padding-block: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.seo-access-control-system > .seo-introduction {
+  padding-top: clamp(2.5rem, 4vw, 3.75rem);
+}
+
 /* A distinct violet/blue treatment makes this security page easier to scan. */
 .seo-access-control-system .seo-related {
   background: #f5f3ff;
@@ -3428,6 +3443,22 @@ button, input, select, textarea { max-width: 100%; }
   background: linear-gradient(145deg, #edf8f4 0%, #f4fbf9 100%) !important;
   color: #183f43 !important;
   padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+/* Keep this focused workflow page compact instead of letting every section
+   inherit the full, presentation-led page spacing. */
+.contract-workforce-page > .route-detail-intro,
+.contract-workforce-page > .route-dark-section,
+.contract-workforce-page > .section:not(.route-detail-intro) {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.contract-workforce-page > .route-detail-intro {
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+}
+
+.contract-workforce-page > .section:not(.route-detail-intro) {
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
 
 .contract-workforce-page .route-dark-section :where(h2, p, div) {
