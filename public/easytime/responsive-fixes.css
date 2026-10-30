@@ -1,0 +1,247 @@
+/* Final responsive guardrails for the landing page and software tour. */
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+  font: inherit;
+}
+
+/* Keep long labels and URLs from widening cards at browser zoom. */
+h1,
+h2,
+h3,
+p,
+li,
+a,
+small,
+span {
+  overflow-wrap: anywhere;
+}
+
+/* Laptop and small desktop widths: let dense two-column artwork breathe. */
+@media (max-width: 1180px) {
+  .nav,
+  .hero,
+  .section > *,
+  .site-footer > * {
+    max-width: calc(100% - 40px);
+  }
+
+  .nav nav {
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 5.3vw, 68px);
+  }
+
+  .device-flow {
+    grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr) 46px minmax(0, 1fr) !important;
+  }
+}
+
+/* Keep the hero phone tall and narrow on laptop-sized screens. The older
+   desktop rule scaled this absolute-positioned phone, which made it look
+   compressed beside the attendance device at some laptop widths. */
+@media (min-width: 1051px) and (max-width: 1400px) {
+  .mobile-app-hero .mobile-product-scene .app-phone {
+    width: 220px !important;
+    min-width: 220px !important;
+    max-width: 220px !important;
+    min-height: 480px;
+    transform: rotate(-2deg) !important;
+    transform-origin: center center !important;
+  }
+}
+
+/* The role-switcher phone keeps a real smartphone proportion on laptops,
+   including when browser zoom reduces the available CSS viewport. */
+@media (min-width: 701px) {
+  .phone-tour .pt-phone {
+    width: clamp(250px, 24vw, 322px);
+    height: clamp(380px, 76dvh, 620px);
+    min-height: 0;
+  }
+}
+
+/* Tablet and narrow laptop widths. */
+@media (max-width: 900px) {
+  .nav {
+    min-height: 70px;
+    padding-inline: 20px;
+  }
+
+  .nav nav {
+    display: none;
+  }
+
+  .nav .menu {
+    display: inline-flex;
+  }
+
+  .hero,
+  .mobile-app-hero,
+  .device-flow,
+  .tour-shell {
+    width: 100%;
+  }
+
+  .device-flow {
+    grid-template-columns: 1fr !important;
+  }
+
+  .device-flow .flow-arrow {
+    transform: rotate(90deg);
+    min-height: 30px;
+  }
+
+  .tour-shell {
+    grid-template-columns: 1fr !important;
+  }
+
+  .software-tour .tour-tabs,
+  .software-tour .tour-screen {
+    border-radius: 8px;
+  }
+}
+
+/* Phones and browser zoom levels that produce a narrow CSS viewport. */
+@media (max-width: 600px) {
+  .nav,
+  .hero,
+  .section > *,
+  .site-footer > * {
+    max-width: calc(100% - 28px);
+  }
+
+  .nav {
+    padding-inline: 14px;
+  }
+
+  .nav .phone {
+    display: none;
+  }
+
+  .nav .button.small {
+    padding-inline: 10px;
+  }
+
+  .hero,
+  .section,
+  .site-footer {
+    padding-inline: 14px;
+  }
+
+  .hero h1,
+  .section-head h2,
+  .mobile-hero-copy h1 {
+    font-size: clamp(32px, 10vw, 48px);
+    line-height: 1.04;
+  }
+
+  .hero-actions,
+  .intro-actions,
+  .contact-actions,
+  .billing {
+    width: 100%;
+  }
+
+  .hero-actions > *,
+  .intro-actions > *,
+  .contact-actions > * {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pricing .price-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .pricing .price-card h3 .price-value {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  .pricing .price-card ul {
+    padding-left: 18px;
+  }
+
+  .mobile-product-scene,
+  .device-story,
+  .software-tour .tour-shell {
+    min-height: 0 !important;
+  }
+
+  .mobile-product-scene img,
+  .device-flow img,
+  .device-range img,
+  .tour-shell img {
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+  }
+
+  .software-tour .tour-shell {
+    margin-bottom: 78px;
+    padding: 8px 8px 22px;
+  }
+
+  .software-tour .tour-screen {
+    padding: 16px;
+    min-width: 0;
+  }
+
+  .software-tour .app-heading,
+  .software-tour .app-heading > div {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav .wordmark img {
+    max-width: 142px;
+  }
+
+  .nav .button.small {
+    font-size: 11px;
+  }
+
+  .section-head h2 {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

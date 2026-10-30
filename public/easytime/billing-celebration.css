@@ -1,0 +1,122 @@
+.pricing .billing {
+    position: relative;
+    isolation: isolate
+}
+
+.pricing [data-billing=yearly] {
+    position: relative;
+    overflow: visible
+}
+
+.billing-burst {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+    animation: burst-life .9s both
+}
+
+.billing-burst i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 7px;
+    height: 11px;
+    border-radius: 2px;
+    background: var(--c);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--c) 55%, transparent);
+    opacity: 0;
+    animation: confetti-pop .78s var(--delay) cubic-bezier(.18, .8, .24, 1) both
+}
+
+.billing-burst i:nth-child(3n) {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%
+}
+
+.billing-burst i:nth-child(4n) {
+    width: 10px;
+    height: 4px
+}
+
+.annual-celebration .billing {
+    animation: billing-glow .8s ease
+}
+
+.annual-celebration .price-card {
+    animation: card-celebrate .65s cubic-bezier(.2, .8, .2, 1) both
+}
+
+.annual-celebration .price-card:nth-child(2) {
+    animation-delay: .06s
+}
+
+.annual-celebration .price-card:nth-child(3) {
+    animation-delay: .12s
+}
+
+@keyframes confetti-pop {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(.2) rotate(0)
+    }
+
+    18% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(1) rotate(var(--r))
+    }
+}
+
+@keyframes burst-life {
+    to {
+        transform: translateY(12px)
+    }
+}
+
+@keyframes billing-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 5px 18px #17253a0a
+    }
+
+    35% {
+        box-shadow: 0 0 0 7px #126dfb17, 0 13px 30px #7b61ff35
+    }
+}
+
+@keyframes card-celebrate {
+    0% {
+        filter: saturate(1);
+        translate: 0 0
+    }
+
+    40% {
+        filter: saturate(1.25);
+        translate: 0 -9px
+    }
+
+    100% {
+        filter: saturate(1);
+        translate: 0 0
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .billing-burst {
+        display: none
+    }
+
+    .annual-celebration .billing,
+    .annual-celebration .price-card {
+        animation: none
+    }
+}

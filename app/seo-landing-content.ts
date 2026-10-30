@@ -344,7 +344,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
       { question: 'Can it replace a paper visitor register?', answer: 'It can digitize the operating record, but the organization must define approved data fields, retention, privacy, fallback, and responsible users.' },
       { question: 'What should be mapped before implementation?', answer: 'Visitor categories, reception points, hosts, approvals, credentials, restricted areas, emergency processes, privacy, and check-out should be documented.' },
     ],
-    related: [{ label: 'Explore visitor management software', href: '/software/visitor-management' }, { label: 'Visitor security workflow', href: '/solutions/visitor-security' }, { label: 'Access control systems', href: '/access-control-system' }],
+    related: [{ label: 'Explore visitor management software', href: '/software/visitor-management' }, { label: 'Visitor management workflow', href: '/solutions/visitor-management' }, { label: 'Access control systems', href: '/access-control-system' }],
     image: '/campaign/core-systems/easy-visit-desktop-v2.webp', schemaType: 'SoftwareApplication',
   },
   {

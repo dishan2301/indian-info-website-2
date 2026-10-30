@@ -1,0 +1,200 @@
+.integration-banner {
+    max-width: none;
+    margin: 0;
+    padding: 86px 0 96px;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed
+}
+
+.partner-heading {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(36px, 1fr) auto minmax(36px, 1fr);
+    align-items: center;
+    gap: 22px;
+    margin: 0 auto 38px;
+    padding: 0 42px;
+    text-align: center
+}
+
+.partner-heading>span {
+    height: 1px;
+    background: #dedede
+}
+
+.partner-heading h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+    white-space: nowrap
+}
+
+.partner-marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)
+}
+
+.partner-track {
+    display: flex;
+    width: max-content;
+    animation: partner-scroll 38s linear infinite;
+    will-change: transform
+}
+
+.partner-group {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 34px;
+    padding: 20px 30px
+}
+
+.partner-brand {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    gap: 0;
+    color: transparent;
+    font-size: 0;
+    line-height: 1;
+    cursor: default;
+    transform: scale(1);
+    transform-origin: center bottom;
+    transition: transform .22s cubic-bezier(.22, 1, .36, 1);
+    z-index: 1
+}
+
+.partner-mark {
+    width: 46px;
+    height: 46px;
+    font-size: 13px;
+    box-shadow: 0 6px 18px #202b4514;
+    transition: box-shadow .22s ease, background-color .22s ease
+}
+
+.partner-brand:hover+.partner-brand,
+.partner-brand:focus-visible+.partner-brand,
+.partner-brand:has(+.partner-brand:hover),
+.partner-brand:has(+.partner-brand:focus-visible) {
+    transform: scale(1.14);
+    z-index: 2
+}
+
+.partner-brand:hover,
+.partner-brand:focus-visible {
+    transform: scale(1.4);
+    z-index: 3
+}
+
+.partner-brand:hover .partner-mark,
+.partner-brand:focus-visible .partner-mark {
+    box-shadow: 0 12px 24px #202b4528
+}
+
+.partner-brand:focus-visible {
+    outline: 2px solid #126dfb;
+    outline-offset: 3px;
+    border-radius: 12px
+}
+
+.partner-brand::after {
+    content: attr(data-name);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    z-index: 5;
+    padding: 7px 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 0 8px 24px #1616161a;
+    color: #242424;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 5px) scale(.96);
+    transition: opacity .16s ease, visibility .16s ease, transform .16s ease
+}
+
+.partner-brand:hover::after,
+.partner-brand:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1)
+}
+
+.mark-astral {
+    border-radius: 50%;
+    background: #edf4fb;
+    color: #226ba5
+}
+
+@media(max-width:600px) {
+    .partner-group {
+        gap: 24px;
+        padding: 18px 20px
+    }
+
+    .partner-brand {
+        width: 52px;
+        height: 52px
+    }
+
+    .partner-mark {
+        width: 42px;
+        height: 42px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .partner-brand,
+    .partner-mark,
+    .partner-brand::after {
+        transition: none
+    }
+
+    .partner-brand:hover,
+    .partner-brand:focus-visible,
+    .partner-brand:hover+.partner-brand,
+    .partner-brand:focus-visible+.partner-brand,
+    .partner-brand:has(+.partner-brand:hover),
+    .partner-brand:has(+.partner-brand:focus-visible) {
+        transform: none
+    }
+
+    .partner-marquee {
+        overflow-x: auto
+    }
+
+    .partner-track {
+        display: block;
+        width: 100%
+    }
+
+    .partner-group {
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 16px
+    }
+
+    .partner-group[aria-hidden=true] {
+        display: none
+    }
+}

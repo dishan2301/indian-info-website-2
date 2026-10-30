@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 341" role="img" aria-labelledby="title">
+  <title id="title">Swiss Pharma</title>
+  <g fill="#079ed4">
+    <path d="M167 43c-47 29-73 77-73 126 0 42 19 73 52 87 31 13 64 4 84-22-36 11-68-2-89-32-29-43-20-108 26-159z"/>
+    <path d="M308 43c47 29 73 77 73 126 0 42-19 73-52 87-31 13-64 4-84-22 36 11 68-2 89-32 29-43 20-108-26-159z"/>
+  </g>
+  <text x="371" y="39" fill="#171719" font-family="Arial, sans-serif" font-size="38" font-weight="700">®</text>
+  <text x="237" y="322" fill="#171719" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-style="italic" font-weight="700" text-anchor="middle" letter-spacing="-.8">SWISS PHARMA</text>
+</svg>

@@ -5,6 +5,7 @@ type RouteMedia = {
 };
 
 export const solutionMedia: Record<string, RouteMedia> = {
+  'door-interlock-system': { desktop: '/campaign/core-systems/door-interlock-explained-v3.webp', mobile: '/campaign/core-systems/door-interlock-explained-v3.webp', alt: 'Door A open while Door B remains locked in a two-door interlock' },
   'attendance-automation': {
     desktop: '/generated/routes/solution-attendance.webp',
     mobile: '/generated/routes/solution-attendance.webp',
@@ -20,7 +21,7 @@ export const solutionMedia: Record<string, RouteMedia> = {
     mobile: '/generated/routes/solution-physical-access-control.webp',
     alt: 'Employee presenting an ID card at a secured workplace turnstile',
   },
-  'visitor-security': {
+  'visitor-management': {
     desktop: '/generated/routes/solution-visitor-security.webp',
     mobile: '/generated/routes/solution-visitor-security.webp',
     alt: 'Guest checking in at a workplace reception while staff verify the visit',

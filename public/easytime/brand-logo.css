@@ -1,0 +1,42 @@
+.brand-logo-link {
+    display: block;
+    width: 190px;
+    line-height: 0
+}
+
+.brand-logo-link img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.loader-brand {
+    width: min(330px, 72vw)
+}
+
+.loader-brand img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.footer-brand-logo {
+    width: 245px;
+    max-width: 100%
+}
+
+@media(max-width:1080px) {
+    .brand-logo-link {
+        width: 158px
+    }
+}
+
+@media(max-width:810px) {
+    .brand-logo-link {
+        width: 165px
+    }
+
+    .loader-brand {
+        width: min(280px, 74vw)
+    }
+}

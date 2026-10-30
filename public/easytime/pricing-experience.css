@@ -1,0 +1,211 @@
+.pricing .section-head {
+    margin-bottom: 54px
+}
+
+.pricing .section-head>p {
+    margin-bottom: 18px
+}
+
+.pricing .billing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid #e5e8ed;
+    border-radius: 9px;
+    background: #fff;
+    box-shadow: 0 5px 18px #17253a0a
+}
+
+.pricing .billing button {
+    min-height: 38px;
+    padding: 8px 13px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #686868;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease
+}
+
+.pricing .billing button:hover {
+    transform: translateY(-1px)
+}
+
+.pricing .billing button.active {
+    background: #126dfb;
+    color: #fff
+}
+
+.pricing .billing button b {
+    margin-left: 5px;
+    color: #18845f;
+    font-size: 10px
+}
+
+.pricing .billing button.active b {
+    color: #d7f5e7
+}
+
+.pricing .price-grid {
+    perspective: 1200px;
+    align-items: stretch;
+    gap: 16px
+}
+
+.pricing .price-card {
+    min-height: 390px;
+    border-radius: 12px;
+    box-shadow: 0 12px 28px #101b2a0a;
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease, border-color .3s ease
+}
+
+.pricing .price-card:first-child {
+    transform: perspective(1200px) rotateY(5deg) scale(.97);
+    transform-origin: right center
+}
+
+.pricing .price-card:last-child {
+    transform: perspective(1200px) rotateY(-5deg) scale(.97);
+    transform-origin: left center
+}
+
+.pricing .price-card.featured-price {
+    z-index: 2;
+    transform: translateY(-10px) scale(1.02);
+    border-color: #126dfb;
+    box-shadow: 0 18px 42px #126dfb20
+}
+
+.pricing .price-card:hover {
+    z-index: 3;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 44px #101b2a17
+}
+
+.pricing .price-card:first-child:hover,
+.pricing .price-card:last-child:hover {
+    transform: translateY(-8px) scale(1.01)
+}
+
+.pricing .plan-name {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .04em
+}
+
+.pricing .price-card h3 {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    margin: 18px 0 4px;
+    font-size: 34px;
+    letter-spacing: 0
+}
+
+.pricing .price-card h3 .price-value {
+    display: inline-block;
+    min-width: 4ch;
+    font-size: 34px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap
+}
+
+.pricing .price-card h3 small {
+    font-size: 10px
+}
+
+.pricing .price-card p.price-billing {
+    min-height: 0;
+    margin: 0 0 11px;
+    color: #126dfb;
+    font-size: 10px;
+    font-weight: 600
+}
+
+.pricing .price-card>p:not(.price-billing) {
+    min-height: 36px
+}
+
+.pricing .price-card ul {
+    text-align: left
+}
+
+.pricing .price-card .button {
+    margin: 14px 0
+}
+
+.pricing .featured-price label {
+    background: #126dfb;
+    letter-spacing: .02em
+}
+
+.pricing .featured-price .button {
+    background: #126dfb;
+    color: #fff
+}
+
+.pricing .price-value {
+    transition: color .2s ease
+}
+
+.pricing .billing:has([data-billing=yearly].active) {
+    border-color: #bed5ff
+}
+
+@media(max-width:810px) {
+    .pricing .price-grid {
+        grid-template-columns: 1fr;
+        gap: 14px
+    }
+
+    .pricing .price-card:first-child,
+    .pricing .price-card:last-child,
+    .pricing .price-card.featured-price {
+        transform: none
+    }
+
+    .pricing .price-card {
+        min-height: 0
+    }
+
+    .pricing .section-head {
+        margin-bottom: 35px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .pricing .price-card,
+    .pricing .billing button,
+    .pricing .price-value {
+        transition: none
+    }
+}
+
+.pricing .featured-price,
+.pricing .featured-price .plan-name,
+.pricing .featured-price h3 .price-value {
+    color: #fff
+}
+
+.pricing .featured-price h3 small,
+.pricing .featured-price ul {
+    color: #e0e4eb
+}
+
+.pricing .featured-price p {
+    color: #d0d5de
+}
+
+.pricing .featured-price p.price-billing {
+    color: #a9ccff
+}
+
+.pricing .featured-price li::before {
+    color: #71d5a0
+}

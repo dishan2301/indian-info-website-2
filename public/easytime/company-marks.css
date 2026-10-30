@@ -1,0 +1,126 @@
+.partner-mark {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #e9edf2;
+    border-radius: 13px;
+    background: #f1f4f7;
+    color: #4a5568;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0;
+    box-shadow: 0 6px 18px #202b4514
+}
+
+.partner-mark.mark-ab {
+    border-radius: 50%;
+    background: #f9f1dc;
+    color: #966c16
+}
+
+.partner-mark.mark-unison {
+    border-radius: 50% 50% 9px 9px;
+    background: #e7f4ed;
+    color: #268452;
+    font-size: 18px
+}
+
+.partner-mark.mark-bayer {
+    border-radius: 50%;
+    background: #eaf2fb;
+    color: #2376b7
+}
+
+.partner-mark.mark-zydus {
+    border-radius: 50%;
+    background: #f9e9ed;
+    color: #bc3152;
+    font-size: 16px
+}
+
+.partner-mark.mark-cadila {
+    border-radius: 50% 50% 50% 8px;
+    background: #eaf4e9;
+    color: #438642
+}
+
+.partner-mark.mark-swiss {
+    border-radius: 8px 50% 50%;
+    background: #eaf0fa;
+    color: #315c9c
+}
+
+.partner-mark.mark-chirpal {
+    border-radius: 50%;
+    background: #fff0e4;
+    color: #b66a2d;
+    font-size: 9px
+}
+
+.partner-mark.mark-sudiva {
+    border-radius: 8px 14px;
+    background: #eeeafa;
+    color: #7156a8;
+    font-size: 9px
+}
+
+.partner-mark.mark-astral {
+    border-radius: 50%;
+    background: #edf4fb;
+    color: #226ba5
+}
+
+.testimonial-client .partner-mark {
+    width: 32px;
+    height: 32px;
+    flex: none
+}
+
+.partner-brand:hover .partner-mark,
+.partner-brand:focus-visible .partner-mark {
+    box-shadow: 0 12px 24px #202b4528
+}
+
+@media(max-width:600px) {
+    .partner-brand .partner-mark {
+        width: 42px;
+        height: 42px
+    }
+}
+
+.partner-logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.partner-brand[data-name="Astral Pipes"],
+.partner-brand[data-name="Cadila Pharmaceuticals"] {
+    border-radius: 12px;
+    background: #161616
+}
+
+.partner-brand[data-name="Astral Pipes"] .partner-logo-image,
+.partner-brand[data-name="Cadila Pharmaceuticals"] .partner-logo-image {
+    padding: 7px
+}
+
+.testimonial-logo {
+    display: block;
+    flex: none;
+    width: auto;
+    max-width: 48px;
+    height: 32px;
+    object-fit: contain
+}
+
+.testimonial-logo-dark {
+    box-sizing: border-box;
+    width: 48px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 5px;
+    background: #161616
+}

@@ -354,7 +354,7 @@ export const solutionEditorial: Record<string, SolutionEditorial> = {
     nextTitle: 'Walk us through your doors and access groups.',
     nextAction: 'Plan door access',
   },
-  'visitor-security': {
+  'visitor-management': {
     introLabel: 'A clear welcome from check-in to goodbye',
     plainExplanation: 'A visitor shares their details, the host is notified, and the workplace records when the visit starts and ends.',
     workflowTitle: 'See what happens when a visitor arrives.',

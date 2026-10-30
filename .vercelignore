@@ -9,3 +9,9 @@ tsconfig.tsbuildinfo
 
 # Local responsiveness evidence
 /audits/
+
+# Development checks and documentation are not deployment inputs.
+/tests/
+/docs/
+/design-prompts/
+/*.md

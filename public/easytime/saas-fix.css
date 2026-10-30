@@ -1,0 +1,130 @@
+.saas-playback {
+    background: #f5f7fa
+}
+
+.saas-playback img {
+    object-fit: contain;
+    transform: none !important
+}
+
+.saas-playback {
+    container-type: inline-size;
+}
+
+/* Fit the wordmark to the original sidebar header at every preview size. */
+.saas-screen-brand {
+    position: absolute;
+    z-index: 4;
+    inset: 0 auto auto 0;
+    width: 13.5%;
+    height: 5.2%;
+    display: flex;
+    align-items: center;
+    gap: .5cqw;
+    padding-inline: .8cqw;
+    background: #fff;
+    border-right: 1px solid #edf0f3;
+    color: #17344a;
+    pointer-events: none;
+}
+.saas-screen-brand > span { display: grid; place-items: center; flex: 0 0 1.7cqw; height: 1.7cqw; border-radius: .4cqw; background: #176cf5; color: #fff; font: 700 1.2cqw/1 system-ui; }
+.saas-screen-brand strong { white-space: nowrap; font: 700 1.05cqw/1.2 Inter, system-ui; letter-spacing: -.03em; }
+.saas-screen-brand small { color: #087eae; font-size: .75cqw; font-weight: 500; }
+.software-tour .saas-playback { border-radius: 9px; }
+
+.device-story .flow-arrow {
+    color: #126dfb !important;
+    background: none !important;
+    animation: none !important;
+    min-height: 0 !important
+}
+
+.device-story .flow-arrow:before,
+.device-story .flow-arrow:after,
+.device-story .cloud-flow:before {
+    display: none !important
+}
+
+.device-story .flow-arrow small {
+    position: static !important;
+    display: block
+}
+
+
+.software-tour .tour-shell {
+    position: relative;
+    margin-bottom: 130px;
+    padding: 18px 18px 38px;
+    border: 0;
+    border-radius: 18px;
+    background: radial-gradient(circle at 50% 8px, #65737e 0 2px, #18242e 3px 5px, transparent 6px), linear-gradient(145deg, #293846, #101820);
+    box-shadow: 0 34px 80px #102b4429
+}
+
+.software-tour .tour-shell:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    left: 50%;
+    width: 260px;
+    height: 80px;
+    transform: translateX(-50%);
+    clip-path: polygon(42% 0, 58% 0, 63% 65%, 96% 72%, 100% 100%, 0 100%, 4% 72%, 37% 65%);
+    background: linear-gradient(90deg, #89949d, #e8ecef 48%, #929da5);
+    filter: drop-shadow(0 12px 10px #102b4426)
+}
+
+.software-tour .tour-tabs,
+.software-tour .tour-screen {
+    background: #fff
+}
+
+.software-tour .tour-tabs {
+    border-radius: 7px 0 0 7px
+}
+
+.software-tour .tour-screen {
+    border-radius: 0 7px 7px 0
+}
+
+@media(max-width:810px) {
+    .software-tour .tour-shell {
+        margin-bottom: 105px;
+        padding: 10px 10px 27px;
+        border-radius: 12px
+    }
+
+    .software-tour .tour-tabs {
+        border-radius: 5px 5px 0 0
+    }
+
+    .software-tour .tour-screen {
+        border-radius: 0 0 5px 5px
+    }
+
+    .software-tour .tour-shell:after {
+        width: 200px;
+        height: 62px
+    }
+}
+
+.software-tour .tour-shell {
+    z-index: 0
+}
+
+.software-tour .tour-shell:after {
+    z-index: 2
+}
+
+.software-tour .tour-shell {
+    overflow: visible !important
+}
+
+.device-flow {
+    gap: 6px
+}
+
+.mobile-product-scene {
+    gap: 0
+}

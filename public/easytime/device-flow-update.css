@@ -1,0 +1,89 @@
+.device-story .device-flow article:first-child img {
+    height: 190px;
+    object-position: center 45%;
+    box-shadow: 0 12px 22px #126dfb22
+}
+
+.device-story .flow-arrow {
+    position: relative;
+    color: transparent;
+    min-height: 78px;
+    overflow: hidden;
+    background: linear-gradient(90deg, transparent 0 7%, #6ed8ff 7% 12%, transparent 12% 24%, #268cff 24% 29%, transparent 29% 42%, #70e6d1 42% 47%, transparent 47% 59%, #268cff 59% 64%, transparent 64% 77%, #6ed8ff 77% 82%, transparent 82%);
+    background-size: 210% 100%;
+    animation: sync-rays 1.8s linear infinite
+}
+
+.device-story .flow-arrow:before,
+.device-story .flow-arrow:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #69cfff;
+    box-shadow: 0 14px #51d7cf, 0 28px #2985f4;
+    opacity: .78
+}
+
+.device-story .flow-arrow:after {
+    left: auto;
+    right: 7px;
+    top: 25px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #268cff;
+    border-right: 2px solid #268cff;
+    background: none;
+    box-shadow: none;
+    transform: rotate(45deg)
+}
+
+.device-story .flow-arrow small {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #53758c;
+    font-weight: 700
+}
+
+.device-story .cloud-flow {
+    position: relative;
+    overflow: hidden
+}
+
+.device-story .cloud-flow:before {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    background: radial-gradient(circle, #76dcff55 0 4%, transparent 5% 10%, #50d6ca44 11% 12%, transparent 13%);
+    background-size: 34px 34px;
+    animation: cloud-pulse 2.2s ease-in-out infinite
+}
+
+.device-story .cloud-flow>* {
+    position: relative;
+    z-index: 1
+}
+
+@keyframes sync-rays {
+    to {
+        background-position: -210% 0
+    }
+}
+
+@keyframes cloud-pulse {
+    50% {
+        transform: scale(1.1);
+        opacity: .45
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    .device-story .flow-arrow,
+    .device-story .cloud-flow:before {
+        animation: none
+    }
+}

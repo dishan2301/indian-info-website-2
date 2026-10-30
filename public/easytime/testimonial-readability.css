@@ -1,0 +1,44 @@
+#testimonials .section-head p {
+    max-width: 500px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #626976
+}
+
+#testimonials .testimonial-grid {
+    gap: 18px
+}
+
+#testimonials .testimonial-grid article {
+    min-height: 255px;
+    padding: 23px 22px
+}
+
+#testimonials .testimonial-grid article>p {
+    margin: 0;
+    color: #515762;
+    font-size: 15px;
+    line-height: 1.65
+}
+
+#testimonials .testimonial-client {
+    padding-top: 20px;
+    gap: 12px
+}
+
+#testimonials .testimonial-client b {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #222
+}
+
+@media(max-width:810px) {
+    #testimonials .testimonial-grid article {
+        min-height: 0;
+        padding: 21px
+    }
+
+    #testimonials .testimonial-grid article>p {
+        font-size: 15px
+    }
+}

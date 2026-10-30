@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/site';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
+import { HrmsFaq } from './faq';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'HRMS Software & Payroll Platform | Indian Infotech',
@@ -52,6 +53,7 @@ export default function HrmsPayrollPage() {
           text: item.quote,
         }))}
       />
+      <HrmsFaq />
       <SiteFooter />
     </main>
   );

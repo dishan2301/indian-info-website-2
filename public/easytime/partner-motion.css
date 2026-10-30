@@ -1,0 +1,5 @@
+@keyframes partner-scroll {
+    to {
+        transform: translateX(-50%)
+    }
+}

@@ -7,11 +7,14 @@ import styles from './feature-bot-showcase.module.css';
 
 interface FeatureBotShowcaseProps {
   features: readonly VerticalTabService[];
+  label?: string;
+  onStepChange?: (step: number) => void;
 }
 
-export function FeatureBotShowcase({ features }: FeatureBotShowcaseProps) {
+export function FeatureBotShowcase({ features, label = 'HRMS', onStepChange }: FeatureBotShowcaseProps) {
   const [step, setStep] = useState(0);
   const [positionIndex, setPositionIndex] = useState(0);
+  useEffect(() => { onStepChange?.(step); }, [step, onStepChange]);
   const advance = useCallback(() => {
     if (!features.length) return;
     const offset = 1 + Math.floor(Math.random() * 2);
@@ -46,12 +49,12 @@ export function FeatureBotShowcase({ features }: FeatureBotShowcaseProps) {
   const positions = [styles.positionOne, styles.positionTwo, styles.positionThree];
   const position = positions[positionIndex];
 
-  return <div className={styles.showcase} aria-label="Connected HRMS feature highlights">
+  return <div className={styles.showcase} aria-label={`Connected ${label} feature highlights`}>
     <button key={`orb-${feature.id}`} className={`${styles.orb} ${tone} ${position}`} type="button" aria-label={`Show next feature after ${feature.title}`} onClick={advance}>
       <span className={styles.face} aria-hidden="true"><i /><i /><b /></span>
     </button>
     <article className={`${styles.panel} ${tone} ${position}`} key={`panel-${feature.id}`} aria-live="polite">
-      <span className={styles.label}>HRMS FEATURE · {String(step + 1).padStart(2, '0')} / 14</span>
+      <span className={styles.label}>{label} FEATURE · {String(step + 1).padStart(2, '0')} / {features.length}</span>
       <div className={styles.content}>
         <h3>{feature.title}</h3>
         <p>{feature.description}</p>

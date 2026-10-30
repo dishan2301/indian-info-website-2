@@ -40,8 +40,8 @@ const workforceProducts = [
 ] as const;
 
 const otherSolutionGroups = [
-  { title: 'Physical access', links: [{ label: 'Access control', href: '/solutions/physical-access-control' }, { label: 'Entrance management', href: '/solutions/entrance-management' }, { label: 'Visitor security', href: '/solutions/visitor-security' }] },
-  { title: 'Workplace services', links: [{ label: 'Visitor operations', href: '/software/visitor-management' }, { label: 'Canteen operations', href: '/solutions/canteen-operations' }, { label: 'Solution consultation', href: '/contact' }] },
+  { title: 'Physical access', links: [{ label: 'Access control', href: '/solutions/physical-access-control' }, { label: 'Entrance management', href: '/solutions/entrance-management' }, { label: 'Visitor management', href: '/solutions/visitor-management' }] },
+  { title: 'Workplace services', links: [{ label: 'Door interlock system', href: '/solutions/door-interlock-system' }, { label: 'Canteen operations', href: '/solutions/canteen-operations' }, { label: 'Solution consultation', href: '/contact' }] },
 ] as const;
 
 const solutionDirectoryGroups: { title: string; links: readonly { id?: string; label: string; href: string; summary?: string }[] }[] = [

@@ -1,0 +1,186 @@
+.partner-track {
+    animation-duration: 34s
+}
+
+.partner-marquee {
+    padding: 44px 0;
+    margin: -44px 0
+}
+
+.partner-group {
+    gap: 24px;
+    padding: 18px 12px
+}
+
+.partner-brand {
+    width: 150px;
+    height: 82px;
+    padding: 13px 18px;
+    border: 1px solid #e9edf2;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 5px 16px #202b450a;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform .22s cubic-bezier(.22, 1, .36, 1), box-shadow .22s ease
+}
+
+.partner-logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 118px;
+    max-height: 54px;
+    object-fit: contain;
+    object-position: center
+}
+
+.partner-mark {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 18px
+}
+
+.partner-brand:hover,
+.partner-brand:focus-visible,
+.partner-brand:focus {
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px #202b4518
+}
+
+.partner-brand:hover+.partner-brand,
+.partner-brand:focus-visible+.partner-brand,
+.partner-brand:has(+.partner-brand:hover),
+.partner-brand:has(+.partner-brand:focus-visible) {
+    transform: scale(1.035)
+}
+
+.partner-brand:focus {
+    outline: 2px solid #126dfb;
+    outline-offset: 3px
+}
+
+.partner-brand::after {
+    bottom: calc(100% + 10px);
+    padding: 9px 12px;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.25;
+    box-shadow: 0 10px 28px #1616161f
+}
+
+.partner-brand:focus::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0) scale(1)
+}
+
+.partner-brand[data-name="Astral Pipes"],
+.partner-brand[data-name="Cadila Pharmaceuticals"] {
+    border-radius: 12px;
+    background: #161616
+}
+
+.partner-brand[data-name="Astral Pipes"] .partner-logo-image,
+.partner-brand[data-name="Cadila Pharmaceuticals"] .partner-logo-image {
+    padding: 4px
+}
+
+.partner-brand[data-name="Swiss Pharma"] .partner-logo-image {
+    object-fit: contain
+}
+
+.testimonial-client {
+    gap: 12px;
+    padding-top: 20px
+}
+
+.testimonial-client b {
+    font-size: 14px;
+    line-height: 1.4
+}
+
+.testimonial-client .testimonial-logo {
+    max-width: 64px;
+    height: 40px
+}
+
+.testimonial-client .testimonial-logo-dark {
+    width: 58px;
+    height: 40px
+}
+
+@media(max-width:810px) {
+    .partner-track {
+        animation-duration: 23s
+    }
+
+    .partner-group {
+        gap: 18px;
+        padding: 16px 24px
+    }
+
+    .partner-brand {
+        width: 128px;
+        height: 70px;
+        padding: 8px
+    }
+
+    .partner-brand:hover,
+    .partner-brand:focus-visible,
+    .partner-brand:focus {
+        transform: scale(1.05)
+    }
+
+    .partner-brand:hover+.partner-brand,
+    .partner-brand:focus-visible+.partner-brand,
+    .partner-brand:has(+.partner-brand:hover),
+    .partner-brand:has(+.partner-brand:focus-visible) {
+        transform: scale(1.02)
+    }
+}
+
+@media(max-width:600px) {
+    .partner-group {
+        gap: 14px;
+        padding: 14px 18px
+    }
+
+    .partner-brand {
+        width: 112px;
+        height: 64px;
+        padding: 7px
+    }
+
+    .partner-brand::after {
+        font-size: 13px
+    }
+
+    .testimonial-client b {
+        font-size: 13px
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .partner-track {
+        animation: none
+    }
+
+    .partner-marquee {
+        overflow-x: auto
+    }
+
+    .partner-group {
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        justify-content: center
+    }
+
+    .partner-group[aria-hidden=true] {
+        display: none
+    }
+}
