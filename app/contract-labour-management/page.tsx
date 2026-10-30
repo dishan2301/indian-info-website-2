@@ -12,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function ContractLabourManagementPage() {
-  return <main>
+  return <main className="contract-workforce-page">
     <SiteHeader />
     <PageHero eyebrow="Contract workforce" title="Coordinate contract labour across sites and shifts." description="Bring contractor assignments, attendance, access approvals, exceptions, and payroll review into a workflow with clear owners at each handoff." marker="II / CONTRACT WORKFORCE" path="/contract-labour-management" />
     <section className="section route-detail-intro">

@@ -12,14 +12,14 @@ const categories = ['Workforce', 'Workplace'] as const;
 
 export default function SoftwarePage() {
   return (
-    <main>
+    <main className="software-index-page">
       <SiteHeader />
       <PageHero eyebrow="Software platforms" title="Turn workplace events into clearer operating workflows." description="Connect attendance, people operations, visitor activity, and canteen records through software selected around the way your organization works." marker="II / SOFTWARE" />
 
       <section className="software-index section">
         <div className="section-heading split-heading">
           <div><p className="section-kicker">Software ecosystem</p><h2>Start with the workflow, then connect the right systems.</h2></div>
-          <p>Each platform is shown with its operational scope. Interface screenshots will be published only after current production screens are approved.</p>
+          <p>Choose the operating layer you need first, then connect the people, devices, records, and reports that keep the workplace moving.</p>
         </div>
 
         {categories.map((category, categoryIndex) => (

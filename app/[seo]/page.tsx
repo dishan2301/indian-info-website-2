@@ -36,7 +36,7 @@ export default async function SeoLandingPage({ params }: SeoPageProps) {
     : { '@context': 'https://schema.org', '@type': 'Service', name: page.title, description: page.description, serviceType: page.primaryKeyword, areaServed: { '@type': 'Country', name: 'India' }, url: absoluteUrl(`/${page.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
 
   return (
-    <main>
+    <main className={`seo-landing-page seo-${page.slug}`}>
       <SiteHeader />
       <StructuredData data={offeringSchema} />
       <StructuredData data={faqSchema} />
