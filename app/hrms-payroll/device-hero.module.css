@@ -1,0 +1,65 @@
+.hero{position:relative;isolation:isolate;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse at 80% 25%,#fff 0%,transparent 50%),linear-gradient(130deg,#e9eeea,#f6f7f2 55%,#dae6e0);padding:125px 5vw 30px;color:#075345;display:flex;flex-direction:column;align-items:center}
+.eyebrow{font-size:11px;letter-spacing:.23em;text-transform:uppercase;margin:0 0 12px;font-weight:600}
+.title{font-size:clamp(65px,13.5vw,210px);letter-spacing:-.075em;line-height:.95;margin:0;white-space:nowrap;font-weight:850;z-index:-1}
+.devices{position:relative;width:min(1000px,83vw);margin-top:-3vw;filter:drop-shadow(0 30px 24px #17372a28);animation:arrive 1s ease-out both}
+.devices img{width:100%;height:auto;display:block}
+.bottom{width:100%;display:flex;justify-content:space-between;align-items:end;margin-top:-40px;z-index:2;gap:24px}
+.copy{max-width:310px}.copy h2{font-size:24px;line-height:1.2;letter-spacing:-.03em;margin:0 0 12px}.copy p{font-size:14px;line-height:1.6;color:#4f665c;margin:0}
+.cta{display:inline-flex;align-items:center;gap:35px;border-radius:100px;background:#075345;color:white;padding:16px 25px;text-decoration:none;font-weight:600;font-size:14px}.cta:hover{background:#093d33}.cta:focus-visible{outline:3px solid #075345;outline-offset:5px}
+.note{font-size:10px;color:#64766c;letter-spacing:.08em;margin-top:12px;text-align:right}
+@keyframes arrive{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1100px){.devices{width:min(940px,72vw);margin-top:-40px}.hero{min-height:850px}.bottom{margin-top:-100px}}
+@media(max-width:650px){.hero{padding:115px 20px 35px;min-height:85svh;justify-content:center}.title{font-size:13vw}.eyebrow{font-size:9px}.devices{width:125%;max-width:none;margin:15px -12% 0}.bottom{margin-top:0;flex-direction:column;align-items:start}.copy{max-width:100%}.note{text-align:left}.copy h2{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.devices{animation:none}}
+
+/* Independent motion layers keep the product and emerging UI at different depths. */
+.deviceFloat{animation:deviceOscillate 7s ease-in-out infinite;transform-origin:55% 70%}
+.featureLayer{position:absolute;inset:0;pointer-events:none}
+.popCard{position:absolute;width:clamp(135px,17vw,210px);animation:featureEmerge 1.1s cubic-bezier(.2,.8,.2,1) both;transform-origin:85% 75%}
+.cardSurface{padding:16px;border:1px solid #ffffffef;border-radius:15px;background:linear-gradient(135deg,#fffffffa,#f5fffcf5);box-shadow:0 15px 35px #124e3b20,0 2px 5px #124e3b0d;animation:cardOscillate 6s ease-in-out infinite}
+.attendanceCard{left:1%;top:19%;animation-delay:.35s;transform-origin:100% 100%}
+.leaveCard{right:-8%;top:8%;animation-delay:.65s;transform-origin:10% 100%}
+.payrollCard{right:-10%;top:62%;animation-delay:.95s;transform-origin:0% 0%}
+.leaveCard .cardSurface{animation-delay:-2s}.payrollCard .cardSurface{animation-delay:-4s}
+.cardEyebrow{display:block;color:#66867b;font-size:8px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+.cardSurface>strong{display:block;font-size:13px;line-height:1.4;letter-spacing:-.02em;color:#143f34}
+.bars{height:64px;display:flex;align-items:flex-end;gap:7px;margin:14px 0 8px;border-bottom:1px solid #dcece5}
+.bars i{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(#49bca4,#a6dfd0);transform-origin:bottom;animation:barBreathe 4s ease-in-out infinite alternate}
+.bars i:nth-child(even){background:linear-gradient(#9d9cde,#d3d1f0);animation-delay:-2s}
+.cardCaption{font-size:9px;color:#6c8179}
+.balance{display:flex;align-items:center;gap:13px;margin-top:14px}.donut{width:62px;height:62px;flex-shrink:0;border-radius:50%;background:conic-gradient(#36b79b 0 55%,#aaa5dc 55% 78%,#dceee7 78%);position:relative}.donut:after{content:'';position:absolute;inset:12px;border-radius:50%;background:#fff}
+.balance>div{display:grid;gap:7px}.balance>div>span{font-size:9px;color:#647b71;display:flex;align-items:center;gap:5px}.balance i{width:5px;height:5px;border-radius:50%;background:#36b79b}.balance span:nth-child(2) i{background:#aaa5dc}.balance span:nth-child(3) i{background:#dceee7}
+.payslip{display:flex;align-items:center;gap:10px;margin-top:14px;padding:10px;background:#eaf8f1;border-radius:9px}.payslip>span{display:grid;place-items:center;background:#2ba885;color:#fff;width:27px;height:27px;border-radius:50%}.payslip b,.payslip small{display:block;font-size:10px}.payslip small{font-size:8px;color:#678278;margin-top:4px}
+.motionToggle{position:absolute;right:calc(5vw + 111px);top:105px;width:14px;height:14px;accent-color:#075345;z-index:4}.motionLabel{position:absolute;right:5vw;top:107px;font-size:10px;color:#4f665c;cursor:pointer;z-index:4}
+.motionToggle:focus-visible{outline:2px solid #075345;outline-offset:4px}.motionToggle:checked~.devices,.motionToggle:checked~.devices *{animation-play-state:paused!important}
+@keyframes deviceOscillate{0%,100%{transform:translateY(0) rotate(-.35deg)}50%{transform:translateY(-13px) rotate(.35deg)}}
+@keyframes cardOscillate{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+@keyframes featureEmerge{from{opacity:0;transform:translate(0,35px) scale(.65)}to{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes barBreathe{from{transform:scaleY(.75)}to{transform:scaleY(1)}}
+@media(max-width:650px){.popCard{width:135px}.cardSurface{padding:10px;border-radius:11px}.attendanceCard{left:9%;top:5%}.leaveCard{right:9%;top:0}.payrollCard{right:10%;top:72%}.cardSurface>strong{font-size:10px}.cardEyebrow{font-size:6px;margin-bottom:5px}.bars{height:35px;margin:8px 0 5px}.balance{gap:8px;margin-top:8px}.donut{width:40px;height:40px}.donut:after{inset:8px}.balance>div{gap:4px}.balance>div>span{font-size:7px}.payslip{margin-top:8px;padding:6px}.payslip b{font-size:8px}.payslip small{font-size:6px}.devices{margin-bottom:30px}.motionToggle{top:93px;right:130px}.motionLabel{top:95px;right:20px}}
+@media(prefers-reduced-motion:reduce){.devices,.devices *{animation:none!important}.motionToggle,.motionLabel{display:none}}
+
+.title{white-space:normal;text-align:center;font-size:clamp(50px,10vw,150px);line-height:.88;letter-spacing:-.065em}
+.title br{display:block}
+@media(max-width:650px){.title{font-size:clamp(42px,13vw,78px);line-height:.92}}
+/* Product hero: compact message beside the product device. */
+.hero{min-height:760px;padding:115px max(6vw,32px) 64px;display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);grid-template-rows:auto auto auto;grid-template-areas:'eyebrow device' 'title device' 'bottom device';align-content:center;align-items:center;justify-items:start;column-gap:clamp(28px,5vw,76px);row-gap:14px}
+.eyebrow{grid-area:eyebrow;margin:0;color:#567c9d;font-size:10px;letter-spacing:.16em}
+.title{grid-area:title;justify-self:start;align-self:start;text-align:left;white-space:normal;z-index:1;width:100%;max-width:560px;margin:0;font-size:clamp(34px,3.45vw,54px);line-height:1.04;letter-spacing:-.055em;font-weight:720}
+.devices{grid-area:device;width:100%;max-width:980px;margin:0;justify-self:end;filter:drop-shadow(0 30px 38px #102d4a42)}
+.bottom{grid-area:bottom;display:flex;flex-direction:column;align-items:start;justify-content:start;gap:21px;margin:0;width:100%;z-index:2}
+.copy{max-width:390px}.copy h2{font-size:clamp(19px,2vw,25px);line-height:1.22;margin:0 0 8px}.copy p{font-size:13px;line-height:1.6}.bottom>div:last-child{display:flex;flex-direction:column;align-items:start}.cta{gap:24px;padding:13px 19px;font-size:12px}.note{text-align:left;margin:10px 0 0;font-size:8px}.motionToggle{top:18px;right:calc(5vw + 100px)}.motionLabel{top:18px;right:5vw}
+@media(min-width:761px){.hero{min-height:100svh}.devices{width:100%;margin:0}.bottom{margin:0}}
+@media(max-width:760px){.hero{min-height:0;padding:108px 22px 42px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto;grid-template-areas:'eyebrow' 'title' 'device' 'bottom';row-gap:14px;align-content:center;justify-items:stretch}.eyebrow{font-size:8px}.title{font-size:clamp(33px,9vw,48px);max-width:500px}.devices{width:min(112%,620px);max-width:none;margin:0 auto 0 -6%;justify-self:center}.bottom{gap:15px;align-items:start}.copy{max-width:100%}.copy h2{font-size:21px}.copy p{font-size:12px}.bottom>div:last-child{align-items:start}.note{text-align:left}.motionToggle{top:14px;right:119px}.motionLabel{top:14px;right:22px}}
+.featureLayer{position:absolute;inset:0;z-index:2;pointer-events:none}.popCard{position:absolute;width:clamp(145px,13vw,178px);animation:edge-card-in .8s cubic-bezier(.22,1,.36,1) both;filter:drop-shadow(0 12px 20px #102d4a20)}.attendanceCard{left:-8%;top:17%;animation-delay:.18s}.leaveCard{right:-7%;top:5%;animation-delay:.36s}.payrollCard{right:-6%;bottom:6%;animation-delay:.54s}.cardSurface{position:relative;padding:12px 13px;border:1px solid #dce9f6;border-radius:11px;background:#fffffff2;box-shadow:0 6px 18px #12365712;backdrop-filter:blur(12px);color:#133658}.cardIcon{position:absolute;right:11px;top:11px;display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:#e8f4ff;color:#1783d2}.cardEyebrow{display:block;color:#8094a9;font-size:6px;font-weight:750;letter-spacing:.12em;padding-right:27px}.cardSurface>strong{display:block;color:#193c5c;font-size:10px;line-height:1.35;margin-top:6px}.miniStat,.miniPay{display:flex;align-items:center;justify-content:space-between;gap:7px;border-top:1px solid #ebf0f6;margin-top:9px;padding-top:8px}.miniStat>b,.miniPay>b{font-size:17px;letter-spacing:-.045em;color:#147ccc}.miniStat>span{display:flex;flex-direction:column;gap:3px;font-size:6px;color:#8192a5}.miniStat i{font-style:normal;color:#16a47b}.miniPerson{display:flex;align-items:center;gap:7px;border-top:1px solid #ebf0f6;margin-top:9px;padding-top:8px;font-size:7px;color:#496582}.miniPerson>i{display:grid;place-items:center;width:23px;height:23px;background:#e9f3ff;border-radius:50%;font-size:7px;color:#4e7da8;font-style:normal}.miniPerson>span{flex:1}.miniPerson small{display:block;margin-top:3px;color:#8999aa;font-size:6px}.miniPerson>b{color:#139b74}.miniPay{display:block}.miniPay>b{font-size:15px}.miniPay>span{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:6px;color:#70889e}.miniPay i{width:5px;height:5px;border-radius:50%;background:#18aa7d}.attendanceCard .cardSurface{border-left:2px solid #2996e4}.leaveCard .cardSurface{border-left:2px solid #18a67a}.payrollCard .cardSurface{border-left:2px solid #686ad2}@keyframes edge-card-in{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.popCard{width:clamp(125px,39vw,155px)}.attendanceCard{left:-4%;top:1%}.leaveCard{right:-4%;top:0}.payrollCard{right:-3%;bottom:2%}.cardSurface{padding:9px 10px}.cardSurface>strong{font-size:9px}.miniStat>b,.miniPay>b{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.popCard{animation:none}}
+@media(min-width:761px){.devices{max-width:980px}.popCard{width:clamp(170px,15vw,220px)}.cardSurface{padding:15px 16px;border-radius:13px}.cardIcon{width:29px;height:29px}.cardEyebrow{font-size:7px}.cardSurface>strong{font-size:12px}.miniStat>b,.miniPay>b{font-size:19px}.miniStat>span,.miniPay>span{font-size:7px}.miniPerson{font-size:8px}.miniPerson>i{width:26px;height:26px;font-size:8px}.miniPerson small{font-size:7px}}
+@media(min-width:1100px){.hero{grid-template-columns:minmax(300px,.72fr) minmax(0,1.35fr)}.devices{max-width:1040px}}
+/* Gentle independent float keeps each callout legible around the device. */
+.attendanceCard{animation:edge-card-in .8s cubic-bezier(.22,1,.36,1) both,card-float 5s ease-in-out .8s infinite}
+.leaveCard{animation:edge-card-in .8s cubic-bezier(.22,1,.36,1) .18s both,card-float 5.6s ease-in-out 1s infinite}
+.payrollCard{left:-6%;right:auto;bottom:6%;animation:edge-card-in .8s cubic-bezier(.22,1,.36,1) .36s both,card-float 5.2s ease-in-out 1.2s infinite}
+@keyframes card-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media(max-width:760px){.payrollCard{left:-3%;right:auto;bottom:2%}}
+@media(prefers-reduced-motion:reduce){.popCard{animation:none}}

@@ -1,0 +1,30 @@
+.bridge{--arrival:1;--section-blue:0;position:relative;background:#edf7ff}.bridge :global([data-travel-device]){position:relative;z-index:20;transform-origin:top left;animation:none!important;will-change:transform,opacity;pointer-events:none}.bridge :global([data-travel-device]) img{width:100%;height:auto;display:block}.bridge :global([data-laptop-screen]){opacity:var(--arrival);transition:box-shadow .3s;border:12px solid #171a20;border-top-width:25px;border-radius:19px 19px 5px 5px;box-shadow:0 25px 65px #0759bc22;overflow:visible}.bridge :global([data-laptop-screen])::before{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:#71839a;top:-17px;left:50%}.bridge :global([data-laptop-screen])::after{content:'';position:absolute;bottom:-26px;left:-5%;right:-5%;height:18px;background:linear-gradient(#30343b 0%,#20242a 30%,#11151a 78%,#090b0e 100%);border:1px solid #41464e;border-top:0;border-radius:0 0 50% 50%;box-shadow:0 12px 20px #050b1580}.bridge :global([data-laptop-screen])>div:first-child{border-radius:7px;overflow:hidden}.bridge :global(#hrms-features){background:linear-gradient(135deg,#eaf7ff,#f7fbff 55%,#e2efff)!important;position:relative}.bridge :global(#hrms-features h2){color:#08295b}.bridge :global(#hrms-features h2 em){color:#087fda}.bridge :global(#hrms-features header>div>span){color:#087ab9}.bridge :global([aria-labelledby="device-hero-title"]){overflow:visible;background:linear-gradient(130deg,#e7f4ff,#f8fcff 55%,#dcefff);color:#083969}.bridge :global([aria-labelledby="device-hero-title"] h2){color:#0a3971}@media(max-width:700px){.bridge :global([data-laptop-screen]){border-width:7px;border-top-width:18px}.bridge :global([data-laptop-screen])::before{top:-12px}.bridge :global([data-laptop-screen])::after{bottom:-19px;height:12px}}@media(prefers-reduced-motion:reduce){.bridge :global([data-travel-device]){will-change:auto}}
+/* Ease the page two blue into a bright blue product workspace. */
+.bridge :global([aria-labelledby="device-hero-title"]){z-index:2}
+.bridge :global(#hrms-features){z-index:1;background:color-mix(in srgb,#dceeff calc(var(--section-blue) * 58%),#f8fbff)!important}
+.bridge :global(#hrms-features h2){color:#12345c}
+.bridge :global(#hrms-features h2 em){color:#147ed0}
+.bridge :global(#hrms-features header>div>span){color:#176eb4}
+.bridge :global(#hrms-features header>p){color:#5e738d}
+.bridge :global(#hrms-features [role="tab"]){color:#8293a8;border-bottom-color:#e0eaf4}
+.bridge :global(#hrms-features [role="tab"][aria-selected="true"]){color:#123f72}
+.bridge :global(#hrms-features [role="tab"]:hover){color:#147ed0}
+.bridge :global(#hrms-features [role="tab"] [class*="description"]){color:#5e738d}
+.bridge :global(#hrms-features [class*="keyPoints"]>span){color:#27668f}
+.bridge :global(#hrms-features [class*="panelFooter"] a){color:#1474c4}
+.bridge{overflow:clip}
+/* The feature section now has a confident brand blue backdrop and white type. */
+.bridge{background:#09254e}
+.bridge :global(#hrms-features){background:radial-gradient(ellipse at 79% 39%,#1769bd 0,#104984 32%,#0a2d5b 70%,#071f43 100%)!important}
+.bridge :global(#hrms-features h2){color:#fff}
+.bridge :global(#hrms-features h2 em){color:#58d1ff}
+.bridge :global(#hrms-features header>div>span){background:#0d437a;border-color:#2368a8;color:#7be0ff}
+.bridge :global(#hrms-features header>p){color:#d0e3fa;border-color:#44b6ed}
+.bridge :global(#hrms-features [class*="listHeading"]){color:#496580}
+.bridge :global([data-laptop-screen]){border-color:#171a20;box-shadow:0 28px 85px #020e215e}
+.bridge :global([data-laptop-screen])::before{background:#69ccf4}
+@media(max-width:700px){.bridge :global(#hrms-features){background:radial-gradient(ellipse at 50% 18%,#1769bd 0,#104984 34%,#0a2d5b 76%,#071f43 100%)!important}}
+.bridge{--laptop-glow:0}
+.bridge :global([data-travel-device]){transition:filter .5s ease-out;filter:drop-shadow(0 16px calc(10px + var(--laptop-glow)*30px) rgb(37 151 255 / calc(var(--laptop-glow)*.7)))}
+.bridge :global([data-laptop-screen]){box-shadow:0 28px 75px #020e215e,0 0 calc(var(--laptop-glow)*48px) rgb(53 160 255 / calc(var(--laptop-glow)*.62));transition:box-shadow .25s ease-out}
+@media(prefers-reduced-motion:reduce){.bridge :global([data-travel-device]){transition:none;filter:none}}

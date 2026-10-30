@@ -83,7 +83,9 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
               <p>{description}</p>
               <ul>{features.map(([name, text]) => <li key={name}><strong>{name}</strong> — {text}</li>)}</ul>
             </div>
-            <AnimatedFeatureScene module={item.slug} stages={visualStages} variant={index} />
+            <div className={styles.highlightIllustration}>
+              <Image src={`/campaign/hrms-highlights/${item.slug}.webp`} alt={`Illustration of ${item.name} in the workplace`} fill sizes="(max-width: 800px) 100vw, 50vw" />
+            </div>
           </FeatureReveal>;
         })}
         <div className={styles.highlightAction}><Link className="button button-primary" href={`/contact?hrms=${item.slug}`}>Talk to our team <span aria-hidden="true">↗</span></Link></div>

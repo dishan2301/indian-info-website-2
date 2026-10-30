@@ -222,5 +222,10 @@
 .highlightCopy li + li { margin-top: .75rem; }
 .highlightCopy li::marker { color: #168a78; }
 .highlightCopy strong { color: #153f39; }
+.highlightIllustration { position: relative; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 1rem; background: #f0f9f8; }
+.highlightIllustration img { object-fit: cover; animation: highlight-drift 12s ease-in-out infinite alternate; }
+.highlightReverse .highlightIllustration img { animation-direction: alternate-reverse; }
+@keyframes highlight-drift { from { transform: scale(1); } to { transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .highlightIllustration img { animation: none; } }
 .highlightAction { text-align: center; margin-top: clamp(3rem, 6vw, 5rem); }
 @media (max-width: 800px) { .highlightRow { grid-template-columns: minmax(0, 1fr); } .highlightReverse > :first-child { order: 0; } }
