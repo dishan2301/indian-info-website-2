@@ -7,3 +7,9 @@ export function EasytimeScript() {
     (window as Window & { initializeEasytime?: () => void }).initializeEasytime?.();
   }} />;
 }
+
+export function EasytimeContactScript() {
+  return <Script src="/easytime/contact-form.js" strategy="afterInteractive" onReady={() => {
+    (window as Window & { initializeEasytimeContact?: () => void }).initializeEasytimeContact?.();
+  }} />;
+}

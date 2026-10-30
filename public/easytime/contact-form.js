@@ -1,3 +1,8 @@
+// Initialize fresh page markup again when Next.js reuses this script after navigation.
+window.initializeEasytimeContact = function initializeEasytimeContact() {
+  const page = document.querySelector('.easytime-page') || document.body;
+  if (page.dataset.easytimeContactInitialized === 'true') return;
+  page.dataset.easytimeContactInitialized = 'true';
 const contactModal = document.querySelector('.contact-modal');
 const contactForm = document.querySelector('.contact-form');
 
@@ -62,17 +67,23 @@ if (tourShell) {
     ['/easytime/assets/software-demo/hr.png', 'HR approvals', 'Employee status, leave distribution, and workforce trends'],
     ['/easytime/assets/software-demo/attendance.png', 'Workforce reports', 'Present, late, absent, and regularization insights']
   ];
-  tourShell.insertAdjacentHTML('beforeend', `<div class="saas-playback"><div class="saas-screen-brand" aria-label="EasyTime Online"><span aria-hidden="true">E</span><strong>EasyTime <small>Online</small></strong></div>${screens.map(([src]) => `<img src="${src}" alt="SmartHR illustrative workflow screen">`).join('')}<div class="saas-caption"><small>SMARTHR WORKFLOW REFERENCE</small><span></span></div><div class="saas-progress"><i></i></div></div>`);
+  if (!tourShell.querySelector('.saas-playback')) tourShell.insertAdjacentHTML('beforeend', `<div class="saas-playback"><div class="saas-screen-brand" aria-label="EasyTime Online"><span aria-hidden="true">E</span><strong>EasyTime <small>Online</small></strong></div>${screens.map(([src]) => `<img src="${src}" alt="SmartHR illustrative workflow screen">`).join('')}<div class="saas-caption"><small>SMARTHR WORKFLOW REFERENCE</small><span></span></div><div class="saas-progress"><i></i></div></div>`);
   const slides = [...tourShell.querySelectorAll('.saas-playback img')]; const caption = tourShell.querySelector('.saas-caption span'); let slide = 0;
   const showSlide = () => { slides.forEach((image, index) => image.classList.toggle('active', index === slide)); caption.textContent = `${screens[slide][1]} · ${screens[slide][2]}`; const progress = tourShell.querySelector('.saas-progress i'); progress.style.animation = 'none'; void progress.offsetWidth; progress.style.animation = ''; };
   showSlide();
-  setInterval(() => {
+  const timer = setInterval(() => {
+    if (!tourShell.isConnected) { clearInterval(timer); window.removeEventListener('easytime-feature-step', onFeatureStep); return; }
     slide = (slide + 1) % slides.length;
     showSlide();
     window.dispatchEvent(new CustomEvent('easytime-slide-change', { detail: slide }));
   }, 10000);
-  window.addEventListener('easytime-feature-step', (event) => {
+  function onFeatureStep(event) {
+    if (!tourShell.isConnected) return;
     slide = event.detail % slides.length;
     showSlide();
-  });
+  }
+  window.addEventListener('easytime-feature-step', onFeatureStep);
 }
+
+};
+window.initializeEasytimeContact();

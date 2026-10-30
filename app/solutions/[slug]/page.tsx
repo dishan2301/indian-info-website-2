@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { EasytimeScript } from '../../_components/easytime-script';
+import { EasytimeScript, EasytimeContactScript } from '../../_components/easytime-script';
 import { notFound } from 'next/navigation';
 import { solutionProfiles } from '../../content';
 import { SiteFooter } from '../../_components/site-footer';
@@ -47,7 +47,7 @@ export default async function SolutionDetailPage({ params }: { params: Promise<{
     <EasytimeSpacing />
     <EasytimeCursorTour />
     <Script src="/easytime/hero-word-cycle.js" strategy="afterInteractive" />
-    <Script src="/easytime/contact-form.js" strategy="afterInteractive" />
+    <EasytimeContactScript />
     <EasytimeScript />
     <Script src="/easytime/phone-tour.js" strategy="afterInteractive" />
     <SiteFooter />

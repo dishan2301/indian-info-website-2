@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import Script from 'next/script';
-import { EasytimeScript } from './easytime-script';
+import { EasytimeScript, EasytimeContactScript } from './easytime-script';
 import { SiteFooter } from './site-footer';
 import { SiteHeader } from './site-header';
 import { EasytimeStyles, scopeEasytimeCss } from './easytime-styles';
@@ -49,6 +49,7 @@ export function EasytimePage({ slug }: { slug: string }) {
     <div className="easytime-page" dangerouslySetInnerHTML={{ __html: content }} />
     <EasytimeSpacing />
     <EasytimeCursorTour />
+    <EasytimeContactScript />
     <EasytimeScript />
     <Script src="/easytime/phone-tour.js" strategy="afterInteractive" />
     <Script src="/easytime/hero-word-cycle.js" strategy="afterInteractive" />
