@@ -2,6 +2,43 @@
   overflow: hidden
 }
 
+.easytime-product-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  color: #09295a;
+  text-align: left;
+}
+
+.easytime-product-brand > img {
+  display: block;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.easytime-product-brand strong {
+  display: block;
+  font: 750 30px/1.1 Inter, system-ui, sans-serif;
+  letter-spacing: -.04em;
+}
+
+.easytime-product-brand strong span { color: #087ecb; }
+.easytime-product-brand small {
+  display: block;
+  margin-top: 5px;
+  color: #536e7c;
+  font: 600 10px/1.2 Inter, system-ui, sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1050px) {
+  .easytime-product-brand { justify-content: center; }
+}
+
 .mobile-hero-copy .mobile-proof-hint {
   display: flex;
   align-items: flex-start;
