@@ -57,10 +57,10 @@ document.querySelectorAll('.tour-tab').forEach(button => button.addEventListener
 const tourShell = document.querySelector('.software-tour .tour-shell');
 if (tourShell) {
   const screens = [
-    ['assets/software-demo/admin.png', 'Attendance overview', 'Daily arrivals, departments, and attendance status'],
-    ['assets/software-demo/employee.png', 'Employee self-service', 'Personal attendance, working hours, and leave details'],
-    ['assets/software-demo/hr.png', 'HR approvals', 'Employee status, leave distribution, and workforce trends'],
-    ['assets/software-demo/attendance.png', 'Workforce reports', 'Present, late, absent, and regularization insights']
+    ['/easytime/assets/software-demo/admin.png', 'Attendance overview', 'Daily arrivals, departments, and attendance status'],
+    ['/easytime/assets/software-demo/employee.png', 'Employee self-service', 'Personal attendance, working hours, and leave details'],
+    ['/easytime/assets/software-demo/hr.png', 'HR approvals', 'Employee status, leave distribution, and workforce trends'],
+    ['/easytime/assets/software-demo/attendance.png', 'Workforce reports', 'Present, late, absent, and regularization insights']
   ];
   tourShell.insertAdjacentHTML('beforeend', `<div class="saas-playback"><div class="saas-screen-brand" aria-label="EasyTime Online"><span aria-hidden="true">E</span><strong>EasyTime <small>Online</small></strong></div>${screens.map(([src]) => `<img src="${src}" alt="SmartHR illustrative workflow screen">`).join('')}<div class="saas-caption"><small>SMARTHR WORKFLOW REFERENCE</small><span></span></div><div class="saas-progress"><i></i></div></div>`);
   const slides = [...tourShell.querySelectorAll('.saas-playback img')]; const caption = tourShell.querySelector('.saas-caption span'); let slide = 0;
