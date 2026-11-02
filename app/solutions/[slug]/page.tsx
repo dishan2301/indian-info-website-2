@@ -10,12 +10,15 @@ import { EasytimeStyles, scopeEasytimeCss } from '../../_components/easytime-sty
 import { EasytimeSpacing } from '../../_components/easytime-spacing';
 import { DoorInterlockPage } from '../../_components/door-interlock-page';
 import { VisitorManagementPage } from '../../_components/visitor-management-page';
+import { CanteenOperationsPage } from '../../_components/canteen-management-page';
+import { createPageMetadata } from '@/lib/site';
 import { EasytimeCursorTour } from '../../_components/easytime-cursor-tour';
 
 export function generateStaticParams() { return solutionProfiles.map((item) => ({ slug: item.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === 'canteen-operations') return createPageMetadata({ title: 'Canteen Operations | Employee Meals & Subsidies', description: 'Simplify canteen operations with employee identification, meal entitlements, subsidy controls and consumption reporting across locations.', path: '/solutions/canteen-operations', image: '/campaign/core-systems/easy-canteen-desktop-v2.webp' });
   if (slug === 'door-interlock-system') return { title: 'Door Interlock System | Indian Infotech', description: 'Explore coordinated door release, industry applications, interlock controllers, door hardware and entrance management products.', alternates: { canonical: '/solutions/door-interlock-system' } };
   if (slug === 'visitor-management') return { title: 'Visitor Management | Indian Infotech', description: 'Plan visitor registration, authority approval, visitor passes, controlled entry and return checkout, with industry workflows and device options.', alternates: { canonical: '/solutions/visitor-management' } };
   return slug === 'attendance-automation' ? { title: 'EasyTime Online — Indian Infotech', description: 'Biometric devices record every punch. EasyTime Online connects attendance, requests, approvals, payroll inputs, reports and employee self-service in one workspace.' } : {};
@@ -36,6 +39,7 @@ function easyTimeBody() {
 
 export default async function SolutionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (slug === 'canteen-operations') return <CanteenOperationsPage />;
   if (slug === 'door-interlock-system') return <DoorInterlockPage />;
   if (slug === 'visitor-management') return <VisitorManagementPage />;
   if (slug !== 'attendance-automation') notFound();

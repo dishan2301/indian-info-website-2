@@ -404,7 +404,7 @@ export const seoLandingPages: readonly SeoLandingPage[] = [
       { question: 'Does it manage food inventory?', answer: 'The published scope emphasizes identification, entitlement, transactions, usage records, and reports. Any inventory capability must be confirmed separately.' },
       { question: 'What is needed for implementation?', answer: 'Prepare employee data ownership, meal rules, service points, identity method, exceptions, reports, rollout, and reconciliation responsibilities.' },
     ],
-    related: [{ label: 'Explore canteen management software', href: '/software/canteen-management' }, { label: 'Canteen operations solution', href: '/solutions/canteen-operations' }, { label: 'Workforce management software', href: '/workforce-management-software' }],
+    related: [{ label: 'Explore canteen management software', href: '/solutions/canteen-operations' }, { label: 'Canteen operations solution', href: '/solutions/canteen-operations' }, { label: 'Workforce management software', href: '/workforce-management-software' }],
     image: '/campaign/core-systems/easy-canteen-desktop-v2.webp', schemaType: 'SoftwareApplication',
   },
   {

@@ -27,7 +27,9 @@ export function VerticalTabs({ services, enabled = true }: { services: readonly 
   const elapsed = useRef(0);
   const progress = useMotionValue(0);
   const inView = useInView(section, { amount: .3 });
-  const reduced = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  const reduced = mounted && prefersReducedMotion;
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
@@ -65,6 +67,7 @@ export function VerticalTabs({ services, enabled = true }: { services: readonly 
   },[activeIndex,services.length,select]);
 
   useEffect(() => {
+    setMounted(true);
     const update = () => setVisible(!document.hidden);
     update();
     document.addEventListener('visibilitychange', update);
@@ -115,29 +118,24 @@ export function VerticalTabs({ services, enabled = true }: { services: readonly 
         <div className={styles.grid}>
           <div className={styles.content}>
             <div className={styles.listHeading}><span>SELECT A WORKFLOW</span><span className={styles.counter}>{String(activeIndex + 1).padStart(2, '0')} <i>/ {services.length}</i></span></div>
-            <div ref={list} className={styles.tabs} role="tablist" aria-label="HR and payroll features" aria-orientation="vertical">
+            <div ref={list} className={styles.tabs} role="navigation" aria-label="HR and payroll feature pages">
               {services.map((service, index) => {
                 const active = index === activeIndex;
-                return <button key={service.id} id={`feature-tab-${service.id}`} type="button" role="tab" aria-selected={active} aria-controls="hrms-feature-panel" tabIndex={active ? 0 : -1} data-index={index}
+                return <Link key={service.id} href={service.href} data-index={index}
                   className={cn(styles.tab, active && styles.active)}
-                  onClick={() => select(index, index > activeIndex ? 1 : -1)}
-                  onKeyDown={event => {
-                    const next = event.key === 'ArrowDown' ? (index + 1) % services.length : event.key === 'ArrowUp' ? (index - 1 + services.length) % services.length : event.key === 'Home' ? 0 : event.key === 'End' ? services.length - 1 : null;
-                    if (next === null) return;
-                    event.preventDefault(); select(next, next > index ? 1 : -1);
-                    list.current?.querySelector<HTMLButtonElement>(`[data-index="${next}"]`)?.focus({ preventScroll: true });
-                  }}>
+                  onMouseEnter={() => select(index, index > activeIndex ? 1 : -1)}
+                  onFocus={() => select(index, index > activeIndex ? 1 : -1)}>
                   <span className={styles.rail}>{active && <motion.i style={{ scaleY: progress }} />}</span>
                   <span className={styles.number}>/{String(index + 1).padStart(2, '0')}</span>
                   <span className={styles.tabCopy}><span className={styles.tabTitle}>{service.title}</span>
                     {active && <motion.span initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} className={styles.description}>{service.description}<span className={styles.keyPoints}>{service.points.map(([name]) => <span key={name}><Check size={11} />{name}</span>)}</span></motion.span>}
                   </span><ArrowUpRight className={styles.tabArrow} size={16} />
-                </button>;
+                </Link>;
               })}
             </div>
             <div className={styles.listFooter}><span>Explore at your pace</span><button type="button" aria-label={paused ? 'Play automatic feature tour' : 'Pause automatic feature tour'} aria-pressed={paused} onClick={() => setPaused(v => !v)}>{paused || reduced ? <Play size={12} /> : <Pause size={12} />}{reduced ? 'Manual tour' : paused ? 'Play tour' : 'Auto tour'}</button></div>
           </div>
-          <div id="hrms-feature-panel" role="tabpanel" aria-labelledby={`feature-tab-${current.id}`} className={styles.panel}>
+          <div id="hrms-feature-panel" role="region" aria-label={`${current.title} preview`} className={styles.panel}>
             <div ref={gallery} data-laptop-screen className={styles.gallery}>
               <AnimatePresence initial={false} custom={direction} mode="sync">
                 <motion.div key={current.id} custom={direction} className={styles.slide}

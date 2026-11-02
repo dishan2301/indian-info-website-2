@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
-  const softwareRoutes = softwarePlatforms.map((software) => ({
+  const softwareRoutes = softwarePlatforms.filter((software) => software.slug !== 'canteen-management').map((software) => ({
     url: `${SITE_URL}/software/${software.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.8,

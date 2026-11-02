@@ -28,3 +28,11 @@
 .bridge :global([data-travel-device]){transition:filter .5s ease-out;filter:drop-shadow(0 16px calc(10px + var(--laptop-glow)*30px) rgb(37 151 255 / calc(var(--laptop-glow)*.7)))}
 .bridge :global([data-laptop-screen]){box-shadow:0 28px 75px #020e215e,0 0 calc(var(--laptop-glow)*48px) rgb(53 160 255 / calc(var(--laptop-glow)*.62));transition:box-shadow .25s ease-out}
 @media(prefers-reduced-motion:reduce){.bridge :global([data-travel-device]){transition:none;filter:none}}
+
+/* Keep workflow navigation readable against the white selector and blue section. */
+.bridge :global(#hrms-features [class*="listHeading"]){color:#294968;font-size:11px;font-weight:700}
+.bridge :global(#hrms-features a[data-index]){color:#385675;border-bottom-color:#dbe6f2}
+.bridge :global(#hrms-features a[data-index]:hover){color:#0c548d;background:#edf6ff}
+.bridge :global(#hrms-features [class*="description"]){color:#49647e}
+.bridge :global(#hrms-features [class*="panelFooter"] a){color:#103d72;background:#fff}
+.bridge :global(#hrms-features [class*="panelFooter"] a:hover){color:#0a315c;background:#e8f4ff}

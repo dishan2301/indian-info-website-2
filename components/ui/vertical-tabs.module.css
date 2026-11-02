@@ -18,3 +18,9 @@
 .popupSteps button[aria-pressed=true]{background:transparent}
 .popupSteps button[aria-pressed=true]::after{background:linear-gradient(90deg,#24a9ed,#2563d7)}
 .arrows button{width:44px;height:44px}
+
+/* Workflow names navigate to their full feature pages. */
+.tab{text-decoration:none}
+.panelFooter a{min-height:44px;padding:12px 18px;border:1px solid #c5e2ff;border-radius:24px;background:#fff;color:#103d72;font-size:12px;font-weight:700;white-space:normal}
+.panelFooter a:hover{background:#e8f4ff;color:#0a315c}
+@media(max-width:700px){.panelFooter{align-items:flex-start;flex-direction:column;gap:10px}.panelFooter a{align-self:flex-start}}

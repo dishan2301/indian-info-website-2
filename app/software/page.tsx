@@ -27,7 +27,7 @@ export default function SoftwarePage() {
             <div className="software-category-title"><span>0{categoryIndex + 1}</span><h2>{category}</h2></div>
             <div className="software-card-grid">
               {softwarePlatforms.filter((item) => item.category === category).map((item) => (
-                <Link className="software-card" href={`/software/${item.slug}`} key={item.slug}>
+                <Link className="software-card" href={item.slug === 'canteen-management' ? '/solutions/canteen-operations' : `/software/${item.slug}`} key={item.slug}>
                   <div className="software-window" aria-hidden="true">
                     <div><i /><i /><i /></div>
                     <span>Approved interface media pending</span>
