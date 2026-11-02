@@ -7,6 +7,7 @@ import { PageHero } from '../_components/page-hero';
 import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { seoLandingPages } from '../seo-landing-content';
+import { EntranceControlPage } from '../_components/entrance-control-page';
 
 type SeoPageProps = { params: Promise<{ seo: string }> };
 
@@ -25,6 +26,7 @@ export default async function SeoLandingPage({ params }: SeoPageProps) {
   const { seo } = await params;
   const page = seoLandingPages.find((item) => item.slug === seo);
   if (!page) notFound();
+  if (seo === 'entrance-control-system') return <EntranceControlPage />;
 
   const faqSchema = {
     '@context': 'https://schema.org',

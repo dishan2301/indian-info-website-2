@@ -13,14 +13,17 @@ import { industryMedia, solutionMedia } from '../../route-media';
 import { industryEditorial } from '../../route-editorial';
 import styles from '../../discovery-pages.module.css';
 import { approvedCaseStudies } from '../../proof-content';
+import { industryStudies } from '../research/content';
+import { IndustryStudyPage } from '../research/industry-study-page';
 
 export function generateStaticParams() { return industryProfiles.map((item) => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = industryProfiles.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} Workforce & Access Solutions`, description: item.context, path: `/industries/${item.slug}`, image: null }) : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const item = industryProfiles.find((candidate) => candidate.slug === slug); return item ? createPageMetadata({ title: `${item.name} Workforce & Access Solutions`, description: industryStudies[slug]?.summary ?? item.context, path: `/industries/${item.slug}`, image: industryStudies[slug] ? `/campaign/industries/${slug}-desktop-v2.webp` : null }) : {}; }
 
 export default async function IndustryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const item = industryProfiles.find((candidate) => candidate.slug === slug);
   if (!item) notFound();
+  if (industryStudies[slug]) return <IndustryStudyPage study={industryStudies[slug]} />;
   const editorial = industryEditorial[item.slug];
   const solutions = solutionProfiles.filter((solution) => item.solutionSlugs.includes(solution.slug));
   const recommendedProducts = editorial.productSlugs

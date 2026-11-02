@@ -1,0 +1,96 @@
+.page { --study-ink: #073e61; --study-accent: #087a9c; }
+.page > section { scroll-margin-top: 100px; }
+.hero { padding-top: 30px; gap: 40px; }
+.hero h1 { font-size: clamp(2.25rem, 4vw, 4rem); }
+.heroImage { min-height: 510px; }
+.heroImage img { object-position: 68% center; }
+.heroImage figcaption { display: flex; flex-direction: column; gap: 4px; }
+.heroImage figcaption span { font-size: .95rem; font-weight: 650; }
+.page .researchLine { margin-top: 22px; font-size: .72rem; line-height: 1.7; color: #6c808c; }
+.researchLine time { color: #6c808c; }
+.context { display: grid; grid-template-columns: .85fr 1.15fr; gap: 65px; }
+.page .chapterNote { color: #7b8e98; font-size: .82rem; margin-top: 20px; }
+.prose p { color: #526b79; font-size: .96rem; }
+.prose p + p { margin-top: 18px; }
+.evidenceSection { display: grid; grid-template-columns: .7fr 1.3fr; gap: 40px; }
+.evidenceHeading h2 { font-size: clamp(1.6rem, 2.3vw, 2.25rem); }
+.evidenceHeading > p:last-child { font-size: .85rem; margin-top: 16px; color: #647b87; }
+.findings { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.findings article { background: #fff; border: 1px solid #d7e5e9; border-top: 3px solid #9ecf09; border-radius: 10px; padding: 24px; }
+.findingTitle { display: flex; gap: 10px; align-items: start; justify-content: space-between; }
+.findingTitle h3 { font-size: 1rem; }
+.citation { color: #087a9c; text-decoration: none; font-family: var(--font-geist-mono), monospace; font-size: .73rem; white-space: nowrap; padding: 3px; }
+.citation:hover { background: #dff1f7; border-radius: 3px; }
+.findings article > p { color: #647b87; font-size: .85rem; margin-top: 12px; }
+.findings article .application { color: #214659; border-top: 1px solid #e0ebee; padding-top: 12px; }
+.findings article > span { display: block; color: #7c909b; font-size: .64rem; line-height: 1.5; margin-top: 15px; }
+.zoneMap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.zoneMap article { border: 1px solid #ccdde3; border-radius: 10px; background: #fff; padding: 22px; display: flex; flex-direction: column; }
+.zoneIndex { font-family: var(--font-geist-mono), monospace; color: #087a9c; font-size: .64rem; margin-bottom: 16px; }
+.zoneMap h3 { font-size: 1.04rem; }
+.zoneMap article > p { font-size: .78rem; color: #7b8e98; margin-top: 8px; min-height: 45px; }
+.zoneMap article > div { border-top: 1px solid #deeaee; padding-top: 16px; margin-top: 16px; }
+.zoneMap small { display: block; color: #087a9c; font-size: .58rem; font-weight: 750; letter-spacing: .07em; margin-bottom: 8px; }
+.zoneMap article > div p { color: #526b79; font-size: .84rem; }
+.zoneMap footer { background: #edf6f8; border-radius: 6px; margin-top: 20px; padding: 13px; }
+.zoneMap footer span { display: block; color: #214659; font-size: .77rem; line-height: 1.65; }
+.spotlightImage { height: 470px; }
+.spotlightImage img { object-position: 65% center; }
+.spotlightImage figcaption { position: absolute; bottom: 12px; left: 12px; padding: 7px 10px; font-size: .65rem; background: #fffffff0; border-radius: 5px; color: #526b79; }
+.hardwareGrid, .softwareGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.productImage { height: 230px; }
+.hardwareTag { position: absolute; top: 10px; left: 10px; background: #fffffff0; border: 1px solid #d3e2e8; color: #526b79; border-radius: 20px; padding: 5px 10px; font-size: .62rem; }
+.page .check { border-top: 1px solid #dce7eb; padding-top: 12px; color: #6f838f; font-size: .78rem; }
+.check b { display: block; color: #325468; font-weight: 650; margin-bottom: 4px; }
+.softwareImage { position: relative; height: 195px; background: #edf6f8; }
+.softwareImage img { object-fit: cover; object-position: 70% center; }
+.handoff { border-left: 2px solid #9ecf09; background: #f1f7f9; border-radius: 0 6px 6px 0; padding: 12px; margin-top: 6px; }
+.handoff small { font-size: .58rem !important; }
+.handoff p { font-size: .78rem !important; margin-top: 5px !important; }
+.scenario { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; background: #073e61; }
+.scenario h2, .scenario h3 { color: #fff; }
+.scenario > div > p:first-child { color: #a9d747; }
+.scenario > div > p { color: #b9d4e1; font-size: .92rem; margin-top: 18px; }
+.exampleLabel { display: block; margin-top: 24px; color: #9ebfcf; font-size: .58rem; letter-spacing: .08em; line-height: 1.6; }
+.scenario ol { list-style: none; padding: 0; margin: 0; }
+.scenario li { display: grid; grid-template-columns: 28px 1fr; gap: 15px; padding: 18px 0; border-bottom: 1px solid #ffffff25; }
+.scenario li:first-child { padding-top: 0; }
+.scenario li > span { color: #a9d747; font-size: .75rem; font-family: var(--font-geist-mono), monospace; }
+.scenario li h3 { font-size: 1rem; }
+.scenario li p { margin-top: 8px; color: #bdd4df; font-size: .85rem; }
+.measureHeading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid #d9e5e9; padding-top: 25px; margin-top: 28px; }
+.measureHeading h3 { font-size: 1rem; }
+.measureHeading p { color: #7b8e98; font-size: .78rem; max-width: 62ch; }
+.measures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 20px 0 0; }
+.measures > div { border-left: 2px solid #9cc8d6; padding-left: 16px; }
+.measures dt { color: #073e61; font-size: .84rem; font-weight: 650; }
+.measures dd { color: #6f838f; font-size: .82rem; line-height: 1.7; margin: 7px 0 0; }
+.references { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; list-style: none; padding: 0; margin: 0; }
+.references li { display: grid; grid-template-columns: 24px 1fr; gap: 15px; border-top: 1px solid #d6e4e9; padding: 20px 0; scroll-margin-top: 100px; }
+.references li > span { font-size: .7rem; color: #087a9c; font-family: var(--font-geist-mono), monospace; }
+.references small { display: block; color: #7b8e98; font-size: .65rem; margin-bottom: 6px; }
+.references a { color: #073e61; text-decoration: none; font-weight: 600; font-size: .88rem; line-height: 1.5; display: inline-block; }
+.references a:hover { text-decoration: underline; }
+.references p { font-size: .78rem; color: #7b8e98; margin-top: 7px; }
+.otherIndustries { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 30px; align-items: center; }
+.otherIndustries > span { width: 100%; color: #7b8e98; font-size: .7rem; }
+.otherIndustries a { color: #087a9c; font-size: .8rem; font-weight: 600; text-decoration: none; }
+@media (max-width: 1100px) { .evidenceSection { grid-template-columns: 1fr; gap: 25px; } .zoneMap { grid-template-columns: repeat(2, 1fr); } .context { gap: 35px; } }
+@media (max-width: 800px) {
+ .hero { gap: 25px; } .heroImage { min-height: 340px; }
+ .context, .scenario { grid-template-columns: 1fr; gap: 25px; } .context h2 { max-width: 24ch; }
+ .page .chapterNote { display: none; } .spotlightImage { height: 360px; }
+ .hardwareGrid, .softwareGrid { gap: 14px; } .productImage { height: 190px; }
+ .measures { gap: 16px; } .references { gap: 0 22px; }
+}
+@media (max-width: 600px) { .hardwareGrid, .softwareGrid, .findings, .references { grid-template-columns: 1fr; } .zoneMap { grid-template-columns: 1fr; } .zoneMap article > p { min-height: 0; } .productImage { height: 240px; } .softwareImage { height: 205px; } .measures { grid-template-columns: 1fr; gap: 20px; } .heroImage { min-height: 300px; } }
+.directoryHero h1 { max-width: 23ch; font-size: clamp(2.4rem, 4.5vw, 4.6rem); }
+.directoryHero > p:not(:first-child) { color: #526b79; max-width: 78ch; margin-top: 20px; font-size: 1rem; }
+.directoryTags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.directoryTags span { border: 1px solid #d2e3e9; background: #f1f7f9; border-radius: 25px; padding: 8px 14px; font-size: .72rem; color: #426477; }
+.directoryGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.directoryImage { display: block; height: 215px; position: relative; overflow: hidden; }
+.directoryImage img { object-fit: cover; object-position: 65% center; }
+.directoryGrid h2 { font-size: 1.4rem; }
+@media (max-width: 1000px) { .directoryGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .directoryGrid { grid-template-columns: 1fr; } .directoryImage { height: 215px; } }
