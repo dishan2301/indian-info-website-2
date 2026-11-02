@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: '/solutions/entrance-management', destination: '/entrance-control-system', permanent: true },
       { source: '/solutions/visitor-security', destination: '/solutions/visitor-management', permanent: true },
       { source: '/hrms-payroll/on-boarding', destination: '/hrms-payroll/onboarding', permanent: true },
       { source: '/hrms-payroll/time-sheet', destination: '/hrms-payroll/timesheet', permanent: true },

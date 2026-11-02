@@ -33,7 +33,7 @@ export default async function Home() {
           </li>
           <li data-step="02" className="home-journey-stop">
             <div className="home-journey-image"><Image src="/campaign/core-systems/entrance-control-desktop-v2.webp" alt="Workplace entrance with controlled access" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">Then, at your site</span><h3>The devices go where work begins.</h3><p>We place attendance and access devices at the gates and doors people actually use, with entry rules planned for your site.</p><Link href="/solutions/entrance-management">See entrance systems <span aria-hidden="true">↗</span></Link></div>
+            <div className="home-journey-copy"><span className="home-journey-year">Then, at your site</span><h3>The devices go where work begins.</h3><p>We place attendance and access devices at the gates and doors people actually use, with entry rules planned for your site.</p><Link href="/entrance-control-system">See entrance systems <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="03" className="home-journey-stop">
             <div className="home-journey-image"><Image src="/campaign/solutions/attendance-desktop-v2.webp" alt="Employee using attendance at a workplace" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
@@ -41,13 +41,13 @@ export default async function Home() {
           </li>
           <li data-step="04" className="home-journey-stop">
             <div className="home-journey-image"><Image src="/campaign/core-systems/easytime-desktop-v2.webp" alt="Workforce attendance software" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
-            <div className="home-journey-copy"><span className="home-journey-year">In one place</span><h3>Your team can see what happened.</h3><p>Easytime Online gathers attendance across locations. Managers review shifts, leave, missed punches, and reports before using the records further.</p><Link href="/software/easytime-online">Explore Easytime <span aria-hidden="true">↗</span></Link></div>
+            <div className="home-journey-copy"><span className="home-journey-year">In one place</span><h3>HR and managers stay on the same page.</h3><p>Easytime Online brings attendance across locations into one workspace. HR teams track working hours, manage leave and review missed punches, while managers check shifts and approvals. Reviewed records help HR prepare payroll inputs.</p><Link href="/hrms-payroll">Explore HRMS <span aria-hidden="true">↗</span></Link></div>
           </li>
         </ol>
       </div>
       <div className="home-journey-outcomes">
         <div><span className="home-journey-year">After review</span><h3>One source of information. The right view for each team.</h3><p>Approved records can support the next part of your operation, according to the modules and integrations your company uses.</p></div>
-        <div className="home-journey-outcome-links"><Link href="/hrms-payroll"><strong>HR &amp; payroll</strong><span>People records, attendance, and payroll inputs ↗</span></Link><Link href="/contract-labour-management"><strong>Contract labour</strong><span>Rosters, site attendance, and approvals ↗</span></Link><Link href="/solutions/entrance-management"><strong>Entrance management</strong><span>Controlled movement at gates and doors ↗</span></Link></div>
+        <div className="home-journey-outcome-links"><Link href="/hrms-payroll"><strong>HR &amp; payroll</strong><span>People records, attendance, and payroll inputs ↗</span></Link><Link href="/contract-labour-management"><strong>Contract labour</strong><span>Rosters, site attendance, and approvals ↗</span></Link><Link href="/entrance-control-system"><strong>Entrance management</strong><span>Controlled movement at gates and doors ↗</span></Link></div>
       </div>
     </section>
     <CompanyOverview />
