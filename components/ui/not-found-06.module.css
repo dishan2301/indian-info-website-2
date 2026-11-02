@@ -1,0 +1,37 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 170px 24px 90px;
+  background: radial-gradient(ellipse at 18% 28%, #13acf419, transparent 48%), radial-gradient(ellipse at 88% 74%, #9ecf091c, transparent 45%), linear-gradient(135deg, #f8fcff, #f0f9f9 55%, #f8fbeE);
+  color: var(--ink);
+  text-align: center;
+}
+.content { width: 100%; max-width: 560px; }
+.illustration { display: block; width: min(100%, 340px); height: 220px; object-fit: contain; margin: 0 auto; }
+.status { margin: 22px 0 10px; color: #0877a8; font-family: var(--font-geist-mono); font-size: 11px; font-weight: 700; letter-spacing: .18em; }
+.title { max-width: none; margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 550; letter-spacing: -.055em; line-height: 1.15; }
+.title span { background: linear-gradient(100deg, #0877a8, #0877a8 25%, #628800); background-clip: text; -webkit-text-fill-color: transparent; }
+.description { max-width: 360px; margin: 18px auto 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.pages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 36px; text-align: left; }
+.card { display: flex; align-items: center; gap: 12px; padding: 18px 14px; border: 1px solid #d5e5e9; border-radius: 14px; background: #ffffffc9; transition: background .2s, border-color .2s, box-shadow .2s; }
+.card:hover { border-color: #13acf477; background: #fff; box-shadow: 0 8px 24px #0877a80c; }
+.card:focus-visible { outline: 2px solid var(--brand-primary); outline-offset: 4px; }
+.icon { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 38px; height: 38px; border: 1px solid #d6e9ef; border-radius: 11px; background: linear-gradient(135deg, #e8f8ff, #f3f9e6); color: #0877a8; }
+.copy { display: flex; flex: 1; flex-direction: column; min-width: 0; gap: 5px; }
+.cardTitle { color: #17364b; font-size: 14px; font-weight: 600; }
+.cardDescription { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.arrow { flex-shrink: 0; color: #0877a8; transition: transform .2s; }
+.card:hover .arrow { transform: translateX(3px); }
+.home { gap: 9px; margin-top: 30px; }
+@media (max-width: 540px) {
+  .section { padding: 140px 20px 64px; }
+  .illustration { width: min(100%, 260px); height: 175px; }
+  .pages { grid-template-columns: minmax(0, 1fr); max-width: 360px; margin-inline: auto; }
+  .card { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .arrow { transition: none; }
+  .card:hover .arrow { transform: none; }
+}

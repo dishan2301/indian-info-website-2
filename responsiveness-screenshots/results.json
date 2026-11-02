@@ -1,0 +1,3984 @@
+[
+  {
+    "route": "/[seo]",
+    "concrete": "/biometric-attendance-system",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "concrete": "/about",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/about-us",
+    "concrete": "/about-us",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/academy",
+    "concrete": "/academy",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/careers",
+    "concrete": "/careers",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/case-studies/[slug]",
+    "concrete": "/case-studies/[slug]",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "error": "Error: No link found for dynamic route /case-studies/[slug]"
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "error": "Error: No link found for dynamic route /case-studies/[slug]"
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "error": "Error: No link found for dynamic route /case-studies/[slug]"
+      }
+    ]
+  },
+  {
+    "route": "/case-studies/contribute",
+    "concrete": "/case-studies/contribute",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/case-studies",
+    "concrete": "/case-studies",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/certification",
+    "concrete": "/certification",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/company",
+    "concrete": "/company",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/compare",
+    "concrete": "/compare",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "concrete": "/contact",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/contract-labour-management",
+    "concrete": "/contract-labour-management",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/cookies",
+    "concrete": "/cookies",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/developers/integration-reference",
+    "concrete": "/developers/integration-reference",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/developers",
+    "concrete": "/developers",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/easytime/[slug]",
+    "concrete": "/easytime/blog",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 5
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 5
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 5
+      }
+    ]
+  },
+  {
+    "route": "/easytime",
+    "concrete": "/easytime",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/brand/easytime-online-indian-infotech-logo-v2.png",
+            "maxWidth": "230px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 44
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/brand/easytime-online-indian-infotech-logo-v2.png",
+            "maxWidth": "230px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 44
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/brand/easytime-online-indian-infotech-logo-v2.png",
+            "maxWidth": "230px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 44
+      }
+    ]
+  },
+  {
+    "route": "/engineering",
+    "concrete": "/engineering",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/hrms-payroll/[slug]",
+    "concrete": "/hrms-payroll/recruitment",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/hrms-payroll",
+    "concrete": "/hrms-payroll",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          },
+          {
+            "src": "/ratings/google.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/g2.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/software-suggest.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/techimply.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/technology-counter.svg",
+            "maxWidth": "34px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 68
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/ratings/google.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/g2.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/software-suggest.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/techimply.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/technology-counter.svg",
+            "maxWidth": "34px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 68
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/ratings/google.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/g2.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/software-suggest.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/techimply.svg",
+            "maxWidth": "34px"
+          },
+          {
+            "src": "/ratings/technology-counter.svg",
+            "maxWidth": "34px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 68
+      }
+    ]
+  },
+  {
+    "route": "/industries/[slug]",
+    "concrete": "/industries/manufacturing",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 13
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 13
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 13
+      }
+    ]
+  },
+  {
+    "route": "/industries",
+    "concrete": "/industries",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      }
+    ]
+  },
+  {
+    "route": "/industries/pharma",
+    "concrete": "/industries/pharma",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      }
+    ]
+  },
+  {
+    "route": "/insights/[slug]",
+    "concrete": "/insights/contract-workforce-management-auditable-model",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/insights",
+    "concrete": "/insights",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      }
+    ]
+  },
+  {
+    "route": "/integrations",
+    "concrete": "/integrations",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/knowledge",
+    "concrete": "/knowledge",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 12
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "concrete": "/",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          },
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=1080&q=75",
+            "maxWidth": "min(100%, 360px)"
+          }
+        ],
+        "widthFailures": [],
+        "images": 58
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=1080&q=75",
+            "maxWidth": "min(100%, 430px)"
+          }
+        ],
+        "widthFailures": [],
+        "images": 58
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=1080&q=75",
+            "maxWidth": "min(100%, 430px)"
+          }
+        ],
+        "widthFailures": [],
+        "images": 58
+      }
+    ]
+  },
+  {
+    "route": "/partners",
+    "concrete": "/partners",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/platform",
+    "concrete": "/platform",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/privacy",
+    "concrete": "/privacy",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/products/[slug]",
+    "concrete": "/products/access-control",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 23
+      }
+    ]
+  },
+  {
+    "route": "/products",
+    "concrete": "/products",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      }
+    ]
+  },
+  {
+    "route": "/resources",
+    "concrete": "/resources",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/resources/procurement",
+    "concrete": "/resources/procurement",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/search",
+    "concrete": "/search",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/software/[slug]",
+    "concrete": "/software/easytime-online",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/software",
+    "concrete": "/software",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/solution-builder",
+    "concrete": "/solution-builder",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/solutions/[slug]",
+    "concrete": "/solutions/attendance-automation",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 43
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 43
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 43
+      }
+    ]
+  },
+  {
+    "route": "/solutions",
+    "concrete": "/solutions",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      }
+    ]
+  },
+  {
+    "route": "/support",
+    "concrete": "/support",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 8
+      }
+    ]
+  },
+  {
+    "route": "/technologies",
+    "concrete": "/technologies",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/terms",
+    "concrete": "/terms",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/testimonials",
+    "concrete": "/testimonials",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 14
+      }
+    ]
+  },
+  {
+    "route": "/trust",
+    "concrete": "/trust",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/trust/quality-policy",
+    "concrete": "/trust/quality-policy",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/trust/responsible-disclosure",
+    "concrete": "/trust/responsible-disclosure",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/trust/security",
+    "concrete": "/trust/security",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "195px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/_next/image?url=%2Findian-infotech-logo.png&w=3840&q=75",
+            "maxWidth": "340px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 7
+      }
+    ]
+  },
+  {
+    "route": "/easytime/404.html",
+    "concrete": "/easytime/404.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/blog-actionable-insights.html",
+    "concrete": "/easytime/blog-actionable-insights.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/blog-ai-growth-insights.html",
+    "concrete": "/easytime/blog-ai-growth-insights.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/blog-clarity.html",
+    "concrete": "/easytime/blog-clarity.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/blog.html",
+    "concrete": "/easytime/blog.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 752,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/index.html",
+    "concrete": "/easytime/index.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 375,
+        "overflowElements": [],
+        "viewportWidth": 375,
+        "maxWidthFailures": [
+          {
+            "src": "/easytime/assets/brand/easytime-online-indian-infotech-logo-v2.png",
+            "maxWidth": "142px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 768,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 768,
+        "overflowElements": [],
+        "viewportWidth": 768,
+        "maxWidthFailures": [
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      },
+      {
+        "width": 1440,
+        "pass": false,
+        "status": 200,
+        "scrollWidth": 1440,
+        "overflowElements": [],
+        "viewportWidth": 1440,
+        "maxWidthFailures": [
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/unison-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/bayer.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/cadila-pharmaceuticals.svg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/swiss-pharma.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/chiripal-group.jpg",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/sudiva-india.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "118px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/aditya-birla-group.jpg",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/torrent-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/clients/swiss-hq.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/astral-pipes.png",
+            "maxWidth": "58px"
+          },
+          {
+            "src": "/easytime/assets/logos/zydus-lifesciences.png",
+            "maxWidth": "58px"
+          }
+        ],
+        "widthFailures": [],
+        "images": 41
+      }
+    ]
+  },
+  {
+    "route": "/easytime/newsletter.html",
+    "concrete": "/easytime/newsletter.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 0
+      }
+    ]
+  },
+  {
+    "route": "/easytime/software-tour.html",
+    "concrete": "/easytime/software-tour.html",
+    "checks": [
+      {
+        "width": 375,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 375,
+        "viewportWidth": 375,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 1
+      },
+      {
+        "width": 768,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 768,
+        "viewportWidth": 768,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 1
+      },
+      {
+        "width": 1440,
+        "pass": true,
+        "status": 200,
+        "scrollWidth": 1440,
+        "viewportWidth": 1440,
+        "maxWidthFailures": [],
+        "widthFailures": [],
+        "images": 1
+      }
+    ]
+  }
+]

@@ -245,3 +245,26 @@ span {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Dashboard previews must shrink with their grid track on narrow screens. */
+@media (max-width: 900px) {
+  #software-tour .tour-shell {
+    min-width: 0;
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  #software-tour .saas-playback {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  #software-tour .saas-playback > img {
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .contact-card.section {
+    width: calc(100% - 44px);
+    min-width: 0;
+  }
+}

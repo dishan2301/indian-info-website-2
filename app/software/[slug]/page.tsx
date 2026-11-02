@@ -11,6 +11,7 @@ import { softwarePlatforms } from '../../content';
 import { MotionReveal } from '../../_components/motion-reveal';
 import { softwareMedia } from '../../route-media';
 import styles from '../../discovery-pages.module.css';
+import { CanteenManagementPage } from '../../_components/canteen-management-page';
 
 type SoftwarePageProps = { params: Promise<{ slug: string }> };
 
@@ -22,6 +23,7 @@ export async function generateMetadata({ params }: SoftwarePageProps): Promise<M
   const { slug } = await params;
   const software = softwarePlatforms.find((item) => item.slug === slug);
   if (!software) return {};
+  if (slug === 'canteen-management') return createPageMetadata({ title: 'Canteen Management Software | Employee Meals & Subsidies', description: 'Simplify employee meals with biometric identification, meal entitlements, subsidy controls, multi-location consumption records and canteen reporting.', path: '/software/canteen-management', image: null });
   return createPageMetadata({ title: `${software.name} Software`, description: software.summary, path: `/software/${software.slug}`, image: null });
 }
 
@@ -29,6 +31,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   const { slug } = await params;
   const software = softwarePlatforms.find((item) => item.slug === slug);
   if (!software) notFound();
+  if (slug === 'canteen-management') return <CanteenManagementPage />;
   const media = softwareMedia[software.slug];
   const softwareSchema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: software.name, description: software.summary, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', featureList: software.publishedFacts?.map((fact) => `${fact.label}: ${fact.value}`), url: absoluteUrl(`/software/${software.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
   const softwareFaqs = [
