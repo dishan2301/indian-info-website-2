@@ -24,3 +24,22 @@
 .panelFooter a{min-height:44px;padding:12px 18px;border:1px solid #c5e2ff;border-radius:24px;background:#fff;color:#103d72;font-size:12px;font-weight:700;white-space:normal}
 .panelFooter a:hover{background:#e8f4ff;color:#0a315c}
 @media(max-width:700px){.panelFooter{align-items:flex-start;flex-direction:column;gap:10px}.panelFooter a{align-self:flex-start}}
+
+/* Phone previews keep the image, explanation and controls in separate rows. */
+@media(max-width:700px){
+ .section{padding:48px 20px;scroll-margin-top:88px}
+ .grid{gap:24px}
+ .gallery{height:auto;min-height:0;display:flow-root}
+ .slide{bottom:auto;height:200px}
+ .imageLabel{top:14px;left:14px}
+ .popup{position:relative;inset:auto;width:auto;min-height:0;margin:155px 12px 0;padding:16px}
+ .popupHeader{font-size:8px}
+ .popup h3{font-size:20px}
+ .popup p{font-size:13px;line-height:1.6;min-height:0}
+ .popupSteps{margin-top:6px}
+ .arrows{position:relative;inset:auto;justify-content:flex-end;padding:12px;gap:10px}
+ .panelFooter{padding-top:22px}
+ .panel{padding-bottom:0}
+ .listFooter{font-size:11px}
+ .listFooter button{font-size:11px;min-height:44px}
+}

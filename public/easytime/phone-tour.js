@@ -72,6 +72,15 @@ window.initializeEasytimePhoneTour = function initializeEasytimePhoneTour() {
   // Keep the popup inside the container that owns its scoped styles.
   (entry.closest('.easytime-page') || document.body).append(dialog);
   const viewport=dialog.querySelector('.pt-scroll'), phone=dialog.querySelector('.pt-phone');
+  const narrow=matchMedia('(max-width: 700px)');
+  const overlay=dialog.querySelector('.pt-tour-overlay');
+  const stage=dialog.querySelector('.pt-stage');
+  const placeExplanation=()=>{
+    if(narrow.matches) stage.insertBefore(overlay,dialog.querySelector('.pt-scroll-label'));
+    else phone.insertBefore(overlay,dialog.querySelector('.pt-home'));
+  };
+  placeExplanation();
+  narrow.addEventListener('change',placeExplanation);
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let active='attendance', current=0, motion, opener, timer, playing=false;
   function schedule() {
@@ -131,7 +140,7 @@ window.initializeEasytimePhoneTour = function initializeEasytimePhoneTour() {
       overlay.innerHTML=`<article class="pt-tour-detail"><small>EASYTIME · FEATURE ${current+1}</small><strong>${feature.title}</strong><p>${explanations[feature.title]}</p><span>Scroll to explore · pause anytime</span></article>`;
     }
     viewport.querySelectorAll('.pt-card').forEach((card,index)=>card.classList.toggle('pt-active',index===current));dialog.querySelector('.pt-current strong').textContent=roles[active].cards[current].title;dialog.querySelector('.pt-current small').textContent=`${current+1} / ${roles[active].cards.length} features`;dialog.querySelector('.pt-next').textContent=current===roles[active].cards.length-1?'Back to first ↑':'Next feature ↓';}
-  entry.addEventListener('click',e=>{const b=e.target.closest('[data-phone-role]');if(!b)return;opener=b;dialog.showModal();document.body.classList.add('phone-tour-open');select(b.dataset.phoneRole);});
+  entry.addEventListener('click',e=>{const b=e.target.closest('[data-phone-role]');if(!b)return;opener=b;dialog.showModal();dialog.scrollTop=0;document.body.classList.add('phone-tour-open');select(b.dataset.phoneRole);});
   dialog.querySelector('.pt-roles').addEventListener('click',e=>{const b=e.target.closest('[data-phone-role]');if(b)select(b.dataset.phoneRole);});
   dialog.querySelector('.pt-close').onclick=()=>dialog.close();
   dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});

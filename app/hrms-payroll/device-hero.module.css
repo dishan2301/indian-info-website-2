@@ -63,3 +63,10 @@
 @keyframes card-float{0%,100%{translate:0 0}50%{translate:0 -8px}}
 @media(max-width:760px){.payrollCard{left:-3%;right:auto;bottom:2%}}
 @media(prefers-reduced-motion:reduce){.popCard{animation:none}}
+
+@media (max-width: 760px) {
+ .hero { padding-top: 58px; }
+ .devices { width: 100%; max-width: 100%; margin: 0; }
+ .featureLayer { display: none; }
+ .bottom { position: relative; margin-top: 10px; }
+}

@@ -199,6 +199,7 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
+    if (mobileMenu.current) mobileMenu.current.open = false;
     if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -222,7 +223,7 @@ export function SiteHeader() {
           }
         }}
       >
-        <summary aria-label="Navigation menu">Menu</summary>
+        <summary aria-label="Navigation menu"><span className="mobile-menu-label">Menu</span><span className="mobile-close-label">Close</span><span aria-hidden="true" className="mobile-menu-symbol" /></summary>
         <div className="mobile-menu-panel">
           <div className="mobile-menu-shell">
             <div className="mobile-menu-topline">
@@ -237,10 +238,12 @@ export function SiteHeader() {
             </div>
             <div className="mobile-menu-groups">
               {mobileMenuGroups.map((group) => (
-                <div key={group.title}>
-                  <p className="mega-heading">{group.title}</p>
+                <details className="mobile-nav-group" name="mobile-navigation" key={group.title}>
+                  <summary>{group.title}</summary>
+                  <div className="mobile-nav-group-links">
                   {group.title === 'Products' ? <>{productFamilies.map((family) => <details key={family}><summary>{family}</summary><div>{products.filter((product) => product.family === family).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}</Link>)}</div><Link href={`/products/${familySlug(family)}`}>View all {family.toLowerCase()}</Link></details>)}</> : group.links.map((link) => <Link href={link.href} key={`${group.title}-${link.label}`}>{link.label}{'description' in link && <small className="mobile-feature-description">{link.description}</small>}</Link>)}
-                </div>
+                  </div>
+                </details>
               ))}
             </div>
             <div className="mobile-menu-primary mobile-menu-industries">

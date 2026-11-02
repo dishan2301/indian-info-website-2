@@ -23,8 +23,8 @@ export function DeviceFeatureBridge() {
    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
    const p=travel.get();
    const source=device.parentElement!.getBoundingClientRect(),destination=target.getBoundingClientRect();
-   device.style.transform=reduced?'none':`translate(${(destination.left-source.left)*p}px,${(destination.top-source.top)*p}px) scale(${1+(destination.width/source.width-1)*p})`;
-   device.style.opacity=String(reduced?1:1-Math.max(0,(p-.82)/.18));
+   device.style.transform=reduced?'none':`translate(${(destination.left-source.left)*p}px,${(destination.top-source.top)*p}px) scale(${1+(destination.width/device.offsetWidth-1)*p})`;
+   device.style.opacity=String(reduced?1:Math.max(0,Math.min(1,(1-p)/.18)));
    el.style.setProperty('--arrival',String(reduced?1:Math.max(0,Math.min(1,(p-.72)/.28))));
    const ready=reduced||(targetProgress>=.995&&p>=.99);
    el.dataset.featureReady=String(ready);
@@ -34,9 +34,12 @@ export function DeviceFeatureBridge() {
   };
   const scheduleApply=()=>{if(!frame)frame=requestAnimationFrame(apply)};
   const measure=()=>{
-   const h=hero.getBoundingClientRect();
+   const source=device.parentElement!.getBoundingClientRect();
+   const destination=target.getBoundingClientRect();
    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-   targetProgress=Math.max(0,Math.min(1,(window.innerHeight*.78-h.bottom)/(h.height*.72)));
+   const distance=destination.top-source.top;
+   const anchor=Math.min(180,window.innerHeight*.25);
+   targetProgress=distance>0?Math.max(0,Math.min(1,(anchor-source.top)/distance)):1;
    travel.set(reduced?1:targetProgress);
    scheduleApply();
   };

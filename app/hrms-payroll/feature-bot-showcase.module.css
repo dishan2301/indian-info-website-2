@@ -83,3 +83,19 @@
 @media(prefers-reduced-motion:reduce){.orb.positionOne,.orb.positionTwo,.orb.positionThree{animation:none}}
 
 .panel{z-index:1}
+
+/* Reserve space for the tour on phones instead of overlaying the next section. */
+@media (max-width: 760px) {
+ .showcase { position: relative; inset: auto; margin: 28px 0 0; padding-top: 18px; z-index: 1; }
+ .panel.positionOne, .panel.positionTwo, .panel.positionThree { position: relative; inset: auto; width: 100%; min-height: 0; padding: 20px; opacity: 1; animation: none; }
+ .orb.positionOne, .orb.positionTwo, .orb.positionThree { top: 0; right: 14px; left: auto; bottom: auto; animation: none; width: 44px; height: 44px; }
+ .content { animation: none; opacity: 1; }
+ .content h3 { font-size: 20px; }
+ .content p { font-size: 13px; line-height: 1.6; }
+ .points { display: grid; gap: 8px; }
+ .points span { font-size: 12px; }
+ .points small { font-size: 12px; line-height: 1.5; }
+}
+@media (max-width: 760px) {
+ .points span { max-width: none; white-space: normal; border-radius: 10px; padding: 10px; }
+}
