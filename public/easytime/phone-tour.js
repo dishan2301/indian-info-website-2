@@ -1,6 +1,7 @@
-(() => {
+window.initializeEasytimePhoneTour = function initializeEasytimePhoneTour() {
   const trigger = document.querySelector('.mobile-proof');
-  if (!trigger) return;
+  if (!trigger || trigger.dataset.phoneTourInitialized === "true") return;
+  trigger.dataset.phoneTourInitialized = "true";
   // Each rectangle presents an unchanged panel from the supplied desktop references.
   const panel = (title, file, x, y, w, h) => ({ title, file, x, y, w, h });
   const employee = [panel('My profile', 'employee-overview',279,223,500,358), panel('Leave balance & requests','employee-overview',1458,223,369,358), panel('Attendance & punch out','employee-overview',279,604,500,361), panel('Daily & weekly hours','employee-overview',803,604,500,177), panel('Monthly hours & overtime','employee-overview',1327,604,500,177), panel('Working-day timeline','employee-overview',803,808,1024,157), panel('Attendance & leave history','employee-overview',803,223,631,358), panel('My projects','employee-work',299,114,349,291), panel('My tasks','employee-work',1065,55,762,370), panel('Performance','employee-work',279,449,631,439), panel('My skills','employee-work',934,449,500,439), panel('Team, policies & holidays','employee-work',1458,449,369,439), panel('Team members','employee-team',279,415,500,477), panel('Notifications','employee-team',803,415,500,477), panel('Meeting schedule','employee-team',1327,415,500,477)];
@@ -139,4 +140,5 @@
   dialog.querySelector('.pt-next').onclick=()=>{goTo((current+1)%roles[active].cards.length);schedule();};
   dialog.querySelector('.pt-play').onclick=()=>{if(!playing && current===roles[active].cards.length-1)goTo(0);setPlaying(!playing);};
   document.addEventListener('visibilitychange',()=>{if(document.hidden)setPlaying(false);});
-})();
+};
+window.initializeEasytimePhoneTour();

@@ -51,36 +51,6 @@ document.querySelectorAll('.faq-list details').forEach(item => item.open = false
 
 const productScene = document.querySelector('.mobile-product-scene'); if (productScene) { productScene.insertAdjacentHTML('afterbegin', '<div class="attendance-device-carousel" aria-label="Easytime biometric attendance devices"><img class="active" src="/easytime/assets/hero/ai-15l-cutout.png" alt="AI-15L"><img src="/easytime/assets/hero/ai-35-cutout.png" alt="AI-35"><img src="/easytime/assets/hero/mini-ai-30-cutout.png" alt="Mini AI-30"></div>'); const slides = [...productScene.querySelectorAll('.attendance-device-carousel>img')]; let index = 0; if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => { slides[index].classList.remove('active'); index = (index + 1) % slides.length; slides[index].classList.add('active') }, 5000) }
 
-const proof = document.querySelector('.mobile-proof');
-if (proof) {
-  const features = {
-    attendance: ['Mobile attendance', 'Employees clock in from Easytime Mobile and see their shift and attendance status.'],
-    'self-service': ['Employee self-service', 'Employees can review work hours, shifts, attendance, and submit leave or other requests.'],
-    manager: ['Live manager view', 'Managers get a live overview of attendance, late arrivals, leave, and approvals in Easytime Online.']
-  };
-  proof.setAttribute('role', 'group');
-  proof.setAttribute('aria-label', 'Explore Easytime features');
-  proof.innerHTML = Object.entries(features).map(([key, [label]]) => `<button type="button" class="mobile-proof-button${key === 'attendance' ? ' active' : ''}" aria-pressed="${key === 'attendance'}" data-proof="${key}">${label}</button>`).join('');
-  const detail = document.createElement('div');
-  detail.className = 'mobile-proof-detail';
-  detail.setAttribute('aria-live', 'polite');
-  detail.innerHTML = `<b>${features.attendance[0]}</b><p>${features.attendance[1]}</p>`;
-  proof.after(detail);
-  proof.addEventListener('click', event => {
-    const button = event.target.closest('[data-proof]');
-    if (!button) return;
-    const [title, description] = features[button.dataset.proof];
-    proof.querySelectorAll('[data-proof]').forEach(item => {
-      const active = item === button;
-      item.classList.toggle('active', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-    detail.innerHTML = `<b>${title}</b><p>${description}</p>`;
-  });
-  const proofStyle = document.createElement('style');
-  proofStyle.textContent = '.mobile-proof{display:flex!important;flex-wrap:wrap;gap:9px;margin-top:24px}.mobile-proof-button{border:1px solid #9fc9e2;border-radius:999px;background:#fff;color:#173b55;padding:10px 14px;font:600 13px Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 12px #1234}.mobile-proof-button:hover,.mobile-proof-button.active{background:#126dfb;color:#fff;border-color:#126dfb}.mobile-proof-button:focus-visible{outline:3px solid #73c7ff;outline-offset:3px}.mobile-proof-detail{margin-top:12px;padding:14px 16px;border:1px solid #b9d9ec;border-radius:12px;background:#fff;color:#173b55;max-width:460px;box-shadow:0 8px 24px #1232}.mobile-proof-detail b{display:block;margin-bottom:5px}.mobile-proof-detail p{margin:0;color:#516d80;font-size:13px;line-height:1.5}@media(max-width:1050px){.mobile-proof,.mobile-proof-detail{justify-content:center;margin-inline:auto}}';
-  document.head.append(proofStyle);
-}
 
 if (productScene && !document.querySelector('[data-hardware-hero-style]')) { const style = document.createElement('style'); style.dataset.hardwareHeroStyle = ''; style.textContent = '.manager-pulse{display:none}.easytime-mac{position:absolute;inset:42px 0 45px 108px;z-index:1;padding:12px 12px 19px;border:7px solid #f7fafc;border-radius:18px;background:#e7edf2;box-shadow:0 34px 80px #0008}.easytime-mac:after{content:"";position:absolute;left:12%;right:12%;bottom:-12px;height:13px;border-radius:0 0 28px 28px;background:linear-gradient(#f9fbfc,#b5c0c9)}.easytime-mac__screen{height:100%;overflow:hidden;border-radius:8px;background:#fff}.easytime-mac__screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}.attendance-device{position:absolute;z-index:4;right:4%;bottom:9px;width:102px;padding:10px 8px 12px;border:5px solid #edf5f9;border-radius:15px;background:linear-gradient(145deg,#203c54,#0b1d2d);box-shadow:0 24px 42px #0009;color:#fff;text-align:center}.attendance-device__camera{display:grid;place-items:center;width:56px;height:56px;margin:auto;border:3px solid #4cc9f0;border-radius:12px;background:radial-gradient(circle,#66c9ff 0 12%,#113d5a 14% 30%,#071421 32%)}.attendance-device__camera:after{content:"";width:25px;height:25px;border:2px solid #7ee3ff;border-radius:50%;box-shadow:0 0 0 6px #54c8ff18}.attendance-device small{display:block;margin:9px 0 3px;color:#9fc5de;font-size:7px;letter-spacing:.1em;text-transform:uppercase}.attendance-device b{display:block;min-height:17px;color:#fff;font-size:13px;animation:device-model-float 2.2s ease-in-out infinite}@keyframes device-model-float{50%{transform:translateY(-4px)}}.device-model-changing{animation:device-model-swap .32s ease both!important}@keyframes device-model-swap{50%{opacity:0;transform:translateY(7px)}}@media(max-width:650px){.easytime-mac{position:relative;inset:auto;order:2;width:100%;height:260px}.attendance-device{position:relative;right:auto;bottom:auto;order:3;align-self:center}.app-phone{order:1}.sync-badge{order:4}}'; document.head.append(style) }
 

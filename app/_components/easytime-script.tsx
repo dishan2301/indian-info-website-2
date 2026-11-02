@@ -13,3 +13,9 @@ export function EasytimeContactScript() {
     (window as Window & { initializeEasytimeContact?: () => void }).initializeEasytimeContact?.();
   }} />;
 }
+
+export function EasytimePhoneTourScript() {
+  return <Script src="/easytime/phone-tour.js" strategy="afterInteractive" onReady={() => {
+    (window as Window & { initializeEasytimePhoneTour?: () => void }).initializeEasytimePhoneTour?.();
+  }} />;
+}

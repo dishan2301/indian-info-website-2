@@ -1,12 +1,12 @@
 /* Final responsive guardrails for the landing page and software tour. */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 *,
