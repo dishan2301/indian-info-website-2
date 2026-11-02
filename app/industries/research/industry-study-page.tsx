@@ -1,8 +1,9 @@
 import Image, { getImageProps } from 'next/image';
 import Link from 'next/link';
 import { StructuredData } from '@/components/structured-data';
+import { TestimonialsSection } from '@/components/ui/testimonials-with-marquee';
 import { absoluteUrl } from '@/lib/site';
-import { products } from '../../content';
+import { clientQuotes, products } from '../../content';
 import { SiteHeader } from '../../_components/site-header';
 import { SiteFooter } from '../../_components/site-footer';
 import { SolutionHeading, SolutionFaq } from '../../_components/solution-page-parts';
@@ -49,6 +50,15 @@ export function IndustryStudyPage({ study }: { study: IndustryStudy }) {
       <section className={`${s.section} ${s.tint}`}><SolutionHeading label="Map the workplace" title="Different areas. Different decisions." text="Use this map to identify the people, permissions and records at each boundary. It is a planning model to review against your actual layout." /><div className={i.zoneMap}>{study.zones.map((zone, index) => <article key={zone.area}><span className={i.zoneIndex}>ZONE 0{index + 1}</span><h3>{zone.area}</h3><p>{zone.people}</p><div><small>DECISION TO MAKE</small><p>{zone.decision}</p></div><footer><small>SYSTEM / PROCESS</small><span>{zone.system}</span></footer></article>)}</div></section>
 
       <section className={`${s.section} ${s.split}`}><figure className={`${s.photo} ${i.spotlightImage}`}><Image src={study.spotlight.image} alt={study.spotlight.alt} fill sizes="(max-width: 800px) 90vw, 45vw" /><figcaption>Illustrated operating scenario</figcaption></figure><div className={s.explanation}><p className={s.eyebrow}>A closer look · {study.name}</p><h2>{study.spotlight.title}</h2>{study.spotlight.paragraphs.map(text => <p key={text}>{text}</p>)}<ul className={s.checkList}>{study.spotlight.checks.map(([title, text]) => <li key={title}><b>{title}:</b> {text}</li>)}</ul></div></section>
+
+      <TestimonialsSection
+        title="Trusted by teams running real-world workforces."
+        description="From workforce visibility to dependable day-to-day operations, hear what organizations value in working with Indian Infotech."
+        testimonials={clientQuotes.map((item) => ({
+          author: { name: item.company, handle: 'Indian Infotech client', avatar: item.logo },
+          text: item.quote,
+        }))}
+      />
 
       <section className={`${s.section} ${s.tint}`} id="system-fit"><SolutionHeading label="03 / Match the devices to the job" title="Hardware to evaluate for this environment." text="These are catalogue candidates with a stated role, not a claim that every model suits every installation. Check the exact variant, interfaces and conditions before procurement." /><div className={i.hardwareGrid}>{study.hardware.map(item => { const product = products.find(p => p.slug === item.slug)!; return <article className={s.product} key={item.slug}><div className={`${s.productImage} ${i.productImage}`}><Image src={product.image!} alt={`${product.name}: ${item.role}`} fill sizes="(max-width: 600px) 90vw, 30vw" /><span className={i.hardwareTag}>{product.authentication}</span></div><div className={s.productBody}><small>{item.role}</small><h3>{product.name}</h3><p>{item.why}</p><p className={i.check}><b>Confirm before selection</b>{item.check}</p><Link href={`/products/${item.slug}`}>Explore device & specifications ↗</Link>{product.pdf && <a href={product.pdf}>Read the product datasheet ↗</a>}</div></article>; })}</div></section>
 

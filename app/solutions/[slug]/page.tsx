@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   if (slug === 'canteen-operations') return createPageMetadata({ title: 'Canteen Operations | Employee Meals & Subsidies', description: 'Simplify canteen operations with employee identification, meal entitlements, subsidy controls and consumption reporting across locations.', path: '/solutions/canteen-operations', image: '/campaign/core-systems/easy-canteen-desktop-v2.webp' });
   if (slug === 'door-interlock-system') return { title: 'Door Interlock System | Indian Infotech', description: 'Explore coordinated door release, industry applications, interlock controllers, door hardware and entrance management products.', alternates: { canonical: '/solutions/door-interlock-system' } };
-  if (slug === 'visitor-management') return { title: 'Visitor Management | Indian Infotech', description: 'Plan visitor registration, authority approval, visitor passes, controlled entry and return checkout, with industry workflows and device options.', alternates: { canonical: '/solutions/visitor-management' } };
+  if (slug === 'visitor-management') return { title: 'EasyVisit Visitor Management System | Indian Infotech', description: 'Manage visitor registration, host approvals, photo badges, live tracking and reports with EasyVisit, an on-premises system with local SQL Server storage.', alternates: { canonical: '/solutions/visitor-management' } };
   return slug === 'attendance-automation' ? { title: 'EasyTime Online — Indian Infotech', description: 'Biometric devices record every punch. EasyTime Online connects attendance, requests, approvals, payroll inputs, reports and employee self-service in one workspace.' } : {};
 }
 

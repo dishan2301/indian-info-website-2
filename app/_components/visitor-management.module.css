@@ -57,3 +57,11 @@
 @media(max-width:850px) { .hero { grid-template-columns:1fr; } .heroCopy { padding:25px 24px 36px; } .breadcrumbs { margin-bottom:30px; } .heroVisual { min-height:420px; } .detailGrid { grid-template-columns:1fr; gap:25px; } .timeline li { grid-template-columns:44px 1fr; gap:15px; } .status { grid-column:2; justify-self:start; } }
 @media(max-width:600px) { .section { padding:48px 20px; } .heroVisual { min-height:360px; } .industryGrid,.deviceGrid { grid-template-columns:1fr; } .cta { padding:26px; } .deviceImage { height:240px; } }
 @media(prefers-reduced-motion:reduce) { .industryImage img { transition:none; } }
+
+.specifications { margin:30px 0 0; border:1px solid #dce8ed; border-radius:12px; overflow:hidden; }
+.specifications > div { display:grid; grid-template-columns:minmax(160px,1fr) 2fr; gap:24px; padding:18px 22px; }
+.specifications > div + div { border-top:1px solid #dce8ed; }
+.specifications > div:nth-child(odd) { background:#f5fafc; }
+.specifications dt { font-size:14px; font-weight:650; }
+.specifications dd { margin:0; font-size:14px; line-height:1.7; color:#526b79; overflow-wrap:anywhere; }
+@media(max-width:600px) { .specifications > div { grid-template-columns:1fr; gap:8px; padding:16px; } }
