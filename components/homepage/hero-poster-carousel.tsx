@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 const workforceScenes = [
   { title: 'Contract Labour Management System', eyebrow: 'Workforce operations', text: 'Coordinate contractor teams, attendance, shifts, and workforce visibility across your sites.', image: '/campaign/product-moments/contract-workforce-v3.png', alt: 'A supervisor coordinating contractors beside Indian Infotech branded entrance control devices at a manufacturing campus', href: '/contract-labour-management', cta: 'Explore contract labour management' },
@@ -24,7 +24,7 @@ export function HeroPoster() {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = hero.current;
     if (!node) return;
     let frame = 0;
