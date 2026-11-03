@@ -5,11 +5,13 @@ import { SITE_URL } from './lib/site';
 const nextConfig: NextConfig = {
   experimental: {
     agentUpgrade: 'security',
+    useTypeScriptCli: false,
   },
   async redirects() {
     return [
       { source: '/:path*', has: [{ type: 'host', value: 'indian-info-website-2.vercel.app' }], destination: `${SITE_URL}/:path*`, permanent: true },
       { source: '/solutions/entrance-management', destination: '/entrance-control-system', permanent: true },
+      { source: '/solutions/physical-access-control', destination: '/access-control-system', permanent: true },
       { source: '/solutions/visitor-security', destination: '/solutions/visitor-management', permanent: true },
       { source: '/hrms-payroll/on-boarding', destination: '/hrms-payroll/onboarding', permanent: true },
       { source: '/hrms-payroll/time-sheet', destination: '/hrms-payroll/timesheet', permanent: true },

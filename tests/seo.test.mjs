@@ -37,7 +37,8 @@ test('detail-page social images are record-specific or deliberately absent', asy
   assert.match(products, /image: product\.image \?\? null/);
   assert.match(insights, /image: article\.image/);
   assert.match(caseStudies, /image: item\.logo/);
-  for (const source of [software, solutions, industries, hrms]) assert.match(source, /image: null/);
+  for (const source of [software, solutions, hrms]) assert.match(source, /createPageMetadata/);
+  assert.match(industries, /image: industryStudies\[slug\] \? /);
 });
 
 test('production discovery and preview noindex controls are present', async () => {
@@ -57,7 +58,7 @@ test('homepage has one semantic H1 and clear-image rendering remains enabled', a
   assert.equal((hero.match(/<h1(?:\s|>)/g) ?? []).length, 1);
   assert.match(styles, /image-rendering:\s*auto/);
   assert.doesNotMatch(styles, /\.workforce-screen-card img\s*\{[^}]*filter:\s*blur/);
-  assert.match(hero, /quality=\{82\}/);
+  assert.match(hero, /quality=\{index === 0 \? 78 : 62\}/);
 });
 
 test('SEO landing page keywords are page-specific head metadata', async () => {
@@ -73,6 +74,15 @@ test('sitemap company, partner, and solution pages are crawlable from site navig
   for (const route of ['/company', '/partners', '/entrance-control-system', '/canteen-management-system']) {
     assert.ok(footer.includes(route), `missing internal footer link to ${route}`);
   }
+});
+
+test('sitemap excludes solution planning records without public 200 routes', async () => {
+  const sitemap = await read('app/sitemap.ts');
+  for (const slug of ['multi-location-attendance', 'physical-access-control', 'entrance-management']) {
+    assert.match(sitemap, new RegExp(`'${slug}'`));
+  }
+  assert.match(sitemap, /solutionProfiles\s*\.filter/);
+  assert.match(sitemap, /!\['multi-location-attendance', 'physical-access-control', 'entrance-management'\]\.includes\(item\.slug\)/);
 });
 
 test('contact card does not introduce a second page heading', async () => {

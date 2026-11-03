@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { HeroPoster } from '@/components/homepage/hero-poster-carousel';
 import { CompanyOverview, IndustriesAndClients, QuotesAndNews } from '@/components/homepage/home-curated-sections';
 import { createPageMetadata } from '@/lib/site';
-import { SiteFooter } from './_components/site-footer';
 import { SiteHeader } from './_components/site-header';
+import { DeferredSiteFooter } from './_components/deferred-site-footer';
 import { getPublishedInsights } from '@/lib/sanity/content';
 
 export const metadata: Metadata = createPageMetadata({
@@ -54,6 +54,6 @@ export default async function Home() {
     <CompanyOverview />
     <IndustriesAndClients />
     <QuotesAndNews cmsInsights={cmsInsights} />
-    <SiteFooter />
+    <DeferredSiteFooter />
   </main>;
 }

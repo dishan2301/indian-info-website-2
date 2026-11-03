@@ -31,7 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }));
-  const solutionRoutes = solutionProfiles.map((item) => ({ url: `${SITE_URL}/solutions/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
+  // These planning records are linked from industry guidance, but they are not
+  // public /solutions routes. Keep the sitemap limited to pages that return 200.
+  const solutionRoutes = solutionProfiles
+    .filter((item) => !['multi-location-attendance', 'physical-access-control', 'entrance-management'].includes(item.slug))
+    .map((item) => ({ url: `${SITE_URL}/solutions/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
   const industryRoutes = industryProfiles.map((item) => ({ url: `${SITE_URL}/industries/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
   const insightRoutes = insights.map((item) => ({ url: `${SITE_URL}/insights/${item.slug}`, lastModified: new Date(item.date), changeFrequency: 'monthly' as const, priority: 0.7 }));
   const landingRoutes = seoLandingPages.map((item) => ({ url: `${SITE_URL}/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.9 }));

@@ -87,7 +87,7 @@ export default function RootLayout({
         <StructuredData data={organizationSchema} />
         <div id="main-content" tabIndex={-1}>{children}</div>
         <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">
-          <img className="floating-whatsapp-logo" src="/whatsapp-logo.svg" alt="" width="28" height="28" />
+          <img className="floating-whatsapp-logo" src="/whatsapp-logo.svg" alt="WhatsApp" width="28" height="28" />
         </a>
         <Analytics />
       </body>

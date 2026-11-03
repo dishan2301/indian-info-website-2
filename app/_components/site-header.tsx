@@ -1,11 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Boxes, Factory, UsersRound } from 'lucide-react';
 import { hrmsModules, products } from '../content';
+
+const Link = (props: React.ComponentProps<typeof NextLink>) => <NextLink prefetch={false} {...props} />;
 
 const productFamilies = [...new Set(products.map((product) => product.family))];
 const familySlug = (family: string) => family.toLowerCase().replace(/\s+/g, '-');
@@ -137,7 +139,7 @@ function PremiumNav() {
         {menuItems.map((item) => {
           const isActive = activeMenu === item.title;
           return <section aria-hidden={!isActive} className={`premium-mega-panel${isActive ? ' is-active' : ''}`} id={`nav-panel-${item.title}`} inert={!isActive} key={item.title}>
-            <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.title} that move with your operation.</h2><Link href={item.href}>View all {item.title.toLowerCase()}</Link></div>
+            <div className="premium-mega-intro"><span>{item.eyebrow}</span><h2>{item.title} that move with your operation.</h2><Link prefetch={false} href={item.href}>View all {item.title.toLowerCase()}</Link></div>
             {item.title === 'Products' ? <div className="premium-product-bifurcation"><div className="premium-product-categories"><p>Product categories</p>{productFamilies.map((family) => <Link className={activeProductFamily === family ? 'is-active' : ''} href={`/products/${familySlug(family)}`} onFocus={() => setActiveProductFamily(family)} onPointerEnter={() => setActiveProductFamily(family)} key={family}>{family}<small>{products.filter((product) => product.family === family).length} products</small></Link>)}</div><div className="premium-product-items"><p>{activeProductFamily} products</p>{products.filter((product) => product.family === activeProductFamily).map((product) => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}<small>{product.authentication} · {product.application}</small></Link>)}</div></div> : item.title === 'Solutions' && isActive ? <div className="premium-solutions-content">
               <div className="premium-workforce-picker">
                 {solutionDirectoryGroups.map((group) => (
@@ -205,7 +207,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header" data-scrolled={scrolled}>
-      <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1200} height={199} priority /></Link>
+      <Link className="brand" href="/" aria-label="Indian Infotech home"><Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1200} height={199} sizes="clamp(164px, 18vw, 260px)" priority /></Link>
       <Link className="brand-mark" href="/" aria-label="Indian Infotech home"><Image src="/favicon.svg" alt="" width={40} height={40} /></Link>
 
       <PremiumNav key={pathname} />

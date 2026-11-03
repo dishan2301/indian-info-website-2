@@ -76,7 +76,7 @@ export function HeroPoster() {
   return <section ref={hero} className="poster-hero workforce-screen" aria-label="Indian Infotech workforce systems">
     <div className="workforce-screen-grid" aria-label="Explore workforce systems" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
       {workforceScenes.map((scene, index) => <Link className="workforce-screen-card" data-active={activePanel === index} data-more={index === 4} data-scene={['contract-labor', 'hrms-payroll', 'entrance-control', 'door-interlock', 'workplace-software'][index]} href={scene.href} onMouseEnter={() => setActivePanel(index)} onFocus={() => setActivePanel(index)} onClick={() => setActivePanel(index)} key={scene.title}>
-        <Image src={scene.image} alt={scene.alt} fill sizes={activePanel === index ? '(max-width: 760px) 100vw, 68vw' : '(max-width: 760px) 100vw, 10vw'} quality={82} priority={index === 0} />
+        <Image src={scene.image} alt={scene.alt} fill sizes="(max-width: 760px) 100vw, 68vw" quality={index === 0 ? 78 : 62} priority={index === 0} />
         <span className="workforce-screen-card-copy"><small>{String(index + 1).padStart(2, '0')} · {scene.eyebrow}</small><ScreenTitle index={index} title={scene.title} /><em>{scene.text}</em>{'more' in scene && <span className="workforce-screen-more-list">{scene.more.map((item) => <span key={item}>{item}</span>)}</span>}<b>{scene.cta} <i aria-hidden="true">↗</i></b></span>
       </Link>)}
     </div>

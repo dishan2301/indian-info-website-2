@@ -30,7 +30,8 @@ test('legacy redirect contract is unique, permanent, relevant, and chain-free', 
 
 test('approved public statistics have one provenance-aware source', () => {
   const claims = readFileSync('lib/company-profile.ts', 'utf8');
-  for (const value of [14, 12, 7, 2500]) assert.match(claims, new RegExp(`value: ${value}`));
+  for (const value of [12, 7, 2500]) assert.match(claims, new RegExp(`value: ${value}`));
+  assert.match(claims, /value: completedYearsSince\(new Date\(\)\)/);
   for (const field of ['source:', 'owner:', 'status:', 'verifiedOn:']) assert.match(claims, new RegExp(field));
   const homepage = readFileSync('components/homepage/home-curated-sections.tsx', 'utf8');
   assert.match(homepage, /companyStats\.map/);
@@ -129,7 +130,7 @@ test('phase-five polish keeps navigation accessible and defers offscreen work', 
   assert.match(header, /aria-label="Navigation menu"/);
   const hero = readFileSync('components/homepage/hero-poster-carousel.tsx', 'utf8');
   assert.match(hero, /activePanel === index/);
-  assert.match(hero, /quality=\{82\}/);
+  assert.match(hero, /quality=\{index === 0 \? 78 : 62\}/);
   const news = readFileSync('components/homepage/home-curated-sections.tsx', 'utf8');
   assert.match(news, /media\.addEventListener\('change', sync\)/);
   assert.match(news, /aria-hidden=\{index !== active\}/);

@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 
 export const SITE_NAME = 'Indian Infotech';
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://indianinfotech.org').replace(/\/$/, '');
+const configuredSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://indianinfotech.org').replace(/\/$/, '');
+// Keep preview metadata self-referential for auditability while retaining the
+// final production origin for the live launch. Vercel provides VERCEL_URL in
+// preview builds; local builds intentionally use the production origin.
+export const SITE_URL = process.env.VERCEL_ENV === 'preview' && process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : configuredSiteUrl;
 export const IS_INDEXABLE = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === 'production' : process.env.NODE_ENV === 'production';
 export const DEFAULT_OG_IMAGE = '/og.png';
 
