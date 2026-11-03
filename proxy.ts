@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { contentSecurityPolicy, SECURITY_HEADERS } from '@/lib/security.mjs';
 import { legacyRedirectMap } from '@/lib/legacy-routes.mjs';
+import { IS_INDEXABLE } from '@/lib/site';
 
 function secure(response: NextResponse, policy: string) {
   response.headers.set('Content-Security-Policy', policy);
@@ -26,7 +27,7 @@ export function proxy(request: NextRequest) {
   requestHeaders.set('x-nonce', nonce);
 
   const response = NextResponse.next({ request: { headers: requestHeaders } });
-  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production') response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  if (!IS_INDEXABLE) response.headers.set('X-Robots-Tag', 'noindex, follow');
   return secure(response, policy);
 }
 

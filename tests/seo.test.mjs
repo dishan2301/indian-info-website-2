@@ -49,7 +49,20 @@ test('production discovery and preview noindex controls are present', async () =
   assert.match(robots, /sitemap/);
   assert.doesNotMatch(sitemap, /['"]\/search['"]/);
   assert.match(proxy, /X-Robots-Tag/);
-  assert.match(proxy, /VERCEL_ENV/);
+  assert.match(proxy, /IS_INDEXABLE/);
+  assert.match(proxy, /noindex, follow/);
+});
+
+test('explicit site environment isolates Beta SEO from production', async () => {
+  const [site, layout, robots, sitemap] = await Promise.all([
+    read('lib/site.ts'), read('app/layout.tsx'), read('app/robots.ts'), read('app/sitemap.ts'),
+  ]);
+  assert.match(site, /NEXT_PUBLIC_SITE_ENV/);
+  assert.match(site, /SITE_ENV === 'beta'/);
+  assert.match(site, /SITE_ENV === 'production'/);
+  assert.match(layout, /index: false, follow: true/);
+  assert.match(robots, /if \(!IS_INDEXABLE\)/);
+  assert.match(sitemap, /SITE_URL/);
 });
 
 test('homepage has one semantic H1 and clear-image rendering remains enabled', async () => {

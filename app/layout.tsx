@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   classification: 'Business, Technology, Biometric Systems',
   referrer: 'origin-when-cross-origin',
   formatDetection: { email: false, address: false, telephone: false },
-  robots: IS_INDEXABLE ? { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } } : { index: false, follow: false },
+  robots: IS_INDEXABLE ? { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } } : { index: false, follow: true, googleBot: { index: false, follow: true } },
   icons: { icon: '/favicon.svg' },
   manifest: '/manifest.webmanifest',
   verification: process.env.GOOGLE_SITE_VERIFICATION || process.env.BING_SITE_VERIFICATION ? {
