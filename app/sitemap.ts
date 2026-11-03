@@ -6,6 +6,7 @@ import { seoLandingPages } from './seo-landing-content';
 import { approvedCaseStudies } from './proof-content';
 
 const routes = ['', '/platform', '/products', '/compare', '/software', '/solutions', '/industries', '/technologies', '/engineering', '/integrations', '/developers', '/developers/integration-reference', '/knowledge', '/resources', '/resources/procurement', '/insights', '/support', '/case-studies', '/case-studies/contribute', '/testimonials', '/partners', '/academy', '/certification', '/trust', '/trust/security', '/trust/responsible-disclosure', '/trust/quality-policy', '/company', '/about-us', '/contact', '/solution-builder', '/privacy', '/cookies', '/terms'];
+const productCategoryRoutes = [...new Set(products.map((product) => product.family))].map((family) => family.toLowerCase().replace(/\s+/g, '-'));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
+  const productCategoryEntries = productCategoryRoutes.map((slug) => ({ url: `${SITE_URL}/products/${slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
   const softwareRoutes = softwarePlatforms.filter((software) => software.slug !== 'canteen-management').map((software) => ({
     url: `${SITE_URL}/software/${software.slug}`,
     changeFrequency: 'monthly' as const,
@@ -33,5 +35,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const insightRoutes = insights.map((item) => ({ url: `${SITE_URL}/insights/${item.slug}`, lastModified: new Date(item.date), changeFrequency: 'monthly' as const, priority: 0.7 }));
   const landingRoutes = seoLandingPages.map((item) => ({ url: `${SITE_URL}/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.9 }));
   const caseStudyRoutes = approvedCaseStudies.map((item) => ({ url: `${SITE_URL}/case-studies/${item.slug}`, changeFrequency: 'monthly' as const, priority: 0.75 }));
-  return [...staticRoutes, ...landingRoutes, ...productRoutes, ...softwareRoutes, { url: `${SITE_URL}/hrms-payroll`, changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes, ...solutionRoutes, ...industryRoutes, ...insightRoutes, ...caseStudyRoutes];
+  return [...staticRoutes, ...landingRoutes, ...productCategoryEntries, ...productRoutes, ...softwareRoutes, { url: `${SITE_URL}/hrms-payroll`, changeFrequency: 'monthly' as const, priority: 0.85 }, ...hrmsRoutes, ...solutionRoutes, ...industryRoutes, ...insightRoutes, ...caseStudyRoutes];
 }

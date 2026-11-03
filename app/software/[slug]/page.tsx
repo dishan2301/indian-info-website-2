@@ -31,6 +31,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
   if (!software) notFound();
   const media = softwareMedia[software.slug];
   const softwareSchema = { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: software.name, description: software.summary, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', featureList: software.publishedFacts?.map((fact) => `${fact.label}: ${fact.value}`), url: absoluteUrl(`/software/${software.slug}`), provider: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') } };
+  const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') }, { '@type': 'ListItem', position: 2, name: 'Software', item: absoluteUrl('/software') }, { '@type': 'ListItem', position: 3, name: software.name, item: absoluteUrl(`/software/${software.slug}`) }] };
   const softwareFaqs = [
     { question: `What does ${software.name} help manage?`, answer: `${software.summary} The published module scope includes ${software.modules.slice(0, 4).join(', ')}.` },
     { question: `Can ${software.name} connect with existing systems?`, answer: 'Integration depends on the approved data flow, product version, devices, APIs or exports, security requirements, and connected system. These are confirmed during solution design.' },
@@ -44,6 +45,7 @@ export default async function SoftwareDetailPage({ params }: SoftwarePageProps) 
       <SiteHeader />
       <StructuredData data={softwareSchema} />
       <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
       <PageHero eyebrow={`${software.category} software`} title={software.name} description={software.summary} marker="II / SOFTWARE" breadcrumbs={[{ label: 'Software', href: '/software' }, { label: software.name }]} path={`/software/${software.slug}`} />
 
       <section className="software-detail section">

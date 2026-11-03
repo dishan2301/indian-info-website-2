@@ -54,9 +54,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
     description: product.description,
     brand: { '@type': 'Brand', name: 'Indian Infotech' },
     category: product.family,
+    sku: product.name,
+    manufacturer: { '@type': 'Organization', name: 'Indian Infotech', url: absoluteUrl('/') },
     image: images.map((image) => absoluteUrl(image)),
     url: absoluteUrl(`/products/${product.slug}`),
   };
+  const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') }, { '@type': 'ListItem', position: 2, name: 'Products', item: absoluteUrl('/products') }, { '@type': 'ListItem', position: 3, name: product.family, item: absoluteUrl(`/products/${product.family.toLowerCase().replace(/\s+/g, '-')}`) }, { '@type': 'ListItem', position: 4, name: product.name, item: absoluteUrl(`/products/${product.slug}`) }] };
   const productFaqs = [
     { question: `What is the ${product.name} used for?`, answer: `${product.description} Its primary published application is ${product.application.toLowerCase()}.` },
     { question: `How does the ${product.name} authenticate users?`, answer: `The published authentication category is ${product.authentication.toLowerCase()}. Exact enrollment and operating capability must be confirmed for the selected configuration.` },
@@ -70,6 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <SiteHeader />
       <StructuredData data={productSchema} />
       <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
       <PageHero eyebrow={product.family} title={product.name} description={product.description} marker="II / PRODUCT" breadcrumbs={[{ label: 'Products', href: '/products' }, { label: product.name }]} path={`/products/${product.slug}`} />
 
       <section className="product-detail section">
