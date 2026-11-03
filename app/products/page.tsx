@@ -7,7 +7,7 @@ import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { products } from '../content';
 
-export const metadata: Metadata = createPageMetadata({ title: 'Biometric & Access Control Products', description: 'Explore Indian Infotech devices for biometric attendance, access control, turnstiles, barriers, and entrance management.', path: '/products' });
+export const metadata: Metadata = createPageMetadata({ title: 'Biometric & Access Control Products', description: 'Explore biometric attendance machines, fingerprint readers, face devices, turnstiles and access control products for businesses across India.', path: '/products' });
 
 export default function ProductsPage() {
   return (

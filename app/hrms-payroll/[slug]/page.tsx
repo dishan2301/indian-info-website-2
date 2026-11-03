@@ -11,6 +11,7 @@ import { hrmsDetails } from '../content';
 import { capabilityIcons } from '../capability-icons';
 import { AnimatedFeatureScene, FeatureReveal } from '../animated-feature-scene';
 import { Check, Layers3 } from 'lucide-react';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-jsonld';
 
 export function generateStaticParams() {
   return hrmsModules.map((item) => ({ slug: item.slug }));
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = hrmsModules.find((candidate) => candidate.slug === slug);
   if (!item) return {};
   const detail = hrmsDetails[item.slug];
-  return createPageMetadata({ title: `${item.name} | HRMS & Payroll`, description: detail.introduction, path: `/hrms-payroll/${item.slug}`, image: null });
+  return createPageMetadata({ title: `${item.name} | HRMS & Payroll`, description: detail.introduction, path: `/hrms-payroll/${item.slug}`, image: item.image });
 }
 
 export default async function HrmsModulePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -35,6 +36,7 @@ export default async function HrmsModulePage({ params }: { params: Promise<{ slu
   return (
     <main className={`hrms-page ${styles.page}`}>
       <SiteHeader />
+      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }, { name: 'HRMS & Payroll', path: '/hrms-payroll' }, { name: item.name, path: `/hrms-payroll/${item.slug}` }]} />
       <nav className={styles.breadcrumb} aria-label="Breadcrumb">
         <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/hrms-payroll">HRMS & Payroll</Link><span aria-hidden="true">/</span><span aria-current="page">{item.name}</span>
       </nav>

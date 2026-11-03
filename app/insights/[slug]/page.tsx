@@ -18,7 +18,7 @@ export function generateStaticParams() { return insights.map((article) => ({ slu
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const cmsArticle = await getPublishedInsight(slug);
-  if (cmsArticle) return createPageMetadata({ title: cmsArticle.seo?.title || cmsArticle.title, description: cmsArticle.seo?.description || cmsArticle.summary, path: `/insights/${slug}`, image: cmsArticle.mainImage?.asset?.url || null, type: 'article', noIndex: cmsArticle.seo?.noIndex === true });
+  if (cmsArticle) return createPageMetadata({ title: cmsArticle.seo?.title || cmsArticle.title, description: cmsArticle.seo?.description || cmsArticle.summary, path: `/insights/${slug}`, image: cmsArticle.mainImage?.asset?.url || null, type: 'article', noIndex: cmsArticle.seo?.noIndex === true || !cmsArticle.body?.length });
   const article = insights.find((item) => item.slug === slug);
   return article ? createPageMetadata({ title: article.title, description: article.summary, path: `/insights/${article.slug}`, image: article.image, type: 'article' }) : {};
 }
@@ -37,11 +37,9 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
   const related = insights.filter((item) => item.slug !== article.slug).slice(0, 3);
   const datePublished = new Date(article.date).toISOString().slice(0, 10);
   const articleSchema = { '@context': 'https://schema.org', '@type': article.category === 'Company update' ? 'NewsArticle' : 'BlogPosting', articleSection: article.category, headline: article.title, description: article.summary, image: absoluteUrl(article.image), datePublished, dateModified: datePublished, mainEntityOfPage: absoluteUrl(`/insights/${article.slug}`), author: { '@type': 'Organization', name: 'Indian Infotech Editorial Team', url: absoluteUrl('/about-us') }, publisher: { '@type': 'Organization', name: 'Indian Infotech', logo: { '@type': 'ImageObject', url: absoluteUrl('/indian-infotech-logo.png') } } };
-  const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') }, { '@type': 'ListItem', position: 2, name: 'News & insights', item: absoluteUrl('/insights') }, { '@type': 'ListItem', position: 3, name: article.title, item: absoluteUrl(`/insights/${article.slug}`) }] };
   return <main>
     <SiteHeader />
     <StructuredData data={articleSchema} />
-    <StructuredData data={breadcrumbSchema} />
     <PageHero eyebrow={`${article.category} · ${article.date}`} title={article.title} description={article.summary} marker="II / ARTICLE" breadcrumbs={[{ label: 'News & insights', href: '/insights' }, { label: article.title }]} path={`/insights/${article.slug}`} />
     <article className="insight-article">
       <div className="insight-article-image"><Image src={article.image} alt={`Illustration for ${article.title}`} fill priority sizes="(max-width: 900px) 100vw, 72vw" /></div>

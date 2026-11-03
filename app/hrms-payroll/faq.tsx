@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './faq.module.css';
+import { StructuredData } from '@/components/structured-data';
 
 const faqs = [
   {
@@ -40,7 +41,9 @@ const faqs = [
 ];
 
 export function HrmsFaq() {
+  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer.join(' ') } })) };
   return <div className="hrms-page">
+    <StructuredData data={faqSchema} />
     <section className={`section hrms-faq ${styles.section}`} aria-labelledby="hrms-faq-title" id="faq">
       <div className="hrms-faq-intro">
         <p className="section-kicker">Before you choose your HRMS</p>

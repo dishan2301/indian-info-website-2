@@ -7,7 +7,7 @@ import { SiteSplash } from '@/components/site-splash';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://indianinfotech.org'),
+  metadataBase: new URL(SITE_URL),
   title: 'Access Control & Attendance Products | Indian Infotech',
   description:
     'Indian Infotech provides biometric attendance systems, access control, HRMS payroll software, visitor management, and entrance management solutions across India. ISO 9001 certified. 2,500+ clients.',

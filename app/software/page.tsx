@@ -6,7 +6,7 @@ import { SiteFooter } from '../_components/site-footer';
 import { SiteHeader } from '../_components/site-header';
 import { softwarePlatforms } from '../content';
 
-export const metadata: Metadata = createPageMetadata({ title: 'Workforce & Workplace Software', description: 'Explore Easytime Online, HRMS, payroll, visitor management, and canteen management software from Indian Infotech.', path: '/software' });
+export const metadata: Metadata = createPageMetadata({ title: 'Workforce & Workplace Software', description: 'Explore EasyTime attendance, HRMS and payroll, visitor management, and canteen software for Indian workforce operations.', path: '/software' });
 
 const categories = ['Workforce', 'Workplace'] as const;
 

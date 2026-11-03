@@ -41,3 +41,4 @@ next-env.d.ts
 
 # Local responsiveness evidence
 /audits/
+docs/motion-docs.db

@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
   const productCategoryEntries = productCategoryRoutes.map((slug) => ({ url: `${SITE_URL}/products/${slug}`, changeFrequency: 'monthly' as const, priority: 0.8 }));
+  // /software/canteen-management redirects; only list its final solution URL.
   const softwareRoutes = softwarePlatforms.filter((software) => software.slug !== 'canteen-management').map((software) => ({
     url: `${SITE_URL}/software/${software.slug}`,
     changeFrequency: 'monthly' as const,

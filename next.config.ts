@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import { SECURITY_HEADERS } from './lib/security.mjs';
+import { SITE_URL } from './lib/site';
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -7,7 +8,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: '/:path*', has: [{ type: 'host', value: 'indian-info-website-2.vercel.app' }], destination: 'https://indianinfotech.org/:path*', permanent: true },
+      { source: '/:path*', has: [{ type: 'host', value: 'indian-info-website-2.vercel.app' }], destination: `${SITE_URL}/:path*`, permanent: true },
       { source: '/solutions/entrance-management', destination: '/entrance-control-system', permanent: true },
       { source: '/solutions/visitor-security', destination: '/solutions/visitor-management', permanent: true },
       { source: '/hrms-payroll/on-boarding', destination: '/hrms-payroll/onboarding', permanent: true },
