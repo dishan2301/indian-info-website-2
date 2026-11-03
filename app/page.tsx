@@ -9,9 +9,10 @@ import { SiteHeader } from './_components/site-header';
 import { getPublishedInsights } from '@/lib/sanity/content';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Access Control & Attendance Products | Indian Infotech',
-  description: 'Explore Indian Infotech access control, biometric attendance, HRMS, payroll, and workplace products for businesses across India.',
+  title: 'Biometric Attendance & Access Control Systems | Indian Infotech',
+  description: 'Indian Infotech provides biometric attendance systems, access control, HRMS payroll software, visitor management, and entrance management solutions across India. ISO 9001 certified. 2,500+ clients.',
   path: '/',
+  keywords: ['biometric attendance system India', 'access control system', 'HRMS payroll software', 'fingerprint attendance machine', 'visitor management system', 'Indian Infotech Ahmedabad'],
 });
 
 export default async function Home() {
@@ -28,19 +29,19 @@ export default async function Home() {
       <div className="home-journey-road" aria-label="Customer journey from devices to workplace operations">
         <ol>
           <li data-step="01" className="home-journey-stop">
-            <div className="home-journey-image"><Image src="/products/face-ai-80-pro/product-render-v1.png" alt="Biometric attendance and access device" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-image"><Image src="/products/face-ai-80-pro/product-render-v1.png" alt="Face AI-80 Pro – Face Recognition Biometric Attendance Device by Indian Infotech" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
             <div className="home-journey-copy"><span className="home-journey-year">First, we listen</span><h3>“We need to know who is coming in.”</h3><p>You tell us about your gates, people, shifts, and current challenges. Together, we choose the devices that fit each entry point.</p><Link href="/products">See the devices <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="02" className="home-journey-stop">
-            <div className="home-journey-image"><Image src="/campaign/core-systems/entrance-control-desktop-v2.webp" alt="Workplace entrance with controlled access" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-image"><Image src="/campaign/core-systems/entrance-control-desktop-v2.webp" alt="Entrance Management System – Turnstile and Access Control at Industrial Campus, Indian Infotech" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
             <div className="home-journey-copy"><span className="home-journey-year">Then, at your site</span><h3>The devices go where work begins.</h3><p>We place attendance and access devices at the gates and doors people actually use, with entry rules planned for your site.</p><Link href="/entrance-control-system">See entrance systems <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="03" className="home-journey-stop">
-            <div className="home-journey-image"><Image src="/campaign/solutions/attendance-desktop-v2.webp" alt="Employee using attendance at a workplace" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-image"><Image src="/campaign/solutions/attendance-desktop-v2.webp" alt="Employee Using Fingerprint Biometric Attendance Machine at Factory – Indian Infotech" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
             <div className="home-journey-copy"><span className="home-journey-year">Every working day</span><h3>People arrive. The record starts.</h3><p>An employee clocks in for a shift. A contractor enters an approved area. Visitors follow their own check-in path.</p><Link href="/solutions/attendance-automation">See attendance flow <span aria-hidden="true">↗</span></Link></div>
           </li>
           <li data-step="04" className="home-journey-stop">
-            <div className="home-journey-image"><Image src="/campaign/core-systems/easytime-desktop-v2.webp" alt="Workforce attendance software" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
+            <div className="home-journey-image"><Image src="/campaign/core-systems/easytime-desktop-v2.webp" alt="EasyTime Online – Biometric Attendance and HRMS Software Dashboard by Indian Infotech" fill sizes="(max-width: 760px) 100vw, 30vw" /></div>
             <div className="home-journey-copy"><span className="home-journey-year">In one place</span><h3>HR and managers stay on the same page.</h3><p>Easytime Online brings attendance across locations into one workspace. HR teams track working hours, manage leave and review missed punches, while managers check shifts and approvals. Reviewed records help HR prepare payroll inputs.</p><Link href="/hrms-payroll">Explore HRMS <span aria-hidden="true">↗</span></Link></div>
           </li>
         </ol>

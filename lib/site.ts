@@ -38,7 +38,7 @@ export function createPageMetadata({
     keywords: keywords ? [...new Set(keywords.map((keyword) => keyword.trim()).filter(Boolean))] : undefined,
     alternates: { canonical: path },
     robots,
-    openGraph: { title: fullTitle, description, url: path, siteName: SITE_NAME, locale: 'en_IN', type, images: socialImages },
+    openGraph: { title: fullTitle, description, url: absoluteUrl(path), siteName: SITE_NAME, locale: 'en_IN', type, images: socialImages },
     twitter: { card: image ? 'summary_large_image' : 'summary', title: fullTitle, description, images: image ? [image] : undefined },
   };
 }

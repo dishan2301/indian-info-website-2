@@ -7,14 +7,17 @@ import { SiteSplash } from '@/components/site-splash';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL('https://indianinfotech.org'),
   title: 'Access Control & Attendance Products | Indian Infotech',
   description:
-    'Explore Indian Infotech access control, biometric attendance, HRMS, payroll, and workplace products for businesses across India.',
+    'Indian Infotech provides biometric attendance systems, access control, HRMS payroll software, visitor management, and entrance management solutions across India. ISO 9001 certified. 2,500+ clients.',
   applicationName: 'Indian Infotech',
   authors: [{ name: 'Indian Infotech' }],
   creator: 'Indian Infotech',
   publisher: 'Indian Infotech',
+  category: 'technology',
+  classification: 'Business, Technology, Biometric Systems',
+  referrer: 'origin-when-cross-origin',
   formatDetection: { email: false, address: false, telephone: false },
   robots: IS_INDEXABLE ? { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 } } : { index: false, follow: false },
   icons: { icon: '/favicon.svg' },
@@ -69,6 +72,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="geo.region" content="IN-GJ" />
+        <meta name="geo.placename" content="Ahmedabad, Gujarat, India" />
+        <meta name="geo.position" content="23.0804467;72.5355153" />
+        <meta name="ICBM" content="23.0804467, 72.5355153" />
+        <meta name="content-language" content="en-IN" />
+        <meta name="country" content="India" />
         <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/geist-mono.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>

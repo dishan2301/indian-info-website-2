@@ -12,9 +12,10 @@ import { SiteHeader } from '../_components/site-header';
 import { HrmsFaq } from './faq';
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'HRMS Software & Payroll Platform | Indian Infotech',
-  description: 'Connect people, payroll, attendance, leave and everyday HR in one cloud HRMS. Trusted by 2,500+ organizations across 7+ countries.',
+  title: 'HRMS & Payroll Software with Biometric Integration | Indian Infotech',
+  description: 'Comprehensive HRMS payroll software covering recruitment, onboarding, attendance, leave, ESS, performance, and payroll for Indian businesses. Directly integrated with biometric attendance hardware.',
   path: '/hrms-payroll',
+  keywords: ['HRMS software India', 'payroll software India', 'biometric HRMS integration', 'employee management system', 'attendance payroll software', 'HR payroll Gujarat'],
 });
 
 export default function HrmsPayrollPage() {
