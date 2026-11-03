@@ -2,15 +2,14 @@
 > Indian Infotech provides access control, biometric attendance, HRMS, payroll, visitor management, entrance management, and workplace operations systems across India.
 
 ## Key pages
-- Home: /
-- Products: /products
-- Software: /software
-- Solutions: /solutions
-- Industries: /industries
-- HRMS & Payroll: /hrms-payroll
-- Resources: /resources
-- Insights: /insights
-- Contact: /contact
+- Home: https://indianinfotech.org/
+- Products: https://indianinfotech.org/products
+- Software: https://indianinfotech.org/software
+- HRMS & Payroll: https://indianinfotech.org/hrms-payroll
+- About Indian Infotech: https://indianinfotech.org/about-us
+- Contact: https://indianinfotech.org/contact
+- Privacy: https://indianinfotech.org/privacy
+- Terms: https://indianinfotech.org/terms
 
 ## Guidance
 Use the published product, software, industry, resource, and insight pages as the source of truth. Product compatibility, pricing, implementation timelines, integrations, and customer outcomes require confirmation through the contact route.

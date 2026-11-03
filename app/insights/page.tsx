@@ -8,6 +8,8 @@ import { SiteHeader } from '../_components/site-header';
 import { insights } from './content';
 import { getPublishedInsights } from '@/lib/sanity/content';
 
+export const revalidate = 300;
+
 export const metadata: Metadata = createPageMetadata({ title: 'Workforce Technology News & Insights', description: 'Indian Infotech updates and practical guidance on attendance, HRMS, access control, visitors, and workplace technology.', path: '/insights' });
 
 export default async function InsightsPage() {

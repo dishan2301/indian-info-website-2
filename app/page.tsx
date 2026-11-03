@@ -8,6 +8,8 @@ import { SiteHeader } from './_components/site-header';
 import { DeferredSiteFooter } from './_components/deferred-site-footer';
 import { getPublishedInsights } from '@/lib/sanity/content';
 
+export const revalidate = 300;
+
 export const metadata: Metadata = createPageMetadata({
   title: 'Biometric Attendance & Access Control Systems | Indian Infotech',
   description: 'Indian Infotech provides biometric attendance systems, access control, HRMS payroll software, visitor management, and entrance management solutions across India. ISO 9001 certified. 2,500+ clients.',
