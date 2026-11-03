@@ -61,10 +61,10 @@ export const technicalDetailGuides: Record<string, Guide> = {
     { title:'Impact assessment', items:['What an attacker may be able to do','Required access or preconditions','Data or functions potentially affected','Reasonable severity explanation without exaggeration'] },
     { title:'Safety boundaries', items:['Do not access data that is not yours','Do not degrade availability or use social engineering','Do not send credentials, keys or personal data','Stop testing after establishing minimum proof'] },
   ]},
-  'Customer & partner academy': { title:'Role-based curriculum for confident system ownership.', intro:'Each learning path combines concepts, hands-on tasks, exceptions and a clear escalation route.', groups:[
-    { title:'Administrator outcomes', items:['Maintain people, shifts, roles and access groups','Review events, exceptions, corrections and approvals','Run reports and prepare downstream handoffs','Manage user access and preserve audit context'] },
-    { title:'Technician outcomes', items:['Read architecture and installation drawings','Prepare power, network, mounting and cabling','Enroll, configure and commission supported devices','Document tests, addresses and handover details'] },
-    { title:'Partner outcomes', items:['Conduct discovery and define scope','Prepare design, assumptions and responsibilities','Run pilots, acceptance and customer training','Transfer documentation and support ownership'] },
-    { title:'Learning format', items:['Role and prerequisite assessment','Instructor-led demonstration','Guided hands-on scenarios','Readiness checklist and follow-up support'] },
+  'Educational security': { title:'A campus-security brief that protects people without disrupting learning.', intro:'Plan each layer around student safeguarding, authorized movement, accountable response and responsible system ownership.', groups:[
+    { title:'Campus risk and coverage', items:['Map gates, perimeters, classrooms, corridors and common areas','Identify laboratories, offices, hostels and other restricted zones','Document peak arrival, departure and event movement','Review vandalism, theft, bullying and emergency concerns'] },
+    { title:'Identity and movement', items:['Define student, faculty, staff, contractor and visitor groups','Select attendance and access credentials with appropriate fallback','Set schedules, permissions and exception approval','Plan visitor registration, host approval and exit tracking'] },
+    { title:'Response and safeguarding', items:['Define who monitors events and receives alerts','Coordinate emergency communication and first-responder access','Protect recordings, attendance data and access logs','Document escalation, evidence handling and retention'] },
+    { title:'Deployment readiness', items:['Confirm camera placement, lighting, network, power and storage','Test valid access, denied access and emergency-release scenarios','Train authorized security, administration and technical teams','Review performance after commissioning and major incidents'] },
   ]},
 };
