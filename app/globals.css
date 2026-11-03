@@ -24,6 +24,20 @@
 .site-splash-revealing { opacity: 0; pointer-events: none; visibility: hidden; }
 body:has(.site-splash) { overflow-y: hidden; }
 
+.cookie-consent { align-items: center; background: #fff; border: 1px solid #dce8ed; border-radius: 1rem; bottom: 1.25rem; box-shadow: 0 18px 60px rgba(7, 42, 61, .2); display: grid; gap: 1rem; grid-template-columns: auto minmax(0, 1fr) auto; left: 1.25rem; max-width: 720px; padding: 1.1rem 1.2rem; position: fixed; right: 1.25rem; z-index: 9999; }
+.cookie-consent-icon { align-items: center; background: var(--brand-primary-light); border-radius: 50%; display: flex; font-size: 1.4rem; height: 2.8rem; justify-content: center; width: 2.8rem; }
+.cookie-consent-copy strong { color: #073e61; display: block; font-size: 1rem; margin-bottom: .25rem; }
+.cookie-consent-copy p { color: #52636c; font-size: .78rem; line-height: 1.5; margin: 0; }
+.cookie-consent-copy a { color: #0877a8; display: inline-block; font-size: .72rem; font-weight: 700; margin-top: .35rem; text-underline-offset: 2px; }
+.cookie-consent button { background: #073e61; border: 0; border-radius: .65rem; color: #fff; cursor: pointer; font: inherit; font-size: .78rem; font-weight: 750; min-height: 2.65rem; padding: .7rem 1.25rem; }
+.cookie-consent button:hover { background: #0b557d; }
+.cookie-consent button:focus-visible { outline: 3px solid rgba(19, 172, 244, .45); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .cookie-consent { bottom: .75rem; gap: .75rem; grid-template-columns: auto 1fr; left: .75rem; padding: 1rem; right: .75rem; }
+  .cookie-consent button { grid-column: 1 / -1; width: 100%; }
+}
+
 @keyframes site-splash-logo-in {
   from { filter: blur(8px); opacity: 0; transform: scale(.35); }
   70% { filter: blur(0); opacity: 1; transform: scale(1.08); }
@@ -230,6 +244,82 @@ body:has(.site-splash) { overflow-y: hidden; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+
+/* Technical footer destinations */
+.technical-destination { --technical-accent:#13acf4; --technical-accent-2:#9ecf09; background:#f7fbfd; color:#073e61; }
+.technical-resources { --technical-accent:#0b91c7; --technical-accent-2:#78a400; }
+.technical-procurement { --technical-accent:#5f8700; --technical-accent-2:#13acf4; }
+.technical-support { --technical-accent:#0877a8; --technical-accent-2:#9ecf09; }
+.technical-trust { --technical-accent:#086887; --technical-accent-2:#13acf4; }
+.technical-academy { --technical-accent:#78a400; --technical-accent-2:#13acf4; }
+.technical-hero { background:radial-gradient(circle at 8% 10%,rgba(19,172,244,.16),transparent 28%),linear-gradient(135deg,#f8fcfd,#eef9f7 58%,#f6fbe9); display:grid; grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); min-height:560px; overflow:hidden; padding:clamp(2.5rem,4.5vw,4.75rem) clamp(1.25rem,7vw,7.5rem) 0; position:relative; }
+.technical-hero-copy { align-self:center; max-width:680px; padding-bottom:3rem; position:relative; z-index:2; }
+.technical-hero-copy > span,.technical-capabilities header > span,.technical-stages header > span,.technical-faq header > span,.technical-final span,.technical-resource-strip span,.technical-checklist span,.technical-support-band span,.technical-trust-band span,.technical-academy-band span { align-items:center; color:#518000; display:flex; font:750 .67rem var(--font-geist-mono),monospace; gap:.5rem; letter-spacing:.13em; text-transform:uppercase; }
+.technical-hero-copy > span svg { height:1rem; width:1rem; }
+.technical-hero h1 { color:#073e61; font-size:clamp(2.75rem,5.3vw,6.2rem); letter-spacing:-.065em; line-height:.94; margin:1.2rem 0 1.3rem; text-wrap:balance; }
+.technical-hero-copy > p { color:#526970; font-size:clamp(.98rem,1.2vw,1.15rem); line-height:1.7; max-width:60ch; }
+.technical-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+.technical-actions a,.technical-final > a,.technical-support-band > a,.technical-academy-band > a { align-items:center; background:var(--technical-accent); border:1px solid var(--technical-accent); border-radius:.55rem; color:white; display:inline-flex; font-size:.75rem; font-weight:800; gap:.65rem; min-height:48px; padding:.85rem 1.15rem; }
+.technical-actions a svg,.technical-final > a svg,.technical-support-band > a svg,.technical-academy-band > a svg { height:1rem; width:1rem; }
+.technical-actions .is-secondary { background:white; border-color:#c9dde3; color:#073e61; }
+.technical-hero-image { align-self:end; aspect-ratio:1.45; border-radius:1.5rem 1.5rem 0 0; box-shadow:0 24px 60px rgba(7,62,97,.14); min-height:400px; overflow:hidden; position:relative; }
+.technical-hero-image img { object-fit:cover; }
+.technical-stat-rail { align-items:stretch; background:white; border:1px solid #d9e8e3; border-bottom:0; border-radius:1rem 1rem 0 0; bottom:0; display:grid; grid-column:1/2; grid-template-columns:repeat(3,1fr); left:0; position:relative; z-index:3; }
+.technical-stat-rail div { border-right:1px solid #e0ebe6; padding:1rem; }
+.technical-stat-rail div:last-child { border:0; }
+.technical-stat-rail strong { color:var(--technical-accent); display:block; font-size:1.05rem; }
+.technical-stat-rail span { color:#687d83; display:block; font-size:.61rem; letter-spacing:.06em; margin-top:.25rem; text-transform:uppercase; }
+.technical-capabilities,.technical-detail-section,.technical-stages,.technical-faq { padding:clamp(3rem,5vw,5rem) clamp(1.25rem,7vw,7.5rem); }
+.technical-capabilities header,.technical-detail-section header,.technical-stages header,.technical-faq header { display:grid; gap:1rem 4rem; grid-template-columns:minmax(0,1fr) minmax(260px,.58fr); margin-bottom:clamp(1.75rem,2.8vw,2.75rem); }
+.technical-capabilities header > span,.technical-stages header > span,.technical-faq header > span { grid-column:1/-1; }
+.technical-capabilities h2,.technical-detail-section h2,.technical-stages h2,.technical-faq h2,.technical-final h2,.technical-resource-strip h2,.technical-checklist h2,.technical-support-band h2,.technical-trust-band h2,.technical-academy-band h2 { font-size:clamp(2rem,3.35vw,3.7rem); letter-spacing:-.055em; line-height:1; margin:0; text-wrap:balance; }
+.technical-capabilities header p { color:#60747a; line-height:1.7; margin:0; }
+.technical-card-grid { display:grid; gap:1rem; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.technical-card-grid article { background:white; border:1px solid #dbe9e4; border-radius:1rem; display:flex; flex-direction:column; min-height:250px; padding:1.35rem; position:relative; transition:transform .25s ease,box-shadow .25s ease; }
+.technical-card-grid article:hover { box-shadow:0 20px 45px rgba(7,62,97,.11); transform:translateY(-5px); }
+.technical-card-grid article > i { color:rgba(7,62,97,.15); font-size:2.2rem; font-style:normal; font-weight:800; position:absolute; right:1.2rem; top:1rem; }
+.technical-card-grid article > span { color:var(--technical-accent); font:750 .61rem var(--font-geist-mono),monospace; letter-spacing:.11em; text-transform:uppercase; }
+.technical-card-grid h3 { color:#073e61; font-size:1.35rem; letter-spacing:-.035em; line-height:1.12; margin:3rem 0 .65rem; max-width:16ch; }
+.technical-card-grid p { color:#61757b; font-size:.85rem; line-height:1.65; margin:0; }
+.technical-card-grid a { align-items:center; color:#0877a8; display:flex; font-size:.72rem; font-weight:800; gap:.4rem; margin-top:auto; padding-top:1rem; text-transform:uppercase; }
+.technical-card-grid a svg { height:.9rem; width:.9rem; }
+.technical-resource-strip,.technical-checklist,.technical-support-band,.technical-trust-band,.technical-academy-band { background:linear-gradient(120deg,#073e61,#0877a8); color:white; display:grid; gap:3rem; grid-template-columns:minmax(0,1fr) minmax(300px,.75fr); margin:0 clamp(1.25rem,4vw,4rem); padding:clamp(2.5rem,5vw,5rem); }
+.technical-resource-strip > div > svg,.technical-support-band > div > svg,.technical-trust-band > div > svg { color:#bce858; height:2rem; margin-bottom:1.5rem; width:2rem; }
+.technical-resource-strip span,.technical-checklist span,.technical-support-band span,.technical-trust-band span,.technical-academy-band span { color:#bce858; margin-bottom:.8rem; }
+.technical-resource-strip nav,.technical-trust-band > div:last-child { display:grid; gap:.5rem; }
+.technical-resource-strip nav a,.technical-trust-band > div:last-child a { border-bottom:1px solid rgba(255,255,255,.2); color:white; font-size:.9rem; font-weight:700; padding:1rem 0; }
+.technical-checklist { background:linear-gradient(120deg,#f2f8df,#e8f7fb); color:#073e61; }
+.technical-checklist ul { display:grid; gap:.65rem; list-style:none; margin:0; padding:0; }
+.technical-checklist li { align-items:center; background:white; border:1px solid #dce9d3; border-radius:.6rem; display:flex; font-size:.82rem; gap:.7rem; padding:.85rem 1rem; }
+.technical-checklist li svg { color:#78a400; height:1rem; width:1rem; }
+.technical-support-band,.technical-academy-band { align-items:center; }
+.technical-support-band > a,.technical-academy-band > a { background:#bce858; border-color:#bce858; color:#073e61; justify-self:end; }
+.technical-detail-section { background:white; }
+.technical-detail-section header > span { color:#518000; font:750 .67rem var(--font-geist-mono),monospace; grid-column:1/-1; letter-spacing:.13em; text-transform:uppercase; }
+.technical-detail-section header > p { color:#60747a; line-height:1.7; margin:0; }
+.technical-detail-grid { display:grid; gap:1rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.technical-detail-grid article { background:linear-gradient(135deg,#f8fcfd,#f3f9f2); border:1px solid #d9e8e3; border-radius:1rem; padding:1.35rem; }
+.technical-detail-grid h3 { color:#073e61; font-size:1.15rem; margin:0 0 1rem; }
+.technical-detail-grid ul { display:grid; gap:.65rem; list-style:none; margin:0; padding:0; }
+.technical-detail-grid li { align-items:flex-start; color:#536970; display:flex; font-size:.82rem; gap:.65rem; line-height:1.5; }
+.technical-detail-grid li svg { color:var(--technical-accent-2); flex:0 0 auto; height:.95rem; margin-top:.15rem; width:.95rem; }
+.technical-stages { background:#eef8fa; }
+.technical-stages ol { display:grid; gap:0; grid-template-columns:repeat(3,1fr); list-style:none; margin:0; padding:0; }
+.technical-stages li { border-left:1px solid #c8dfe4; display:grid; gap:1rem; grid-template-columns:auto 1fr; padding:1.5rem; }
+.technical-stages li > b { color:var(--technical-accent); font:750 .7rem var(--font-geist-mono),monospace; }
+.technical-stages h3 { font-size:1.25rem; margin:0 0 .55rem; }
+.technical-stages p { color:#60747a; font-size:.84rem; line-height:1.6; margin:0; }
+.technical-faq { background:white; }
+.technical-faq > div { border-top:1px solid #dbe7e3; }
+.technical-faq details { border-bottom:1px solid #dbe7e3; padding:1.1rem 0; }
+.technical-faq summary { color:#073e61; cursor:pointer; font-size:1rem; font-weight:750; }
+.technical-faq details p { color:#60747a; line-height:1.7; max-width:72ch; }
+.technical-final { align-items:center; background:linear-gradient(110deg,#eef9f7,#f7fbe9); display:flex; gap:2rem; justify-content:space-between; padding:clamp(2.5rem,4vw,4rem) clamp(1.25rem,7vw,7.5rem); }
+.technical-final > div { max-width:850px; }
+.technical-final span { margin-bottom:.8rem; }
+@media (max-width:900px) { .technical-hero { grid-template-columns:1fr; padding-top:3rem; } .technical-hero-copy { padding-bottom:2rem; } .technical-hero-image { min-height:380px; } .technical-stat-rail { grid-column:auto; } .technical-card-grid { grid-template-columns:repeat(2,1fr); } .technical-resource-strip,.technical-checklist,.technical-support-band,.technical-trust-band,.technical-academy-band { grid-template-columns:1fr; } .technical-support-band > a,.technical-academy-band > a { justify-self:start; } }
+@media (max-width:640px) { .technical-hero { min-height:0; padding-left:1rem; padding-right:1rem; } .technical-hero h1 { font-size:clamp(2.5rem,13vw,4rem); } .technical-hero-image { aspect-ratio:4/3; min-height:0; } .technical-stat-rail { grid-template-columns:1fr; } .technical-stat-rail div { border-bottom:1px solid #e0ebe6; border-right:0; } .technical-capabilities header,.technical-detail-section header,.technical-stages header,.technical-faq header { grid-template-columns:1fr; } .technical-card-grid,.technical-detail-grid,.technical-stages ol { grid-template-columns:1fr; } .technical-resource-strip,.technical-checklist,.technical-support-band,.technical-trust-band,.technical-academy-band { margin:0; padding:2.2rem 1.25rem; } .technical-final { align-items:flex-start; flex-direction:column; } }
+
 html { scroll-behavior: smooth; }
 body {
   margin: 0;

@@ -4,6 +4,7 @@ import { Analytics } from '@/components/analytics';
 import { IS_INDEXABLE, SITE_URL } from '@/lib/site';
 import { companyProfile, postalAddressSchema } from '@/lib/company-profile';
 import { SiteSplash } from '@/components/site-splash';
+import { CookieConsent } from '@/components/cookie-consent';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -89,6 +90,7 @@ export default function RootLayout({
         <a className="floating-whatsapp" href={companyProfile.whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Indian Infotech on WhatsApp">
           <img className="floating-whatsapp-logo" src="/whatsapp-logo.svg" alt="WhatsApp" width="28" height="28" />
         </a>
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
