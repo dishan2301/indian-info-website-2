@@ -29,7 +29,7 @@ export function SiteSplash() {
 
   return (
     <div className={`site-splash${phase === 'exiting' ? ' site-splash-exiting' : ''}${phase === 'revealing' ? ' site-splash-revealing' : ''}`} role="status" aria-label="Loading Indian Infotech">
-      <Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={1200} height={199} priority />
+      <Image src="/indian-infotech-logo.png" alt="Indian Infotech" width={340} height={56} sizes="min(52vw, 340px)" priority />
     </div>
   );
 }
